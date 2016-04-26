@@ -96,22 +96,3 @@
   Consulte o saldo do cartÃ£o de uma determinada conta"
   [id-emissor id-conta id-cartao ]
   (:data (consultar-saldos-limites-using-get-with-http-info id-emissor id-conta id-cartao)))
-
-(defn consultar-conta-using-get-with-http-info
-  "/contas/{idConta}
-  Consulte informaÃ§Ãµes de uma determinada conta"
-  [id-emissor id-conta ]
-  (call-api "/api/v1/contas/{idConta}/cartoes/{idConta}" :get
-            {:path-params   {"idConta" id-conta }
-             :header-params {"idEmissor" id-emissor }
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn consultar-conta-using-get
-  "/contas/{idConta}
-  Consulte informaÃ§Ãµes de uma determinada conta"
-  [id-emissor id-conta ]
-  (:data (consultar-conta-using-get-with-http-info id-emissor id-conta)))

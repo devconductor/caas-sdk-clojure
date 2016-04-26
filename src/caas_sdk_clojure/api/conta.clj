@@ -2,7 +2,7 @@
   (:require [caas-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-conta-using-get1-with-http-info
+(defn consultar-conta-using-get-with-http-info
   "/contas/{idConta}
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-emissor id-conta ]
@@ -15,8 +15,8 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-conta-using-get1
+(defn consultar-conta-using-get
   "/contas/{idConta}
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-emissor id-conta ]
-  (:data (consultar-conta-using-get1-with-http-info id-emissor id-conta)))
+  (:data (consultar-conta-using-get-with-http-info id-emissor id-conta)))
