@@ -1,4 +1,4 @@
-(ns caas-sdk-clojure.core
+(ns pier-sdk-clojure.core
   (:require [cheshire.core :refer [generate-string parse-string]]
             [clojure.string :as str]
             [clj-http.client :as client])
