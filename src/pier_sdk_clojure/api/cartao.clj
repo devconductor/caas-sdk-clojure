@@ -6,7 +6,7 @@
   "/contas/{idConta}/cartoes/{idCartao}/cancelar
   Cancelar um determinado cartÃ£o"
   [id-conta id-cartao motivo observacao ]
-  (call-api "/api/v1/contas/{idConta}/cartoes/{idCartao}/cancelar" :post
+  (call-api "/v1/contas/{idConta}/cartoes/{idCartao}/cancelar" :post
             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
              :header-params {}
              :query-params  {"motivo" motivo "observacao" observacao }
@@ -26,7 +26,7 @@
   Consultar as informaÃ§Ãµes de um determinado cartÃ£o de uma conta"
   ([id-conta id-cartao ] (consultar-cartao-using-get-with-http-info id-conta id-cartao nil))
   ([id-conta id-cartao {:keys [numero-cartao ]}]
-   (call-api "/api/v1/contas/{idConta}/cartoes/{idCartao}" :get
+   (call-api "/v1/contas/{idConta}/cartoes/{idCartao}" :get
              {:path-params   {"idConta" id-conta "idCartao" id-cartao }
               :header-params {"numeroCartao" numero-cartao }
               :query-params  {}
@@ -46,7 +46,7 @@
   "/contas/{idConta}/cartoes
   Consultar todos os cartÃµes de uma determinada conta"
   [id-conta ]
-  (call-api "/api/v1/contas/{idConta}/cartoes" :get
+  (call-api "/v1/contas/{idConta}/cartoes" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
@@ -65,7 +65,7 @@
   "/contas/{idConta}/cartoes/{idCartao}/faturas
   Consulte os extratos/faturas do cartÃ£o de uma determinada conta"
   [id-conta id-cartao data-vencimento ]
-  (call-api "/api/v1/contas/{idConta}/cartoes/{idCartao}/faturas" :get
+  (call-api "/v1/contas/{idConta}/cartoes/{idCartao}/faturas" :get
             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
              :header-params {}
              :query-params  {"dataVencimento" data-vencimento }
@@ -84,7 +84,7 @@
   "/contas/{idConta}/cartoes/{idCartao}/limites
   Consulte os limites de um determinado cartÃ£o"
   [id-conta id-cartao ]
-  (call-api "/api/v1/contas/{idConta}/cartoes/{idCartao}/limites" :get
+  (call-api "/v1/contas/{idConta}/cartoes/{idCartao}/limites" :get
             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
              :header-params {}
              :query-params  {}
@@ -103,7 +103,7 @@
   "/contas/{idConta}/cartoes/{idCartao}/desbloquear
   Desbloquear cartÃ£o de uma determinada conta"
   [id-conta id-cartao codigo-segurancao ]
-  (call-api "/api/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear" :post
+  (call-api "/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear" :post
             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
              :header-params {"codigoSegurancao" codigo-segurancao }
              :query-params  {}

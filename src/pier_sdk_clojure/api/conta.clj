@@ -7,7 +7,7 @@
   Consulte contas filtrando pelos campos id do emissor, nÃºmero do cartÃ£o, nome ou CPF/CNPJ"
   ([] (buscar-conta-using-get-with-http-info nil))
   ([{:keys [nome cpf numero-cartao id-conta ]}]
-   (call-api "/api/v1/contas/buscar" :get
+   (call-api "/v1/contas/buscar" :get
              {:path-params   {}
               :header-params {}
               :query-params  {"nome" nome "cpf" cpf "numeroCartao" numero-cartao "idConta" id-conta }
@@ -27,7 +27,7 @@
   "/contas/{idConta}
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-conta ]
-  (call-api "/api/v1/contas/{idConta}" :get
+  (call-api "/v1/contas/{idConta}" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
