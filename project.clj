@@ -1,4 +1,4 @@
-(defproject pier-sdk-clojure "0.0.1"
+(defproject pier-sdk-clojure "1.0.0"
   :description "GestÃ£o de pagamento eletrÃ´nicos como serviÃ§o"
   :url "http://www.conductor.com.br"
   :license {:name "Apache 2.0"
