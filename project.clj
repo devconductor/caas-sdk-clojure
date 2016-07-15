@@ -1,6 +1,6 @@
-(defproject pier-sdk-clojure "1.0.0"
+(defproject pier-sdk-clojure "1.1.0"
   :description "GestÃ£o de pagamento eletrÃ´nicos como serviÃ§o"
-  :url "http://www.conductor.com.br"
+  :url "http://pierlabs.io"
   :license {:name "Apache 2.0"
             :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]

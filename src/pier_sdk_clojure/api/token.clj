@@ -5,7 +5,7 @@
 (defn callback-using-post-with-http-info
   "/tokens/callback"
   [body-access-token ]
-  (call-api "/v1/tokens/callback" :post
+  (call-api "/v1.1/tokens/callback" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
@@ -23,7 +23,7 @@
 (defn validar-using-post-with-http-info
   "/tokens/validar"
   [body-access-token ]
-  (call-api "/v1/tokens/validar" :post
+  (call-api "/v1.1/tokens/validar" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}

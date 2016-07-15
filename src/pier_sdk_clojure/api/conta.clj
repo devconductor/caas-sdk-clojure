@@ -3,11 +3,11 @@
   (:import (java.io File)))
 
 (defn buscar-conta-using-get-with-http-info
-  "/contas/buscar
+  "Buscar contas
   Consulte contas filtrando pelos campos id do emissor, nÃºmero do cartÃ£o, nome ou CPF/CNPJ"
   ([] (buscar-conta-using-get-with-http-info nil))
   ([{:keys [nome cpf numero-cartao id-conta ]}]
-   (call-api "/v1/contas/buscar" :get
+   (call-api "/v1.1/contas/buscar" :get
              {:path-params   {}
               :header-params {}
               :query-params  {"nome" nome "cpf" cpf "numeroCartao" numero-cartao "idConta" id-conta }
@@ -17,17 +17,17 @@
               :auth-names    ["access_token"]})))
 
 (defn buscar-conta-using-get
-  "/contas/buscar
+  "Buscar contas
   Consulte contas filtrando pelos campos id do emissor, nÃºmero do cartÃ£o, nome ou CPF/CNPJ"
   ([] (buscar-conta-using-get nil))
   ([optional-params]
    (:data (buscar-conta-using-get-with-http-info optional-params))))
 
 (defn consultar-conta-using-get-with-http-info
-  "/contas/{idConta}
+  "Retorna uma conta
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-conta ]
-  (call-api "/v1/contas/{idConta}" :get
+  (call-api "/v1.1/contas/{idConta}" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
@@ -37,16 +37,16 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-conta-using-get
-  "/contas/{idConta}
+  "Retorna uma conta
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-conta ]
   (:data (consultar-conta-using-get-with-http-info id-conta)))
 
 (defn consultar-extrato-faturas-using-get-with-http-info
-  "/contas/{idConta}/faturas
-  Consulte os extratos/faturas de uma determinada conta"
+  "Retorna os extratos
+  Consulte os extratos de uma determinada conta"
   [id-conta data-vencimento ]
-  (call-api "/v1/contas/{idConta}/faturas" :get
+  (call-api "/v1.1/contas/{idConta}/faturas" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {"dataVencimento" data-vencimento }
@@ -56,16 +56,16 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-extrato-faturas-using-get
-  "/contas/{idConta}/faturas
-  Consulte os extratos/faturas de uma determinada conta"
+  "Retorna os extratos
+  Consulte os extratos de uma determinada conta"
   [id-conta data-vencimento ]
   (:data (consultar-extrato-faturas-using-get-with-http-info id-conta data-vencimento)))
 
 (defn consultar-saldos-limites-using-get-with-http-info
-  "/contas/{idConta}/limites
+  "Retorna o limite
   Consulte os limites de uma determinada conta"
   [id-conta ]
-  (call-api "/v1/contas/{idConta}/limites" :get
+  (call-api "/v1.1/contas/{idConta}/limites" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
@@ -75,7 +75,7 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-saldos-limites-using-get
-  "/contas/{idConta}/limites
+  "Retorna o limite
   Consulte os limites de uma determinada conta"
   [id-conta ]
   (:data (consultar-saldos-limites-using-get-with-http-info id-conta)))
