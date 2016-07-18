@@ -7,7 +7,7 @@
   Bloquear um determinado cartÃ£o"
   ([id-conta id-cartao motivo ] (bloquear-cartao-using-post-with-http-info id-conta id-cartao motivo nil))
   ([id-conta id-cartao motivo {:keys [observacao ]}]
-   (call-api "/v1.1/contas/{idConta}/cartoes/{idCartao}/bloquear" :post
+   (call-api "/api/contas/{idConta}/cartoes/{idCartao}/bloquear" :post
              {:path-params   {"idConta" id-conta "idCartao" id-cartao }
               :header-params {}
               :query-params  {"motivo" motivo "observacao" observacao }
@@ -28,7 +28,7 @@
   Consultar as informaÃ§Ãµes de um determinado cartÃ£o de uma conta"
   ([id-conta id-cartao ] (consultar-cartao-using-get-with-http-info id-conta id-cartao nil))
   ([id-conta id-cartao {:keys [numero-cartao ]}]
-   (call-api "/v1.1/contas/{idConta}/cartoes/{idCartao}" :get
+   (call-api "/api/contas/{idConta}/cartoes/{idCartao}" :get
              {:path-params   {"idConta" id-conta "idCartao" id-cartao }
               :header-params {"numeroCartao" numero-cartao }
               :query-params  {}
@@ -48,7 +48,7 @@
   "Retorna todos os cartÃµes
   Consultar todos os cartÃµes de uma determinada conta"
   [id-conta ]
-  (call-api "/v1.1/contas/{idConta}/cartoes" :get
+  (call-api "/api/contas/{idConta}/cartoes" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
@@ -68,7 +68,7 @@
   Desbloquear cartÃ£o de uma determinada conta"
   ([id-conta id-cartao ] (desbloquear-cartao-using-post-with-http-info id-conta id-cartao nil))
   ([id-conta id-cartao {:keys [codigo-segurancao ]}]
-   (call-api "/v1.1/contas/{idConta}/cartoes/{idCartao}/desbloquear" :post
+   (call-api "/api/contas/{idConta}/cartoes/{idCartao}/desbloquear" :post
              {:path-params   {"idConta" id-conta "idCartao" id-cartao }
               :header-params {"codigoSegurancao" codigo-segurancao }
               :query-params  {}
@@ -88,7 +88,7 @@
   "Embossado
   NÃ³s informe caso tenha embossado algum cartÃ£o."
   [id-conta id-cartao ]
-  (call-api "/v1.1/contas/{idConta}/cartoes/{idCartao}/embossado" :put
+  (call-api "/api/contas/{idConta}/cartoes/{idCartao}/embossado" :put
             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
              :header-params {}
              :query-params  {}

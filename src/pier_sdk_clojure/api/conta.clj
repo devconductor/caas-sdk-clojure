@@ -7,7 +7,7 @@
   Consulte contas filtrando pelos campos id do emissor, nÃºmero do cartÃ£o, nome ou CPF/CNPJ"
   ([] (buscar-conta-using-get-with-http-info nil))
   ([{:keys [nome cpf numero-cartao id-conta ]}]
-   (call-api "/v1.1/contas/buscar" :get
+   (call-api "/api/contas/buscar" :get
              {:path-params   {}
               :header-params {}
               :query-params  {"nome" nome "cpf" cpf "numeroCartao" numero-cartao "idConta" id-conta }
@@ -27,7 +27,7 @@
   "Retorna uma conta
   Consulte informaÃ§Ãµes de uma determinada conta"
   [id-conta ]
-  (call-api "/v1.1/contas/{idConta}" :get
+  (call-api "/api/contas/{idConta}" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
@@ -46,7 +46,7 @@
   "Retorna os extratos
   Consulte os extratos de uma determinada conta"
   [id-conta data-vencimento ]
-  (call-api "/v1.1/contas/{idConta}/faturas" :get
+  (call-api "/api/contas/{idConta}/faturas" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {"dataVencimento" data-vencimento }
@@ -65,7 +65,7 @@
   "Retorna o limite
   Consulte os limites de uma determinada conta"
   [id-conta ]
-  (call-api "/v1.1/contas/{idConta}/limites" :get
+  (call-api "/api/contas/{idConta}/limites" :get
             {:path-params   {"idConta" id-conta }
              :header-params {}
              :query-params  {}
