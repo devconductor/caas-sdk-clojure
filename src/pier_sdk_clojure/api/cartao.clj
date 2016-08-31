@@ -2,103 +2,42 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn bloquear-cartao-using-post-with-http-info
-  "Bloqueia um cartÃ£o
-  Bloquear um determinado cartÃ£o"
-  ([id-conta id-cartao motivo ] (bloquear-cartao-using-post-with-http-info id-conta id-cartao motivo nil))
-  ([id-conta id-cartao motivo {:keys [observacao ]}]
-   (call-api "/api/contas/{idConta}/cartoes/{idCartao}/bloquear" :post
-             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
+(defn consultar-using-get-with-http-info
+  "Apresenta os dados de um determinado CartÃ£o
+  Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id-cartao ]
+  (call-api "/api/cartoes/{id_cartao}" :get
+            {:path-params   {"id_cartao" id-cartao }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn consultar-using-get
+  "Apresenta os dados de um determinado CartÃ£o
+  Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id-cartao ]
+  (:data (consultar-using-get-with-http-info id-cartao)))
+
+(defn listar-using-get-with-http-info
+  "Lista os CartÃµes gerados pelo Emissor
+  Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
+  ([] (listar-using-get-with-http-info nil))
+  ([{:keys [id id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio page limit ]}]
+   (call-api "/api/cartoes" :get
+             {:path-params   {}
               :header-params {}
-              :query-params  {"motivo" motivo "observacao" observacao }
+              :query-params  {"id" id "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "portador" portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn bloquear-cartao-using-post
-  "Bloqueia um cartÃ£o
-  Bloquear um determinado cartÃ£o"
-  ([id-conta id-cartao motivo ] (bloquear-cartao-using-post id-conta id-cartao motivo nil))
-  ([id-conta id-cartao motivo optional-params]
-   (:data (bloquear-cartao-using-post-with-http-info id-conta id-cartao motivo optional-params))))
-
-(defn consultar-cartao-using-get-with-http-info
-  "Retorna um cartÃ£o
-  Consultar as informaÃ§Ãµes de um determinado cartÃ£o de uma conta"
-  ([id-conta id-cartao ] (consultar-cartao-using-get-with-http-info id-conta id-cartao nil))
-  ([id-conta id-cartao {:keys [numero-cartao ]}]
-   (call-api "/api/contas/{idConta}/cartoes/{idCartao}" :get
-             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
-              :header-params {"numeroCartao" numero-cartao }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn consultar-cartao-using-get
-  "Retorna um cartÃ£o
-  Consultar as informaÃ§Ãµes de um determinado cartÃ£o de uma conta"
-  ([id-conta id-cartao ] (consultar-cartao-using-get id-conta id-cartao nil))
-  ([id-conta id-cartao optional-params]
-   (:data (consultar-cartao-using-get-with-http-info id-conta id-cartao optional-params))))
-
-(defn consultar-cartoes-using-get-with-http-info
-  "Retorna todos os cartÃµes
-  Consultar todos os cartÃµes de uma determinada conta"
-  [id-conta ]
-  (call-api "/api/contas/{idConta}/cartoes" :get
-            {:path-params   {"idConta" id-conta }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn consultar-cartoes-using-get
-  "Retorna todos os cartÃµes
-  Consultar todos os cartÃµes de uma determinada conta"
-  [id-conta ]
-  (:data (consultar-cartoes-using-get-with-http-info id-conta)))
-
-(defn desbloquear-cartao-using-post-with-http-info
-  "Desbloqueia um cartÃ£o
-  Desbloquear cartÃ£o de uma determinada conta"
-  ([id-conta id-cartao ] (desbloquear-cartao-using-post-with-http-info id-conta id-cartao nil))
-  ([id-conta id-cartao {:keys [codigo-segurancao ]}]
-   (call-api "/api/contas/{idConta}/cartoes/{idCartao}/desbloquear" :post
-             {:path-params   {"idConta" id-conta "idCartao" id-cartao }
-              :header-params {"codigoSegurancao" codigo-segurancao }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn desbloquear-cartao-using-post
-  "Desbloqueia um cartÃ£o
-  Desbloquear cartÃ£o de uma determinada conta"
-  ([id-conta id-cartao ] (desbloquear-cartao-using-post id-conta id-cartao nil))
-  ([id-conta id-cartao optional-params]
-   (:data (desbloquear-cartao-using-post-with-http-info id-conta id-cartao optional-params))))
-
-(defn embossado-cartao-using-put-with-http-info
-  "Embossado
-  NÃ³s informe caso tenha embossado algum cartÃ£o."
-  [id-conta id-cartao ]
-  (call-api "/api/contas/{idConta}/cartoes/{idCartao}/embossado" :put
-            {:path-params   {"idConta" id-conta "idCartao" id-cartao }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn embossado-cartao-using-put
-  "Embossado
-  NÃ³s informe caso tenha embossado algum cartÃ£o."
-  [id-conta id-cartao ]
-  (:data (embossado-cartao-using-put-with-http-info id-conta id-cartao)))
+(defn listar-using-get
+  "Lista os CartÃµes gerados pelo Emissor
+  Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
+  ([] (listar-using-get nil))
+  ([optional-params]
+   (:data (listar-using-get-with-http-info optional-params))))

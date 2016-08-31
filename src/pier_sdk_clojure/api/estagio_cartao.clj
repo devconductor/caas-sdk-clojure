@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.est-gio-cart-o
+(ns pier-sdk-clojure.api.estagio-cartao
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -24,8 +24,8 @@
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
-  ([id nome ] (listar-estagios-cartoes-using-get-with-http-info id nome nil))
-  ([id nome {:keys [page limit ]}]
+  ([] (listar-estagios-cartoes-using-get-with-http-info nil))
+  ([{:keys [id nome page limit ]}]
    (call-api "/api/estagios-cartoes" :get
              {:path-params   {}
               :header-params {}
@@ -38,6 +38,6 @@
 (defn listar-estagios-cartoes-using-get
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
-  ([id nome ] (listar-estagios-cartoes-using-get id nome nil))
-  ([id nome optional-params]
-   (:data (listar-estagios-cartoes-using-get-with-http-info id nome optional-params))))
+  ([] (listar-estagios-cartoes-using-get nil))
+  ([optional-params]
+   (:data (listar-estagios-cartoes-using-get-with-http-info optional-params))))
