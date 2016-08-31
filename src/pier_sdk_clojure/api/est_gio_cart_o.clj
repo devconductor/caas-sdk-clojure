@@ -24,12 +24,12 @@
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-estagios-cartoes-using-get-with-http-info nil))
-  ([{:keys [id-estagio-cartao nome page limit ]}]
+  ([id nome ] (listar-estagios-cartoes-using-get-with-http-info id nome nil))
+  ([id nome {:keys [page limit ]}]
    (call-api "/api/estagios-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id_estagio_cartao" id-estagio-cartao "nome" nome "page" page "limit" limit }
+              :query-params  {"id" id "nome" nome "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -38,6 +38,6 @@
 (defn listar-estagios-cartoes-using-get
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-estagios-cartoes-using-get nil))
-  ([optional-params]
-   (:data (listar-estagios-cartoes-using-get-with-http-info optional-params))))
+  ([id nome ] (listar-estagios-cartoes-using-get id nome nil))
+  ([id nome optional-params]
+   (:data (listar-estagios-cartoes-using-get-with-http-info id nome optional-params))))

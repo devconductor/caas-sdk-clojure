@@ -25,11 +25,11 @@
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
   ([] (listar-using-get-with-http-info nil))
-  ([{:keys [id-cartao id-status-cartao id-estagio-cartao id-conta id-pessoa portador numero-cartao data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio page limit ]}]
+  ([{:keys [id id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio page limit ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id_cartao" id-cartao "id_status_cartao" id-status-cartao "id_estagio_cartao" id-estagio-cartao "id_conta" id-conta "id_pessoa" id-pessoa "portador" portador "numero_cartao" numero-cartao "data_geracao" data-geracao "data_status_cartao" data-status-cartao "data_estagio_cartao" data-estagio-cartao "data_validade" data-validade "data_impressao" data-impressao "arquivo_impressao" arquivo-impressao "flag_impressao_origem_comercial" flag-impressao-origem-comercial "flag_provisorio" flag-provisorio "codigo_desbloqueio" codigo-desbloqueio "page" page "limit" limit }
+              :query-params  {"id" id "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "portador" portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
