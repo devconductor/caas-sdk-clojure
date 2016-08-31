@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.status-cart-o
+(ns pier-sdk-clojure.api.status-cartao
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
