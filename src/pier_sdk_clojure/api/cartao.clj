@@ -21,6 +21,25 @@
   [id-cartao ]
   (:data (consultar-using-get-with-http-info id-cartao)))
 
+(defn debloquear-using-get-with-http-info
+  "Realiza o desbloqueio de um determinado CartÃ£o
+  Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id-cartao ]
+  (call-api "/api/cartoes/{id_cartao}/desbloqueio" :get
+            {:path-params   {"id_cartao" id-cartao }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn debloquear-using-get
+  "Realiza o desbloqueio de um determinado CartÃ£o
+  Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id-cartao ]
+  (:data (debloquear-using-get-with-http-info id-cartao)))
+
 (defn listar-using-get-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
