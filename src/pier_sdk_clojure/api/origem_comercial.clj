@@ -25,11 +25,11 @@
   "OperaÃ§Ã£o utilizada para listar Origens Comerciais
   Este mÃ©todo permite que sejam listadas as Origens Comerciais existentes na base do emissor."
   ([] (listar-origens-comerciais-using-get-with-http-info nil))
-  ([{:keys [id-origem-comercial nome status page limit ]}]
+  ([{:keys [id nome status page limit ]}]
    (call-api "/api/origens-comerciais" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id_origem_comercial" id-origem-comercial "nome" nome "status" status "page" page "limit" limit }
+              :query-params  {"id" id "nome" nome "status" status "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

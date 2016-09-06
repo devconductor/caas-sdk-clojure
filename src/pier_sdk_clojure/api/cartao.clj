@@ -2,6 +2,25 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn consultar-limite-using-get-with-http-info
+  "Apresenta os limites do Portador do CartÃ£o
+  Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
+  [id-cartao ]
+  (call-api "/api/cartoes/{id_cartao}/limites" :get
+            {:path-params   {"id_cartao" id-cartao }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn consultar-limite-using-get
+  "Apresenta os limites do Portador do CartÃ£o
+  Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
+  [id-cartao ]
+  (:data (consultar-limite-using-get-with-http-info id-cartao)))
+
 (defn consultar-using-get-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."

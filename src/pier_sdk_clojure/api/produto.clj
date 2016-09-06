@@ -25,11 +25,11 @@
   "Lista os Produtos do Emissor
   Este mÃ©todo permite que sejam listados os Produtos existentes na base de dados do Emissor."
   ([] (listar-produtos-using-get-with-http-info nil))
-  ([{:keys [id-produto nome status page limit ]}]
+  ([{:keys [id nome status page limit ]}]
    (call-api "/api/produtos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id_produto" id-produto "nome" nome "status" status "page" page "limit" limit }
+              :query-params  {"id" id "nome" nome "status" status "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

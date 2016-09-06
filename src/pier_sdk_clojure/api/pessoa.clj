@@ -25,11 +25,11 @@
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   ([] (listar-using-get1-with-http-info nil))
-  ([{:keys [id-pessoa nome tipo cpf cnpj data-nascimento cnpj2 page limit ]}]
+  ([{:keys [id nome tipo cpf cnpj data-nascimento sexo page limit ]}]
    (call-api "/api/pessoas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id_pessoa" id-pessoa "nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "data_nascimento" data-nascimento "cnpj" cnpj2 "page" page "limit" limit }
+              :query-params  {"id" id "nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "dataNascimento" data-nascimento "sexo" sexo "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
