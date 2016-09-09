@@ -3,11 +3,11 @@
   (:import (java.io File)))
 
 (defn consultar-using-get1-with-http-info
-  "OperaÃ§Ã£o utilizada para consultar uma determinada Origem Comercial
-  Este mÃ©todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, Ã© preciso informar o seu respectivo cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-origem-comercial ]
-  (call-api "/api/pessoas/{id_origem_comercial}" :get
-            {:path-params   {"id_origem_comercial" id-origem-comercial }
+  "Apresenta os dados de uma determinada Pessoa.
+  Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
+  [id-pessoa ]
+  (call-api "/api/pessoas/{id_pessoa}" :get
+            {:path-params   {"id_pessoa" id-pessoa }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -16,10 +16,10 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-using-get1
-  "OperaÃ§Ã£o utilizada para consultar uma determinada Origem Comercial
-  Este mÃ©todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, Ã© preciso informar o seu respectivo cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-origem-comercial ]
-  (:data (consultar-using-get1-with-http-info id-origem-comercial)))
+  "Apresenta os dados de uma determinada Pessoa.
+  Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
+  [id-pessoa ]
+  (:data (consultar-using-get1-with-http-info id-pessoa)))
 
 (defn listar-using-get1-with-http-info
   "Lista as Pessoas cadastradas no Emissor
