@@ -2,11 +2,11 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-limite-using-get-with-http-info
+(defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o
   Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
   [id-cartao ]
-  (call-api "/api/cartoes/{id_cartao}/limites" :get
+  (call-api "/api/cartoes/{id_cartao}/limites-disponibilidades" :get
             {:path-params   {"id_cartao" id-cartao }
              :header-params {}
              :query-params  {}
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-limite-using-get
+(defn consultar-limite-disponibilidade-using-get
   "Apresenta os limites do Portador do CartÃ£o
   Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
   [id-cartao ]
-  (:data (consultar-limite-using-get-with-http-info id-cartao)))
+  (:data (consultar-limite-disponibilidade-using-get-with-http-info id-cartao)))
 
 (defn consultar-portador-using-get-with-http-info
   "Apresenta os dados do Portador do CartÃ£o
@@ -39,25 +39,6 @@
   Este mÃ©todo permite consultar as informaÃ§Ãµes do Portador de um determinado CartÃ£o a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
   [id-cartao ]
   (:data (consultar-portador-using-get-with-http-info id-cartao)))
-
-(defn consultar-saldo-using-get-with-http-info
-  "Apresenta os saldos disponÃ­veis para o Portador do CartÃ£o
-  Este mÃ©todo permite consultar os saldos disponÃ­veis para uso pelo Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
-  [id-cartao ]
-  (call-api "/api/cartoes/{id_cartao}/saldos-disponiveis" :get
-            {:path-params   {"id_cartao" id-cartao }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn consultar-saldo-using-get
-  "Apresenta os saldos disponÃ­veis para o Portador do CartÃ£o
-  Este mÃ©todo permite consultar os saldos disponÃ­veis para uso pelo Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
-  [id-cartao ]
-  (:data (consultar-saldo-using-get-with-http-info id-cartao)))
 
 (defn consultar-using-get-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
