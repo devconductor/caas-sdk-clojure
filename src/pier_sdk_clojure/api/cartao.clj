@@ -2,6 +2,23 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn alterar-status-impressao-using-put-with-http-info
+  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o."
+  [id-cartao id-status-impressao ]
+  (call-api "/api/cartoes/{id_cartao}/impressao/{id_status_impressao} " :put
+            {:path-params   {"id_cartao" id-cartao "id_status_impressao" id-status-impressao }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn alterar-status-impressao-using-put
+  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o."
+  [id-cartao id-status-impressao ]
+  (:data (alterar-status-impressao-using-put-with-http-info id-cartao id-status-impressao)))
+
 (defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o
   Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
