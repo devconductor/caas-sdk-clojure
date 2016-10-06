@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn callback-using-post-with-http-info
-  "/tokens/callback"
+  "/api/tokens/callback"
   [body-access-token ]
   (call-api "/api/tokens/callback" :post
             {:path-params   {}
@@ -16,12 +16,12 @@
              :auth-names    ["access_token"]}))
 
 (defn callback-using-post
-  "/tokens/callback"
+  "/api/tokens/callback"
   [body-access-token ]
   (:data (callback-using-post-with-http-info body-access-token)))
 
 (defn validar-using-post-with-http-info
-  "/tokens/validar"
+  "/api/tokens/validar"
   [body-access-token ]
   (call-api "/api/tokens/validar" :post
             {:path-params   {}
@@ -34,6 +34,6 @@
              :auth-names    ["access_token"]}))
 
 (defn validar-using-post
-  "/tokens/validar"
+  "/api/tokens/validar"
   [body-access-token ]
   (:data (validar-using-post-with-http-info body-access-token)))
