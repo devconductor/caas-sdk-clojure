@@ -25,11 +25,11 @@
   "Lista as opÃ§Ãµes de Status do CartÃ£o
   Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
-  ([{:keys [id nome flag-altera-status flag-cancela-no-desbloqueio id-status-destino-desbloqueio flag-cancela-conta id-status-destino-conta flag-cobra-tarifa flag-reemite-cartao flag-emite-provisorio flag-cadastro-nova-senha flag-origem-transferencia flag-destino-transferencia flag-excecao-bandeira page limit ]}]
+  ([{:keys [id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa page limit ]}]
    (call-api "/api/status-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "nome" nome "flagAlteraStatus" flag-altera-status "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "flagCancelaConta" flag-cancela-conta "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "flagReemiteCartao" flag-reemite-cartao "flagEmiteProvisorio" flag-emite-provisorio "flagCadastroNovaSenha" flag-cadastro-nova-senha "flagOrigemTransferencia" flag-origem-transferencia "flagDestinoTransferencia" flag-destino-transferencia "flagExcecaoBandeira" flag-excecao-bandeira "page" page "limit" limit }
+              :query-params  {"id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
