@@ -3,7 +3,8 @@
   (:import (java.io File)))
 
 (defn alterar-status-impressao-using-put-with-http-info
-  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o."
+  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
+  Este mÃ©todo permite que uma AplicaÃ§Ã£o que realize a impressÃ£o de cartÃµes possa indicar que um determinado idCartao fora impresso ou estÃ¡ em processo de impressÃ£o. Para isso, basta informar o respectivo cÃ³digo de identificaÃ§Ã£o do cartÃ£o (id) que deseja ter seu um determinado id_status_impressao atribuÃ­do a ele. Por padrÃ£o, cartÃµes provisÃ³rios ou que jÃ¡ tenham sido incluÃ­dos em um arquivo para impressÃ£o via grÃ¡fica terÃ£o esta requisiÃ§Ã£o negada, se utilizada."
   [id-cartao id-status-impressao ]
   (call-api "/api/cartoes/{id_cartao}/impressao/{id_status_impressao} " :put
             {:path-params   {"id_cartao" id-cartao "id_status_impressao" id-status-impressao }
@@ -15,7 +16,8 @@
              :auth-names    ["access_token"]}))
 
 (defn alterar-status-impressao-using-put
-  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o."
+  "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
+  Este mÃ©todo permite que uma AplicaÃ§Ã£o que realize a impressÃ£o de cartÃµes possa indicar que um determinado idCartao fora impresso ou estÃ¡ em processo de impressÃ£o. Para isso, basta informar o respectivo cÃ³digo de identificaÃ§Ã£o do cartÃ£o (id) que deseja ter seu um determinado id_status_impressao atribuÃ­do a ele. Por padrÃ£o, cartÃµes provisÃ³rios ou que jÃ¡ tenham sido incluÃ­dos em um arquivo para impressÃ£o via grÃ¡fica terÃ£o esta requisiÃ§Ã£o negada, se utilizada."
   [id-cartao id-status-impressao ]
   (:data (alterar-status-impressao-using-put-with-http-info id-cartao id-status-impressao)))
 
@@ -76,11 +78,11 @@
   [id-cartao ]
   (:data (consultar-using-get-with-http-info id-cartao)))
 
-(defn debloquear-using-get-with-http-info
+(defn desbloquear-using-put-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-cartao ]
-  (call-api "/api/cartoes/{id_cartao}/desbloqueio" :get
+  (call-api "/api/cartoes/{id_cartao}/desbloqueio" :put
             {:path-params   {"id_cartao" id-cartao }
              :header-params {}
              :query-params  {}
@@ -89,11 +91,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn debloquear-using-get
+(defn desbloquear-using-put
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-cartao ]
-  (:data (debloquear-using-get-with-http-info id-cartao)))
+  (:data (desbloquear-using-put-with-http-info id-cartao)))
 
 (defn listar-using-get-with-http-info
   "Lista os CartÃµes gerados pelo Emissor

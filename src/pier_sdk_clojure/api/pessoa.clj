@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn consultar-using-get1-with-http-info
-  "Apresenta os dados de uma determinada Pessoa.
+  "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id-pessoa ]
   (call-api "/api/pessoas/{id_pessoa}" :get
@@ -16,7 +16,7 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-using-get1
-  "Apresenta os dados de uma determinada Pessoa.
+  "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id-pessoa ]
   (:data (consultar-using-get1-with-http-info id-pessoa)))

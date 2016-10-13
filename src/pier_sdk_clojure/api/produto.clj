@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn consultar-produto-using-get-with-http-info
-  "Apresenta os dados de um determinado Produto.
+  "Apresenta os dados de um determinado Produto
   Este mÃ©todo permite consultar um determinado Produto a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-produto ]
   (call-api "/api/produtos/{id_produto}" :get
@@ -16,7 +16,7 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-produto-using-get
-  "Apresenta os dados de um determinado Produto.
+  "Apresenta os dados de um determinado Produto
   Este mÃ©todo permite consultar um determinado Produto a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-produto ]
   (:data (consultar-produto-using-get-with-http-info id-produto)))
