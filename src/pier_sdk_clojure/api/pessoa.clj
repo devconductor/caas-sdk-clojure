@@ -21,10 +21,10 @@
   [id-pessoa ]
   (:data (consultar-using-get1-with-http-info id-pessoa)))
 
-(defn listar-using-get1-with-http-info
+(defn listar-using-get2-with-http-info
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get1-with-http-info nil))
+  ([] (listar-using-get2-with-http-info nil))
   ([{:keys [id nome tipo cpf cnpj data-nascimento sexo page limit ]}]
    (call-api "/api/pessoas" :get
              {:path-params   {}
@@ -35,9 +35,9 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get1
+(defn listar-using-get2
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get1 nil))
+  ([] (listar-using-get2 nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
+   (:data (listar-using-get2-with-http-info optional-params))))

@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn clear-using-get-with-http-info
-  "/api/bases/clear"
+  "Limpar mapa de bases"
   []
   (call-api "/api/bases/clear" :get
             {:path-params   {}
@@ -15,6 +15,6 @@
              :auth-names    ["access_token"]}))
 
 (defn clear-using-get
-  "/api/bases/clear"
+  "Limpar mapa de bases"
   []
   (:data (clear-using-get-with-http-info)))

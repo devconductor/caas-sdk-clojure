@@ -21,10 +21,10 @@
   [id-status-conta ]
   (:data (consultar-using-get2-with-http-info id-status-conta)))
 
-(defn listar-using-get2-with-http-info
+(defn listar-using-get3-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get2-with-http-info nil))
+  ([] (listar-using-get3-with-http-info nil))
   ([{:keys [id nome flag-altera-limite mensagem-consulta-negada page limit ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -35,9 +35,9 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get2
+(defn listar-using-get3
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get2 nil))
+  ([] (listar-using-get3 nil))
   ([optional-params]
-   (:data (listar-using-get2-with-http-info optional-params))))
+   (:data (listar-using-get3-with-http-info optional-params))))
