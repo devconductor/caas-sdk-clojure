@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn alterar-using-put-with-http-info
-  "Realiza o cadastro de um novo EndereÃ§o
-  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
+  "Atualiza os dados de um determinado EndereÃ§o
+  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
   ([id ] (alterar-using-put-with-http-info id nil))
   ([id {:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
    (call-api "/api/enderecos" :put
@@ -17,13 +17,13 @@
               :auth-names    ["access_token"]})))
 
 (defn alterar-using-put
-  "Realiza o cadastro de um novo EndereÃ§o
-  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
+  "Atualiza os dados de um determinado EndereÃ§o
+  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
   ([id ] (alterar-using-put id nil))
   ([id optional-params]
    (:data (alterar-using-put-with-http-info id optional-params))))
 
-(defn consultar-estagio-cartao-using-get-with-http-info
+(defn consultar-using-get2-with-http-info
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-endereco ]
@@ -36,16 +36,16 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-estagio-cartao-using-get
+(defn consultar-using-get2
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id-endereco ]
-  (:data (consultar-estagio-cartao-using-get-with-http-info id-endereco)))
+  (:data (consultar-using-get2-with-http-info id-endereco)))
 
-(defn listar-using-get1-with-http-info
+(defn listar-using-get2-with-http-info
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get1-with-http-info nil))
+  ([] (listar-using-get2-with-http-info nil))
   ([{:keys [id id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais data-inclusao data-ultima-atualizacao page limit ]}]
    (call-api "/api/enderecos" :get
              {:path-params   {}
@@ -56,12 +56,12 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get1
+(defn listar-using-get2
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get1 nil))
+  ([] (listar-using-get2 nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
+   (:data (listar-using-get2-with-http-info optional-params))))
 
 (defn salvar-using-post-with-http-info
   "Realiza o cadastro de um novo EndereÃ§o

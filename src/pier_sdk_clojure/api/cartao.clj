@@ -21,6 +21,25 @@
   [id-cartao id-status-impressao ]
   (:data (alterar-status-impressao-using-put-with-http-info id-cartao id-status-impressao)))
 
+(defn bloquear-using-put-with-http-info
+  "Realiza o bloqueio de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio (temporÃ¡rio) ou do cancelamento (definitivo) de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
+  [id-cartao id-status observacao ]
+  (call-api "/api/cartoes/{id_cartao}/bloqueio" :put
+            {:path-params   {"id_cartao" id-cartao }
+             :header-params {}
+             :query-params  {"id_status" id-status "observacao" observacao }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn bloquear-using-put
+  "Realiza o bloqueio de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio (temporÃ¡rio) ou do cancelamento (definitivo) de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
+  [id-cartao id-status observacao ]
+  (:data (bloquear-using-put-with-http-info id-cartao id-status observacao)))
+
 (defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o
   Este mÃ©todo permite consultar os Limites configurados para o Portador de um determinado CartÃ£o, seja ele o titular da conta ou um adicional, a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
