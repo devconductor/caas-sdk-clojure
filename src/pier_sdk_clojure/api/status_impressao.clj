@@ -21,10 +21,10 @@
   [id-status-impressao ]
   (:data (consultar-using-get5-with-http-info id-status-impressao)))
 
-(defn listar-using-get5-with-http-info
+(defn listar-using-get6-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get5-with-http-info nil))
+  ([] (listar-using-get6-with-http-info nil))
   ([{:keys [id nome page limit ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -35,9 +35,9 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get5
+(defn listar-using-get6
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get5 nil))
+  ([] (listar-using-get6 nil))
   ([optional-params]
-   (:data (listar-using-get5-with-http-info optional-params))))
+   (:data (listar-using-get6-with-http-info optional-params))))

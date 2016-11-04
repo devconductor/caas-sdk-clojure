@@ -2,6 +2,25 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn alterar-vencimento-using-put-with-http-info
+  "Alterar vencimento
+  Esse recurso permite alterar o vencimento de uma conta especifica."
+  [id-conta novo-dia-vencimento ]
+  (call-api "/api/contas/{id_conta}/alterar-vencimento" :put
+            {:path-params   {"id_conta" id-conta }
+             :header-params {}
+             :query-params  {"novo_dia_vencimento" novo-dia-vencimento }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn alterar-vencimento-using-put
+  "Alterar vencimento
+  Esse recurso permite alterar o vencimento de uma conta especifica."
+  [id-conta novo-dia-vencimento ]
+  (:data (alterar-vencimento-using-put-with-http-info id-conta novo-dia-vencimento)))
+
 (defn consultar-using-get1-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
@@ -22,22 +41,22 @@
   (:data (consultar-using-get1-with-http-info id-conta)))
 
 (defn listar-using-get1-with-http-info
-  "Lista contas existentes na base de dados do Emissor.
-  Este mÃ©todo permite listar contas existentes na base de dados do Emissor."
+  "Lista contas existentes na base de dados do Emissor
+  Este recurso permite listar contas existentes na base de dados do Emissor."
   ([] (listar-using-get1-with-http-info nil))
-  ([{:keys [id id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro page limit ]}]
+  ([{:keys [id id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento page limit ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "idProduto" id-produto "idOrigemComercial" id-origem-comercial "idPessoa" id-pessoa "idStatusConta" id-status-conta "diaVencimento" dia-vencimento "melhorDiaCompra" melhor-dia-compra "dataStatusConta" data-status-conta "dataCadastro" data-cadastro "page" page "limit" limit }
+              :query-params  {"id" id "idProduto" id-produto "idOrigemComercial" id-origem-comercial "idPessoa" id-pessoa "idStatusConta" id-status-conta "diaVencimento" dia-vencimento "melhorDiaCompra" melhor-dia-compra "dataStatusConta" data-status-conta "dataCadastro" data-cadastro "dataUltimaAlteracaoVencimento" data-ultima-alteracao-vencimento "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
 (defn listar-using-get1
-  "Lista contas existentes na base de dados do Emissor.
-  Este mÃ©todo permite listar contas existentes na base de dados do Emissor."
+  "Lista contas existentes na base de dados do Emissor
+  Este recurso permite listar contas existentes na base de dados do Emissor."
   ([] (listar-using-get1 nil))
   ([optional-params]
    (:data (listar-using-get1-with-http-info optional-params))))
