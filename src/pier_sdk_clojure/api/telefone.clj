@@ -42,10 +42,10 @@
   ([optional-params]
    (:data (listar-using-get7-with-http-info optional-params))))
 
-(defn salvar-using-post1-with-http-info
+(defn salvar-using-post2-with-http-info
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post1-with-http-info nil))
+  ([] (salvar-using-post2-with-http-info nil))
   ([{:keys [id-tipo-telefone id-pessoa ddd telefone ramal ]}]
    (call-api "/api/telefones" :post
              {:path-params   {}
@@ -56,9 +56,9 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn salvar-using-post1
+(defn salvar-using-post2
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post1 nil))
+  ([] (salvar-using-post2 nil))
   ([optional-params]
-   (:data (salvar-using-post1-with-http-info optional-params))))
+   (:data (salvar-using-post2-with-http-info optional-params))))
