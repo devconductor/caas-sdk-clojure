@@ -40,6 +40,23 @@
   [id-conta ]
   (:data (consultar-using-get1-with-http-info id-conta)))
 
+(defn gerar-cartao-using-put-with-http-info
+  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa"
+  [id-conta id-pessoa ]
+  (call-api "/api/contas/{id_conta}/pessoas/{id_pessoa}/gerar-cartao" :put
+            {:path-params   {"id_conta" id-conta "id_pessoa" id-pessoa }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn gerar-cartao-using-put
+  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa"
+  [id-conta id-pessoa ]
+  (:data (gerar-cartao-using-put-with-http-info id-conta id-pessoa)))
+
 (defn listar-using-get1-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
