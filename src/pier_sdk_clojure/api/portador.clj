@@ -6,11 +6,11 @@
   "Lista os Portadores existentes
   Este mÃ©todo permite que sejam listados os portadores cadastrados na base do emissor."
   ([] (listar-using-get4-with-http-info nil))
-  ([{:keys [id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador page limit ]}]
+  ([{:keys [id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-imagem id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador page limit ]}]
    (call-api "/api/portadores" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador "page" page "limit" limit }
+              :query-params  {"idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idImagem" id-imagem "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
