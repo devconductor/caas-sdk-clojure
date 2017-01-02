@@ -24,9 +24,9 @@
 (defn consultar-using-get9-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
-  [id-webhook ]
-  (call-api "/api/webhooks/{id_webhook}" :get
-            {:path-params   {"id_webhook" id-webhook }
+  [id ]
+  (call-api "/api/webhooks/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -37,8 +37,8 @@
 (defn consultar-using-get9
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
-  [id-webhook ]
-  (:data (consultar-using-get9-with-http-info id-webhook)))
+  [id ]
+  (:data (consultar-using-get9-with-http-info id)))
 
 (defn listar-using-get10-with-http-info
   "Lista os Webhooks
