@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn alterar-using-put2-with-http-info
+(defn alterar-using-put3-with-http-info
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
   [id evento metodo url ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn alterar-using-put2
+(defn alterar-using-put3
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
   [id evento metodo url ]
-  (:data (alterar-using-put2-with-http-info id evento metodo url)))
+  (:data (alterar-using-put3-with-http-info id evento metodo url)))
 
 (defn consultar-using-get9-with-http-info
   "Consultar Webhook
