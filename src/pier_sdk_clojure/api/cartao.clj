@@ -61,7 +61,7 @@
 
 (defn cadastrar-alterar-senha-using-put-with-http-info
   "Realiza o cadastro ou alteraÃ§Ã£o da senha de um CartÃ£o
-  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha, a sua escolha"
+  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id-cartao senha ]
   (call-api "/api/cartoes/{id_cartao}/alterar-senha" :put
             {:path-params   {}
@@ -74,7 +74,7 @@
 
 (defn cadastrar-alterar-senha-using-put
   "Realiza o cadastro ou alteraÃ§Ã£o da senha de um CartÃ£o
-  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha, a sua escolha"
+  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id-cartao senha ]
   (:data (cadastrar-alterar-senha-using-put-with-http-info id-cartao senha)))
 
@@ -176,8 +176,8 @@
    (:data (listar-using-get-with-http-info optional-params))))
 
 (defn validar-cartao-chip-bandeirado-using-get-with-http-info
-  "Permite validar um CartÃ£o Bandeirado a partir do chip
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele."
+  "Permite validar um CartÃ£o Mastercard a partir do chip
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o criptograma gerado a partir da leitura de um chip EMV de um CartÃ£o Mastercard a fim de verificar a sua autenticidade."
   [numero-cartao criptograma ]
   (call-api "/api/cartoes/bandeirados/validar/chip" :get
             {:path-params   {}
@@ -189,8 +189,8 @@
              :auth-names    ["access_token"]}))
 
 (defn validar-cartao-chip-bandeirado-using-get
-  "Permite validar um CartÃ£o Bandeirado a partir do chip
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele."
+  "Permite validar um CartÃ£o Mastercard a partir do chip
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o criptograma gerado a partir da leitura de um chip EMV de um CartÃ£o Mastercard a fim de verificar a sua autenticidade."
   [numero-cartao criptograma ]
   (:data (validar-cartao-chip-bandeirado-using-get-with-http-info numero-cartao criptograma)))
 
@@ -234,7 +234,7 @@
 
 (defn validar-cartao-tarja-bandeirado-using-get-with-http-info
   "Permite validar um CartÃ£o Bandeirado a partir da Tarja
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele."
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo."
   [numero-cartao trilha1 trilha2 ]
   (call-api "/api/cartoes/bandeirados/validar/tarja" :get
             {:path-params   {}
@@ -247,7 +247,7 @@
 
 (defn validar-cartao-tarja-bandeirado-using-get
   "Permite validar um CartÃ£o Bandeirado a partir da Tarja
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele."
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo."
   [numero-cartao trilha1 trilha2 ]
   (:data (validar-cartao-tarja-bandeirado-using-get-with-http-info numero-cartao trilha1 trilha2)))
 
