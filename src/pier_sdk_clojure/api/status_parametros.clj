@@ -5,9 +5,9 @@
 (defn consultar-estagio-cartao-using-get-with-http-info
   "Apresenta os dados de um determinado Estagio CartÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado EstÃ¡gio de Entrega do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-estagio-cartao ]
-  (call-api "/api/estagios-cartoes/{id_estagio_cartao}" :get
-            {:path-params   {"id_estagio_cartao" id-estagio-cartao }
+  [id ]
+  (call-api "/api/estagios-cartoes/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -18,15 +18,15 @@
 (defn consultar-estagio-cartao-using-get
   "Apresenta os dados de um determinado Estagio CartÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado EstÃ¡gio de Entrega do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-estagio-cartao ]
-  (:data (consultar-estagio-cartao-using-get-with-http-info id-estagio-cartao)))
+  [id ]
+  (:data (consultar-estagio-cartao-using-get-with-http-info id)))
 
 (defn consultar-status-cartao-using-get-with-http-info
   "Apresenta os dados de um determinado Status CartÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-cartao ]
-  (call-api "/api/status-cartoes/{id_status_cartao}" :get
-            {:path-params   {"id_status_cartao" id-status-cartao }
+  [id ]
+  (call-api "/api/status-cartoes/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -37,15 +37,15 @@
 (defn consultar-status-cartao-using-get
   "Apresenta os dados de um determinado Status CartÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-cartao ]
-  (:data (consultar-status-cartao-using-get-with-http-info id-status-cartao)))
+  [id ]
+  (:data (consultar-status-cartao-using-get-with-http-info id)))
 
 (defn consultar-using-get4-with-http-info
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-conta ]
-  (call-api "/api/status-contas/{id_status_conta}" :get
-            {:path-params   {"id_status_conta" id-status-conta }
+  [id ]
+  (call-api "/api/status-contas/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -56,15 +56,15 @@
 (defn consultar-using-get4
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-conta ]
-  (:data (consultar-using-get4-with-http-info id-status-conta)))
+  [id ]
+  (:data (consultar-using-get4-with-http-info id)))
 
 (defn consultar-using-get5-with-http-info
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-impressao ]
-  (call-api "/api/status-impressoes/{id_status_impressao}" :get
-            {:path-params   {"id_status_impressao" id-status-impressao }
+  [id ]
+  (call-api "/api/status-impressoes/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -75,18 +75,18 @@
 (defn consultar-using-get5
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id-status-impressao ]
-  (:data (consultar-using-get5-with-http-info id-status-impressao)))
+  [id ]
+  (:data (consultar-using-get5-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-estagios-cartoes-using-get-with-http-info nil))
-  ([{:keys [id nome page limit ]}]
+  ([{:keys [page limit id nome ]}]
    (call-api "/api/estagios-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "nome" nome "page" page "limit" limit }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -103,11 +103,11 @@
   "Lista as opÃ§Ãµes de Status do CartÃ£o
   Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
-  ([{:keys [id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa page limit ]}]
+  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa ]}]
    (call-api "/api/status-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "page" page "limit" limit }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -124,11 +124,11 @@
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
   ([] (listar-using-get5-with-http-info nil))
-  ([{:keys [id nome flag-altera-limite mensagem-consulta-negada page limit ]}]
+  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "page" page "limit" limit }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -145,11 +145,11 @@
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-using-get6-with-http-info nil))
-  ([{:keys [id nome page limit ]}]
+  ([{:keys [page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "nome" nome "page" page "limit" limit }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

@@ -44,11 +44,11 @@
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
   ([] (listar-using-get10-with-http-info nil))
-  ([{:keys [id evento metodo url page limit ]}]
+  ([{:keys [page limit id evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"id" id "evento" evento "metodo" metodo "url" url "page" page "limit" limit }
+              :query-params  {"page" page "limit" limit "id" id "evento" evento "metodo" metodo "url" url }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
