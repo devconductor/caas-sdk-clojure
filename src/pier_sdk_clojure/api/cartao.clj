@@ -5,23 +5,21 @@
 (defn alterar-status-impressao-using-put-with-http-info
   "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
   Este mÃ©todo permite que uma AplicaÃ§Ã£o que realize a impressÃ£o de cartÃµes possa indicar que um determinado idCartao fora impresso ou estÃ¡ em processo de impressÃ£o. Para isso, basta informar o respectivo cÃ³digo de identificaÃ§Ã£o do cartÃ£o (id) que deseja ter seu um determinado id_status_impressao atribuÃ­do a ele. Por padrÃ£o, cartÃµes provisÃ³rios ou que jÃ¡ tenham sido incluÃ­dos em um arquivo para impressÃ£o via grÃ¡fica terÃ£o esta requisiÃ§Ã£o negada, se utilizada."
-  ([id ] (alterar-status-impressao-using-put-with-http-info id nil))
-  ([id {:keys [id-status-impressao ]}]
-   (call-api "/api/cartoes/{id}/alterar-status-impressao" :put
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"id_status_impressao" id-status-impressao }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+  [id id-status-impressao ]
+  (call-api "/api/cartoes/{id}/alterar-status-impressao" :put
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {"id_status_impressao" id-status-impressao }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
 
 (defn alterar-status-impressao-using-put
   "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
   Este mÃ©todo permite que uma AplicaÃ§Ã£o que realize a impressÃ£o de cartÃµes possa indicar que um determinado idCartao fora impresso ou estÃ¡ em processo de impressÃ£o. Para isso, basta informar o respectivo cÃ³digo de identificaÃ§Ã£o do cartÃ£o (id) que deseja ter seu um determinado id_status_impressao atribuÃ­do a ele. Por padrÃ£o, cartÃµes provisÃ³rios ou que jÃ¡ tenham sido incluÃ­dos em um arquivo para impressÃ£o via grÃ¡fica terÃ£o esta requisiÃ§Ã£o negada, se utilizada."
-  ([id ] (alterar-status-impressao-using-put id nil))
-  ([id optional-params]
-   (:data (alterar-status-impressao-using-put-with-http-info id optional-params))))
+  [id id-status-impressao ]
+  (:data (alterar-status-impressao-using-put-with-http-info id id-status-impressao)))
 
 (defn atribuir-pessoa-using-put-with-http-info
   "Realiza a atribuiÃ§Ã£o de um cartÃ£o prÃ©-pago a uma pessoa
@@ -66,9 +64,9 @@
   Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id senha ]
   (call-api "/api/cartoes/{id}/alterar-senha" :put
-            {:path-params   {}
+            {:path-params   {"id" id }
              :header-params {"senha" senha }
-             :query-params  {"id" id }
+             :query-params  {}
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
@@ -279,9 +277,9 @@
   Esta operaÃ§Ã£o tem como objetivo permitir validar que a senha informada pelo portador de um determinado cartÃ£o estÃ¡ correta."
   [id senha ]
   (call-api "/api/cartoes/{id}/validar-senha" :get
-            {:path-params   {}
+            {:path-params   {"id" id }
              :header-params {"senha" senha }
-             :query-params  {"id" id }
+             :query-params  {}
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
