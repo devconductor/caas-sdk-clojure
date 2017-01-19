@@ -178,9 +178,9 @@
 (defn gerar-nova-via-using-post-with-http-info
   "Gerar uma nova via de CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a geraÃ§Ã£o de uma nova via de CartÃ£o que serÃ¡ encaminhando para impressÃ£o e postagem de acordo com os fluxos padrÃµes jÃ¡ definidos pelo emissor. Para isso, Ã© preciso que o cliente jÃ¡ possua um cartÃ£o gerado e informar o CÃ³digo de IdentificaÃ§Ã£o deste (idCartao) para que ele possa utilizar esta operaÃ§Ã£o. Assim, esta funcionalidade se aplica apenas para a geraÃ§Ã£o de cartÃµes fÃ­sicos."
-  [id-cartao ]
-  (call-api "/api/cartoes/{id_cartao}/gerar-nova-via" :post
-            {:path-params   {"id_cartao" id-cartao }
+  [id ]
+  (call-api "/api/cartoes/{id}/gerar-nova-via" :post
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -191,8 +191,8 @@
 (defn gerar-nova-via-using-post
   "Gerar uma nova via de CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a geraÃ§Ã£o de uma nova via de CartÃ£o que serÃ¡ encaminhando para impressÃ£o e postagem de acordo com os fluxos padrÃµes jÃ¡ definidos pelo emissor. Para isso, Ã© preciso que o cliente jÃ¡ possua um cartÃ£o gerado e informar o CÃ³digo de IdentificaÃ§Ã£o deste (idCartao) para que ele possa utilizar esta operaÃ§Ã£o. Assim, esta funcionalidade se aplica apenas para a geraÃ§Ã£o de cartÃµes fÃ­sicos."
-  [id-cartao ]
-  (:data (gerar-nova-via-using-post-with-http-info id-cartao)))
+  [id ]
+  (:data (gerar-nova-via-using-post-with-http-info id)))
 
 (defn listar-lotes-cartoes-pre-pagos-using-get-with-http-info
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
