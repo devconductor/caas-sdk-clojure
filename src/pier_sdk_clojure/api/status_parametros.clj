@@ -103,11 +103,11 @@
   "Lista as opÃ§Ãµes de Status do CartÃ£o
   Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
-  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa ]}]
+  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa flag-permite-nova-via-cartao ]}]
    (call-api "/api/status-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -124,11 +124,11 @@
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
   ([] (listar-using-get5-with-http-info nil))
-  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada ]}]
+  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

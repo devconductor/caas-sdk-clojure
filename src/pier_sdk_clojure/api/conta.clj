@@ -95,6 +95,25 @@
   [id id-pessoa ]
   (:data (gerar-cartao-using-post-with-http-info id id-pessoa)))
 
+(defn listar-faturas-using-get-with-http-info
+  "AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
+  ([] (listar-faturas-using-get-with-http-info nil))
+  ([{:keys [page limit id data-vencimento ]}]
+   (call-api "/api/contas/{id_conta}/faturas" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "dataVencimento" data-vencimento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn listar-faturas-using-get
+  "AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
+  ([] (listar-faturas-using-get nil))
+  ([optional-params]
+   (:data (listar-faturas-using-get-with-http-info optional-params))))
+
 (defn listar-using-get1-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
@@ -115,3 +134,22 @@
   ([] (listar-using-get1 nil))
   ([optional-params]
    (:data (listar-using-get1-with-http-info optional-params))))
+
+(defn transacoes-using-post-with-http-info
+  "Permite listar todas as transaÃ§Ãµes da Conta"
+  ([] (transacoes-using-post-with-http-info nil))
+  ([{:keys [page limit id-conta ]}]
+   (call-api "/api/contas/{id_conta}/transacoes" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "idConta" id-conta }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn transacoes-using-post
+  "Permite listar todas as transaÃ§Ãµes da Conta"
+  ([] (transacoes-using-post nil))
+  ([optional-params]
+   (:data (transacoes-using-post-with-http-info optional-params))))

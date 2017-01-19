@@ -154,15 +154,55 @@
   [id ]
   (:data (desbloquear-using-put-with-http-info id)))
 
+(defn gerar-lotes-cartoes-pre-pagos-using-post-with-http-info
+  "Permite gerar um novo Lote de CartÃµes PrÃ©-Pago
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de CartÃµes PrÃ©-Pagos, de forma nÃ£o nominal, os quais poderÃ£o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, alÃ©m de definir quantos cartÃµes deverÃ£o ser gerados, serÃ¡ possÃ­vel definir qual a Origem Comercial, o Produto, o Tipo do CartÃ£o, a Imagem e o EndereÃ§o para entrega dos CartÃµes presentes no lote gerado. Por padrÃ£o, todos os cartÃµes serÃ£o associados a um idPessoa fictÃ­cio e receberÃ¡ um idConta Ãºnico para cada um deles. Feito isso, os CartÃµes gerados por esta operaÃ§Ã£o seguirÃ£o os mesmos processos de impressÃ£o via grÃ¡fica previamente definidos entre o Emissor e a Conductor."
+  ([] (gerar-lotes-cartoes-pre-pagos-using-post-with-http-info nil))
+  ([{:keys [id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes ]}]
+   (call-api "/api/cartoes/pre-pagos/lotes" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn gerar-lotes-cartoes-pre-pagos-using-post
+  "Permite gerar um novo Lote de CartÃµes PrÃ©-Pago
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de CartÃµes PrÃ©-Pagos, de forma nÃ£o nominal, os quais poderÃ£o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, alÃ©m de definir quantos cartÃµes deverÃ£o ser gerados, serÃ¡ possÃ­vel definir qual a Origem Comercial, o Produto, o Tipo do CartÃ£o, a Imagem e o EndereÃ§o para entrega dos CartÃµes presentes no lote gerado. Por padrÃ£o, todos os cartÃµes serÃ£o associados a um idPessoa fictÃ­cio e receberÃ¡ um idConta Ãºnico para cada um deles. Feito isso, os CartÃµes gerados por esta operaÃ§Ã£o seguirÃ£o os mesmos processos de impressÃ£o via grÃ¡fica previamente definidos entre o Emissor e a Conductor."
+  ([] (gerar-lotes-cartoes-pre-pagos-using-post nil))
+  ([optional-params]
+   (:data (gerar-lotes-cartoes-pre-pagos-using-post-with-http-info optional-params))))
+
+(defn gerar-nova-via-using-post-with-http-info
+  "Gerar uma nova via de CartÃ£o
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a geraÃ§Ã£o de uma nova via de CartÃ£o que serÃ¡ encaminhando para impressÃ£o e postagem de acordo com os fluxos padrÃµes jÃ¡ definidos pelo emissor. Para isso, Ã© preciso que o cliente jÃ¡ possua um cartÃ£o gerado e informar o CÃ³digo de IdentificaÃ§Ã£o deste (idCartao) para que ele possa utilizar esta operaÃ§Ã£o. Assim, esta funcionalidade se aplica apenas para a geraÃ§Ã£o de cartÃµes fÃ­sicos."
+  [id-cartao ]
+  (call-api "/api/cartoes/{id_cartao}/gerar-nova-via" :post
+            {:path-params   {"id_cartao" id-cartao }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn gerar-nova-via-using-post
+  "Gerar uma nova via de CartÃ£o
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a geraÃ§Ã£o de uma nova via de CartÃ£o que serÃ¡ encaminhando para impressÃ£o e postagem de acordo com os fluxos padrÃµes jÃ¡ definidos pelo emissor. Para isso, Ã© preciso que o cliente jÃ¡ possua um cartÃ£o gerado e informar o CÃ³digo de IdentificaÃ§Ã£o deste (idCartao) para que ele possa utilizar esta operaÃ§Ã£o. Assim, esta funcionalidade se aplica apenas para a geraÃ§Ã£o de cartÃµes fÃ­sicos."
+  [id-cartao ]
+  (:data (gerar-nova-via-using-post-with-http-info id-cartao)))
+
 (defn listar-lotes-cartoes-pre-pagos-using-get-with-http-info
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
   Este mÃ©todo permite que sejam listados os cartÃµes prÃ©-pagos existentes na base do emissor."
   ([] (listar-lotes-cartoes-pre-pagos-using-get-with-http-info nil))
-  ([{:keys [page limit id id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro-lote usuario-cadastro flag-processado ]}]
+  ([{:keys [page limit id id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
    (call-api "/api/cartoes/pre-pagos/lotes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastroLote" data-cadastro-lote "usuarioCadastro" usuario-cadastro "flagProcessado" flag-processado }
+              :query-params  {"page" page "limit" limit "id" id "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
