@@ -96,7 +96,8 @@
   (:data (gerar-cartao-using-post-with-http-info id id-pessoa)))
 
 (defn listar-faturas-using-get-with-http-info
-  "AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
+  "Listar Faturas da Conta
+  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
   ([] (listar-faturas-using-get-with-http-info nil))
   ([{:keys [page limit id data-vencimento ]}]
    (call-api "/api/contas/{id_conta}/faturas" :get
@@ -109,7 +110,8 @@
               :auth-names    ["access_token"]})))
 
 (defn listar-faturas-using-get
-  "AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
+  "Listar Faturas da Conta
+  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
   ([] (listar-faturas-using-get nil))
   ([optional-params]
    (:data (listar-faturas-using-get-with-http-info optional-params))))
@@ -136,10 +138,11 @@
    (:data (listar-using-get1-with-http-info optional-params))))
 
 (defn transacoes-using-post-with-http-info
-  "Permite listar todas as transaÃ§Ãµes da Conta"
+  "Permite listar uma linha do tempo com os eventos da conta
+  Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
   ([] (transacoes-using-post-with-http-info nil))
   ([{:keys [page limit id-conta ]}]
-   (call-api "/api/contas/{id_conta}/transacoes" :post
+   (call-api "/api/contas/{id_conta}/timeline" :post
              {:path-params   {}
               :header-params {}
               :query-params  {"page" page "limit" limit "idConta" id-conta }
@@ -149,7 +152,8 @@
               :auth-names    ["access_token"]})))
 
 (defn transacoes-using-post
-  "Permite listar todas as transaÃ§Ãµes da Conta"
+  "Permite listar uma linha do tempo com os eventos da conta
+  Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
   ([] (transacoes-using-post nil))
   ([optional-params]
    (:data (transacoes-using-post-with-http-info optional-params))))
