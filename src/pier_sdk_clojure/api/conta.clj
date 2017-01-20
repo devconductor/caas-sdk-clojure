@@ -140,12 +140,12 @@
 (defn transacoes-using-get-with-http-info
   "Permite listar uma linha do tempo com os eventos da conta
   Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
-  ([] (transacoes-using-get-with-http-info nil))
-  ([{:keys [page limit id-conta ]}]
+  ([id ] (transacoes-using-get-with-http-info id nil))
+  ([id {:keys [page limit ]}]
    (call-api "/api/contas/{id}/timeline" :get
-             {:path-params   {}
+             {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "idConta" id-conta }
+              :query-params  {"page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -154,6 +154,6 @@
 (defn transacoes-using-get
   "Permite listar uma linha do tempo com os eventos da conta
   Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
-  ([] (transacoes-using-get nil))
-  ([optional-params]
-   (:data (transacoes-using-get-with-http-info optional-params))))
+  ([id ] (transacoes-using-get id nil))
+  ([id optional-params]
+   (:data (transacoes-using-get-with-http-info id optional-params))))
