@@ -59,7 +59,7 @@
   [id ]
   (:data (consultar-limite-disponibilidade-using-get1-with-http-info id)))
 
-(defn consultar-using-get1-with-http-info
+(defn consultar-using-get2-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -72,28 +72,32 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get1
+(defn consultar-using-get2
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get1-with-http-info id)))
+  (:data (consultar-using-get2-with-http-info id)))
 
 (defn gerar-cartao-using-post-with-http-info
-  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa"
-  [id id-pessoa ]
-  (call-api "/api/contas/{id}/pessoas/{id_pessoa}/gerar-cartao" :post
-            {:path-params   {"id" id "id_pessoa" id-pessoa }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa
+  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para realizar a impressÃ£o de cartÃµes em Lojas, Quiosques, EscritÃ³rios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de CartÃµes habilidade para o fazer, no local."
+  ([id id-pessoa ] (gerar-cartao-using-post-with-http-info id id-pessoa nil))
+  ([id id-pessoa {:keys [id-tipo-plastico ]}]
+   (call-api "/api/contas/{id}/pessoas/{id_pessoa}/gerar-cartao" :post
+             {:path-params   {"id" id "id_pessoa" id-pessoa }
+              :header-params {}
+              :query-params  {"id_tipo_plastico" id-tipo-plastico }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
 
 (defn gerar-cartao-using-post
-  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa"
-  [id id-pessoa ]
-  (:data (gerar-cartao-using-post-with-http-info id id-pessoa)))
+  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa
+  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para realizar a impressÃ£o de cartÃµes em Lojas, Quiosques, EscritÃ³rios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de CartÃµes habilidade para o fazer, no local."
+  ([id id-pessoa ] (gerar-cartao-using-post id id-pessoa nil))
+  ([id id-pessoa optional-params]
+   (:data (gerar-cartao-using-post-with-http-info id id-pessoa optional-params))))
 
 (defn listar-faturas-using-get-with-http-info
   "Listar Faturas da Conta
@@ -116,10 +120,10 @@
   ([id optional-params]
    (:data (listar-faturas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get1-with-http-info
+(defn listar-using-get2-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get1-with-http-info nil))
+  ([] (listar-using-get2-with-http-info nil))
   ([{:keys [page limit id id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -130,12 +134,12 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get1
+(defn listar-using-get2
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get1 nil))
+  ([] (listar-using-get2 nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
+   (:data (listar-using-get2-with-http-info optional-params))))
 
 (defn transacoes-using-get-with-http-info
   "Permite listar uma linha do tempo com os eventos da conta
