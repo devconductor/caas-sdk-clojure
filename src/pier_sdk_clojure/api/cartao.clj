@@ -2,6 +2,25 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn alterar-alterar-senha-using-put-with-http-info
+  "Realiza a alteraÃ§Ã£o da senha de um CartÃ£o
+  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
+  [id senha ]
+  (call-api "/api/cartoes/{id}/alterar-senha" :put
+            {:path-params   {"id" id }
+             :header-params {"senha" senha }
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn alterar-alterar-senha-using-put
+  "Realiza a alteraÃ§Ã£o da senha de um CartÃ£o
+  Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
+  [id senha ]
+  (:data (alterar-alterar-senha-using-put-with-http-info id senha)))
+
 (defn alterar-status-impressao-using-put-with-http-info
   "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
   Este mÃ©todo permite que uma AplicaÃ§Ã£o que realize a impressÃ£o de cartÃµes possa indicar que um determinado idCartao fora impresso ou estÃ¡ em processo de impressÃ£o. Para isso, basta informar o respectivo cÃ³digo de identificaÃ§Ã£o do cartÃ£o (id) que deseja ter seu um determinado id_status_impressao atribuÃ­do a ele. Por padrÃ£o, cartÃµes provisÃ³rios ou que jÃ¡ tenham sido incluÃ­dos em um arquivo para impressÃ£o via grÃ¡fica terÃ£o esta requisiÃ§Ã£o negada, se utilizada."
@@ -59,11 +78,11 @@
   [id id-status observacao ]
   (:data (bloquear-using-put-with-http-info id id-status observacao)))
 
-(defn cadastrar-alterar-senha-using-put-with-http-info
-  "Realiza o cadastro ou alteraÃ§Ã£o da senha de um CartÃ£o
+(defn cadastrar-alterar-senha-using-post-with-http-info
+  "Realiza o cadastro da senha de um CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id senha ]
-  (call-api "/api/cartoes/{id}/alterar-senha" :put
+  (call-api "/api/cartoes/{id}/cadastrar-senha" :post
             {:path-params   {"id" id }
              :header-params {"senha" senha }
              :query-params  {}
@@ -72,11 +91,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn cadastrar-alterar-senha-using-put
-  "Realiza o cadastro ou alteraÃ§Ã£o da senha de um CartÃ£o
+(defn cadastrar-alterar-senha-using-post
+  "Realiza o cadastro da senha de um CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id senha ]
-  (:data (cadastrar-alterar-senha-using-put-with-http-info id senha)))
+  (:data (cadastrar-alterar-senha-using-post-with-http-info id senha)))
 
 (defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o

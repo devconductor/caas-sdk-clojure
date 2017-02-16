@@ -21,7 +21,7 @@
   [id evento metodo url ]
   (:data (alterar-using-put3-with-http-info id evento metodo url)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get11-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -34,16 +34,16 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn listar-using-get11-with-http-info
+(defn listar-using-get12-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get11-with-http-info nil))
+  ([] (listar-using-get12-with-http-info nil))
   ([{:keys [page limit id evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -54,12 +54,12 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get11
+(defn listar-using-get12
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get11 nil))
+  ([] (listar-using-get12 nil))
   ([optional-params]
-   (:data (listar-using-get11-with-http-info optional-params))))
+   (:data (listar-using-get12-with-http-info optional-params))))
 
 (defn salvar-using-post4-with-http-info
   "Salvar Webhook

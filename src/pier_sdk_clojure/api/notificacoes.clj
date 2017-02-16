@@ -5,40 +5,23 @@
 (defn atualizar-sms-using-post-with-http-info
   "Atualizar SMS
   Esse recurso permite atualizar o status do SMS do emissor"
-  [nsu status data texto-status operadora ]
-  (call-api "/api/notificacoes/sms/atualizar-status" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"nsu" nsu "status" status "data" data "texto_status" texto-status "operadora" operadora }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+  ([] (atualizar-sms-using-post-with-http-info nil))
+  ([{:keys [nsu status data texto-status operadora ]}]
+   (call-api "/api/notificacoes/sms/atualizar-status" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"nsu" nsu "status" status "data" data "texto_status" texto-status "operadora" operadora }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
 
 (defn atualizar-sms-using-post
   "Atualizar SMS
   Esse recurso permite atualizar o status do SMS do emissor"
-  [nsu status data texto-status operadora ]
-  (:data (atualizar-sms-using-post-with-http-info nsu status data texto-status operadora)))
-
-(defn limpar-acesso-tww-using-get-with-http-info
-  "Limpar Acessos
-  Esse recurso permite limpar a lista de emissores que possuem acesso a envio de SMS pela TWW."
-  []
-  (call-api "/api/notificacoes/sms/limpar" :get
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn limpar-acesso-tww-using-get
-  "Limpar Acessos
-  Esse recurso permite limpar a lista de emissores que possuem acesso a envio de SMS pela TWW."
-  []
-  (:data (limpar-acesso-tww-using-get-with-http-info)))
+  ([] (atualizar-sms-using-post nil))
+  ([optional-params]
+   (:data (atualizar-sms-using-post-with-http-info optional-params))))
 
 (defn listar-push-using-get-with-http-info
   "Listar Push
@@ -85,21 +68,23 @@
 (defn responder-sms-using-post-with-http-info
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
-  [nsu data resposta ]
-  (call-api "/api/notificacoes/sms/responder" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"nsu" nsu "data" data "resposta" resposta }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+  ([] (responder-sms-using-post-with-http-info nil))
+  ([{:keys [nsu data resposta ]}]
+   (call-api "/api/notificacoes/sms/responder" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"nsu" nsu "data" data "resposta" resposta }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
 
 (defn responder-sms-using-post
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
-  [nsu data resposta ]
-  (:data (responder-sms-using-post-with-http-info nsu data resposta)))
+  ([] (responder-sms-using-post nil))
+  ([optional-params]
+   (:data (responder-sms-using-post-with-http-info optional-params))))
 
 (defn salvar-push-fcm-using-post-with-http-info
   "Enviar Push FCM
