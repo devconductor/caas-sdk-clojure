@@ -201,8 +201,8 @@
    (:data (listar-faturas-using-get-with-http-info id optional-params))))
 
 (defn listar-using-get15-with-http-info
-  "Lista as transferÃªncias de crÃ©dito realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias de crÃ©dito realizadas pela conta existentes na base do emissor."
+  "Lista as transferÃªncias realizadas pela conta
+  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
   ([id ] (listar-using-get15-with-http-info id nil))
   ([id {:keys [page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias" :get
@@ -215,8 +215,8 @@
               :auth-names    ["access_token"]})))
 
 (defn listar-using-get15
-  "Lista as transferÃªncias de crÃ©dito realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias de crÃ©dito realizadas pela conta existentes na base do emissor."
+  "Lista as transferÃªncias realizadas pela conta
+  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
   ([id ] (listar-using-get15 id nil))
   ([id optional-params]
    (:data (listar-using-get15-with-http-info id optional-params))))
