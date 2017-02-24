@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get5-with-http-info
+(defn consultar-using-get8-with-http-info
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get5
+(defn consultar-using-get8
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get5-with-http-info id)))
+  (:data (consultar-using-get8-with-http-info id)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get9-with-http-info
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get6
+(defn consultar-using-get9
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get9-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
@@ -120,31 +120,10 @@
   ([optional-params]
    (:data (listar-status-cartoes-using-get-with-http-info optional-params))))
 
-(defn listar-using-get6-with-http-info
-  "Lista os Status Contas cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get6-with-http-info nil))
-  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao ]}]
-   (call-api "/api/status-contas" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get6
-  "Lista os Status Contas cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get6 nil))
-  ([optional-params]
-   (:data (listar-using-get6-with-http-info optional-params))))
-
-(defn listar-using-get7-with-http-info
+(defn listar-using-get10-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get7-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -155,9 +134,30 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get7
+(defn listar-using-get10
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get7 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))
+
+(defn listar-using-get9-with-http-info
+  "Lista os Status Contas cadastrados para o Emissor
+  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
+  ([] (listar-using-get9-with-http-info nil))
+  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao ]}]
+   (call-api "/api/status-contas" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn listar-using-get9
+  "Lista os Status Contas cadastrados para o Emissor
+  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
+  ([] (listar-using-get9 nil))
+  ([optional-params]
+   (:data (listar-using-get9-with-http-info optional-params))))

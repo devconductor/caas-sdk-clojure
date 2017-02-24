@@ -135,7 +135,7 @@
   [id ]
   (:data (consultar-portador-using-get-with-http-info id)))
 
-(defn consultar-using-get1-with-http-info
+(defn consultar-using-get2-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -148,11 +148,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get1
+(defn consultar-using-get2
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get1-with-http-info id)))
+  (:data (consultar-using-get2-with-http-info id)))
 
 (defn desbloquear-using-put-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
@@ -234,10 +234,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get1-with-http-info
+(defn listar-using-get2-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get1-with-http-info nil))
+  ([] (listar-using-get2-with-http-info nil))
   ([{:keys [page limit id id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -248,12 +248,12 @@
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get1
+(defn listar-using-get2
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get1 nil))
+  ([] (listar-using-get2 nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
+   (:data (listar-using-get2-with-http-info optional-params))))
 
 (defn validar-cartao-chip-bandeirado-using-get-with-http-info
   "Permite validar um CartÃ£o com bandeira Mastercard a partir do chip

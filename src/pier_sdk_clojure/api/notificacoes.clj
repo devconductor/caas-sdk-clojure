@@ -27,11 +27,11 @@
   "Listar Push
   Esse recurso permite listar os Pushes do emissor"
   ([] (listar-push-using-get-with-http-info nil))
-  ([{:keys [page limit data-envio evento status plataforma protocolo ]}]
+  ([{:keys [page limit data-envio tipo-evento status plataforma protocolo ]}]
    (call-api "/api/notificacoes/push" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataEnvio" data-envio "evento" evento "status" status "plataforma" plataforma "protocolo" protocolo }
+              :query-params  {"page" page "limit" limit "dataEnvio" data-envio "tipoEvento" tipo-evento "status" status "plataforma" plataforma "protocolo" protocolo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -48,11 +48,11 @@
   "Listar SMS
   Esse recurso permite listar os SMS do emissor"
   ([] (listar-sms-using-get-with-http-info nil))
-  ([{:keys [page limit data-inclusao evento status operadora protocolo ]}]
+  ([{:keys [page limit data-inclusao tipo-evento status operadora protocolo ]}]
    (call-api "/api/notificacoes/sms" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataInclusao" data-inclusao "evento" evento "status" status "operadora" operadora "protocolo" protocolo }
+              :query-params  {"page" page "limit" limit "dataInclusao" data-inclusao "tipoEvento" tipo-evento "status" status "operadora" operadora "protocolo" protocolo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
