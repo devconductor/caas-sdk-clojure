@@ -3,7 +3,8 @@
   (:import (java.io File)))
 
 (defn adicionar-using-post-with-http-info
-  "Adiciona uma nova FAQ para um determinado Emissor."
+  "Adiciona uma nova FAQ
+  Adiciona uma nova FAQ"
   ([pergunta resposta ] (adicionar-using-post-with-http-info pergunta resposta nil))
   ([pergunta resposta {:keys [relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :post
@@ -16,13 +17,15 @@
               :auth-names    ["access_token"]})))
 
 (defn adicionar-using-post
-  "Adiciona uma nova FAQ para um determinado Emissor."
+  "Adiciona uma nova FAQ
+  Adiciona uma nova FAQ"
   ([pergunta resposta ] (adicionar-using-post pergunta resposta nil))
   ([pergunta resposta optional-params]
    (:data (adicionar-using-post-with-http-info pergunta resposta optional-params))))
 
 (defn alterar-using-put2-with-http-info
-  "Altera os parÃ¢metros de uma FAQ existente."
+  "Alterar FAQ
+  Alterar FAQ"
   ([id pergunta resposta ] (alterar-using-put2-with-http-info id pergunta resposta nil))
   ([id pergunta resposta {:keys [relevancia plataforma categoria status ]}]
    (call-api "/api/faqs/{id}" :put
@@ -35,13 +38,15 @@
               :auth-names    ["access_token"]})))
 
 (defn alterar-using-put2
-  "Altera os parÃ¢metros de uma FAQ existente."
+  "Alterar FAQ
+  Alterar FAQ"
   ([id pergunta resposta ] (alterar-using-put2 id pergunta resposta nil))
   ([id pergunta resposta optional-params]
    (:data (alterar-using-put2-with-http-info id pergunta resposta optional-params))))
 
 (defn consultar-using-get5-with-http-info
-  "Consulta os detalhes de uma determinada FAQ relacionada a um Emissor."
+  "Consultar FAQ por id
+  Consulta os detalhes de uma determinada FAQ"
   [id ]
   (call-api "/api/faqs/{id}" :get
             {:path-params   {"id" id }
@@ -53,12 +58,14 @@
              :auth-names    ["access_token"]}))
 
 (defn consultar-using-get5
-  "Consulta os detalhes de uma determinada FAQ relacionada a um Emissor."
+  "Consultar FAQ por id
+  Consulta os detalhes de uma determinada FAQ"
   [id ]
   (:data (consultar-using-get5-with-http-info id)))
 
 (defn listar-using-get5-with-http-info
-  "Lista todas as FAQs de um determinado emissor."
+  "Lista FAQs
+  Lista todas as FAQs"
   ([] (listar-using-get5-with-http-info nil))
   ([{:keys [page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
@@ -71,7 +78,8 @@
               :auth-names    ["access_token"]})))
 
 (defn listar-using-get5
-  "Lista todas as FAQs de um determinado emissor."
+  "Lista FAQs
+  Lista todas as FAQs"
   ([] (listar-using-get5 nil))
   ([optional-params]
    (:data (listar-using-get5-with-http-info optional-params))))

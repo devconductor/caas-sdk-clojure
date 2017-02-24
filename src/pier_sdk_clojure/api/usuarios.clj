@@ -22,7 +22,7 @@
   (:data (alterar-senha-using-put-with-http-info id senha-atual senha-nova)))
 
 (defn alterar-using-put6-with-http-info
-  "Alterar os usuÃ¡rios cadastrados na base do PIER
+  "Alterar os usuÃ¡rios cadastrados
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (call-api "/api/usuarios/{id}" :put
@@ -36,7 +36,7 @@
              :auth-names    ["access_token"]}))
 
 (defn alterar-using-put6
-  "Alterar os usuÃ¡rios cadastrados na base do PIER
+  "Alterar os usuÃ¡rios cadastrados
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (:data (alterar-using-put6-with-http-info id update)))
@@ -61,7 +61,7 @@
   (:data (consultar-using-get16-with-http-info id)))
 
 (defn listar-using-get16-with-http-info
-  "Lista os UsuÃ¡rios cadastrados na base do PIER
+  "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
   ([] (listar-using-get16-with-http-info nil))
   ([{:keys [page limit id nome cpf email status ]}]
@@ -75,7 +75,7 @@
               :auth-names    ["access_token"]})))
 
 (defn listar-using-get16
-  "Lista os UsuÃ¡rios cadastrados na base do PIER
+  "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
   ([] (listar-using-get16 nil))
   ([optional-params]
@@ -101,8 +101,8 @@
   (:data (recuperar-senha-using-post-with-http-info id)))
 
 (defn salvar-using-post6-with-http-info
-  "Cadastrar UsuÃ¡rio na base do PIER
-  Esse recurso permite cadastrar usuÃ¡rios na base do PIER."
+  "Cadastrar UsuÃ¡rio
+  Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
   (call-api "/api/usuarios" :post
             {:path-params   {}
@@ -115,8 +115,8 @@
              :auth-names    ["access_token"]}))
 
 (defn salvar-using-post6
-  "Cadastrar UsuÃ¡rio na base do PIER
-  Esse recurso permite cadastrar usuÃ¡rios na base do PIER."
+  "Cadastrar UsuÃ¡rio
+  Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
   (:data (salvar-using-post6-with-http-info persist)))
 
