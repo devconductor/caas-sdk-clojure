@@ -21,8 +21,8 @@
   [id senha-atual senha-nova ]
   (:data (alterar-senha-using-put-with-http-info id senha-atual senha-nova)))
 
-(defn alterar-using-put6-with-http-info
-  "Alterar os usuÃ¡rios cadastrados
+(defn alterar-using-put9-with-http-info
+  "Altera os usuÃ¡rios cadastrados
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (call-api "/api/usuarios/{id}" :put
@@ -35,13 +35,13 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn alterar-using-put6
-  "Alterar os usuÃ¡rios cadastrados
+(defn alterar-using-put9
+  "Altera os usuÃ¡rios cadastrados
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
-  (:data (alterar-using-put6-with-http-info id update)))
+  (:data (alterar-using-put9-with-http-info id update)))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get22-with-http-info
   "Apresenta os dados de um determinado UsuÃ¡rio
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -54,32 +54,32 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn consultar-using-get16
+(defn consultar-using-get22
   "Apresenta os dados de um determinado UsuÃ¡rio
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get16-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get21-with-http-info
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get16-with-http-info nil))
-  ([{:keys [page limit id nome cpf email status ]}]
+  ([] (listar-using-get21-with-http-info nil))
+  ([{:keys [page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "cpf" cpf "email" email "status" status }
+              :query-params  {"page" page "limit" limit "nome" nome "cpf" cpf "email" email "status" status }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    ["access_token"]})))
 
-(defn listar-using-get16
+(defn listar-using-get21
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get21 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get21-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio
@@ -100,8 +100,8 @@
   [id ]
   (:data (recuperar-senha-using-post-with-http-info id)))
 
-(defn salvar-using-post6-with-http-info
-  "Cadastrar UsuÃ¡rio
+(defn salvar-using-post8-with-http-info
+  "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
   (call-api "/api/usuarios" :post
@@ -114,11 +114,11 @@
              :accepts       ["application/json"]
              :auth-names    ["access_token"]}))
 
-(defn salvar-using-post6
-  "Cadastrar UsuÃ¡rio
+(defn salvar-using-post8
+  "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
-  (:data (salvar-using-post6-with-http-info persist)))
+  (:data (salvar-using-post8-with-http-info persist)))
 
 (defn validar-senha-using-get1-with-http-info
   "Validar a senha do usuÃ¡rio

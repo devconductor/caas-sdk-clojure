@@ -116,6 +116,25 @@
   [id ]
   (:data (consultar-limite-disponibilidade-using-get-with-http-info id)))
 
+(defn consultar-lotes-cartoes-pre-pagos-using-get-with-http-info
+  "Permite consultar um determinado Lote de CartÃµes PrÃ©-Pago
+  Este mÃ©todo permite consultar os cartÃµes prÃ©-pagos existentes na base do emissor atravÃ©s do id do lote."
+  [id ]
+  (call-api "/api/cartoes/lotes-cartoes-pre-pagos/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["access_token"]}))
+
+(defn consultar-lotes-cartoes-pre-pagos-using-get
+  "Permite consultar um determinado Lote de CartÃµes PrÃ©-Pago
+  Este mÃ©todo permite consultar os cartÃµes prÃ©-pagos existentes na base do emissor atravÃ©s do id do lote."
+  [id ]
+  (:data (consultar-lotes-cartoes-pre-pagos-using-get-with-http-info id)))
+
 (defn consultar-portador-using-get-with-http-info
   "Apresenta os dados do Portador do CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes do Portador de um determinado CartÃ£o a partir do cÃ³digo de identificaÃ§Ã£o do CartÃ£o (id)."
@@ -154,6 +173,27 @@
   [id ]
   (:data (consultar-using-get2-with-http-info id)))
 
+(defn consultar-using-get20-with-http-info
+  "Consultar uma transferÃªncia bancÃ¡ria
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get20-with-http-info id id-transferencia nil))
+  ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
+   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
+             {:path-params   {"id" id "id_transferencia" id-transferencia }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn consultar-using-get20
+  "Consultar uma transferÃªncia bancÃ¡ria
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get20 id id-transferencia nil))
+  ([id id-transferencia optional-params]
+   (:data (consultar-using-get20-with-http-info id id-transferencia optional-params))))
+
 (defn desbloquear-using-put-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
@@ -178,7 +218,7 @@
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de CartÃµes PrÃ©-Pagos, de forma nÃ£o nominal, os quais poderÃ£o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, alÃ©m de definir quantos cartÃµes deverÃ£o ser gerados, serÃ¡ possÃ­vel definir qual a Origem Comercial, o Produto, o Tipo do CartÃ£o, a Imagem e o EndereÃ§o para entrega dos CartÃµes presentes no lote gerado. Por padrÃ£o, todos os cartÃµes serÃ£o associados a um idPessoa fictÃ­cio e receberÃ¡ um idConta Ãºnico para cada um deles. Feito isso, os CartÃµes gerados por esta operaÃ§Ã£o seguirÃ£o os mesmos processos de impressÃ£o via grÃ¡fica previamente definidos entre o Emissor e a Conductor."
   ([] (gerar-lotes-cartoes-pre-pagos-using-post-with-http-info nil))
   ([{:keys [id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes ]}]
-   (call-api "/api/cartoes/pre-pagos/lotes" :post
+   (call-api "/api/cartoes/lotes-cartoes-pre-pagos" :post
              {:path-params   {}
               :header-params {}
               :query-params  {"idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes }
@@ -217,11 +257,11 @@
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
   Este mÃ©todo permite que sejam listados os cartÃµes prÃ©-pagos existentes na base do emissor."
   ([] (listar-lotes-cartoes-pre-pagos-using-get-with-http-info nil))
-  ([{:keys [page limit id id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
-   (call-api "/api/cartoes/pre-pagos/lotes" :get
+  ([{:keys [page limit id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
+   (call-api "/api/cartoes/lotes-cartoes-pre-pagos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
+              :query-params  {"page" page "limit" limit "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -234,15 +274,36 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
+(defn listar-using-get19-with-http-info
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get19-with-http-info id nil))
+  ([id {:keys [id-conta-bancaria-destino page limit ]}]
+   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn listar-using-get19
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get19 id nil))
+  ([id optional-params]
+   (:data (listar-using-get19-with-http-info id optional-params))))
+
 (defn listar-using-get2-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
   ([] (listar-using-get2-with-http-info nil))
-  ([{:keys [page limit id id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio ]}]
+  ([{:keys [page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "tipoPortador" tipo-portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio }
+              :query-params  {"page" page "limit" limit "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "tipoPortador" tipo-portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -254,6 +315,27 @@
   ([] (listar-using-get2 nil))
   ([optional-params]
    (:data (listar-using-get2-with-http-info optional-params))))
+
+(defn transferir-using-post-with-http-info
+  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
+  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca {:keys [page limit digito-agencia digito-conta ]}]
+   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"page" page "limit" limit "dataCompra" data-compra "proximoVencimentoPadrao" proximo-vencimento-padrao "proximoVencimentoReal" proximo-vencimento-real "valorCompra" valor-compra "nomeFavorecido" nome-favorecido "documentoFavorecido" documento-favorecido "banco" banco "numeroAgencia" numero-agencia "digitoAgencia" digito-agencia "numeroConta" numero-conta "digitoConta" digito-conta "flagContaPoupanca" flag-conta-poupanca }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn transferir-using-post
+  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
+  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params]
+   (:data (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params))))
 
 (defn validar-cartao-chip-bandeirado-using-get-with-http-info
   "Permite validar um CartÃ£o com bandeira Mastercard a partir do chip
