@@ -84,7 +84,7 @@
   "Consulta os dados de um determinado boleto da fatura
   Este recurso consulta um boleto da fatura"
   [id ]
-  (call-api "/api/contas/{id}/faturas/consultar-ficha-compensacao" :get
+  (call-api "/api/contas/{id}/consultar-dados-pagamento-fatura" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
@@ -124,7 +124,7 @@
   "Consultar a fatura consignadas abertas da conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar a fatura consignada em aberto"
   [id data-vencimento ]
-  (call-api "/api/contas/{id}/faturas-consignadas/consultar-fatura-aberta" :get
+  (call-api "/api/contas/{id}/faturas-consignadas/consultar-aberta" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {"dataVencimento" data-vencimento }
@@ -161,11 +161,11 @@
 (defn consultar-fatura-using-get-with-http-info
   "Consultar Fatura da Conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes de uma fatura vinculados a uma determinada conta."
-  [id id-fatura ]
-  (call-api "/api/contas/{id}/faturas/{id_fatura}" :get
-            {:path-params   {"id" id "id_fatura" id-fatura }
+  [id data-vencimento ]
+  (call-api "/api/contas/{id}/faturas/consultar-fechada" :get
+            {:path-params   {"id" id }
              :header-params {}
-             :query-params  {}
+             :query-params  {"dataVencimento" data-vencimento }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
@@ -174,17 +174,17 @@
 (defn consultar-fatura-using-get
   "Consultar Fatura da Conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes de uma fatura vinculados a uma determinada conta."
-  [id id-fatura ]
-  (:data (consultar-fatura-using-get-with-http-info id id-fatura)))
+  [id data-vencimento ]
+  (:data (consultar-fatura-using-get-with-http-info id data-vencimento)))
 
 (defn consultar-lancamentos-futuros-fatura-using-get-with-http-info
   "Consultar LanÃ§amentos Futuros da Fatura de uma Conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes dos lanÃ§amentos futuros de uma fatura vinculados a uma determinada conta."
-  [id id-fatura ]
-  (call-api "/api/contas/{id}/faturas/{id_fatura}/lancamentos-futuros" :get
-            {:path-params   {"id" id "id_fatura" id-fatura }
+  [id data-vencimento ]
+  (call-api "/api/contas/{id}/faturas/consultar-aberta" :get
+            {:path-params   {"id" id }
              :header-params {}
-             :query-params  {}
+             :query-params  {"dataVencimento" data-vencimento }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
@@ -193,8 +193,8 @@
 (defn consultar-lancamentos-futuros-fatura-using-get
   "Consultar LanÃ§amentos Futuros da Fatura de uma Conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes dos lanÃ§amentos futuros de uma fatura vinculados a uma determinada conta."
-  [id id-fatura ]
-  (:data (consultar-lancamentos-futuros-fatura-using-get-with-http-info id id-fatura)))
+  [id data-vencimento ]
+  (:data (consultar-lancamentos-futuros-fatura-using-get-with-http-info id data-vencimento)))
 
 (defn consultar-limite-disponibilidade-using-get1-with-http-info
   "Apresenta os limites da conta
@@ -214,6 +214,27 @@
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
   [id ]
   (:data (consultar-limite-disponibilidade-using-get1-with-http-info id)))
+
+(defn consultar-using-get20-with-http-info
+  "Consultar uma transferÃªncia bancÃ¡ria
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get20-with-http-info id id-transferencia nil))
+  ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
+             {:path-params   {"id" id "id_transferencia" id-transferencia }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn consultar-using-get20
+  "Consultar uma transferÃªncia bancÃ¡ria
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get20 id id-transferencia nil))
+  ([id id-transferencia optional-params]
+   (:data (consultar-using-get20-with-http-info id id-transferencia optional-params))))
 
 (defn consultar-using-get21-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
@@ -340,7 +361,7 @@
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
   ([id ] (listar-faturas-using-get-with-http-info id nil))
   ([id {:keys [page limit data-vencimento ]}]
-   (call-api "/api/contas/{id}/faturas" :get
+   (call-api "/api/contas/{id}/listar-faturas" :get
              {:path-params   {"id" id }
               :header-params {}
               :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento }
@@ -422,7 +443,7 @@
   Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes nÃ£o processadas da Conta."
   ([id ] (listar-nao-processadas-using-get-with-http-info id nil))
   ([id {:keys [page limit ]}]
-   (call-api "/api/contas/{id}/transacoes/nao-processadas" :get
+   (call-api "/api/contas/{id}/transacoes/listar-nao-processadas" :get
              {:path-params   {"id" id }
               :header-params {}
               :query-params  {"page" page "limit" limit }
@@ -443,7 +464,7 @@
   Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes processadas da Conta."
   ([id ] (listar-processadas-using-get-with-http-info id nil))
   ([id {:keys [page limit data-vencimento ]}]
-   (call-api "/api/contas/{id}/transacoes/processadas" :get
+   (call-api "/api/contas/{id}/transacoes/listar-processadas" :get
              {:path-params   {"id" id }
               :header-params {}
               :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento }
@@ -458,6 +479,27 @@
   ([id ] (listar-processadas-using-get id nil))
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
+
+(defn listar-using-get19-with-http-info
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get19-with-http-info id nil))
+  ([id {:keys [id-conta-bancaria-destino page limit ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn listar-using-get19
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get19 id nil))
+  ([id optional-params]
+   (:data (listar-using-get19-with-http-info id optional-params))))
 
 (defn listar-using-get20-with-http-info
   "Lista as transferÃªncias realizadas pela conta
@@ -540,6 +582,27 @@
   ([id ] (transacoes-using-get id nil))
   ([id optional-params]
    (:data (transacoes-using-get-with-http-info id optional-params))))
+
+(defn transferir-using-post-with-http-info
+  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
+  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca {:keys [page limit digito-agencia digito-conta ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"page" page "limit" limit "dataCompra" data-compra "proximoVencimentoPadrao" proximo-vencimento-padrao "proximoVencimentoReal" proximo-vencimento-real "valorCompra" valor-compra "nomeFavorecido" nome-favorecido "documentoFavorecido" documento-favorecido "banco" banco "numeroAgencia" numero-agencia "digitoAgencia" digito-agencia "numeroConta" numero-conta "digitoConta" digito-conta "flagContaPoupanca" flag-conta-poupanca }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["access_token"]})))
+
+(defn transferir-using-post
+  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
+  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
+  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params]
+   (:data (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params))))
 
 (defn transferir-using-post1-with-http-info
   "Realiza uma transferÃªncia de CrÃ©dito para outro cliente do mesmo Emissor

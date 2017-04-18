@@ -173,27 +173,6 @@
   [id ]
   (:data (consultar-using-get2-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
-  "Consultar uma transferÃªncia bancÃ¡ria
-  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get20-with-http-info id id-transferencia nil))
-  ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
-   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
-             {:path-params   {"id" id "id_transferencia" id-transferencia }
-              :header-params {}
-              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn consultar-using-get20
-  "Consultar uma transferÃªncia bancÃ¡ria
-  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get20 id id-transferencia nil))
-  ([id id-transferencia optional-params]
-   (:data (consultar-using-get20-with-http-info id id-transferencia optional-params))))
-
 (defn desbloquear-using-put-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
@@ -274,27 +253,6 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get19-with-http-info
-  "Listar as transferÃªncias bancÃ¡rias realizadas
-  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get19-with-http-info id nil))
-  ([id {:keys [id-conta-bancaria-destino page limit ]}]
-   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "page" page "limit" limit }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get19
-  "Listar as transferÃªncias bancÃ¡rias realizadas
-  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get19 id nil))
-  ([id optional-params]
-   (:data (listar-using-get19-with-http-info id optional-params))))
-
 (defn listar-using-get2-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
@@ -315,27 +273,6 @@
   ([] (listar-using-get2 nil))
   ([optional-params]
    (:data (listar-using-get2-with-http-info optional-params))))
-
-(defn transferir-using-post-with-http-info
-  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
-  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
-  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
-  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca {:keys [page limit digito-agencia digito-conta ]}]
-   (call-api "/api/cartoes/{id}/transferencias-creditos-contas-bancarias" :post
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"page" page "limit" limit "dataCompra" data-compra "proximoVencimentoPadrao" proximo-vencimento-padrao "proximoVencimentoReal" proximo-vencimento-real "valorCompra" valor-compra "nomeFavorecido" nome-favorecido "documentoFavorecido" documento-favorecido "banco" banco "numeroAgencia" numero-agencia "digitoAgencia" digito-agencia "numeroConta" numero-conta "digitoConta" digito-conta "flagContaPoupanca" flag-conta-poupanca }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn transferir-using-post
-  "Realizar transferÃªncia bancÃ¡ria entre bancos / contas
-  Este recurso tem como objetivo permitir que o portador de um cartÃ£o possa realizar a transferÃªncia de crÃ©dito para outro cliente do mesmo emissor. Assim, o valor do crÃ©dito somado a tarifa para transferÃªncia, quando praticada pelo emissor, serÃ¡ debitado da conta de origem, se houver saldo suficiente, e serÃ¡ creditado na conta de destino."
-  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca ] (transferir-using-post id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca nil))
-  ([id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params]
-   (:data (transferir-using-post-with-http-info id data-compra proximo-vencimento-padrao proximo-vencimento-real valor-compra nome-favorecido documento-favorecido banco numero-agencia numero-conta flag-conta-poupanca optional-params))))
 
 (defn validar-cartao-chip-bandeirado-using-get-with-http-info
   "Permite validar um CartÃ£o com bandeira Mastercard a partir do chip
