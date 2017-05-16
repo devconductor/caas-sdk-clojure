@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-alterar-senha-using-put
   "Realiza a alteraÃ§Ã£o da senha de um CartÃ£o
@@ -32,7 +32,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-status-impressao-using-put
   "Realiza a alteraÃ§Ã£o do Status de ImpressÃ£o do CartÃ£o
@@ -44,14 +44,14 @@
   "Realiza a atribuiÃ§Ã£o de um cartÃ£o prÃ©-pago a uma pessoa
   Esta mÃ©todo permite que um cartÃ£o prÃ©-pago impresso de forma avulsa e anÃ´nimo seja atribuÃ­do a uma pessoa para que esta passe a ser a portadora titular dele."
   [id id-pessoa ]
-  (call-api "/api/cartoes/{id}/atribuir-pessoa" :put
+  (call-api "/api/cartoes/{id}/atribuir-titular" :put
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {"id_pessoa" id-pessoa }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn atribuir-pessoa-using-put
   "Realiza a atribuiÃ§Ã£o de um cartÃ£o prÃ©-pago a uma pessoa
@@ -70,7 +70,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn bloquear-using-put
   "Realiza o bloqueio de um determinado CartÃ£o
@@ -89,13 +89,32 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn cadastrar-alterar-senha-using-post
   "Realiza o cadastro da senha de um CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id senha ]
   (:data (cadastrar-alterar-senha-using-post-with-http-info id senha)))
+
+(defn consultar-dados-cartao-using-get-with-http-info
+  "Consultar Detalhes do CartÃ£o
+  Este mÃ©todo permite que seja consultado os dados necessarios de um cartÃ£o para executar serviÃ§os de autorizaÃ§Ã£o."
+  [id ]
+  (call-api "/api/cartoes/{id}/consultar-dados-reais" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-dados-cartao-using-get
+  "Consultar Detalhes do CartÃ£o
+  Este mÃ©todo permite que seja consultado os dados necessarios de um cartÃ£o para executar serviÃ§os de autorizaÃ§Ã£o."
+  [id ]
+  (:data (consultar-dados-cartao-using-get-with-http-info id)))
 
 (defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o
@@ -108,7 +127,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-limite-disponibilidade-using-get
   "Apresenta os limites do Portador do CartÃ£o
@@ -127,7 +146,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-lotes-cartoes-pre-pagos-using-get
   "Permite consultar um determinado Lote de CartÃµes PrÃ©-Pago
@@ -146,7 +165,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-portador-using-get
   "Apresenta os dados do Portador do CartÃ£o
@@ -165,13 +184,32 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get2
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
   (:data (consultar-using-get2-with-http-info id)))
+
+(defn desbloquear-senha-incorreta-using-post-with-http-info
+  "Realiza o desbloqueio de um cartÃ£o bloqueado por tentativas de senha incorretas
+  Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o que foi bloqueado por tentativas de senha incorretas, a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id ]
+  (call-api "/api/cartoes/{id}/desbloquear-senha-incorreta" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn desbloquear-senha-incorreta-using-post
+  "Realiza o desbloqueio de um cartÃ£o bloqueado por tentativas de senha incorretas
+  Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o que foi bloqueado por tentativas de senha incorretas, a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id ]
+  (:data (desbloquear-senha-incorreta-using-post-with-http-info id)))
 
 (defn desbloquear-using-put-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
@@ -184,7 +222,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn desbloquear-using-put
   "Realiza o desbloqueio de um determinado CartÃ£o
@@ -204,7 +242,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn gerar-lotes-cartoes-pre-pagos-using-post
   "Permite gerar um novo Lote de CartÃµes PrÃ©-Pago
@@ -224,7 +262,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn gerar-nova-via-using-post
   "Gerar uma nova via de CartÃ£o
@@ -244,7 +282,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-lotes-cartoes-pre-pagos-using-get
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
@@ -253,10 +291,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get2-with-http-info
+(defn listar-using-get3-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get2-with-http-info nil))
+  ([] (listar-using-get3-with-http-info nil))
   ([{:keys [page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -265,90 +303,71 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get2
+(defn listar-using-get3
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get2 nil))
+  ([] (listar-using-get3 nil))
   ([optional-params]
-   (:data (listar-using-get2-with-http-info optional-params))))
+   (:data (listar-using-get3-with-http-info optional-params))))
 
-(defn validar-cartao-chip-bandeirado-using-get-with-http-info
-  "Permite validar um CartÃ£o com bandeira Mastercard a partir do chip
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o criptograma gerado a partir da leitura de um chip EMV de um CartÃ£o com bandeira Mastercard a fim de verificar a sua autenticidade. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
+(defn validar-dados-impressos-bandeirado-using-get-with-http-info
+  "Permite validar os dados impressos em um cartÃ£o bandeirado
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
+  [numero-cartao nome-portador data-validade codigo-seguranca ]
+  (call-api "/api/cartoes/validar-dados-impressos-bandeirados" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"numero_cartao" numero-cartao "nome_portador" nome-portador "data_validade" data-validade "codigo_seguranca" codigo-seguranca }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-dados-impressos-bandeirado-using-get
+  "Permite validar os dados impressos em um cartÃ£o bandeirado
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
+  [numero-cartao nome-portador data-validade codigo-seguranca ]
+  (:data (validar-dados-impressos-bandeirado-using-get-with-http-info numero-cartao nome-portador data-validade codigo-seguranca)))
+
+(defn validar-dados-impressos-nao-bandeirado-using-get-with-http-info
+  "Permite validar os dados impressos de um cartao nÃ£o bandeirado
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
+  [numero-cartao nome-portador data-validade codigo-seguranca ]
+  (call-api "/api/cartoes/validar-dados-impressos-nao-bandeirados" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"numero_cartao" numero-cartao "nome_portador" nome-portador "data_validade" data-validade "codigo_seguranca" codigo-seguranca }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-dados-impressos-nao-bandeirado-using-get
+  "Permite validar os dados impressos de um cartao nÃ£o bandeirado
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
+  [numero-cartao nome-portador data-validade codigo-seguranca ]
+  (:data (validar-dados-impressos-nao-bandeirado-using-get-with-http-info numero-cartao nome-portador data-validade codigo-seguranca)))
+
+(defn validar-de55-cartao-mastercard-using-get-with-http-info
+  "Permite validar um CartÃ£o com bandeira Mastercard a partir do de55
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o DE55 gerado a partir da leitura de um chip EMV de um CartÃ£o com bandeira Mastercard a fim de verificar a sua autenticidade. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
   [numero-cartao criptograma ]
-  (call-api "/api/cartoes/bandeirados/validar-chip" :get
+  (call-api "/api/cartoes/validar-de55-mastercard" :get
             {:path-params   {}
              :header-params {}
              :query-params  {"numero_cartao" numero-cartao "criptograma" criptograma }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
-(defn validar-cartao-chip-bandeirado-using-get
-  "Permite validar um CartÃ£o com bandeira Mastercard a partir do chip
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o criptograma gerado a partir da leitura de um chip EMV de um CartÃ£o com bandeira Mastercard a fim de verificar a sua autenticidade. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
+(defn validar-de55-cartao-mastercard-using-get
+  "Permite validar um CartÃ£o com bandeira Mastercard a partir do de55
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem o DE55 gerado a partir da leitura de um chip EMV de um CartÃ£o com bandeira Mastercard a fim de verificar a sua autenticidade. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
   [numero-cartao criptograma ]
-  (:data (validar-cartao-chip-bandeirado-using-get-with-http-info numero-cartao criptograma)))
-
-(defn validar-cartao-digitado-bandeirado-using-get-with-http-info
-  "Permite validar um CartÃ£o bandeirado a partir dos dados Impressos
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
-  [numero-cartao nome-portador data-validade codigo-seguranca ]
-  (call-api "/api/cartoes/bandeirados/validar-digitado" :get
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"numero_cartao" numero-cartao "nome_portador" nome-portador "data_validade" data-validade "codigo_seguranca" codigo-seguranca }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn validar-cartao-digitado-bandeirado-using-get
-  "Permite validar um CartÃ£o bandeirado a partir dos dados Impressos
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
-  [numero-cartao nome-portador data-validade codigo-seguranca ]
-  (:data (validar-cartao-digitado-bandeirado-using-get-with-http-info numero-cartao nome-portador data-validade codigo-seguranca)))
-
-(defn validar-cartao-digitado-nao-bandeirado-using-get-with-http-info
-  "Permite validar um CartÃ£o a partir dos dados Impressos
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
-  [numero-cartao nome-portador data-validade codigo-seguranca ]
-  (call-api "/api/cartoes/nao-bandeirados/validar-digitado" :get
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"numero_cartao" numero-cartao "nome_portador" nome-portador "data_validade" data-validade "codigo_seguranca" codigo-seguranca }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn validar-cartao-digitado-nao-bandeirado-using-get
-  "Permite validar um CartÃ£o a partir dos dados Impressos
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir do envio dos dados sensÃ­veis impressos nele. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o para a realizaÃ§Ã£o de transaÃ§Ãµes e-commerce ou por meio de Centrais de Atendimento EletrÃ´nico (URA), dentre outras."
-  [numero-cartao nome-portador data-validade codigo-seguranca ]
-  (:data (validar-cartao-digitado-nao-bandeirado-using-get-with-http-info numero-cartao nome-portador data-validade codigo-seguranca)))
-
-(defn validar-cartao-tarja-bandeirado-using-get-with-http-info
-  "Permite validar um CartÃ£o Bandeirado a partir da Tarja
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
-  [numero-cartao trilha1 trilha2 ]
-  (call-api "/api/cartoes/bandeirados/validar-tarja" :get
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"numero_cartao" numero-cartao "trilha1" trilha1 "trilha2" trilha2 }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn validar-cartao-tarja-bandeirado-using-get
-  "Permite validar um CartÃ£o Bandeirado a partir da Tarja
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
-  [numero-cartao trilha1 trilha2 ]
-  (:data (validar-cartao-tarja-bandeirado-using-get-with-http-info numero-cartao trilha1 trilha2)))
+  (:data (validar-de55-cartao-mastercard-using-get-with-http-info numero-cartao criptograma)))
 
 (defn validar-senha-using-get-with-http-info
   "Permite validar a senha de um CartÃ£o
@@ -361,10 +380,29 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn validar-senha-using-get
   "Permite validar a senha de um CartÃ£o
   Esta operaÃ§Ã£o tem como objetivo permitir validar que a senha informada pelo portador de um determinado cartÃ£o estÃ¡ correta."
   [id senha ]
   (:data (validar-senha-using-get-with-http-info id senha)))
+
+(defn validar-tarja-using-get-with-http-info
+  "Permite validar um CartÃ£o Bandeirado a partir da Tarja
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
+  [numero-cartao trilha1 trilha2 ]
+  (call-api "/api/cartoes/validar-tarja" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"numero_cartao" numero-cartao "trilha1" trilha1 "trilha2" trilha2 }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-tarja-using-get
+  "Permite validar um CartÃ£o Bandeirado a partir da Tarja
+  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado CartÃ£o a partir da leitura da tarja magnÃ©tica do mesmo. A utilizaÃ§Ã£o desde mÃ©todo tem diversas aplicaÃ§Ãµes, sendo a principal delas a de IdentificaÃ§Ã£o Positiva do CartÃ£o antes de permitir que o portador realize transaÃ§Ãµes diversas, como as de compra e saque na modalidade dÃ©bito em conta corrente, dentre outras."
+  [numero-cartao trilha1 trilha2 ]
+  (:data (validar-tarja-using-get-with-http-info numero-cartao trilha1 trilha2)))

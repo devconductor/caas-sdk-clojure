@@ -14,7 +14,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn adicionar-using-post
   "Adiciona uma nova FAQ
@@ -35,7 +35,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn alterar-using-put2
   "Alterar FAQ
@@ -55,7 +55,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get6
   "Consultar FAQ por id
@@ -63,10 +63,10 @@
   [id ]
   (:data (consultar-using-get6-with-http-info id)))
 
-(defn listar-using-get6-with-http-info
+(defn listar-using-get8-with-http-info
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get6-with-http-info nil))
+  ([] (listar-using-get8-with-http-info nil))
   ([{:keys [page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
@@ -75,11 +75,11 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get6
+(defn listar-using-get8
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get6 nil))
+  ([] (listar-using-get8 nil))
   ([optional-params]
-   (:data (listar-using-get6-with-http-info optional-params))))
+   (:data (listar-using-get8-with-http-info optional-params))))

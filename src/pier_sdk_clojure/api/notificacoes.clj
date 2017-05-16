@@ -14,7 +14,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn atualizar-sms-using-post
   "Atualizar SMS
@@ -35,7 +35,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-push-using-get
   "Listar Push
@@ -48,15 +48,15 @@
   "Listar SMS
   Esse recurso permite listar os SMS do emissor"
   ([] (listar-sms-using-get-with-http-info nil))
-  ([{:keys [page limit data-inclusao tipo-evento status operadora protocolo ]}]
+  ([{:keys [page limit data-inclusao tipo-evento status operadora protocolo nsu ]}]
    (call-api "/api/notificacoes/sms" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataInclusao" data-inclusao "tipoEvento" tipo-evento "status" status "operadora" operadora "protocolo" protocolo }
+              :query-params  {"page" page "limit" limit "dataInclusao" data-inclusao "tipoEvento" tipo-evento "status" status "operadora" operadora "protocolo" protocolo "nsu" nsu }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-sms-using-get
   "Listar SMS
@@ -77,7 +77,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn responder-sms-using-post
   "Responder SMS
@@ -98,7 +98,7 @@
              :body-param    push-persists
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-push-fcm-using-post
   "Enviar Push FCM
@@ -118,7 +118,7 @@
              :body-param    push-persists
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-push-gcm-using-post
   "Enviar Push GCM
@@ -138,7 +138,7 @@
              :body-param    push-persists
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-push-using-post
   "Enviar Push APNS
@@ -158,7 +158,7 @@
              :body-param    lista-sms
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-sms-using-post
   "Enviar SMS

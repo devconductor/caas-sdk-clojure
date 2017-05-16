@@ -12,7 +12,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn limpar-using-post
   "Limpar mapa de bases"

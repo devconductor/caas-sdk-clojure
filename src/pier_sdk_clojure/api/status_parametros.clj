@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-estagio-cartao-using-get
   "Apresenta os dados de um determinado Estagio CartÃ£o
@@ -32,7 +32,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-status-cartao-using-get
   "Apresenta os dados de um determinado Status CartÃ£o
@@ -51,7 +51,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get11
   "Apresenta os dados de um determinado Status Conta
@@ -70,7 +70,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get12
   "Apresenta os dados de um determinado Status ImpressÃ£o
@@ -90,7 +90,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-estagios-cartoes-using-get
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
@@ -111,7 +111,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-status-cartoes-using-get
   "Lista as opÃ§Ãµes de Status do CartÃ£o
@@ -120,10 +120,10 @@
   ([optional-params]
    (:data (listar-status-cartoes-using-get-with-http-info optional-params))))
 
-(defn listar-using-get12-with-http-info
+(defn listar-using-get15-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get12-with-http-info nil))
+  ([] (listar-using-get15-with-http-info nil))
   ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -132,19 +132,19 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get12
+(defn listar-using-get15
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get12 nil))
+  ([] (listar-using-get15 nil))
   ([optional-params]
-   (:data (listar-using-get12-with-http-info optional-params))))
+   (:data (listar-using-get15-with-http-info optional-params))))
 
-(defn listar-using-get13-with-http-info
+(defn listar-using-get16-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get13-with-http-info nil))
+  ([] (listar-using-get16-with-http-info nil))
   ([{:keys [page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -153,11 +153,11 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get13
+(defn listar-using-get16
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get13 nil))
+  ([] (listar-using-get16 nil))
   ([optional-params]
-   (:data (listar-using-get13-with-http-info optional-params))))
+   (:data (listar-using-get16-with-http-info optional-params))))

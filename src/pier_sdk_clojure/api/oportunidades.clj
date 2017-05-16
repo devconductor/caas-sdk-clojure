@@ -14,7 +14,7 @@
              :body-param    persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-status-using-put
   "Altera o status do tipo oportunidade
@@ -34,7 +34,7 @@
              :body-param    update
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-using-put3
   "Altera as oportunidades
@@ -54,7 +54,7 @@
              :body-param    persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-using-put7
   "Altera os tipos oportunidades
@@ -73,7 +73,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-status-using-get
   "Apresenta dados de um determinado status do tipo oportunidade
@@ -92,7 +92,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get17
   "Apresenta dados de um determinado tipo oportunidade
@@ -111,7 +111,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get7
   "Apresenta dados de uma determinada oportunidade
@@ -123,15 +123,15 @@
   "Lista as auditorias dos status oportunidades
   Este recurso permite listar os status oportunidades."
   ([] (listar-auditorias-status-using-get-with-http-info nil))
-  ([{:keys [page limit rev-type rev-date id id-tipo-oportunidade descricao flag-ativo ]}]
+  ([{:keys [page limit rev-type rev-date id id-tipo-oportunidade nome descricao flag-ativo rev-user ]}]
    (call-api "/api/auditorias-status-oportunidades" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "revType" rev-type "revDate" rev-date "id" id "idTipoOportunidade" id-tipo-oportunidade "descricao" descricao "flagAtivo" flag-ativo }
+              :query-params  {"page" page "limit" limit "revType" rev-type "revDate" rev-date "id" id "idTipoOportunidade" id-tipo-oportunidade "nome" nome "descricao" descricao "flagAtivo" flag-ativo "revUser" rev-user }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-auditorias-status-using-get
   "Lista as auditorias dos status oportunidades
@@ -144,15 +144,15 @@
   "Lista as auditorias das oportunidades
   Este recurso permite listar as auditorias das oportunidades."
   ([] (listar-auditorias-using-get-with-http-info nil))
-  ([{:keys [page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia datat-fim-vigencia flag-ativo rev-date rev-type ]}]
+  ([{:keys [page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia datat-fim-vigencia flag-ativo rev-date rev-type rev-user ]}]
    (call-api "/api/auditorias-oportunidades" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idStatusOportunidade" id-status-oportunidade "dataCadastro" data-cadastro "dataAtualizacao" data-atualizacao "numeroReceitaFederal" numero-receita-federal "dataInicioVigencia" data-inicio-vigencia "datatFimVigencia" datat-fim-vigencia "flagAtivo" flag-ativo "revDate" rev-date "revType" rev-type }
+              :query-params  {"page" page "limit" limit "idStatusOportunidade" id-status-oportunidade "dataCadastro" data-cadastro "dataAtualizacao" data-atualizacao "numeroReceitaFederal" numero-receita-federal "dataInicioVigencia" data-inicio-vigencia "datatFimVigencia" datat-fim-vigencia "flagAtivo" flag-ativo "revDate" rev-date "revType" rev-type "revUser" rev-user }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-auditorias-using-get
   "Lista as auditorias das oportunidades
@@ -165,15 +165,15 @@
   "Lista as auditorias dos tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
   ([] (listar-auditorias-using-get1-with-http-info nil))
-  ([{:keys [page limit rev-type rev-date id descricao flag-ativo ]}]
+  ([{:keys [page limit rev-type rev-date id descricao flag-ativo rev-user ]}]
    (call-api "/api/auditorias-tipos-oportunidades" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "revType" rev-type "revDate" rev-date "id" id "descricao" descricao "flagAtivo" flag-ativo }
+              :query-params  {"page" page "limit" limit "revType" rev-type "revDate" rev-date "id" id "descricao" descricao "flagAtivo" flag-ativo "revUser" rev-user }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-auditorias-using-get1
   "Lista as auditorias dos tipos oportunidades
@@ -186,15 +186,15 @@
   "Lista os status do tipo oportunidades
   Este recurso permite listar os status do tipo oportunidades."
   ([id ] (listar-status-using-get-with-http-info id nil))
-  ([id {:keys [page limit descricao flag-ativo ]}]
+  ([id {:keys [page limit nome descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades/{id}/status" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "descricao" descricao "flagAtivo" flag-ativo }
+              :query-params  {"page" page "limit" limit "nome" nome "descricao" descricao "flagAtivo" flag-ativo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-status-using-get
   "Lista os status do tipo oportunidades
@@ -203,10 +203,10 @@
   ([id optional-params]
    (:data (listar-status-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get19-with-http-info
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get19-with-http-info nil))
   ([{:keys [page limit descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades" :get
              {:path-params   {}
@@ -215,19 +215,19 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get19
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get19 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get19-with-http-info optional-params))))
 
-(defn listar-using-get7-with-http-info
+(defn listar-using-get9-with-http-info
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get7-with-http-info nil))
+  ([] (listar-using-get9-with-http-info nil))
   ([{:keys [page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
@@ -236,14 +236,14 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get7
+(defn listar-using-get9
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get7 nil))
+  ([] (listar-using-get9 nil))
   ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
+   (:data (listar-using-get9-with-http-info optional-params))))
 
 (defn salvar-status-using-post-with-http-info
   "Cadastra status para o tipo oportunidade
@@ -257,7 +257,7 @@
              :body-param    persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-status-using-post
   "Cadastra status para o tipo oportunidade
@@ -265,27 +265,7 @@
   [id persist ]
   (:data (salvar-status-using-post-with-http-info id persist)))
 
-(defn salvar-using-post3-with-http-info
-  "Cadastra as oportunidade
-  Esse recurso permite cadastrar oportunidades."
-  [persist ]
-  (call-api "/api/oportunidades" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :body-param    persist
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
-
-(defn salvar-using-post3
-  "Cadastra as oportunidade
-  Esse recurso permite cadastrar oportunidades."
-  [persist ]
-  (:data (salvar-using-post3-with-http-info persist)))
-
-(defn salvar-using-post6-with-http-info
+(defn salvar-using-post10-with-http-info
   "Cadastra tipos oportunidades
   Esse recurso permite cadastrar tipos oportunidades."
   [persist ]
@@ -297,10 +277,30 @@
              :body-param    persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
-(defn salvar-using-post6
+(defn salvar-using-post10
   "Cadastra tipos oportunidades
   Esse recurso permite cadastrar tipos oportunidades."
   [persist ]
-  (:data (salvar-using-post6-with-http-info persist)))
+  (:data (salvar-using-post10-with-http-info persist)))
+
+(defn salvar-using-post5-with-http-info
+  "Cadastra as oportunidade
+  Esse recurso permite cadastrar oportunidades."
+  [persist ]
+  (call-api "/api/oportunidades" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn salvar-using-post5
+  "Cadastra as oportunidade
+  Esse recurso permite cadastrar oportunidades."
+  [persist ]
+  (:data (salvar-using-post5-with-http-info persist)))

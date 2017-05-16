@@ -13,7 +13,7 @@
              :body-param    body-access-token
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn callback-using-post
   "/api/tokens/callback"

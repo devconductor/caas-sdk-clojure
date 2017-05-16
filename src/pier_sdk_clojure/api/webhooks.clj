@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-using-put10
   "Alterar Webhook
@@ -32,7 +32,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get23
   "Consultar Webhook
@@ -40,10 +40,10 @@
   [id ]
   (:data (consultar-using-get23-with-http-info id)))
 
-(defn listar-using-get22-with-http-info
+(defn listar-using-get25-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get22-with-http-info nil))
+  ([] (listar-using-get25-with-http-info nil))
   ([{:keys [page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -52,16 +52,16 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get22
+(defn listar-using-get25
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get22 nil))
+  ([] (listar-using-get25 nil))
   ([optional-params]
-   (:data (listar-using-get22-with-http-info optional-params))))
+   (:data (listar-using-get25-with-http-info optional-params))))
 
-(defn salvar-using-post9-with-http-info
+(defn salvar-using-post13-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -72,10 +72,10 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
-(defn salvar-using-post9
+(defn salvar-using-post13
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post9-with-http-info tipo-evento url)))
+  (:data (salvar-using-post13-with-http-info tipo-evento url)))

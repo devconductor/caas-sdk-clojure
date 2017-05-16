@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-senha-using-put
   "Alterar senha do usuÃ¡rio
@@ -33,13 +33,32 @@
              :body-param    update
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn alterar-using-put9
   "Altera os usuÃ¡rios cadastrados
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (:data (alterar-using-put9-with-http-info id update)))
+
+(defn ativar-usuario-using-post-with-http-info
+  "Ativa os usuÃ¡rios cadastrados
+  Este mÃ©todo realiza a ativaÃ§Ã£o dos usuÃ¡rios."
+  [id ]
+  (call-api "/api/usuarios/{id}/ativar-usuario" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn ativar-usuario-using-post
+  "Ativa os usuÃ¡rios cadastrados
+  Este mÃ©todo realiza a ativaÃ§Ã£o dos usuÃ¡rios."
+  [id ]
+  (:data (ativar-usuario-using-post-with-http-info id)))
 
 (defn consultar-using-get22-with-http-info
   "Apresenta os dados de um determinado UsuÃ¡rio
@@ -52,7 +71,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get22
   "Apresenta os dados de um determinado UsuÃ¡rio
@@ -60,10 +79,29 @@
   [id ]
   (:data (consultar-using-get22-with-http-info id)))
 
-(defn listar-using-get21-with-http-info
+(defn desativar-usuario-using-post-with-http-info
+  "Desativa os usuÃ¡rios cadastrados
+  Este mÃ©todo realiza a desativaÃ§Ã£o dos usuÃ¡rios."
+  [id ]
+  (call-api "/api/usuarios/{id}/desativar-usuario" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn desativar-usuario-using-post
+  "Desativa os usuÃ¡rios cadastrados
+  Este mÃ©todo realiza a desativaÃ§Ã£o dos usuÃ¡rios."
+  [id ]
+  (:data (desativar-usuario-using-post-with-http-info id)))
+
+(defn listar-using-get24-with-http-info
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get21-with-http-info nil))
+  ([] (listar-using-get24-with-http-info nil))
   ([{:keys [page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -72,14 +110,14 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get21
+(defn listar-using-get24
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get21 nil))
+  ([] (listar-using-get24 nil))
   ([optional-params]
-   (:data (listar-using-get21-with-http-info optional-params))))
+   (:data (listar-using-get24-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio
@@ -92,7 +130,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn recuperar-senha-using-post
   "Recuperar senha do usuÃ¡rio
@@ -100,7 +138,7 @@
   [id ]
   (:data (recuperar-senha-using-post-with-http-info id)))
 
-(defn salvar-using-post8-with-http-info
+(defn salvar-using-post12-with-http-info
   "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
@@ -112,13 +150,13 @@
              :body-param    persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
-(defn salvar-using-post8
+(defn salvar-using-post12
   "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
-  (:data (salvar-using-post8-with-http-info persist)))
+  (:data (salvar-using-post12-with-http-info persist)))
 
 (defn validar-senha-using-get1-with-http-info
   "Validar a senha do usuÃ¡rio
@@ -131,7 +169,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn validar-senha-using-get1
   "Validar a senha do usuÃ¡rio

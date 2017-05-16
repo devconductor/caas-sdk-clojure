@@ -14,7 +14,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn alterar-using-put1
   "Atualiza os dados de um determinado EndereÃ§o
@@ -25,7 +25,7 @@
 
 (defn alterar-using-put4-with-http-info
   "Atualiza os detalhes de uma determinada Pessoa
-  Este mÃ©todo permite que seja alterado na base do emissor od detalhes de uma determinada Pessoa."
+  Este mÃ©todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa."
   ([id ] (alterar-using-put4-with-http-info id nil))
   ([id {:keys [nome-mae id-estado-civil profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes/{id}" :put
@@ -35,11 +35,11 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn alterar-using-put4
   "Atualiza os detalhes de uma determinada Pessoa
-  Este mÃ©todo permite que seja alterado na base do emissor od detalhes de uma determinada Pessoa."
+  Este mÃ©todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa."
   ([id ] (alterar-using-put4 id nil))
   ([id optional-params]
    (:data (alterar-using-put4-with-http-info id optional-params))))
@@ -56,7 +56,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn alterar-using-put5
   "Atualiza os dados de uma determinada Pessoa
@@ -77,7 +77,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn alterar-using-put6
   "Realiza a alteraÃ§Ã£o de um determinado Telefone
@@ -97,7 +97,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-origem-comercial-using-get
   "OperaÃ§Ã£o utilizada para consultar uma determinada Origem Comercial
@@ -116,7 +116,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-produto-using-get
   "Apresenta os dados de um determinado Produto
@@ -135,7 +135,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get13
   "Apresenta os dados de um determinado Telefone
@@ -155,7 +155,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn consultar-using-get14
   "Lista os tipos de ajustes do emissor
@@ -176,7 +176,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn consultar-using-get15
   "Lista os tipos de boletos do emissor
@@ -196,7 +196,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get16
   "Apresenta os dados de um determinado Tipo de EndereÃ§o
@@ -215,7 +215,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get18
   "Apresenta os dados de um determinado Tipo de Telefone
@@ -234,7 +234,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get4
   "Apresenta os dados de um determinado EndereÃ§o
@@ -253,7 +253,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get5
   "Consultar estabelecimento por id
@@ -272,7 +272,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get8
   "Apresenta os detalhes de uma determinada Pessoa
@@ -291,13 +291,34 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn consultar-using-get9
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
   (:data (consultar-using-get9-with-http-info id)))
+
+(defn listar-contas-por-pessoa-using-get-with-http-info
+  "Lista as contas da pessoa
+  Permite listar as contas de um pessoa a partir do seu numero na receita federal."
+  ([numero-receita-federal ] (listar-contas-por-pessoa-using-get-with-http-info numero-receita-federal nil))
+  ([numero-receita-federal {:keys [page limit ]}]
+   (call-api "/api/pessoas/listar-contas" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"numeroReceitaFederal" numero-receita-federal "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-contas-por-pessoa-using-get
+  "Lista as contas da pessoa
+  Permite listar as contas de um pessoa a partir do seu numero na receita federal."
+  ([numero-receita-federal ] (listar-contas-por-pessoa-using-get numero-receita-federal nil))
+  ([numero-receita-federal optional-params]
+   (:data (listar-contas-por-pessoa-using-get-with-http-info numero-receita-federal optional-params))))
 
 (defn listar-estados-civis-using-get-with-http-info
   "Lista os Estados CÃ­vis
@@ -311,7 +332,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-estados-civis-using-get
   "Lista os Estados CÃ­vis
@@ -331,13 +352,34 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn listar-historico-telefones-using-get
   "Listar alteraÃ§Ãµes de telefones realizadas nos Ãºltimos 60 dias
   Este mÃ©todo permite verificar quais os telefones de um determinado que cliente que sofreram alteraÃ§Ã£o nos Ãºltimos 60 dias."
   [id ]
   (:data (listar-historico-telefones-using-get-with-http-info id)))
+
+(defn listar-nacionalidades-using-get-with-http-info
+  "Lista nacionalidades
+  Este mÃ©todo permite que sejam listados as nacionalidades na base de dados do Emissor."
+  ([] (listar-nacionalidades-using-get-with-http-info nil))
+  ([{:keys [page limit ]}]
+   (call-api "/api/nacionalidades" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-nacionalidades-using-get
+  "Lista nacionalidades
+  Este mÃ©todo permite que sejam listados as nacionalidades na base de dados do Emissor."
+  ([] (listar-nacionalidades-using-get nil))
+  ([optional-params]
+   (:data (listar-nacionalidades-using-get-with-http-info optional-params))))
 
 (defn listar-naturezas-ocupacoes-using-get-with-http-info
   "Lista as OcupaÃ§Ãµes
@@ -351,7 +393,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-naturezas-ocupacoes-using-get
   "Lista as OcupaÃ§Ãµes
@@ -372,7 +414,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-origens-comerciais-using-get
   "OperaÃ§Ã£o utilizada para listar Origens Comerciais
@@ -393,7 +435,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-produtos-using-get
   "Lista os Produtos do Emissor
@@ -414,7 +456,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
 (defn listar-profissoes-using-get
   "Lista profissÃµes
@@ -424,135 +466,9 @@
    (:data (listar-profissoes-using-get-with-http-info optional-params))))
 
 (defn listar-using-get10-with-http-info
-  "Lista os Portadores existentes
-  Este mÃ©todo permite que sejam listados os portadores cadastrados na base do emissor."
-  ([] (listar-using-get10-with-http-info nil))
-  ([{:keys [page limit id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador ]}]
-   (call-api "/api/portadores" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get10
-  "Lista os Portadores existentes
-  Este mÃ©todo permite que sejam listados os portadores cadastrados na base do emissor."
-  ([] (listar-using-get10 nil))
-  ([optional-params]
-   (:data (listar-using-get10-with-http-info optional-params))))
-
-(defn listar-using-get14-with-http-info
-  "Lista os Telefones cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get14-with-http-info nil))
-  ([{:keys [page limit id id-tipo-telefone id-pessoa ddd telefone ramal status ]}]
-   (call-api "/api/telefones" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idTipoTelefone" id-tipo-telefone "idPessoa" id-pessoa "ddd" ddd "telefone" telefone "ramal" ramal "status" status }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get14
-  "Lista os Telefones cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get14 nil))
-  ([optional-params]
-   (:data (listar-using-get14-with-http-info optional-params))))
-
-(defn listar-using-get15-with-http-info
-  "Lista as opÃµes de Tipos de EndereÃ§os do Emissor
-  Este mÃ©todo permite que sejam listados os Tipos de EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get15-with-http-info nil))
-  ([{:keys [page limit id nome ]}]
-   (call-api "/api/tipos-enderecos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get15
-  "Lista as opÃµes de Tipos de EndereÃ§os do Emissor
-  Este mÃ©todo permite que sejam listados os Tipos de EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get15 nil))
-  ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
-
-(defn listar-using-get17-with-http-info
-  "Lista os Tipos de Telefones
-  Este mÃ©todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get17-with-http-info nil))
-  ([{:keys [page limit id nome ]}]
-   (call-api "/api/tipos-telefones" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get17
-  "Lista os Tipos de Telefones
-  Este mÃ©todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get17 nil))
-  ([optional-params]
-   (:data (listar-using-get17-with-http-info optional-params))))
-
-(defn listar-using-get4-with-http-info
-  "Lista os EndereÃ§os cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get4-with-http-info nil))
-  ([{:keys [page limit id id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais data-inclusao data-ultima-atualizacao ]}]
-   (call-api "/api/enderecos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataInclusao" data-inclusao "dataUltimaAtualizacao" data-ultima-atualizacao }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get4
-  "Lista os EndereÃ§os cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get4 nil))
-  ([optional-params]
-   (:data (listar-using-get4-with-http-info optional-params))))
-
-(defn listar-using-get5-with-http-info
-  "Lista Estabelecimentos
-  Lista todas os Estabelecimentos"
-  ([] (listar-using-get5-with-http-info nil))
-  ([{:keys [page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
-   (call-api "/api/estabelecimentos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
-
-(defn listar-using-get5
-  "Lista Estabelecimentos
-  Lista todas os Estabelecimentos"
-  ([] (listar-using-get5 nil))
-  ([optional-params]
-   (:data (listar-using-get5-with-http-info optional-params))))
-
-(defn listar-using-get8-with-http-info
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get8-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [page limit id-pessoa nome-mae id-estado-civil profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes" :get
              {:path-params   {}
@@ -561,19 +477,19 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get8
+(defn listar-using-get10
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get8 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get8-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))
 
-(defn listar-using-get9-with-http-info
+(defn listar-using-get11-with-http-info
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get9-with-http-info nil))
+  ([] (listar-using-get11-with-http-info nil))
   ([{:keys [page limit id nome tipo cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
    (call-api "/api/pessoas" :get
              {:path-params   {}
@@ -582,20 +498,146 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn listar-using-get9
+(defn listar-using-get11
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get9 nil))
+  ([] (listar-using-get11 nil))
   ([optional-params]
-   (:data (listar-using-get9-with-http-info optional-params))))
+   (:data (listar-using-get11-with-http-info optional-params))))
+
+(defn listar-using-get13-with-http-info
+  "Lista os Portadores existentes
+  Este mÃ©todo permite que sejam listados os portadores cadastrados na base do emissor."
+  ([] (listar-using-get13-with-http-info nil))
+  ([{:keys [page limit id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador ]}]
+   (call-api "/api/portadores" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get13
+  "Lista os Portadores existentes
+  Este mÃ©todo permite que sejam listados os portadores cadastrados na base do emissor."
+  ([] (listar-using-get13 nil))
+  ([optional-params]
+   (:data (listar-using-get13-with-http-info optional-params))))
+
+(defn listar-using-get17-with-http-info
+  "Lista os Telefones cadastrados no Emissor
+  Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
+  ([] (listar-using-get17-with-http-info nil))
+  ([{:keys [page limit id id-tipo-telefone id-pessoa ddd telefone ramal status ]}]
+   (call-api "/api/telefones" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "idTipoTelefone" id-tipo-telefone "idPessoa" id-pessoa "ddd" ddd "telefone" telefone "ramal" ramal "status" status }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get17
+  "Lista os Telefones cadastrados no Emissor
+  Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
+  ([] (listar-using-get17 nil))
+  ([optional-params]
+   (:data (listar-using-get17-with-http-info optional-params))))
+
+(defn listar-using-get18-with-http-info
+  "Lista as opÃµes de Tipos de EndereÃ§os do Emissor
+  Este mÃ©todo permite que sejam listados os Tipos de EndereÃ§os existentes na base de dados do Emissor."
+  ([] (listar-using-get18-with-http-info nil))
+  ([{:keys [page limit id nome ]}]
+   (call-api "/api/tipos-enderecos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get18
+  "Lista as opÃµes de Tipos de EndereÃ§os do Emissor
+  Este mÃ©todo permite que sejam listados os Tipos de EndereÃ§os existentes na base de dados do Emissor."
+  ([] (listar-using-get18 nil))
+  ([optional-params]
+   (:data (listar-using-get18-with-http-info optional-params))))
+
+(defn listar-using-get20-with-http-info
+  "Lista os Tipos de Telefones
+  Este mÃ©todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor."
+  ([] (listar-using-get20-with-http-info nil))
+  ([{:keys [page limit id nome ]}]
+   (call-api "/api/tipos-telefones" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get20
+  "Lista os Tipos de Telefones
+  Este mÃ©todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor."
+  ([] (listar-using-get20 nil))
+  ([optional-params]
+   (:data (listar-using-get20-with-http-info optional-params))))
+
+(defn listar-using-get6-with-http-info
+  "Lista os EndereÃ§os cadastrados para o Emissor
+  Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
+  ([] (listar-using-get6-with-http-info nil))
+  ([{:keys [page limit id id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais data-inclusao data-ultima-atualizacao ]}]
+   (call-api "/api/enderecos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataInclusao" data-inclusao "dataUltimaAtualizacao" data-ultima-atualizacao }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get6
+  "Lista os EndereÃ§os cadastrados para o Emissor
+  Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
+  ([] (listar-using-get6 nil))
+  ([optional-params]
+   (:data (listar-using-get6-with-http-info optional-params))))
+
+(defn listar-using-get7-with-http-info
+  "Lista Estabelecimentos
+  Lista todas os Estabelecimentos"
+  ([] (listar-using-get7-with-http-info nil))
+  ([{:keys [page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
+   (call-api "/api/estabelecimentos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get7
+  "Lista Estabelecimentos
+  Lista todas os Estabelecimentos"
+  ([] (listar-using-get7 nil))
+  ([optional-params]
+   (:data (listar-using-get7-with-http-info optional-params))))
 
 (defn salvar-pessoa-fisica-aprovada-using-post-with-http-info
   "Cadastro de Conta e Pessoa Fisica
   Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa FÃ­sica, recebendo nesta operaÃ§Ã£o todos os dados cadastrais que se fazem necessÃ¡rios para isso. Uma vez criado, poderÃ¡ ser acionado o mÃ©todo de 'GeraÃ§Ã£o de CartÃ£o' para o cliente e seus adicionais."
   [pessoa-persist ]
-  (call-api "/api/contas-pessoas/fisicas" :post
+  (call-api "/api/clientes-pessoas-fisicas" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
@@ -603,7 +645,7 @@
              :body-param    pessoa-persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-pessoa-fisica-aprovada-using-post
   "Cadastro de Conta e Pessoa Fisica
@@ -615,7 +657,7 @@
   "Cadastro de Conta e Pessoa JurÃ­dica
   Cadastro de Conta e Pessoa JurÃ­dica Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa JurÃ­dica, recebendo nesta operaÃ§Ã£o todos os dados cadastrais que se fazem necessÃ¡rios para isso, incluÃ­ndo o registro de cada um dos sÃ³cios. Uma vez criado, poderÃ¡ ser acionado o mÃ©todo de 'GeraÃ§Ã£o de CartÃ£o' para o cliente e cada um dos sÃ³cios vinculados."
   [pessoa-persist ]
-  (call-api "/api/contas-pessoas/juridicas" :post
+  (call-api "/api/clientes-pessoas-juridicas" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
@@ -623,7 +665,7 @@
              :body-param    pessoa-persist
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["access_token"]}))
+             :auth-names    []}))
 
 (defn salvar-pessoa-juridica-aprovada-using-post
   "Cadastro de Conta e Pessoa JurÃ­dica
@@ -631,10 +673,10 @@
   [pessoa-persist ]
   (:data (salvar-pessoa-juridica-aprovada-using-post-with-http-info pessoa-persist)))
 
-(defn salvar-using-post2-with-http-info
+(defn salvar-using-post4-with-http-info
   "Realiza o cadastro de um novo EndereÃ§o
   Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
-  ([] (salvar-using-post2-with-http-info nil))
+  ([] (salvar-using-post4-with-http-info nil))
   ([{:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
    (call-api "/api/enderecos" :post
              {:path-params   {}
@@ -643,19 +685,40 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn salvar-using-post2
+(defn salvar-using-post4
   "Realiza o cadastro de um novo EndereÃ§o
   Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
-  ([] (salvar-using-post2 nil))
+  ([] (salvar-using-post4 nil))
   ([optional-params]
-   (:data (salvar-using-post2-with-http-info optional-params))))
+   (:data (salvar-using-post4-with-http-info optional-params))))
 
-(defn salvar-using-post4-with-http-info
+(defn salvar-using-post6-with-http-info
+  "Salvar os detalhes de uma determinada Pessoa
+  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
+  ([] (salvar-using-post6-with-http-info nil))
+  ([{:keys [id-pessoa nome-mae id-estado-civil profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
+   (call-api "/api/pessoas-detalhes" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "profissao" profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn salvar-using-post6
+  "Salvar os detalhes de uma determinada Pessoa
+  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
+  ([] (salvar-using-post6 nil))
+  ([optional-params]
+   (:data (salvar-using-post6-with-http-info optional-params))))
+
+(defn salvar-using-post7-with-http-info
   "Realiza o cadastro de um nova Pessoa
   Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
-  ([nome tipo ] (salvar-using-post4-with-http-info nome tipo nil))
+  ([nome tipo ] (salvar-using-post7-with-http-info nome tipo nil))
   ([nome tipo {:keys [cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
    (call-api "/api/pessoas" :post
              {:path-params   {}
@@ -664,19 +727,19 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn salvar-using-post4
+(defn salvar-using-post7
   "Realiza o cadastro de um nova Pessoa
   Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
-  ([nome tipo ] (salvar-using-post4 nome tipo nil))
+  ([nome tipo ] (salvar-using-post7 nome tipo nil))
   ([nome tipo optional-params]
-   (:data (salvar-using-post4-with-http-info nome tipo optional-params))))
+   (:data (salvar-using-post7-with-http-info nome tipo optional-params))))
 
-(defn salvar-using-post5-with-http-info
+(defn salvar-using-post9-with-http-info
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post5-with-http-info nil))
+  ([] (salvar-using-post9-with-http-info nil))
   ([{:keys [id-tipo-telefone id-pessoa ddd telefone ramal ]}]
    (call-api "/api/telefones" :post
              {:path-params   {}
@@ -685,11 +748,11 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["access_token"]})))
+              :auth-names    []})))
 
-(defn salvar-using-post5
+(defn salvar-using-post9
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post5 nil))
+  ([] (salvar-using-post9 nil))
   ([optional-params]
-   (:data (salvar-using-post5-with-http-info optional-params))))
+   (:data (salvar-using-post9-with-http-info optional-params))))
