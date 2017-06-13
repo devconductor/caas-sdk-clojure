@@ -26,11 +26,11 @@
   "Lista os aplicacoes mobile cadastradas
   Este mÃ©todo permite que sejam listadas as aplicacoes mobile existentes na base do PIER."
   ([] (listar-using-get-with-http-info nil))
-  ([{:keys [page limit id id-plataforma-mobile id-emissor ]}]
+  ([{:keys [page limit id id-plataforma-mobile ]}]
    (call-api "/api/aplicacoes-mobile" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idPlataformaMobile" id-plataforma-mobile "idEmissor" id-emissor }
+              :query-params  {"page" page "limit" limit "id" id "idPlataformaMobile" id-plataforma-mobile }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

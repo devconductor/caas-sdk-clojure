@@ -21,7 +21,7 @@
   [id ]
   (:data (consultar-using-get-with-http-info id)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get12-with-http-info
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
   Consulta os detalhes de uma transaÃ§Ã£o classificada com risco de fraude."
   [id ]
@@ -34,11 +34,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get12
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
   Consulta os detalhes de uma transaÃ§Ã£o classificada com risco de fraude."
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
 (defn informar-risco-fraude-using-post-with-http-info
   "Receber Risco Fraude
@@ -81,10 +81,10 @@
   ([optional-params]
    (:data (listar-using-get1-with-http-info optional-params))))
 
-(defn listar-using-get14-with-http-info
+(defn listar-using-get18-with-http-info
   "Listar as transaÃ§Ãµes com resoluÃ§Ã£o de risco fraude pendente
   Este recurso permite que sejam listados os riscos de fraudes existentes"
-  ([id-conta confirmacao-fraude ] (listar-using-get14-with-http-info id-conta confirmacao-fraude nil))
+  ([id-conta confirmacao-fraude ] (listar-using-get18-with-http-info id-conta confirmacao-fraude nil))
   ([id-conta confirmacao-fraude {:keys [page limit ]}]
    (call-api "/api/riscos-fraudes" :get
              {:path-params   {}
@@ -95,12 +95,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get14
+(defn listar-using-get18
   "Listar as transaÃ§Ãµes com resoluÃ§Ã£o de risco fraude pendente
   Este recurso permite que sejam listados os riscos de fraudes existentes"
-  ([id-conta confirmacao-fraude ] (listar-using-get14 id-conta confirmacao-fraude nil))
+  ([id-conta confirmacao-fraude ] (listar-using-get18 id-conta confirmacao-fraude nil))
   ([id-conta confirmacao-fraude optional-params]
-   (:data (listar-using-get14-with-http-info id-conta confirmacao-fraude optional-params))))
+   (:data (listar-using-get18-with-http-info id-conta confirmacao-fraude optional-params))))
 
 (defn negar-using-post-with-http-info
   "Negar autenticidade da transaÃ§Ã£o com risco de fraude

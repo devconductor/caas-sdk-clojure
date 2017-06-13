@@ -60,7 +60,7 @@
   [id ]
   (:data (ativar-usuario-using-post-with-http-info id)))
 
-(defn consultar-using-get22-with-http-info
+(defn consultar-using-get25-with-http-info
   "Apresenta os dados de um determinado UsuÃ¡rio
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -73,11 +73,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get22
+(defn consultar-using-get25
   "Apresenta os dados de um determinado UsuÃ¡rio
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get22-with-http-info id)))
+  (:data (consultar-using-get25-with-http-info id)))
 
 (defn desativar-usuario-using-post-with-http-info
   "Desativa os usuÃ¡rios cadastrados
@@ -98,10 +98,10 @@
   [id ]
   (:data (desativar-usuario-using-post-with-http-info id)))
 
-(defn listar-using-get24-with-http-info
+(defn listar-using-get29-with-http-info
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get24-with-http-info nil))
+  ([] (listar-using-get29-with-http-info nil))
   ([{:keys [page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -112,12 +112,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get24
+(defn listar-using-get29
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get24 nil))
+  ([] (listar-using-get29 nil))
   ([optional-params]
-   (:data (listar-using-get24-with-http-info optional-params))))
+   (:data (listar-using-get29-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio
@@ -138,7 +138,7 @@
   [id ]
   (:data (recuperar-senha-using-post-with-http-info id)))
 
-(defn salvar-using-post12-with-http-info
+(defn salvar-using-post13-with-http-info
   "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
@@ -152,11 +152,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post12
+(defn salvar-using-post13
   "Cadastra UsuÃ¡rio
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
-  (:data (salvar-using-post12-with-http-info persist)))
+  (:data (salvar-using-post13-with-http-info persist)))
 
 (defn validar-senha-using-get1-with-http-info
   "Validar a senha do usuÃ¡rio

@@ -44,7 +44,7 @@
   ([id pergunta resposta optional-params]
    (:data (alterar-using-put2-with-http-info id pergunta resposta optional-params))))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
@@ -57,16 +57,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get7-with-http-info id)))
 
-(defn listar-using-get8-with-http-info
+(defn listar-using-get10-with-http-info
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get8-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
@@ -77,9 +77,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get8
+(defn listar-using-get10
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get8 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get8-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))

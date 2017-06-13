@@ -21,7 +21,7 @@
   [id tipo-evento url ]
   (:data (alterar-using-put10-with-http-info id tipo-evento url)))
 
-(defn consultar-using-get23-with-http-info
+(defn consultar-using-get26-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -34,16 +34,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get23
+(defn consultar-using-get26
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get23-with-http-info id)))
+  (:data (consultar-using-get26-with-http-info id)))
 
-(defn listar-using-get25-with-http-info
+(defn listar-using-get30-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get25-with-http-info nil))
+  ([] (listar-using-get30-with-http-info nil))
   ([{:keys [page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -54,14 +54,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get25
+(defn listar-using-get30
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get25 nil))
+  ([] (listar-using-get30 nil))
   ([optional-params]
-   (:data (listar-using-get25-with-http-info optional-params))))
+   (:data (listar-using-get30-with-http-info optional-params))))
 
-(defn salvar-using-post13-with-http-info
+(defn salvar-using-post14-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -74,8 +74,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post13
+(defn salvar-using-post14
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post13-with-http-info tipo-evento url)))
+  (:data (salvar-using-post14-with-http-info tipo-evento url)))

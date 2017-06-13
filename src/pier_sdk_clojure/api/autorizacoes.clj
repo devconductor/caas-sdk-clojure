@@ -2,27 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn cancelar-using-post-with-http-info
-  "Cancela TransaÃ§Ã£o financeira
-  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
-  [cancelamento-request ]
-  (call-api "/api/cancelar-transacao" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :body-param    cancelamento-request
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn cancelar-using-post
-  "Cancela TransaÃ§Ã£o financeira
-  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
-  [cancelamento-request ]
-  (:data (cancelar-using-post-with-http-info cancelamento-request)))
-
-(defn desfazer-using-post-with-http-info
+(defn autorizar-using-post-with-http-info
   "Autoriza transaÃ§Ã£o financeira
   Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira."
   [autorizacao-on-us-request ]
@@ -36,35 +16,54 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn desfazer-using-post
+(defn autorizar-using-post
   "Autoriza transaÃ§Ã£o financeira
   Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira."
   [autorizacao-on-us-request ]
-  (:data (desfazer-using-post-with-http-info autorizacao-on-us-request)))
+  (:data (autorizar-using-post-with-http-info autorizacao-on-us-request)))
 
-(defn desfazer-using-post1-with-http-info
-  "Desfazimento de TransaÃ§Ã£o
-  Este mÃ©todo permite que seja desfeita uma transaÃ§Ã£o."
-  [desfazimento-request ]
-  (call-api "/api/desfazer-transacao" :post
+(defn cancelar-using-post-with-http-info
+  "Cancela transaÃ§Ã£o financeira
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
+  [cancelamento-request ]
+  (call-api "/api/cancelar-transacao" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    desfazimento-request
+             :body-param    cancelamento-request
              :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn desfazer-using-post1
-  "Desfazimento de TransaÃ§Ã£o
-  Este mÃ©todo permite que seja desfeita uma transaÃ§Ã£o."
-  [desfazimento-request ]
-  (:data (desfazer-using-post1-with-http-info desfazimento-request)))
+(defn cancelar-using-post
+  "Cancela transaÃ§Ã£o financeira
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
+  [cancelamento-request ]
+  (:data (cancelar-using-post-with-http-info cancelamento-request)))
+
+(defn listar-codigos-processamento-autorizacao-using-get-with-http-info
+  "Retorna cÃ³digos de processamento de autorizaÃ§Ã£o
+  Este mÃ©todo retorna a lista dos cÃ³digos de processamento para autorizaÃ§Ã£o de transaÃ§Ãµes financeiras."
+  []
+  (call-api "/api/consultar-codigos-processamento-autorizacao" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn listar-codigos-processamento-autorizacao-using-get
+  "Retorna cÃ³digos de processamento de autorizaÃ§Ã£o
+  Este mÃ©todo retorna a lista dos cÃ³digos de processamento para autorizaÃ§Ã£o de transaÃ§Ãµes financeiras."
+  []
+  (:data (listar-codigos-processamento-autorizacao-using-get-with-http-info)))
 
 (defn simular-using-post-with-http-info
-  "Simula Compra Parcelada
-  Este mÃ©todo permite que seja simulada uma compra parcelada."
+  "Simula planos de pagamento
+  Este mÃ©todo permite que seja simulada um plano de pagamento."
   [transacoes-request ]
   (call-api "/api/simular-transacao" :post
             {:path-params   {}
@@ -77,7 +76,7 @@
              :auth-names    []}))
 
 (defn simular-using-post
-  "Simula Compra Parcelada
-  Este mÃ©todo permite que seja simulada uma compra parcelada."
+  "Simula planos de pagamento
+  Este mÃ©todo permite que seja simulada um plano de pagamento."
   [transacoes-request ]
   (:data (simular-using-post-with-http-info transacoes-request)))

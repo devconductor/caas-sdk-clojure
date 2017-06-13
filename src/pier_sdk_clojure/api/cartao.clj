@@ -97,7 +97,7 @@
   [id senha ]
   (:data (cadastrar-alterar-senha-using-post-with-http-info id senha)))
 
-(defn consultar-dados-cartao-using-get-with-http-info
+(defn consultar-dados-reais-cartao-using-get-with-http-info
   "Consultar Detalhes do CartÃ£o
   Este mÃ©todo permite que seja consultado os dados necessarios de um cartÃ£o para executar serviÃ§os de autorizaÃ§Ã£o."
   [id ]
@@ -110,11 +110,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-dados-cartao-using-get
+(defn consultar-dados-reais-cartao-using-get
   "Consultar Detalhes do CartÃ£o
   Este mÃ©todo permite que seja consultado os dados necessarios de um cartÃ£o para executar serviÃ§os de autorizaÃ§Ã£o."
   [id ]
-  (:data (consultar-dados-cartao-using-get-with-http-info id)))
+  (:data (consultar-dados-reais-cartao-using-get-with-http-info id)))
 
 (defn consultar-limite-disponibilidade-using-get-with-http-info
   "Apresenta os limites do Portador do CartÃ£o
@@ -173,7 +173,7 @@
   [id ]
   (:data (consultar-portador-using-get-with-http-info id)))
 
-(defn consultar-using-get2-with-http-info
+(defn consultar-using-get3-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -186,11 +186,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get2
+(defn consultar-using-get3
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get2-with-http-info id)))
+  (:data (consultar-using-get3-with-http-info id)))
 
 (defn desbloquear-senha-incorreta-using-post-with-http-info
   "Realiza o desbloqueio de um cartÃ£o bloqueado por tentativas de senha incorretas
@@ -291,10 +291,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get3-with-http-info
+(defn listar-using-get4-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get3-with-http-info nil))
+  ([] (listar-using-get4-with-http-info nil))
   ([{:keys [page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -305,12 +305,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get3
+(defn listar-using-get4
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get3 nil))
+  ([] (listar-using-get4 nil))
   ([optional-params]
-   (:data (listar-using-get3-with-http-info optional-params))))
+   (:data (listar-using-get4-with-http-info optional-params))))
 
 (defn validar-dados-impressos-bandeirado-using-get-with-http-info
   "Permite validar os dados impressos em um cartÃ£o bandeirado
