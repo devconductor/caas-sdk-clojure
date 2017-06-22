@@ -63,10 +63,10 @@
   [id ]
   (:data (consultar-using-get7-with-http-info id)))
 
-(defn listar-using-get10-with-http-info
+(defn listar-using-get11-with-http-info
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get10-with-http-info nil))
+  ([] (listar-using-get11-with-http-info nil))
   ([{:keys [page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
@@ -77,9 +77,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get10
+(defn listar-using-get11
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get10 nil))
+  ([] (listar-using-get11 nil))
   ([optional-params]
-   (:data (listar-using-get10-with-http-info optional-params))))
+   (:data (listar-using-get11-with-http-info optional-params))))

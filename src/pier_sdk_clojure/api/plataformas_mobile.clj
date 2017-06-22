@@ -22,10 +22,10 @@
   [id update ]
   (:data (atualizar-using-put1-with-http-info id update)))
 
-(defn listar-using-get15-with-http-info
+(defn listar-using-get16-with-http-info
   "Lista as plataformas mobile cadastradas
   Este mÃ©todo permite que sejam listadas as plataformas mobile existentes na base do PIER."
-  ([] (listar-using-get15-with-http-info nil))
+  ([] (listar-using-get16-with-http-info nil))
   ([{:keys [page limit nome ]}]
    (call-api "/api/plataformas-mobile" :get
              {:path-params   {}
@@ -36,12 +36,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get15
+(defn listar-using-get16
   "Lista as plataformas mobile cadastradas
   Este mÃ©todo permite que sejam listadas as plataformas mobile existentes na base do PIER."
-  ([] (listar-using-get15 nil))
+  ([] (listar-using-get16 nil))
   ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
+   (:data (listar-using-get16-with-http-info optional-params))))
 
 (defn salvar-using-post9-with-http-info
   "Cadastra Plataforma Mobile

@@ -539,10 +539,10 @@
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get27-with-http-info
+(defn listar-using-get28-with-http-info
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get27-with-http-info id nil))
+  ([id ] (listar-using-get28-with-http-info id nil))
   ([id {:keys [id-conta-bancaria-destino page limit ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
              {:path-params   {"id" id }
@@ -553,17 +553,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get27
+(defn listar-using-get28
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get27 id nil))
+  ([id ] (listar-using-get28 id nil))
   ([id optional-params]
-   (:data (listar-using-get27-with-http-info id optional-params))))
+   (:data (listar-using-get28-with-http-info id optional-params))))
 
-(defn listar-using-get28-with-http-info
+(defn listar-using-get29-with-http-info
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get28-with-http-info id nil))
+  ([id ] (listar-using-get29-with-http-info id nil))
   ([id {:keys [page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
@@ -574,17 +574,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get28
+(defn listar-using-get29
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get28 id nil))
+  ([id ] (listar-using-get29 id nil))
   ([id optional-params]
-   (:data (listar-using-get28-with-http-info id optional-params))))
+   (:data (listar-using-get29-with-http-info id optional-params))))
 
-(defn listar-using-get6-with-http-info
+(defn listar-using-get7-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get6-with-http-info nil))
+  ([] (listar-using-get7-with-http-info nil))
   ([{:keys [page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -595,16 +595,16 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get6
+(defn listar-using-get7
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get6 nil))
+  ([] (listar-using-get7 nil))
   ([optional-params]
-   (:data (listar-using-get6-with-http-info optional-params))))
+   (:data (listar-using-get7-with-http-info optional-params))))
 
 (defn reativar-using-post-with-http-info
-  "Realiza a reativaÃ§Ã£o de contas que foram desativadas por inadimplÃªncia
-  Este recurso permite reativar contas que foram desativadas por inadimplÃªncia. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a reativaÃ§Ã£o de contas.
+  Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
   [id ]
   (call-api "/api/contas/{id}/reativar" :post
             {:path-params   {"id" id }
@@ -616,8 +616,8 @@
              :auth-names    []}))
 
 (defn reativar-using-post
-  "Realiza a reativaÃ§Ã£o de contas que foram desativadas por inadimplÃªncia
-  Este recurso permite reativar contas que foram desativadas por inadimplÃªncia. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a reativaÃ§Ã£o de contas.
+  Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
   [id ]
   (:data (reativar-using-post-with-http-info id)))
 

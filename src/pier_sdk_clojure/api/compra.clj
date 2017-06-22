@@ -21,30 +21,30 @@
   [id-conta id quantidade-parcelas ]
   (:data (efetivar-antecipacao-using-post-with-http-info id-conta id quantidade-parcelas)))
 
-(defn listar-using-get5-with-http-info
+(defn listar-using-get6-with-http-info
   "Listar compras
   Lista as compras de uma conta."
-  ([id-conta ] (listar-using-get5-with-http-info id-conta nil))
-  ([id-conta {:keys [page limit id-compra parcelada juros tipo-transacao ]}]
+  ([id-conta ] (listar-using-get6-with-http-info id-conta nil))
+  ([id-conta {:keys [page limit id-compra parcelada juros tipo-origem-transacao ]}]
    (call-api "/api/compras" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idCompra" id-compra "idConta" id-conta "parcelada" parcelada "juros" juros "tipoTransacao" tipo-transacao }
+              :query-params  {"page" page "limit" limit "idCompra" id-compra "idConta" id-conta "parcelada" parcelada "juros" juros "tipoOrigemTransacao" tipo-origem-transacao }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get5
+(defn listar-using-get6
   "Listar compras
   Lista as compras de uma conta."
-  ([id-conta ] (listar-using-get5 id-conta nil))
+  ([id-conta ] (listar-using-get6 id-conta nil))
   ([id-conta optional-params]
-   (:data (listar-using-get5-with-http-info id-conta optional-params))))
+   (:data (listar-using-get6-with-http-info id-conta optional-params))))
 
 (defn simular-antecipacao-using-get-with-http-info
   "Simular antecipaÃ§Ã£o de parcelas
-  Simula a antecipaÃ§Ã£o de parcelas de uma compra, listando todos os planos de parcelamento disponÃ­veis."
+  Simula a antecipaÃ§Ã£o de parcelas de um evento, listando todos os planos de parcelamento disponÃ­veis."
   [id-conta id ]
   (call-api "/api/compras/{id}/simular-antecipacao" :get
             {:path-params   {"id" id }
@@ -57,6 +57,6 @@
 
 (defn simular-antecipacao-using-get
   "Simular antecipaÃ§Ã£o de parcelas
-  Simula a antecipaÃ§Ã£o de parcelas de uma compra, listando todos os planos de parcelamento disponÃ­veis."
+  Simula a antecipaÃ§Ã£o de parcelas de um evento, listando todos os planos de parcelamento disponÃ­veis."
   [id-conta id ]
   (:data (simular-antecipacao-using-get-with-http-info id-conta id)))

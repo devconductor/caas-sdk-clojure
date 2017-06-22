@@ -40,31 +40,10 @@
   [id ]
   (:data (consultar-using-get6-with-http-info id)))
 
-(defn listar-using-get22-with-http-info
-  "Lista os Terminais cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get22-with-http-info nil))
-  ([{:keys [page limit id terminal numero-estabelecimento id-estabelecimento ]}]
-   (call-api "/api/terminais" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "terminal" terminal "numeroEstabelecimento" numero-estabelecimento "idEstabelecimento" id-estabelecimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get22
-  "Lista os Terminais cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get22 nil))
-  ([optional-params]
-   (:data (listar-using-get22-with-http-info optional-params))))
-
-(defn listar-using-get9-with-http-info
+(defn listar-using-get10-with-http-info
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get9-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
    (call-api "/api/estabelecimentos" :get
              {:path-params   {}
@@ -75,9 +54,30 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get9
+(defn listar-using-get10
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get9 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get9-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))
+
+(defn listar-using-get23-with-http-info
+  "Lista os Terminais cadastrados no Emissor
+  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
+  ([] (listar-using-get23-with-http-info nil))
+  ([{:keys [page limit id terminal numero-estabelecimento id-estabelecimento ]}]
+   (call-api "/api/terminais" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"page" page "limit" limit "id" id "terminal" terminal "numeroEstabelecimento" numero-estabelecimento "idEstabelecimento" id-estabelecimento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get23
+  "Lista os Terminais cadastrados no Emissor
+  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
+  ([] (listar-using-get23 nil))
+  ([optional-params]
+   (:data (listar-using-get23-with-http-info optional-params))))

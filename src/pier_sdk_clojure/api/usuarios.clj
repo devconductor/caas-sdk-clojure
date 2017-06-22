@@ -98,10 +98,10 @@
   [id ]
   (:data (desativar-usuario-using-post-with-http-info id)))
 
-(defn listar-using-get29-with-http-info
+(defn listar-using-get30-with-http-info
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get29-with-http-info nil))
+  ([] (listar-using-get30-with-http-info nil))
   ([{:keys [page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -112,12 +112,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get29
+(defn listar-using-get30
   "Lista os UsuÃ¡rios cadastrados
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get29 nil))
+  ([] (listar-using-get30 nil))
   ([optional-params]
-   (:data (listar-using-get29-with-http-info optional-params))))
+   (:data (listar-using-get30-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio

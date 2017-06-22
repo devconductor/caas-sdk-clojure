@@ -291,10 +291,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get4-with-http-info
+(defn listar-using-get5-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get4-with-http-info nil))
+  ([] (listar-using-get5-with-http-info nil))
   ([{:keys [page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -305,12 +305,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get4
+(defn listar-using-get5
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get4 nil))
+  ([] (listar-using-get5 nil))
   ([optional-params]
-   (:data (listar-using-get4-with-http-info optional-params))))
+   (:data (listar-using-get5-with-http-info optional-params))))
 
 (defn validar-dados-impressos-bandeirado-using-get-with-http-info
   "Permite validar os dados impressos em um cartÃ£o bandeirado
