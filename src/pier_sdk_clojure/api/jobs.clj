@@ -81,7 +81,7 @@
   ([optional-params]
    (:data (listar-using-get12-with-http-info optional-params))))
 
-(defn salvar-using-post5-with-http-info
+(defn salvar-using-post7-with-http-info
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
@@ -95,8 +95,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post5
+(defn salvar-using-post7
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
-  (:data (salvar-using-post5-with-http-info descricao cron groovy)))
+  (:data (salvar-using-post7-with-http-info descricao cron groovy)))

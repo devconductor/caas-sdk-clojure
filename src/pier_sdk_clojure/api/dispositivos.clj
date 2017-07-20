@@ -61,7 +61,7 @@
   ([optional-params]
    (:data (listar-using-get8-with-http-info optional-params))))
 
-(defn salvar-using-post3-with-http-info
+(defn salvar-using-post4-with-http-info
   "Cadastra Dispositivo
   Esse recurso permite cadastrar dispositivos."
   [persist ]
@@ -75,8 +75,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post3
+(defn salvar-using-post4
   "Cadastra Dispositivo
   Esse recurso permite cadastrar dispositivos."
   [persist ]
-  (:data (salvar-using-post3-with-http-info persist)))
+  (:data (salvar-using-post4-with-http-info persist)))

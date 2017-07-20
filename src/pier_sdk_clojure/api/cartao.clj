@@ -59,11 +59,11 @@
   [id id-pessoa ]
   (:data (atribuir-pessoa-using-put-with-http-info id id-pessoa)))
 
-(defn bloquear-using-put-with-http-info
+(defn bloquear-using-post-with-http-info
   "Realiza o bloqueio de um determinado CartÃ£o
   Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio (temporÃ¡rio) ou do cancelamento (definitivo) de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
   [id id-status observacao ]
-  (call-api "/api/cartoes/{id}/bloquear" :put
+  (call-api "/api/cartoes/{id}/bloquear" :post
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {"id_status" id-status "observacao" observacao }
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn bloquear-using-put
+(defn bloquear-using-post
   "Realiza o bloqueio de um determinado CartÃ£o
   Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio (temporÃ¡rio) ou do cancelamento (definitivo) de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
   [id id-status observacao ]
-  (:data (bloquear-using-put-with-http-info id id-status observacao)))
+  (:data (bloquear-using-post-with-http-info id id-status observacao)))
 
 (defn cadastrar-alterar-senha-using-post-with-http-info
   "Realiza o cadastro da senha de um CartÃ£o
@@ -96,6 +96,25 @@
   Esta operaÃ§Ã£o tem como objetivo permitir que o portador de um determinado cartÃ£o possa definir uma senha a sua escolha."
   [id senha ]
   (:data (cadastrar-alterar-senha-using-post-with-http-info id senha)))
+
+(defn cancelar-using-post-with-http-info
+  "Realiza o cancelamento de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o cancelamento de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
+  [id id-status observacao ]
+  (call-api "/api/cartoes/{id}/cancelar" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {"id_status" id-status "observacao" observacao }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn cancelar-using-post
+  "Realiza o cancelamento de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o cancelamento de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id). Para isso, Ã© preciso informar qual o motivo deste bloqueio que nada mais Ã© do que atribuir um novo StatusCartao para ele dentre as opÃ§Ãµes praticadas pelo emissor."
+  [id id-status observacao ]
+  (:data (cancelar-using-post-with-http-info id id-status observacao)))
 
 (defn consultar-dados-reais-cartao-using-get-with-http-info
   "Consultar Detalhes do CartÃ£o
@@ -173,7 +192,7 @@
   [id ]
   (:data (consultar-portador-using-get-with-http-info id)))
 
-(defn consultar-using-get3-with-http-info
+(defn consultar-using-get4-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -186,11 +205,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get3
+(defn consultar-using-get4
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get3-with-http-info id)))
+  (:data (consultar-using-get4-with-http-info id)))
 
 (defn desbloquear-senha-incorreta-using-post-with-http-info
   "Realiza o desbloqueio de um cartÃ£o bloqueado por tentativas de senha incorretas
@@ -211,11 +230,11 @@
   [id ]
   (:data (desbloquear-senha-incorreta-using-post-with-http-info id)))
 
-(defn desbloquear-using-put-with-http-info
+(defn desbloquear-using-post-with-http-info
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (call-api "/api/cartoes/{id}/desbloquear" :put
+  (call-api "/api/cartoes/{id}/desbloquear" :post
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
@@ -224,11 +243,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn desbloquear-using-put
+(defn desbloquear-using-post
   "Realiza o desbloqueio de um determinado CartÃ£o
   Este mÃ©todo permite que seja desbloqueado um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (desbloquear-using-put-with-http-info id)))
+  (:data (desbloquear-using-post-with-http-info id)))
 
 (defn gerar-lotes-cartoes-pre-pagos-using-post-with-http-info
   "Permite gerar um novo Lote de CartÃµes PrÃ©-Pago
@@ -311,6 +330,25 @@
   ([] (listar-using-get5 nil))
   ([optional-params]
    (:data (listar-using-get5-with-http-info optional-params))))
+
+(defn reativar-using-post-with-http-info
+  "Realiza a reativaÃ§Ã£o de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o da reativaÃ§Ã£o de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id ]
+  (call-api "/api/cartoes/{id}/reativar" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn reativar-using-post
+  "Realiza a reativaÃ§Ã£o de um determinado CartÃ£o
+  Este mÃ©todo permite a realizaÃ§Ã£o da reativaÃ§Ã£o de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id ]
+  (:data (reativar-using-post-with-http-info id)))
 
 (defn validar-dados-impressos-bandeirado-using-get-with-http-info
   "Permite validar os dados impressos em um cartÃ£o bandeirado

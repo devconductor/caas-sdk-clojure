@@ -44,7 +44,7 @@
   ([id pergunta resposta optional-params]
    (:data (alterar-using-put2-with-http-info id pergunta resposta optional-params))))
 
-(defn consultar-using-get7-with-http-info
+(defn consultar-using-get8-with-http-info
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
@@ -57,11 +57,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get7
+(defn consultar-using-get8
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
-  (:data (consultar-using-get7-with-http-info id)))
+  (:data (consultar-using-get8-with-http-info id)))
 
 (defn listar-using-get11-with-http-info
   "Lista FAQs

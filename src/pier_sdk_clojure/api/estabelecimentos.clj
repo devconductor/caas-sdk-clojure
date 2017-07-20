@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get17-with-http-info
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -15,13 +15,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get16
+(defn consultar-using-get17
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get16-with-http-info id)))
+  (:data (consultar-using-get17-with-http-info id)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
@@ -34,11 +34,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get7-with-http-info id)))
 
 (defn listar-using-get10-with-http-info
   "Lista Estabelecimentos

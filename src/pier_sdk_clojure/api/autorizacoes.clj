@@ -22,7 +22,7 @@
   [autorizacao-on-us-request ]
   (:data (autorizar-using-post-with-http-info autorizacao-on-us-request)))
 
-(defn cancelar-using-post-with-http-info
+(defn cancelar-using-post2-with-http-info
   "Cancela transaÃ§Ã£o financeira
   Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
   [cancelamento-request ]
@@ -36,11 +36,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn cancelar-using-post
+(defn cancelar-using-post2
   "Cancela transaÃ§Ã£o financeira
   Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o."
   [cancelamento-request ]
-  (:data (cancelar-using-post-with-http-info cancelamento-request)))
+  (:data (cancelar-using-post2-with-http-info cancelamento-request)))
 
 (defn listar-codigos-processamento-autorizacao-using-get-with-http-info
   "Retorna cÃ³digos de processamento de autorizaÃ§Ã£o
@@ -62,8 +62,8 @@
   (:data (listar-codigos-processamento-autorizacao-using-get-with-http-info)))
 
 (defn simular-using-post-with-http-info
-  "Simula planos de pagamento
-  Este mÃ©todo permite que seja simulada um plano de pagamento."
+  "Simula planos de transaÃ§Ãµes
+  Este mÃ©todo permite que seja simulada um plano de transaÃ§Ãµes."
   [transacoes-request ]
   (call-api "/api/simular-transacao" :post
             {:path-params   {}
@@ -76,7 +76,7 @@
              :auth-names    []}))
 
 (defn simular-using-post
-  "Simula planos de pagamento
-  Este mÃ©todo permite que seja simulada um plano de pagamento."
+  "Simula planos de transaÃ§Ãµes
+  Este mÃ©todo permite que seja simulada um plano de transaÃ§Ãµes."
   [transacoes-request ]
   (:data (simular-using-post-with-http-info transacoes-request)))

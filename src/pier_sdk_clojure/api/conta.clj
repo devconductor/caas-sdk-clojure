@@ -24,11 +24,11 @@
 (defn alterar-limite-using-put-with-http-info
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo ]
+  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]
   (call-api "/api/contas/{id}/alterar-limites" :put
             {:path-params   {"id" id }
              :header-params {}
-             :query-params  {"limiteGlobal" limite-global "limiteCompra" limite-compra "limiteParcelado" limite-parcelado "limiteParcelas" limite-parcelas "limiteSaqueGlobal" limite-saque-global "limiteSaquePeriodo" limite-saque-periodo "limiteConsignado" limite-consignado "limiteInternacionalCompra" limite-internacional-compra "limiteInternacionalParcelado" limite-internacional-parcelado "limiteInternacionalParcelas" limite-internacional-parcelas "limiteInternacionalSaqueGlobal" limite-internacional-saque-global "limiteInternacionalSaquePeriodo" limite-internacional-saque-periodo }
+             :query-params  {"limiteGlobal" limite-global "limiteCompra" limite-compra "limiteParcelado" limite-parcelado "limiteParcelas" limite-parcelas "limiteSaqueGlobal" limite-saque-global "limiteSaquePeriodo" limite-saque-periodo "limiteConsignado" limite-consignado "limiteInternacionalCompra" limite-internacional-compra "limiteInternacionalParcelado" limite-internacional-parcelado "limiteInternacionalParcelas" limite-internacional-parcelas "limiteInternacionalSaqueGlobal" limite-internacional-saque-global "limiteInternacionalSaquePeriodo" limite-internacional-saque-periodo "limiteMaximo" limite-maximo }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
@@ -37,8 +37,8 @@
 (defn alterar-limite-using-put
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo ]
-  (:data (alterar-limite-using-put-with-http-info id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo)))
+  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]
+  (:data (alterar-limite-using-put-with-http-info id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo)))
 
 (defn alterar-titular-using-post-with-http-info
   "Realiza a alteraÃ§Ã£o de uma Pessoa tilular da conta
@@ -78,6 +78,27 @@
   [id novo-dia-vencimento ]
   (:data (alterar-vencimento-using-put-with-http-info id novo-dia-vencimento)))
 
+(defn ativar-anuidade-using-post-with-http-info
+  "Atribuir Anuidade
+  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
+  ([id id-anuidade {:keys [page limit ddd celular id-operadora id-origem-comercial ]}]
+   (call-api "/api/contas/{id}/atribuir-anuidade" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn ativar-anuidade-using-post
+  "Atribuir Anuidade
+  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  ([id id-anuidade ] (ativar-anuidade-using-post id id-anuidade nil))
+  ([id id-anuidade optional-params]
+   (:data (ativar-anuidade-using-post-with-http-info id id-anuidade optional-params))))
+
 (defn ativar-envio-fatura-email-using-post-with-http-info
   "Ativa o serviÃ§o de envio de fatura por email
   Este recurso ativa o serviÃ§o de envio de fatura por email"
@@ -96,6 +117,44 @@
   Este recurso ativa o serviÃ§o de envio de fatura por email"
   [id ]
   (:data (ativar-envio-fatura-email-using-post-with-http-info id)))
+
+(defn bloquear-using-post1-with-http-info
+  "Realiza o bloqueio de uma determinada Conta
+  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id id-status ]
+  (call-api "/api/contas/{id}/bloquear" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {"id_status" id-status }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn bloquear-using-post1
+  "Realiza o bloqueio de uma determinada Conta
+  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id id-status ]
+  (:data (bloquear-using-post1-with-http-info id id-status)))
+
+(defn cancelar-using-post1-with-http-info
+  "Realiza o cancelamento de uma determinada Conta
+  Este mÃ©todo permite a realizaÃ§Ã£o do cancelamento de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id id-status ]
+  (call-api "/api/contas/{id}/cancelar" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {"id_status" id-status }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn cancelar-using-post1
+  "Realiza o cancelamento de uma determinada Conta
+  Este mÃ©todo permite a realizaÃ§Ã£o do cancelamento de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  [id id-status ]
+  (:data (cancelar-using-post1-with-http-info id id-status)))
 
 (defn consultar-boleto-emitido-using-get-with-http-info
   "Consulta os dados de um determinado boleto da fatura
@@ -257,10 +316,10 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get23-with-http-info
+(defn consultar-using-get24-with-http-info
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get23-with-http-info id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get24-with-http-info id id-transferencia nil))
   ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
              {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -271,14 +330,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get23
+(defn consultar-using-get24
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get23 id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get24 id id-transferencia nil))
   ([id id-transferencia optional-params]
-   (:data (consultar-using-get23-with-http-info id id-transferencia optional-params))))
+   (:data (consultar-using-get24-with-http-info id id-transferencia optional-params))))
 
-(defn consultar-using-get24-with-http-info
+(defn consultar-using-get25-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -291,13 +350,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get24
+(defn consultar-using-get25
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get24-with-http-info id id-transferencia)))
+  (:data (consultar-using-get25-with-http-info id id-transferencia)))
 
-(defn consultar-using-get4-with-http-info
+(defn consultar-using-get5-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -310,11 +369,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get4
+(defn consultar-using-get5
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get4-with-http-info id)))
+  (:data (consultar-using-get5-with-http-info id)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email
@@ -602,7 +661,7 @@
   ([optional-params]
    (:data (listar-using-get7-with-http-info optional-params))))
 
-(defn reativar-using-post-with-http-info
+(defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.
   Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
   [id ]
@@ -615,11 +674,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn reativar-using-post
+(defn reativar-using-post1
   "Realiza a reativaÃ§Ã£o de contas.
   Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
   [id ]
-  (:data (reativar-using-post-with-http-info id)))
+  (:data (reativar-using-post1-with-http-info id)))
 
 (defn transacoes-using-get-with-http-info
   "Permite listar uma linha do tempo com os eventos da conta

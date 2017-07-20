@@ -21,7 +21,7 @@
   [id tipo-evento url ]
   (:data (alterar-using-put10-with-http-info id tipo-evento url)))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get27-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -34,11 +34,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get26
+(defn consultar-using-get27
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get26-with-http-info id)))
+  (:data (consultar-using-get27-with-http-info id)))
 
 (defn listar-using-get31-with-http-info
   "Lista os Webhooks
@@ -61,7 +61,7 @@
   ([optional-params]
    (:data (listar-using-get31-with-http-info optional-params))))
 
-(defn salvar-using-post14-with-http-info
+(defn salvar-using-post16-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -74,8 +74,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post14
+(defn salvar-using-post16
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post14-with-http-info tipo-evento url)))
+  (:data (salvar-using-post16-with-http-info tipo-evento url)))

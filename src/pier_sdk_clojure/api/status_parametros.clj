@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get14-with-http-info
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get13
+(defn consultar-using-get14
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get13-with-http-info id)))
+  (:data (consultar-using-get14-with-http-info id)))
 
-(defn consultar-using-get14-with-http-info
+(defn consultar-using-get15-with-http-info
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get14
+(defn consultar-using-get15
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get14-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
@@ -103,11 +103,11 @@
   "Lista as opÃ§Ãµes de Status do CartÃ£o
   Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
-  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa flag-permite-nova-via-cartao flag-permite-desbloqueio ]}]
+  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa flag-permite-nova-via-cartao flag-permite-desbloqueio flag-cancelamento flag-permite-bloqueio flag-reativar ]}]
    (call-api "/api/status-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagPermiteDesbloqueio" flag-permite-desbloqueio }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagPermiteDesbloqueio" flag-permite-desbloqueio "flagCancelamento" flag-cancelamento "flagPermiteBloqueio" flag-permite-bloqueio "flagReativar" flag-reativar }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -124,11 +124,11 @@
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
   ([] (listar-using-get20-with-http-info nil))
-  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao flag-faz-transferencia flag-recebe-transferencia ]}]
+  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao flag-faz-transferencia flag-recebe-transferencia flag-permite-bloqueio flag-permite-desbloqueio flag-cancela-conta ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagFazTransferencia" flag-faz-transferencia "flagRecebeTransferencia" flag-recebe-transferencia }
+              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagFazTransferencia" flag-faz-transferencia "flagRecebeTransferencia" flag-recebe-transferencia "flagPermiteBloqueio" flag-permite-bloqueio "flagPermiteDesbloqueio" flag-permite-desbloqueio "flagCancelaConta" flag-cancela-conta }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

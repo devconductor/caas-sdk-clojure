@@ -81,7 +81,7 @@
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get21-with-http-info
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -94,13 +94,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get21
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get21-with-http-info id)))
 
-(defn consultar-using-get8-with-http-info
+(defn consultar-using-get9-with-http-info
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get8
+(defn consultar-using-get9
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get8-with-http-info id)))
+  (:data (consultar-using-get9-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "Lista as auditorias dos status oportunidades
@@ -206,8 +206,8 @@
 (defn listar-using-get13-with-http-info
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get13-with-http-info nil))
-  ([{:keys [page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
+  ([data-inicio-vigencia ] (listar-using-get13-with-http-info data-inicio-vigencia nil))
+  ([data-inicio-vigencia {:keys [page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
               :header-params {}
@@ -220,9 +220,9 @@
 (defn listar-using-get13
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get13 nil))
-  ([optional-params]
-   (:data (listar-using-get13-with-http-info optional-params))))
+  ([data-inicio-vigencia ] (listar-using-get13 data-inicio-vigencia nil))
+  ([data-inicio-vigencia optional-params]
+   (:data (listar-using-get13-with-http-info data-inicio-vigencia optional-params))))
 
 (defn listar-using-get25-with-http-info
   "Lista os tipos oportunidades
@@ -265,7 +265,7 @@
   [id persist ]
   (:data (salvar-status-using-post-with-http-info id persist)))
 
-(defn salvar-using-post11-with-http-info
+(defn salvar-using-post13-with-http-info
   "Cadastra tipos oportunidades
   Esse recurso permite cadastrar tipos oportunidades."
   [persist ]
@@ -279,14 +279,14 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post11
+(defn salvar-using-post13
   "Cadastra tipos oportunidades
   Esse recurso permite cadastrar tipos oportunidades."
   [persist ]
-  (:data (salvar-using-post11-with-http-info persist)))
+  (:data (salvar-using-post13-with-http-info persist)))
 
-(defn salvar-using-post6-with-http-info
-  "Cadastra as oportunidade
+(defn salvar-using-post8-with-http-info
+  "Cadastra as oportunidades
   Esse recurso permite cadastrar oportunidades."
   [persist ]
   (call-api "/api/oportunidades" :post
@@ -299,8 +299,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post6
-  "Cadastra as oportunidade
+(defn salvar-using-post8
+  "Cadastra as oportunidades
   Esse recurso permite cadastrar oportunidades."
   [persist ]
-  (:data (salvar-using-post6-with-http-info persist)))
+  (:data (salvar-using-post8-with-http-info persist)))
