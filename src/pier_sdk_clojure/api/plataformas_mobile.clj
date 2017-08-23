@@ -22,28 +22,28 @@
   [id update ]
   (:data (atualizar-using-put1-with-http-info id update)))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get17-with-http-info
   "Lista as plataformas mobile cadastradas
   Este mÃ©todo permite que sejam listadas as plataformas mobile existentes na base do PIER."
-  ([] (listar-using-get16-with-http-info nil))
-  ([{:keys [page limit nome ]}]
+  ([] (listar-using-get17-with-http-info nil))
+  ([{:keys [sort page limit nome ]}]
    (call-api "/api/plataformas-mobile" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "nome" nome }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "nome" nome }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get17
   "Lista as plataformas mobile cadastradas
   Este mÃ©todo permite que sejam listadas as plataformas mobile existentes na base do PIER."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get17 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn salvar-using-post11-with-http-info
+(defn salvar-using-post12-with-http-info
   "Cadastra Plataforma Mobile
   Esse recurso permite cadastrar plataformas mobile."
   [persist ]
@@ -57,8 +57,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post11
+(defn salvar-using-post12
   "Cadastra Plataforma Mobile
   Esse recurso permite cadastrar plataformas mobile."
   [persist ]
-  (:data (salvar-using-post11-with-http-info persist)))
+  (:data (salvar-using-post12-with-http-info persist)))

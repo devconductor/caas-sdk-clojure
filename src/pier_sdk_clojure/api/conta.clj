@@ -24,21 +24,42 @@
 (defn alterar-limite-using-put-with-http-info
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]
-  (call-api "/api/contas/{id}/alterar-limites" :put
+  ([id ] (alterar-limite-using-put-with-http-info id nil))
+  ([id {:keys [limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]}]
+   (call-api "/api/contas/{id}/alterar-limites" :put
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"limiteGlobal" limite-global "limiteCompra" limite-compra "limiteParcelado" limite-parcelado "limiteParcelas" limite-parcelas "limiteSaqueGlobal" limite-saque-global "limiteSaquePeriodo" limite-saque-periodo "limiteConsignado" limite-consignado "limiteInternacionalCompra" limite-internacional-compra "limiteInternacionalParcelado" limite-internacional-parcelado "limiteInternacionalParcelas" limite-internacional-parcelas "limiteInternacionalSaqueGlobal" limite-internacional-saque-global "limiteInternacionalSaquePeriodo" limite-internacional-saque-periodo "limiteMaximo" limite-maximo }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn alterar-limite-using-put
+  "Realiza a alteraÃ§Ã£o dos limites da conta
+  Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
+  ([id ] (alterar-limite-using-put id nil))
+  ([id optional-params]
+   (:data (alterar-limite-using-put-with-http-info id optional-params))))
+
+(defn alterar-produto-using-post-with-http-info
+  "Altera o produto associado Ã  conta.
+  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
+  [id id-produto ]
+  (call-api "/api/contas/{id}/alterar-produto" :post
             {:path-params   {"id" id }
              :header-params {}
-             :query-params  {"limiteGlobal" limite-global "limiteCompra" limite-compra "limiteParcelado" limite-parcelado "limiteParcelas" limite-parcelas "limiteSaqueGlobal" limite-saque-global "limiteSaquePeriodo" limite-saque-periodo "limiteConsignado" limite-consignado "limiteInternacionalCompra" limite-internacional-compra "limiteInternacionalParcelado" limite-internacional-parcelado "limiteInternacionalParcelas" limite-internacional-parcelas "limiteInternacionalSaqueGlobal" limite-internacional-saque-global "limiteInternacionalSaquePeriodo" limite-internacional-saque-periodo "limiteMaximo" limite-maximo }
+             :query-params  {"idProduto" id-produto }
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn alterar-limite-using-put
-  "Realiza a alteraÃ§Ã£o dos limites da conta
-  Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  [id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]
-  (:data (alterar-limite-using-put-with-http-info id limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo)))
+(defn alterar-produto-using-post
+  "Altera o produto associado Ã  conta.
+  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
+  [id id-produto ]
+  (:data (alterar-produto-using-post-with-http-info id id-produto)))
 
 (defn alterar-titular-using-post-with-http-info
   "Realiza a alteraÃ§Ã£o de uma Pessoa tilular da conta
@@ -82,11 +103,11 @@
   "Atribuir Anuidade
   Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
-  ([id id-anuidade {:keys [page limit ddd celular id-operadora id-origem-comercial ]}]
+  ([id id-anuidade {:keys [sort page limit ddd celular id-operadora id-origem-comercial ]}]
    (call-api "/api/contas/{id}/atribuir-anuidade" :post
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -179,11 +200,11 @@
   "Consulta a dÃ­vida atualizada do cliente
   Este recurso consulta a dÃ­vida atualizada do cliente"
   ([id ] (consultar-divida-atualizada-cliente-using-get-with-http-info id nil))
-  ([id {:keys [page limit data-vencimento id-escritorio-cobranca ]}]
+  ([id {:keys [sort page limit data-vencimento id-escritorio-cobranca ]}]
    (call-api "/api/contas/{id}/recuperar-divida-atualizada" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento "idEscritorioCobranca" id-escritorio-cobranca }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento "idEscritorioCobranca" id-escritorio-cobranca }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -276,6 +297,27 @@
   ([id optional-params]
    (:data (consultar-lancamentos-futuros-fatura-using-get-with-http-info id optional-params))))
 
+(defn consultar-lancamentos-futuros-fatura-using-get1-with-http-info
+  "Listar planos de parcelamento
+  Lista os planos de parcelamento da fatura de uma conta."
+  ([id data-vencimento-padrao ] (consultar-lancamentos-futuros-fatura-using-get1-with-http-info id data-vencimento-padrao nil))
+  ([id data-vencimento-padrao {:keys [sort page limit quantidade-parcelas ]}]
+   (call-api "/api/contas/{id}/faturas/planos-parcelamento" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimentoPadrao" data-vencimento-padrao "quantidadeParcelas" quantidade-parcelas }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn consultar-lancamentos-futuros-fatura-using-get1
+  "Listar planos de parcelamento
+  Lista os planos de parcelamento da fatura de uma conta."
+  ([id data-vencimento-padrao ] (consultar-lancamentos-futuros-fatura-using-get1 id data-vencimento-padrao nil))
+  ([id data-vencimento-padrao optional-params]
+   (:data (consultar-lancamentos-futuros-fatura-using-get1-with-http-info id data-vencimento-padrao optional-params))))
+
 (defn consultar-limite-disponibilidade-using-get1-with-http-info
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
@@ -299,11 +341,11 @@
   "Permite consultar a partir do ID da conta as taxas e tarifas
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
   ([id ] (consultar-taxas-tarifas-using-get-with-http-info id nil))
-  ([id {:keys [page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/consultar-taxas-tarifas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -394,6 +436,27 @@
   [id ]
   (:data (desativar-envio-fatura-email-using-post-with-http-info id)))
 
+(defn enviar-fatura-email-using-post-with-http-info
+  "Envia 2Âª via de fatura por E-mail
+  Envia a segunda via da fatura para o e-mail informado/cadastrado."
+  ([id data-vencimento ] (enviar-fatura-email-using-post-with-http-info id data-vencimento nil))
+  ([id data-vencimento {:keys [email ]}]
+   (call-api "/api/contas/{id}/faturas/{dataVencimento}/enviar-email" :post
+             {:path-params   {"id" id "dataVencimento" data-vencimento }
+              :header-params {}
+              :query-params  {"email" email }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn enviar-fatura-email-using-post
+  "Envia 2Âª via de fatura por E-mail
+  Envia a segunda via da fatura para o e-mail informado/cadastrado."
+  ([id data-vencimento ] (enviar-fatura-email-using-post id data-vencimento nil))
+  ([id data-vencimento optional-params]
+   (:data (enviar-fatura-email-using-post-with-http-info id data-vencimento optional-params))))
+
 (defn gerar-boleto-recarga-using-post-with-http-info
   "Gera um boleto de recarga
   Este recurso gera um boleto de recarga"
@@ -412,6 +475,27 @@
   Este recurso gera um boleto de recarga"
   [id valor data-vencimento ]
   (:data (gerar-boleto-recarga-using-post-with-http-info id valor data-vencimento)))
+
+(defn gerar-cartao-embossing-using-post-with-http-info
+  "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
+  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
+  ([id id-pessoa ] (gerar-cartao-embossing-using-post-with-http-info id id-pessoa nil))
+  ([id id-pessoa {:keys [id-tipo-plastico ]}]
+   (call-api "/api/contas/{id}/gerar-cartao-grafica" :post
+             {:path-params   {"id" id "id_pessoa" id-pessoa }
+              :header-params {}
+              :query-params  {"id_tipo_plastico" id-tipo-plastico }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn gerar-cartao-embossing-using-post
+  "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
+  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
+  ([id id-pessoa ] (gerar-cartao-embossing-using-post id id-pessoa nil))
+  ([id id-pessoa optional-params]
+   (:data (gerar-cartao-embossing-using-post-with-http-info id id-pessoa optional-params))))
 
 (defn gerar-cartao-using-post-with-http-info
   "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa
@@ -457,11 +541,11 @@
   "Lista as faturas consignadas da conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
   ([id ] (listar-faturas-consignadas-using-get-with-http-info id nil))
-  ([id {:keys [page limit data-vencimento ]}]
+  ([id {:keys [sort page limit data-vencimento ]}]
    (call-api "/api/contas/{id}/faturas-consignadas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -478,11 +562,11 @@
   "Lista as faturas da conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
   ([id ] (listar-faturas-using-get-with-http-info id nil))
-  ([id {:keys [page limit data-vencimento ]}]
+  ([id {:keys [sort page limit data-vencimento ]}]
    (call-api "/api/contas/{id}/faturas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -499,11 +583,11 @@
   "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
   Este recurso consulta o histÃ³rico com as alteraÃ§Ãµes de limites da conta informada"
   ([id ] (listar-historico-alteracoes-limites-using-get-with-http-info id nil))
-  ([id {:keys [page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-alteracoes-limites" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -520,11 +604,11 @@
   "Lista o histÃ³rico de entradas/saÃ­das de assessorias de cobranÃ§a
   Permite listar todos os registros de entrada e saÃ­da da Conta em arquivos de integraÃ§Ã£o com empresas de assessorias de cobranÃ§a a partir do cÃ³digo de identificaÃ§Ã£o da conta (idConta)."
   ([id ] (listar-historico-assessoria-using-get-with-http-info id nil))
-  ([id {:keys [page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-assessorias-cobranca" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -540,31 +624,33 @@
 (defn listar-historico-atrasos-faturas-using-get-with-http-info
   "Lista o historico de atrasos das faturas
   Este recurso lista o histÃ³rico do pagamento de faturas em atraso"
-  [id ]
-  (call-api "/api/contas/{id}/historicos-faturas-atrasos" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
+  ([id ] (listar-historico-atrasos-faturas-using-get-with-http-info id nil))
+  ([id {:keys [sort page limit ]}]
+   (call-api "/api/contas/{id}/historicos-faturas-atrasos" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
 
 (defn listar-historico-atrasos-faturas-using-get
   "Lista o historico de atrasos das faturas
   Este recurso lista o histÃ³rico do pagamento de faturas em atraso"
-  [id ]
-  (:data (listar-historico-atrasos-faturas-using-get-with-http-info id)))
+  ([id ] (listar-historico-atrasos-faturas-using-get id nil))
+  ([id optional-params]
+   (:data (listar-historico-atrasos-faturas-using-get-with-http-info id optional-params))))
 
 (defn listar-nao-processadas-using-get-with-http-info
   "Lista as transaÃ§Ãµes nÃ£o processadas da conta
   Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes nÃ£o processadas da Conta."
   ([id ] (listar-nao-processadas-using-get-with-http-info id nil))
-  ([id {:keys [page limit data-inicio data-fim ]}]
+  ([id {:keys [sort page limit data-inicio data-fim ]}]
    (call-api "/api/contas/{id}/transacoes/listar-nao-processadas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataInicio" data-inicio "dataFim" data-fim }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataInicio" data-inicio "dataFim" data-fim }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -577,15 +663,36 @@
   ([id optional-params]
    (:data (listar-nao-processadas-using-get-with-http-info id optional-params))))
 
+(defn listar-pagamentos-using-get-with-http-info
+  "Lista histÃ³rico de pagamentos da conta
+  Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento."
+  ([id ] (listar-pagamentos-using-get-with-http-info id nil))
+  ([id {:keys [sort page limit id-pagamento id-estabelecimento id-banco id-cartao data-hora-pagamento status ]}]
+   (call-api "/api/contas/{id}/pagamentos" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idPagamento" id-pagamento "idEstabelecimento" id-estabelecimento "idBanco" id-banco "idCartao" id-cartao "dataHoraPagamento" data-hora-pagamento "status" status }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-pagamentos-using-get
+  "Lista histÃ³rico de pagamentos da conta
+  Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento."
+  ([id ] (listar-pagamentos-using-get id nil))
+  ([id optional-params]
+   (:data (listar-pagamentos-using-get-with-http-info id optional-params))))
+
 (defn listar-processadas-using-get-with-http-info
   "Lista as transaÃ§Ãµes processadas da conta
   Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes processadas da Conta."
   ([id ] (listar-processadas-using-get-with-http-info id nil))
-  ([id {:keys [page limit data-vencimento data-inicio data-fim ]}]
+  ([id {:keys [sort page limit data-vencimento data-inicio data-fim ]}]
    (call-api "/api/contas/{id}/transacoes/listar-processadas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataVencimento" data-vencimento "dataInicio" data-inicio "dataFim" data-fim }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento "dataInicio" data-inicio "dataFim" data-fim }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -598,68 +705,68 @@
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get28-with-http-info
+(defn listar-using-get30-with-http-info
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get28-with-http-info id nil))
-  ([id {:keys [id-conta-bancaria-destino page limit ]}]
+  ([id ] (listar-using-get30-with-http-info id nil))
+  ([id {:keys [id-conta-bancaria-destino sort page limit ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "page" page "limit" limit }
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get28
+(defn listar-using-get30
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get28 id nil))
+  ([id ] (listar-using-get30 id nil))
   ([id optional-params]
-   (:data (listar-using-get28-with-http-info id optional-params))))
+   (:data (listar-using-get30-with-http-info id optional-params))))
 
-(defn listar-using-get29-with-http-info
+(defn listar-using-get31-with-http-info
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get29-with-http-info id nil))
-  ([id {:keys [page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
+  ([id ] (listar-using-get31-with-http-info id nil))
+  ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "idTransferencia" id-transferencia "idContaOrigem" id-conta-origem "idContaDestino" id-conta-destino "valorTransferencia" valor-transferencia "dataTransferencia" data-transferencia }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idTransferencia" id-transferencia "idContaOrigem" id-conta-origem "idContaDestino" id-conta-destino "valorTransferencia" valor-transferencia "dataTransferencia" data-transferencia }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get29
+(defn listar-using-get31
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get29 id nil))
+  ([id ] (listar-using-get31 id nil))
   ([id optional-params]
-   (:data (listar-using-get29-with-http-info id optional-params))))
+   (:data (listar-using-get31-with-http-info id optional-params))))
 
-(defn listar-using-get7-with-http-info
+(defn listar-using-get8-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get7-with-http-info nil))
-  ([{:keys [page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
+  ([] (listar-using-get8-with-http-info nil))
+  ([{:keys [sort page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idProduto" id-produto "idOrigemComercial" id-origem-comercial "idPessoa" id-pessoa "idStatusConta" id-status-conta "diaVencimento" dia-vencimento "melhorDiaCompra" melhor-dia-compra "dataStatusConta" data-status-conta "dataCadastro" data-cadastro "dataUltimaAlteracaoVencimento" data-ultima-alteracao-vencimento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idProduto" id-produto "idOrigemComercial" id-origem-comercial "idPessoa" id-pessoa "idStatusConta" id-status-conta "diaVencimento" dia-vencimento "melhorDiaCompra" melhor-dia-compra "dataStatusConta" data-status-conta "dataCadastro" data-cadastro "dataUltimaAlteracaoVencimento" data-ultima-alteracao-vencimento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get7
+(defn listar-using-get8
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get7 nil))
+  ([] (listar-using-get8 nil))
   ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
+   (:data (listar-using-get8-with-http-info optional-params))))
 
 (defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.
@@ -684,11 +791,11 @@
   "Permite listar uma linha do tempo com os eventos da conta
   Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
   ([id ] (transacoes-using-get-with-http-info id nil))
-  ([id {:keys [page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/timeline" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

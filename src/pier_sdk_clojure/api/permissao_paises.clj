@@ -44,11 +44,11 @@
   "Lista os paÃ­ses
   Este recurso permite listar os paÃ­ses."
   ([] (listar-paises-using-get-with-http-info nil))
-  ([{:keys [page limit codigo sigla descricao continente flag-ativo ]}]
+  ([{:keys [sort page limit codigo sigla descricao continente flag-ativo ]}]
    (call-api "/api/paises" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "codigo" codigo "sigla" sigla "descricao" descricao "continente" continente "flagAtivo" flag-ativo }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "codigo" codigo "sigla" sigla "descricao" descricao "continente" continente "flagAtivo" flag-ativo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

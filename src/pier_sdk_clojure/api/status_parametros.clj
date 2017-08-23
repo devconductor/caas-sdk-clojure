@@ -82,11 +82,11 @@
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-estagios-cartoes-using-get-with-http-info nil))
-  ([{:keys [page limit id nome ]}]
+  ([{:keys [sort page limit id nome ]}]
    (call-api "/api/estagios-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -103,11 +103,11 @@
   "Lista as opÃ§Ãµes de Status do CartÃ£o
   Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
-  ([{:keys [page limit id nome flag-cancela-cartao flag-cancela-no-desbloqueio id-status-destino-desbloqueio id-status-destino-conta flag-cobra-tarifa flag-permite-nova-via-cartao flag-permite-desbloqueio flag-cancelamento flag-permite-bloqueio flag-reativar ]}]
+  ([{:keys [sort page limit id nome permite-desbloquear permite-atribuir-como-bloqueio permite-atribuir-como-cancelamento cobrar-tarifa-ao-emitir-nova-via ]}]
    (call-api "/api/status-cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagCancelaCartao" flag-cancela-cartao "flagCancelaNoDesbloqueio" flag-cancela-no-desbloqueio "idStatusDestinoDesbloqueio" id-status-destino-desbloqueio "idStatusDestinoConta" id-status-destino-conta "flagCobraTarifa" flag-cobra-tarifa "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagPermiteDesbloqueio" flag-permite-desbloqueio "flagCancelamento" flag-cancelamento "flagPermiteBloqueio" flag-permite-bloqueio "flagReativar" flag-reativar }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome "permiteDesbloquear" permite-desbloquear "permiteAtribuirComoBloqueio" permite-atribuir-como-bloqueio "permiteAtribuirComoCancelamento" permite-atribuir-como-cancelamento "cobrarTarifaAoEmitirNovaVia" cobrar-tarifa-ao-emitir-nova-via }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -120,44 +120,44 @@
   ([optional-params]
    (:data (listar-status-cartoes-using-get-with-http-info optional-params))))
 
-(defn listar-using-get20-with-http-info
+(defn listar-using-get22-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get20-with-http-info nil))
-  ([{:keys [page limit id nome flag-altera-limite mensagem-consulta-negada flag-permite-nova-via-cartao flag-faz-transferencia flag-recebe-transferencia flag-permite-bloqueio flag-permite-desbloqueio flag-cancela-conta ]}]
+  ([] (listar-using-get22-with-http-info nil))
+  ([{:keys [sort page limit id nome permite-alterar-vencimento permite-alterar-limite permite-emitir-nova-via-cartao permite-fazer-transferencia permite-receber-transferencia permite-criar-acordo-cobranca permite-atribuir-como-bloqueio permite-desbloquear permite-atribuir-como-cancelamento ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome "flagAlteraLimite" flag-altera-limite "mensagemConsultaNegada" mensagem-consulta-negada "flagPermiteNovaViaCartao" flag-permite-nova-via-cartao "flagFazTransferencia" flag-faz-transferencia "flagRecebeTransferencia" flag-recebe-transferencia "flagPermiteBloqueio" flag-permite-bloqueio "flagPermiteDesbloqueio" flag-permite-desbloqueio "flagCancelaConta" flag-cancela-conta }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome "permiteAlterarVencimento" permite-alterar-vencimento "permiteAlterarLimite" permite-alterar-limite "permiteEmitirNovaViaCartao" permite-emitir-nova-via-cartao "permiteFazerTransferencia" permite-fazer-transferencia "permiteReceberTransferencia" permite-receber-transferencia "permiteCriarAcordoCobranca" permite-criar-acordo-cobranca "permiteAtribuirComoBloqueio" permite-atribuir-como-bloqueio "permiteDesbloquear" permite-desbloquear "permiteAtribuirComoCancelamento" permite-atribuir-como-cancelamento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get20
+(defn listar-using-get22
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get20 nil))
+  ([] (listar-using-get22 nil))
   ([optional-params]
-   (:data (listar-using-get20-with-http-info optional-params))))
+   (:data (listar-using-get22-with-http-info optional-params))))
 
-(defn listar-using-get21-with-http-info
+(defn listar-using-get23-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get21-with-http-info nil))
-  ([{:keys [page limit id nome ]}]
+  ([] (listar-using-get23-with-http-info nil))
+  ([{:keys [sort page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "nome" nome }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get21
+(defn listar-using-get23
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get21 nil))
+  ([] (listar-using-get23 nil))
   ([optional-params]
-   (:data (listar-using-get21-with-http-info optional-params))))
+   (:data (listar-using-get23-with-http-info optional-params))))

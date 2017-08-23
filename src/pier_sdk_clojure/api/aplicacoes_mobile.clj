@@ -22,26 +22,26 @@
   [id update ]
   (:data (atualizar-using-put-with-http-info id update)))
 
-(defn listar-using-get-with-http-info
+(defn listar-using-get1-with-http-info
   "Lista os aplicacoes mobile cadastradas
   Este mÃ©todo permite que sejam listadas as aplicacoes mobile existentes na base do PIER."
-  ([] (listar-using-get-with-http-info nil))
-  ([{:keys [page limit id id-plataforma-mobile ]}]
+  ([] (listar-using-get1-with-http-info nil))
+  ([{:keys [sort page limit id id-plataforma-mobile ]}]
    (call-api "/api/aplicacoes-mobile" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "idPlataformaMobile" id-plataforma-mobile }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "idPlataformaMobile" id-plataforma-mobile }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get
+(defn listar-using-get1
   "Lista os aplicacoes mobile cadastradas
   Este mÃ©todo permite que sejam listadas as aplicacoes mobile existentes na base do PIER."
-  ([] (listar-using-get nil))
+  ([] (listar-using-get1 nil))
   ([optional-params]
-   (:data (listar-using-get-with-http-info optional-params))))
+   (:data (listar-using-get1-with-http-info optional-params))))
 
 (defn salvar-using-post-with-http-info
   "Cadastra Aplicacao Mobile

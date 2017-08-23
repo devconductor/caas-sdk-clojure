@@ -23,10 +23,10 @@
   ([pergunta resposta optional-params]
    (:data (adicionar-using-post-with-http-info pergunta resposta optional-params))))
 
-(defn alterar-using-put2-with-http-info
+(defn alterar-using-put3-with-http-info
   "Alterar FAQ
   Alterar FAQ"
-  ([id pergunta resposta ] (alterar-using-put2-with-http-info id pergunta resposta nil))
+  ([id pergunta resposta ] (alterar-using-put3-with-http-info id pergunta resposta nil))
   ([id pergunta resposta {:keys [relevancia plataforma categoria status ]}]
    (call-api "/api/faqs/{id}" :put
              {:path-params   {"id" id }
@@ -37,12 +37,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put2
+(defn alterar-using-put3
   "Alterar FAQ
   Alterar FAQ"
-  ([id pergunta resposta ] (alterar-using-put2 id pergunta resposta nil))
+  ([id pergunta resposta ] (alterar-using-put3 id pergunta resposta nil))
   ([id pergunta resposta optional-params]
-   (:data (alterar-using-put2-with-http-info id pergunta resposta optional-params))))
+   (:data (alterar-using-put3-with-http-info id pergunta resposta optional-params))))
 
 (defn consultar-using-get8-with-http-info
   "Consultar FAQ por id
@@ -63,23 +63,23 @@
   [id ]
   (:data (consultar-using-get8-with-http-info id)))
 
-(defn listar-using-get11-with-http-info
+(defn listar-using-get12-with-http-info
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get11-with-http-info nil))
-  ([{:keys [page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
+  ([] (listar-using-get12-with-http-info nil))
+  ([{:keys [sort page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idFaq" id-faq "pergunta" pergunta "resposta" resposta "relevancia" relevancia "plataforma" plataforma "categoria" categoria "status" status }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idFaq" id-faq "pergunta" pergunta "resposta" resposta "relevancia" relevancia "plataforma" plataforma "categoria" categoria "status" status }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get11
+(defn listar-using-get12
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get11 nil))
+  ([] (listar-using-get12 nil))
   ([optional-params]
-   (:data (listar-using-get11-with-http-info optional-params))))
+   (:data (listar-using-get12-with-http-info optional-params))))

@@ -127,11 +127,11 @@
   "Lista configuraÃ§Ãµes de E-mails
   Esse recurso permite listar as configuraÃ§Ãµes de E-mails."
   ([] (listar-configuracao-using-get-with-http-info nil))
-  ([{:keys [page limit ]}]
+  ([{:keys [sort page limit ]}]
    (call-api "/api/configuracoes-email" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -148,11 +148,11 @@
   "Listar Push
   Esse recurso permite listar os Pushes do emissor"
   ([] (listar-push-using-get-with-http-info nil))
-  ([{:keys [page limit data-envio tipo-evento status plataforma protocolo ]}]
+  ([{:keys [sort page limit data-envio tipo-evento status plataforma protocolo ]}]
    (call-api "/api/notificacoes/push" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataEnvio" data-envio "tipoEvento" tipo-evento "status" status "plataforma" plataforma "protocolo" protocolo }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataEnvio" data-envio "tipoEvento" tipo-evento "status" status "plataforma" plataforma "protocolo" protocolo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -169,11 +169,11 @@
   "Listar SMS
   Esse recurso permite listar os SMS do emissor"
   ([] (listar-sms-using-get-with-http-info nil))
-  ([{:keys [page limit data-inclusao tipo-evento status operadora protocolo nsu ]}]
+  ([{:keys [sort page limit data-inclusao tipo-evento status operadora protocolo nsu ]}]
    (call-api "/api/notificacoes/sms" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "dataInclusao" data-inclusao "tipoEvento" tipo-evento "status" status "operadora" operadora "protocolo" protocolo "nsu" nsu }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataInclusao" data-inclusao "tipoEvento" tipo-evento "status" status "operadora" operadora "protocolo" protocolo "nsu" nsu }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -190,11 +190,11 @@
   "Lista templates de notificaÃ§Ãµes
   Esse recurso permite listar templates notificaÃ§Ãµes."
   ([] (listar-template-notificacao-using-get-with-http-info nil))
-  ([{:keys [page limit ]}]
+  ([{:keys [sort page limit ]}]
    (call-api "/api/templates-notificacoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

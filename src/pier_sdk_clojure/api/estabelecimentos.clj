@@ -40,44 +40,44 @@
   [id ]
   (:data (consultar-using-get7-with-http-info id)))
 
-(defn listar-using-get10-with-http-info
+(defn listar-using-get11-with-http-info
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get10-with-http-info nil))
-  ([{:keys [page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
+  ([] (listar-using-get11-with-http-info nil))
+  ([{:keys [sort page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
    (call-api "/api/estabelecimentos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get10
+(defn listar-using-get11
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get10 nil))
+  ([] (listar-using-get11 nil))
   ([optional-params]
-   (:data (listar-using-get10-with-http-info optional-params))))
+   (:data (listar-using-get11-with-http-info optional-params))))
 
-(defn listar-using-get23-with-http-info
+(defn listar-using-get25-with-http-info
   "Lista os Terminais cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get23-with-http-info nil))
-  ([{:keys [page limit id terminal numero-estabelecimento id-estabelecimento ]}]
+  ([] (listar-using-get25-with-http-info nil))
+  ([{:keys [sort page limit id terminal numero-estabelecimento id-estabelecimento ]}]
    (call-api "/api/terminais" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "id" id "terminal" terminal "numeroEstabelecimento" numero-estabelecimento "idEstabelecimento" id-estabelecimento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "terminal" terminal "numeroEstabelecimento" numero-estabelecimento "idEstabelecimento" id-estabelecimento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get23
+(defn listar-using-get25
   "Lista os Terminais cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get23 nil))
+  ([] (listar-using-get25 nil))
   ([optional-params]
-   (:data (listar-using-get23-with-http-info optional-params))))
+   (:data (listar-using-get25-with-http-info optional-params))))

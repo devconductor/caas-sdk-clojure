@@ -60,10 +60,10 @@
   [id ]
   (:data (desativar-job-using-post-with-http-info id)))
 
-(defn listar-using-get12-with-http-info
+(defn listar-using-get13-with-http-info
   "Listar Jobs
   Este recurso permite que sejam listados os jobs existentes na base do PIER."
-  ([] (listar-using-get12-with-http-info nil))
+  ([] (listar-using-get13-with-http-info nil))
   ([{:keys [groovy descricao cron status page limit ]}]
    (call-api "/api/jobs" :get
              {:path-params   {}
@@ -74,14 +74,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get12
+(defn listar-using-get13
   "Listar Jobs
   Este recurso permite que sejam listados os jobs existentes na base do PIER."
-  ([] (listar-using-get12 nil))
+  ([] (listar-using-get13 nil))
   ([optional-params]
-   (:data (listar-using-get12-with-http-info optional-params))))
+   (:data (listar-using-get13-with-http-info optional-params))))
 
-(defn salvar-using-post7-with-http-info
+(defn salvar-using-post8-with-http-info
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
@@ -95,8 +95,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post7
+(defn salvar-using-post8
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
-  (:data (salvar-using-post7-with-http-info descricao cron groovy)))
+  (:data (salvar-using-post8-with-http-info descricao cron groovy)))

@@ -289,15 +289,34 @@
   [id ]
   (:data (gerar-nova-via-using-post-with-http-info id)))
 
+(defn lancar-tarifa-segunda-via-using-post-with-http-info
+  "Adiciona tarifa de ajuste da segunda via do cartÃ£o
+  Esse recurso permite adicionar tarÃ­fa de ajuste pela emissÃ£o da segunda via do cartÃ£o."
+  [id ]
+  (call-api "/api/cartoes/{id}/lancar-tarifa-reemissao" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn lancar-tarifa-segunda-via-using-post
+  "Adiciona tarifa de ajuste da segunda via do cartÃ£o
+  Esse recurso permite adicionar tarÃ­fa de ajuste pela emissÃ£o da segunda via do cartÃ£o."
+  [id ]
+  (:data (lancar-tarifa-segunda-via-using-post-with-http-info id)))
+
 (defn listar-lotes-cartoes-pre-pagos-using-get-with-http-info
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
   Este mÃ©todo permite que sejam listados os cartÃµes prÃ©-pagos existentes na base do emissor."
   ([] (listar-lotes-cartoes-pre-pagos-using-get-with-http-info nil))
-  ([{:keys [page limit id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
+  ([{:keys [sort page limit id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
    (call-api "/api/cartoes/lotes-cartoes-pre-pagos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -310,26 +329,26 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get5-with-http-info
+(defn listar-using-get6-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get5-with-http-info nil))
-  ([{:keys [page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
+  ([] (listar-using-get6-with-http-info nil))
+  ([{:keys [sort page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "tipoPortador" tipo-portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio "sequencialCartao" sequencial-cartao }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idStatusCartao" id-status-cartao "idEstagioCartao" id-estagio-cartao "idConta" id-conta "idPessoa" id-pessoa "idProduto" id-produto "tipoPortador" tipo-portador "numeroCartao" numero-cartao "nomeImpresso" nome-impresso "dataGeracao" data-geracao "dataStatusCartao" data-status-cartao "dataEstagioCartao" data-estagio-cartao "dataValidade" data-validade "dataImpressao" data-impressao "arquivoImpressao" arquivo-impressao "flagImpressaoOrigemComercial" flag-impressao-origem-comercial "flagProvisorio" flag-provisorio "codigoDesbloqueio" codigo-desbloqueio "sequencialCartao" sequencial-cartao }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get5
+(defn listar-using-get6
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get5 nil))
+  ([] (listar-using-get6 nil))
   ([optional-params]
-   (:data (listar-using-get5-with-http-info optional-params))))
+   (:data (listar-using-get6-with-http-info optional-params))))
 
 (defn reativar-using-post-with-http-info
   "Realiza a reativaÃ§Ã£o de um determinado CartÃ£o

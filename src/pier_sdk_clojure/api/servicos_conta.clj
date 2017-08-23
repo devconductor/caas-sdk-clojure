@@ -6,11 +6,11 @@
   "Atribuir Anuidade
   Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
-  ([id id-anuidade {:keys [page limit ddd celular id-operadora id-origem-comercial ]}]
+  ([id id-anuidade {:keys [sort page limit ddd celular id-operadora id-origem-comercial ]}]
    (call-api "/api/contas/{id}/atribuir-anuidade" :post
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -65,11 +65,11 @@
   "Listar Anuidades
   Lista as anuidades"
   ([] (listar-anuidades-using-get-with-http-info nil))
-  ([{:keys [page limit ]}]
-   (call-api "/api/api/anuidades" :get
+  ([{:keys [sort page limit ]}]
+   (call-api "/api/anuidades" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -86,11 +86,11 @@
   "Listar Operadoras
   Lista as operadoras."
   ([] (listar-operadoras-telefonicas-using-get-with-http-info nil))
-  ([{:keys [page limit ]}]
+  ([{:keys [sort page limit ]}]
    (call-api "/api/operadoras-telefonicas" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
