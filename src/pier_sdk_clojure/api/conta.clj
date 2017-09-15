@@ -42,25 +42,6 @@
   ([id optional-params]
    (:data (alterar-limite-using-put-with-http-info id optional-params))))
 
-(defn alterar-produto-using-post-with-http-info
-  "Altera o produto associado Ã  conta.
-  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
-  [id id-produto ]
-  (call-api "/api/contas/{id}/alterar-produto" :post
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {"idProduto" id-produto }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn alterar-produto-using-post
-  "Altera o produto associado Ã  conta.
-  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
-  [id id-produto ]
-  (:data (alterar-produto-using-post-with-http-info id id-produto)))
-
 (defn alterar-titular-using-post-with-http-info
   "Realiza a alteraÃ§Ã£o de uma Pessoa tilular da conta
   Esta mÃ©todo permite altera a pessoa de uma conta."
@@ -297,27 +278,6 @@
   ([id optional-params]
    (:data (consultar-lancamentos-futuros-fatura-using-get-with-http-info id optional-params))))
 
-(defn consultar-lancamentos-futuros-fatura-using-get1-with-http-info
-  "Listar planos de parcelamento
-  Lista os planos de parcelamento da fatura de uma conta."
-  ([id data-vencimento-padrao ] (consultar-lancamentos-futuros-fatura-using-get1-with-http-info id data-vencimento-padrao nil))
-  ([id data-vencimento-padrao {:keys [sort page limit quantidade-parcelas ]}]
-   (call-api "/api/contas/{id}/faturas/planos-parcelamento" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimentoPadrao" data-vencimento-padrao "quantidadeParcelas" quantidade-parcelas }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn consultar-lancamentos-futuros-fatura-using-get1
-  "Listar planos de parcelamento
-  Lista os planos de parcelamento da fatura de uma conta."
-  ([id data-vencimento-padrao ] (consultar-lancamentos-futuros-fatura-using-get1 id data-vencimento-padrao nil))
-  ([id data-vencimento-padrao optional-params]
-   (:data (consultar-lancamentos-futuros-fatura-using-get1-with-http-info id data-vencimento-padrao optional-params))))
-
 (defn consultar-limite-disponibilidade-using-get1-with-http-info
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
@@ -358,10 +318,10 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get24-with-http-info
+(defn consultar-using-get26-with-http-info
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get24-with-http-info id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get26-with-http-info id id-transferencia nil))
   ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
              {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -372,14 +332,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get24
+(defn consultar-using-get26
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get24 id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get26 id id-transferencia nil))
   ([id id-transferencia optional-params]
-   (:data (consultar-using-get24-with-http-info id id-transferencia optional-params))))
+   (:data (consultar-using-get26-with-http-info id id-transferencia optional-params))))
 
-(defn consultar-using-get25-with-http-info
+(defn consultar-using-get27-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -392,13 +352,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get25
+(defn consultar-using-get27
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get25-with-http-info id id-transferencia)))
+  (:data (consultar-using-get27-with-http-info id id-transferencia)))
 
-(defn consultar-using-get5-with-http-info
+(defn consultar-using-get6-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -411,11 +371,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get5
+(defn consultar-using-get6
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get5-with-http-info id)))
+  (:data (consultar-using-get6-with-http-info id)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email
@@ -435,27 +395,6 @@
   Este recurso desativa o serviÃ§o de envio de fatura por email"
   [id ]
   (:data (desativar-envio-fatura-email-using-post-with-http-info id)))
-
-(defn enviar-fatura-email-using-post-with-http-info
-  "Envia 2Âª via de fatura por E-mail
-  Envia a segunda via da fatura para o e-mail informado/cadastrado."
-  ([id data-vencimento ] (enviar-fatura-email-using-post-with-http-info id data-vencimento nil))
-  ([id data-vencimento {:keys [email ]}]
-   (call-api "/api/contas/{id}/faturas/{dataVencimento}/enviar-email" :post
-             {:path-params   {"id" id "dataVencimento" data-vencimento }
-              :header-params {}
-              :query-params  {"email" email }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn enviar-fatura-email-using-post
-  "Envia 2Âª via de fatura por E-mail
-  Envia a segunda via da fatura para o e-mail informado/cadastrado."
-  ([id data-vencimento ] (enviar-fatura-email-using-post id data-vencimento nil))
-  ([id data-vencimento optional-params]
-   (:data (enviar-fatura-email-using-post-with-http-info id data-vencimento optional-params))))
 
 (defn gerar-boleto-recarga-using-post-with-http-info
   "Gera um boleto de recarga
@@ -479,23 +418,41 @@
 (defn gerar-cartao-embossing-using-post-with-http-info
   "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
   Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
-  ([id id-pessoa ] (gerar-cartao-embossing-using-post-with-http-info id id-pessoa nil))
-  ([id id-pessoa {:keys [id-tipo-plastico ]}]
-   (call-api "/api/contas/{id}/gerar-cartao-grafica" :post
-             {:path-params   {"id" id "id_pessoa" id-pessoa }
-              :header-params {}
-              :query-params  {"id_tipo_plastico" id-tipo-plastico }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
+  [id cartao-embossing-request ]
+  (call-api "/api/contas/{id}/gerar-cartao-grafica" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    cartao-embossing-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
 
 (defn gerar-cartao-embossing-using-post
   "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
   Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
-  ([id id-pessoa ] (gerar-cartao-embossing-using-post id id-pessoa nil))
-  ([id id-pessoa optional-params]
-   (:data (gerar-cartao-embossing-using-post-with-http-info id id-pessoa optional-params))))
+  [id cartao-embossing-request ]
+  (:data (gerar-cartao-embossing-using-post-with-http-info id cartao-embossing-request)))
+
+(defn gerar-cartao-provisorio-using-post-with-http-info
+  "Realiza a geraÃ§Ã£o de um cartÃ£o provisorio
+  Este recurso permite que seja gerado um cartÃ£o provisÃ³rio para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  [id ]
+  (call-api "/api/contas/{id}/gerar-cartao-provisorio" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn gerar-cartao-provisorio-using-post
+  "Realiza a geraÃ§Ã£o de um cartÃ£o provisorio
+  Este recurso permite que seja gerado um cartÃ£o provisÃ³rio para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  [id ]
+  (:data (gerar-cartao-provisorio-using-post-with-http-info id)))
 
 (defn gerar-cartao-using-post-with-http-info
   "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa

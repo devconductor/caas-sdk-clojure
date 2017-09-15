@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.aplicacoes-mobile
+(ns pier-sdk-clojure.api.aplicacao-mobile
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 

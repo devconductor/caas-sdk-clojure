@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.servicos-conta
+(ns pier-sdk-clojure.api.servico-conta
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 

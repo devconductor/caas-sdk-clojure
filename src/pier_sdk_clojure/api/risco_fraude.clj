@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get14-with-http-info
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
   Consulta os detalhes de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get13
+(defn consultar-using-get14
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
   Consulta os detalhes de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
-  (:data (consultar-using-get13-with-http-info id)))
+  (:data (consultar-using-get14-with-http-info id)))
 
 (defn listar-tipos-resolucao-using-get-with-http-info
   "Listar os tipos de resoluÃ§Ã£o de fraude

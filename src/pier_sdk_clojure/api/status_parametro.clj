@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.status-parametros
+(ns pier-sdk-clojure.api.status-parametro
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get14-with-http-info
+(defn consultar-using-get15-with-http-info
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get14
+(defn consultar-using-get15
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get14-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
-(defn consultar-using-get15-with-http-info
+(defn consultar-using-get16-with-http-info
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get15
+(defn consultar-using-get16
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get15-with-http-info id)))
+  (:data (consultar-using-get16-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o

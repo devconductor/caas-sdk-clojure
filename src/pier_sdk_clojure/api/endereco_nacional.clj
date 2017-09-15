@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.enderecos-nacionais
+(ns pier-sdk-clojure.api.endereco-nacional
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 

@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.autorizacoes
+(ns pier-sdk-clojure.api.autorizacao
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -21,6 +21,26 @@
   Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira."
   [autorizacao-on-us-request ]
   (:data (autorizar-using-post-with-http-info autorizacao-on-us-request)))
+
+(defn autorizar-using-post1-with-http-info
+  "Autoriza transaÃ§Ã£o financeira por idCartao
+  Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira com o idCartao."
+  [id transacao-on-us-por-id-cartao-request ]
+  (call-api "/api/cartoes/{id}/autorizar-transacao" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    transacao-on-us-por-id-cartao-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn autorizar-using-post1
+  "Autoriza transaÃ§Ã£o financeira por idCartao
+  Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira com o idCartao."
+  [id transacao-on-us-por-id-cartao-request ]
+  (:data (autorizar-using-post1-with-http-info id transacao-on-us-por-id-cartao-request)))
 
 (defn cancelar-using-post2-with-http-info
   "Cancela transaÃ§Ã£o financeira

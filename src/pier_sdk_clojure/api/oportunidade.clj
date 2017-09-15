@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.oportunidades
+(ns pier-sdk-clojure.api.oportunidade
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -81,26 +81,7 @@
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get21-with-http-info
-  "Apresenta dados de um determinado tipo oportunidade
-  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
-  [id ]
-  (call-api "/api/tipos-oportunidades/{id}" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-using-get21
-  "Apresenta dados de um determinado tipo oportunidade
-  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
-  [id ]
-  (:data (consultar-using-get21-with-http-info id)))
-
-(defn consultar-using-get9-with-http-info
+(defn consultar-using-get10-with-http-info
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -113,11 +94,30 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get9
+(defn consultar-using-get10
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get9-with-http-info id)))
+  (:data (consultar-using-get10-with-http-info id)))
+
+(defn consultar-using-get23-with-http-info
+  "Apresenta dados de um determinado tipo oportunidade
+  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  [id ]
+  (call-api "/api/tipos-oportunidades/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-using-get23
+  "Apresenta dados de um determinado tipo oportunidade
+  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  [id ]
+  (:data (consultar-using-get23-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "Lista as auditorias dos status oportunidades

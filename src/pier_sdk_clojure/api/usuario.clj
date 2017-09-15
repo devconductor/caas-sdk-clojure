@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.usuarios
+(ns pier-sdk-clojure.api.usuario
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -60,7 +60,7 @@
   [id ]
   (:data (ativar-usuario-using-post-with-http-info id)))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get28-with-http-info
   "Apresenta os dados de um determinado UsuÃ¡rio na base do PIER ou WS.
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -73,11 +73,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get26
+(defn consultar-using-get28
   "Apresenta os dados de um determinado UsuÃ¡rio na base do PIER ou WS.
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get26-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
 (defn desativar-usuario-using-post-with-http-info
   "Desativa os usuÃ¡rios cadastrados na base do PIER ou WS.

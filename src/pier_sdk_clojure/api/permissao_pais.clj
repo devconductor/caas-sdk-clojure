@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.permissao-paises
+(ns pier-sdk-clojure.api.permissao-pais
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 

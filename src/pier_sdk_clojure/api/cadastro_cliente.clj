@@ -1,4 +1,4 @@
-(ns pier-sdk-clojure.api.cadastros-clientes
+(ns pier-sdk-clojure.api.cadastro-cliente
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
@@ -146,7 +146,26 @@
   [id persist ]
   (:data (cadastrar-using-post-with-http-info id persist)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get-with-http-info
+  "Consulta Adicional de uma Conta
+  Este mÃ©todo permite que seja consultado um portador Adicional de uma determinada Conta."
+  [id id-pessoa ]
+  (call-api "/api/contas/{id}/adicionais/{idPessoa}" :get
+            {:path-params   {"id" id "idPessoa" id-pessoa }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-using-get
+  "Consulta Adicional de uma Conta
+  Este mÃ©todo permite que seja consultado um portador Adicional de uma determinada Conta."
+  [id id-pessoa ]
+  (:data (consultar-using-get-with-http-info id id-pessoa)))
+
+(defn consultar-using-get11-with-http-info
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
@@ -159,13 +178,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get11-with-http-info
+(defn consultar-using-get12-with-http-info
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
@@ -178,13 +197,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get12
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get17-with-http-info
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -197,13 +216,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get16
+(defn consultar-using-get17
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get16-with-http-info id)))
+  (:data (consultar-using-get17-with-http-info id)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -216,11 +235,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get7-with-http-info id)))
 
 (defn inativar-using-post-with-http-info
   "Inativa Adicional de uma Conta
@@ -266,11 +285,11 @@
   "Lista os Adicionais de uma Conta
   Este mÃ©todo permite que sejam listados portadores Adicionais de uma determinada Conta."
   ([id ] (listar-using-get-with-http-info id nil))
-  ([id {:keys [page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/adicionais" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"page" page "limit" limit }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
