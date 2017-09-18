@@ -100,7 +100,7 @@
   [id ]
   (:data (consultar-using-get10-with-http-info id)))
 
-(defn consultar-using-get23-with-http-info
+(defn consultar-using-get22-with-http-info
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get23
+(defn consultar-using-get22
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get23-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "Lista as auditorias dos status oportunidades

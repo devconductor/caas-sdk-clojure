@@ -318,10 +318,10 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get25-with-http-info
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get26-with-http-info id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get25-with-http-info id id-transferencia nil))
   ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
              {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -332,14 +332,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get26
+(defn consultar-using-get25
   "Consultar uma transferÃªncia bancÃ¡ria para um banco
   Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get26 id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get25 id id-transferencia nil))
   ([id id-transferencia optional-params]
-   (:data (consultar-using-get26-with-http-info id id-transferencia optional-params))))
+   (:data (consultar-using-get25-with-http-info id id-transferencia optional-params))))
 
-(defn consultar-using-get27-with-http-info
+(defn consultar-using-get26-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -352,11 +352,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get27
+(defn consultar-using-get26
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get27-with-http-info id id-transferencia)))
+  (:data (consultar-using-get26-with-http-info id id-transferencia)))
 
 (defn consultar-using-get6-with-http-info
   "Apresenta dados de uma determinada conta

@@ -62,6 +62,26 @@
   [cancelamento-request ]
   (:data (cancelar-using-post2-with-http-info cancelamento-request)))
 
+(defn cancelar-using-post3-with-http-info
+  "Cancela transaÃ§Ã£o financeira por idCartao
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o a partir do idCartao."
+  [id cancelamento-request ]
+  (call-api "/api/cartoes/{id}/cancelar-transacao" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    cancelamento-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn cancelar-using-post3
+  "Cancela transaÃ§Ã£o financeira por idCartao
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o a partir do idCartao."
+  [id cancelamento-request ]
+  (:data (cancelar-using-post3-with-http-info id cancelamento-request)))
+
 (defn listar-codigos-processamento-autorizacao-using-get-with-http-info
   "Retorna cÃ³digos de processamento de autorizaÃ§Ã£o
   Este mÃ©todo retorna a lista dos cÃ³digos de processamento para autorizaÃ§Ã£o de transaÃ§Ãµes financeiras."

@@ -178,26 +178,7 @@
   [id ]
   (:data (consultar-using-get21-with-http-info id)))
 
-(defn consultar-using-get22-with-http-info
-  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
-  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idCartao, idEstabelecimento e codigoProcessamento."
-  [id-cartao id-estabelecimento codigo-processamento ]
-  (call-api "/api/tipo-operacao" :get
-            {:path-params   {}
-             :header-params {}
-             :query-params  {"idCartao" id-cartao "idEstabelecimento" id-estabelecimento "codigoProcessamento" codigo-processamento }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-using-get22
-  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
-  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idCartao, idEstabelecimento e codigoProcessamento."
-  [id-cartao id-estabelecimento codigo-processamento ]
-  (:data (consultar-using-get22-with-http-info id-cartao id-estabelecimento codigo-processamento)))
-
-(defn consultar-using-get24-with-http-info
+(defn consultar-using-get23-with-http-info
   "Apresenta os dados de um determinado Tipo de Telefone
   Este mÃ©todo permite consultar um determinado Tipo de Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -210,11 +191,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get24
+(defn consultar-using-get23
   "Apresenta os dados de um determinado Tipo de Telefone
   Este mÃ©todo permite consultar um determinado Tipo de Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get24-with-http-info id)))
+  (:data (consultar-using-get23-with-http-info id)))
 
 (defn consultar-using-get3-with-http-info
   "Apresenta os dados de um determinado Banco

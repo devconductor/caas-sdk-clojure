@@ -23,7 +23,7 @@
   ([id tipo-evento url optional-params]
    (:data (alterar-using-put11-with-http-info id tipo-evento url optional-params))))
 
-(defn consultar-using-get29-with-http-info
+(defn consultar-using-get28-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -36,11 +36,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get29
+(defn consultar-using-get28
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get29-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
 (defn listar-using-get34-with-http-info
   "Lista os Webhooks
