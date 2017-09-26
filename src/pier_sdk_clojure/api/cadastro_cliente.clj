@@ -427,93 +427,9 @@
   (:data (salvar-pessoa-juridica-aprovada-using-post-with-http-info pessoa-persist)))
 
 (defn salvar-using-post10-with-http-info
-  "Salvar os detalhes de uma determinada Pessoa
-  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
-  ([id-pessoa ] (salvar-using-post10-with-http-info id-pessoa nil))
-  ([id-pessoa {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
-   (call-api "/api/pessoas-detalhes" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn salvar-using-post10
-  "Salvar os detalhes de uma determinada Pessoa
-  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
-  ([id-pessoa ] (salvar-using-post10 id-pessoa nil))
-  ([id-pessoa optional-params]
-   (:data (salvar-using-post10-with-http-info id-pessoa optional-params))))
-
-(defn salvar-using-post11-with-http-info
-  "Realiza o cadastro de um nova Pessoa
-  Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
-  ([nome tipo ] (salvar-using-post11-with-http-info nome tipo nil))
-  ([nome tipo {:keys [cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
-   (call-api "/api/pessoas" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "dataNascimento" data-nascimento "sexo" sexo "numeroIdentidade" numero-identidade "orgaoExpedidorIdentidade" orgao-expedidor-identidade "unidadeFederativaIdentidade" unidade-federativa-identidade "dataEmissaoIdentidade" data-emissao-identidade }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn salvar-using-post11
-  "Realiza o cadastro de um nova Pessoa
-  Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
-  ([nome tipo ] (salvar-using-post11 nome tipo nil))
-  ([nome tipo optional-params]
-   (:data (salvar-using-post11-with-http-info nome tipo optional-params))))
-
-(defn salvar-using-post13-with-http-info
-  "Realiza o cadastro de um novo Telefone
-  Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post13-with-http-info nil))
-  ([{:keys [id-tipo-telefone id-pessoa ddd telefone ramal ]}]
-   (call-api "/api/telefones" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"idTipoTelefone" id-tipo-telefone "idPessoa" id-pessoa "ddd" ddd "telefone" telefone "ramal" ramal }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn salvar-using-post13
-  "Realiza o cadastro de um novo Telefone
-  Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post13 nil))
-  ([optional-params]
-   (:data (salvar-using-post13-with-http-info optional-params))))
-
-(defn salvar-using-post5-with-http-info
-  "Realiza o cadastro de um novo EndereÃ§o
-  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
-  ([] (salvar-using-post5-with-http-info nil))
-  ([{:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
-   (call-api "/api/enderecos" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn salvar-using-post5
-  "Realiza o cadastro de um novo EndereÃ§o
-  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
-  ([] (salvar-using-post5 nil))
-  ([optional-params]
-   (:data (salvar-using-post5-with-http-info optional-params))))
-
-(defn salvar-using-post7-with-http-info
   "Inclui a conta como registro para integraÃ§Ã£o
   Este recurso permite incluir uma conta como registro para integraÃ§Ã£o."
-  ([id ] (salvar-using-post7-with-http-info id nil))
+  ([id ] (salvar-using-post10-with-http-info id nil))
   ([id {:keys [body ]}]
    (call-api "/api/contas/{id}/incluir-registro-integracao" :post
              {:path-params   {"id" id }
@@ -525,9 +441,93 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn salvar-using-post7
+(defn salvar-using-post10
   "Inclui a conta como registro para integraÃ§Ã£o
   Este recurso permite incluir uma conta como registro para integraÃ§Ã£o."
-  ([id ] (salvar-using-post7 id nil))
+  ([id ] (salvar-using-post10 id nil))
   ([id optional-params]
-   (:data (salvar-using-post7-with-http-info id optional-params))))
+   (:data (salvar-using-post10-with-http-info id optional-params))))
+
+(defn salvar-using-post13-with-http-info
+  "Salvar os detalhes de uma determinada Pessoa
+  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
+  ([id-pessoa ] (salvar-using-post13-with-http-info id-pessoa nil))
+  ([id-pessoa {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
+   (call-api "/api/pessoas-detalhes" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn salvar-using-post13
+  "Salvar os detalhes de uma determinada Pessoa
+  Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
+  ([id-pessoa ] (salvar-using-post13 id-pessoa nil))
+  ([id-pessoa optional-params]
+   (:data (salvar-using-post13-with-http-info id-pessoa optional-params))))
+
+(defn salvar-using-post14-with-http-info
+  "Realiza o cadastro de um nova Pessoa
+  Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
+  ([nome tipo ] (salvar-using-post14-with-http-info nome tipo nil))
+  ([nome tipo {:keys [cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
+   (call-api "/api/pessoas" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "dataNascimento" data-nascimento "sexo" sexo "numeroIdentidade" numero-identidade "orgaoExpedidorIdentidade" orgao-expedidor-identidade "unidadeFederativaIdentidade" unidade-federativa-identidade "dataEmissaoIdentidade" data-emissao-identidade }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn salvar-using-post14
+  "Realiza o cadastro de um nova Pessoa
+  Este mÃ©todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor."
+  ([nome tipo ] (salvar-using-post14 nome tipo nil))
+  ([nome tipo optional-params]
+   (:data (salvar-using-post14-with-http-info nome tipo optional-params))))
+
+(defn salvar-using-post16-with-http-info
+  "Realiza o cadastro de um novo Telefone
+  Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
+  ([] (salvar-using-post16-with-http-info nil))
+  ([{:keys [id-tipo-telefone id-pessoa ddd telefone ramal ]}]
+   (call-api "/api/telefones" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idTipoTelefone" id-tipo-telefone "idPessoa" id-pessoa "ddd" ddd "telefone" telefone "ramal" ramal }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn salvar-using-post16
+  "Realiza o cadastro de um novo Telefone
+  Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
+  ([] (salvar-using-post16 nil))
+  ([optional-params]
+   (:data (salvar-using-post16-with-http-info optional-params))))
+
+(defn salvar-using-post8-with-http-info
+  "Realiza o cadastro de um novo EndereÃ§o
+  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
+  ([] (salvar-using-post8-with-http-info nil))
+  ([{:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
+   (call-api "/api/enderecos" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn salvar-using-post8
+  "Realiza o cadastro de um novo EndereÃ§o
+  Este mÃ©todo permite que seja cadastrado um novo EndereÃ§o na base de dados do Emissor."
+  ([] (salvar-using-post8 nil))
+  ([optional-params]
+   (:data (salvar-using-post8-with-http-info optional-params))))

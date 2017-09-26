@@ -265,27 +265,7 @@
   [id persist ]
   (:data (salvar-status-using-post-with-http-info id persist)))
 
-(defn salvar-using-post14-with-http-info
-  "Cadastra tipos oportunidades
-  Esse recurso permite cadastrar tipos oportunidades."
-  [persist ]
-  (call-api "/api/tipos-oportunidades" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :body-param    persist
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn salvar-using-post14
-  "Cadastra tipos oportunidades
-  Esse recurso permite cadastrar tipos oportunidades."
-  [persist ]
-  (:data (salvar-using-post14-with-http-info persist)))
-
-(defn salvar-using-post9-with-http-info
+(defn salvar-using-post12-with-http-info
   "Cadastra as oportunidades
   Esse recurso permite cadastrar oportunidades."
   [persist ]
@@ -299,8 +279,28 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post9
+(defn salvar-using-post12
   "Cadastra as oportunidades
   Esse recurso permite cadastrar oportunidades."
   [persist ]
-  (:data (salvar-using-post9-with-http-info persist)))
+  (:data (salvar-using-post12-with-http-info persist)))
+
+(defn salvar-using-post17-with-http-info
+  "Cadastra tipos oportunidades
+  Esse recurso permite cadastrar tipos oportunidades."
+  [persist ]
+  (call-api "/api/tipos-oportunidades" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn salvar-using-post17
+  "Cadastra tipos oportunidades
+  Esse recurso permite cadastrar tipos oportunidades."
+  [persist ]
+  (:data (salvar-using-post17-with-http-info persist)))

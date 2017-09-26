@@ -63,7 +63,7 @@
   ([optional-params]
    (:data (listar-using-get34-with-http-info optional-params))))
 
-(defn salvar-using-post17-with-http-info
+(defn salvar-using-post20-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -76,8 +76,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post17
+(defn salvar-using-post20
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post17-with-http-info tipo-evento url)))
+  (:data (salvar-using-post20-with-http-info tipo-evento url)))

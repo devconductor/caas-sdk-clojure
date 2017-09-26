@@ -81,7 +81,7 @@
   ([optional-params]
    (:data (listar-using-get13-with-http-info optional-params))))
 
-(defn salvar-using-post8-with-http-info
+(defn salvar-using-post11-with-http-info
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
@@ -95,8 +95,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post8
+(defn salvar-using-post11
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
-  (:data (salvar-using-post8-with-http-info descricao cron groovy)))
+  (:data (salvar-using-post11-with-http-info descricao cron groovy)))

@@ -43,7 +43,7 @@
   ([optional-params]
    (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn salvar-using-post12-with-http-info
+(defn salvar-using-post15-with-http-info
   "Cadastra Plataforma Mobile
   Esse recurso permite cadastrar plataformas mobile."
   [persist ]
@@ -57,8 +57,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post12
+(defn salvar-using-post15
   "Cadastra Plataforma Mobile
   Esse recurso permite cadastrar plataformas mobile."
   [persist ]
-  (:data (salvar-using-post12-with-http-info persist)))
+  (:data (salvar-using-post15-with-http-info persist)))

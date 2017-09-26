@@ -2,6 +2,25 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn alterar-senha-login-using-post-with-http-info
+  "Alterar senha do usuÃ¡rio.
+  Este mÃ©todo realiza a alteraÃ§Ã£o da senha do usuÃ¡rio."
+  [login senha-nova ]
+  (call-api "/api/usuarios/{login}/alterar-senha" :post
+            {:path-params   {"login" login }
+             :header-params {"senhaNova" senha-nova }
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn alterar-senha-login-using-post
+  "Alterar senha do usuÃ¡rio.
+  Este mÃ©todo realiza a alteraÃ§Ã£o da senha do usuÃ¡rio."
+  [login senha-nova ]
+  (:data (alterar-senha-login-using-post-with-http-info login senha-nova)))
+
 (defn alterar-senha-using-put-with-http-info
   "Alterar senha do usuÃ¡rio na base do PIER ou WS.
   Este mÃ©todo realiza a alteraÃ§Ã£o da senha do usuÃ¡rio."
@@ -22,7 +41,7 @@
   (:data (alterar-senha-using-put-with-http-info id senha-atual senha-nova)))
 
 (defn alterar-using-put10-with-http-info
-  "Altera os usuÃ¡rios cadastrados na base do PIER ou WS.
+  "Altera os usuÃ¡rios cadastrados na base.
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (call-api "/api/usuarios/{id}" :put
@@ -36,7 +55,7 @@
              :auth-names    []}))
 
 (defn alterar-using-put10
-  "Altera os usuÃ¡rios cadastrados na base do PIER ou WS.
+  "Altera os usuÃ¡rios cadastrados na base.
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
   (:data (alterar-using-put10-with-http-info id update)))
@@ -138,8 +157,8 @@
   [id ]
   (:data (recuperar-senha-using-post-with-http-info id)))
 
-(defn salvar-using-post16-with-http-info
-  "Cadastra UsuÃ¡rio na base do PIER ou WS.
+(defn salvar-using-post19-with-http-info
+  "Cadastra UsuÃ¡rio na base.
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
   (call-api "/api/usuarios" :post
@@ -152,11 +171,30 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post16
-  "Cadastra UsuÃ¡rio na base do PIER ou WS.
+(defn salvar-using-post19
+  "Cadastra UsuÃ¡rio na base.
   Esse recurso permite cadastrar usuÃ¡rios."
   [persist ]
-  (:data (salvar-using-post16-with-http-info persist)))
+  (:data (salvar-using-post19-with-http-info persist)))
+
+(defn validar-senha-login-using-post-with-http-info
+  "Realiza login com validaÃ§Ã£o de senha dos usuÃ¡rios cadastrados na base do PIER ou WS.
+  O recurso permite fazer login do usuÃ¡rio atravÃ©s da senha definida pelo emissor."
+  [login senha ]
+  (call-api "/api/usuarios/{login}/validar-senha" :post
+            {:path-params   {"login" login }
+             :header-params {"senha" senha }
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-senha-login-using-post
+  "Realiza login com validaÃ§Ã£o de senha dos usuÃ¡rios cadastrados na base do PIER ou WS.
+  O recurso permite fazer login do usuÃ¡rio atravÃ©s da senha definida pelo emissor."
+  [login senha ]
+  (:data (validar-senha-login-using-post-with-http-info login senha)))
 
 (defn validar-senha-using-get1-with-http-info
   "Validar a senha do usuÃ¡rio na base do PIER ou WS.

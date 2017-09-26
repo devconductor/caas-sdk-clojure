@@ -26,11 +26,11 @@
   "Alterar template de notificaÃ§Ã£o
   Esse recurso permite salvar alteraÃ§Ãµes de templates notificaÃ§Ãµes."
   ([id conteudo ] (alterar-template-notificacao-using-put-with-http-info id conteudo nil))
-  ([id conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao assunto ]}]
+  ([id conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto ]}]
    (call-api "/api/templates-notificacoes/{id}" :put
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "assunto" assunto }
+              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto }
               :form-params   {}
               :body-param    conteudo
               :content-types ["text/plain"]
@@ -226,6 +226,26 @@
   []
   (:data (listar-tipos-layouts-using-get-with-http-info)))
 
+(defn notificacao-email-using-post-with-http-info
+  "Enviar notificaÃ§Ã£o por email
+  Esse recurso permite enviar uma mensagem de notificaÃ§Ã£o por email"
+  [request ]
+  (call-api "/api/notificacoes-email" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn notificacao-email-using-post
+  "Enviar notificaÃ§Ã£o por email
+  Esse recurso permite enviar uma mensagem de notificaÃ§Ã£o por email"
+  [request ]
+  (:data (notificacao-email-using-post-with-http-info request)))
+
 (defn responder-sms-using-post-with-http-info
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
@@ -351,11 +371,11 @@
   "Salva template de notificaÃ§Ã£o
   Esse recurso salvar template notificaÃ§Ãµe."
   ([conteudo ] (salvar-template-notificacao-using-post-with-http-info conteudo nil))
-  ([conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao assunto ]}]
+  ([conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto ]}]
    (call-api "/api/templates-notificacoes" :post
              {:path-params   {}
               :header-params {}
-              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "assunto" assunto }
+              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto }
               :form-params   {}
               :body-param    conteudo
               :content-types ["text/plain"]

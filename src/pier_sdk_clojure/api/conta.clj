@@ -158,6 +158,25 @@
   [id id-status ]
   (:data (cancelar-using-post1-with-http-info id id-status)))
 
+(defn consultar-beneficio-pagamento-atraso-using-get-with-http-info
+  "Apresenta a data mÃ¡xima para pagamento da fatura em atraso para receber o benefÃ­cio.
+  Este mÃ©todo permite consultar se o cliente tem direito ao benefÃ­cio de pagamento em atraso, em loja, atÃ© o sÃ¡bado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
+  [id ]
+  (call-api "/api/contas/{id}/consultar-beneficio-pagamento-atraso" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-beneficio-pagamento-atraso-using-get
+  "Apresenta a data mÃ¡xima para pagamento da fatura em atraso para receber o benefÃ­cio.
+  Este mÃ©todo permite consultar se o cliente tem direito ao benefÃ­cio de pagamento em atraso, em loja, atÃ© o sÃ¡bado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
+  [id ]
+  (:data (consultar-beneficio-pagamento-atraso-using-get-with-http-info id)))
+
 (defn consultar-boleto-emitido-using-get-with-http-info
   "Consulta os dados de um determinado boleto da fatura
   Este recurso consulta um boleto da fatura"
@@ -743,6 +762,26 @@
   Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
   [id ]
   (:data (reativar-using-post1-with-http-info id)))
+
+(defn simular-emprestimo-financiamento-using-post-with-http-info
+  "Simula valores de prestaÃ§Ãµes de emprÃ©stimos/financiamentos
+  Esta operaÃ§Ã£o pode ser utilizada para simular operaÃ§Ãµes financeiras a partir de informaÃ§Ãµes fornecidas pelo usuÃ¡rio. Os cÃ¡lculos gerados devem ser considerados apenas como referÃªncia para as situaÃ§Ãµes reais e nÃ£o como valores oficiais."
+  [id request ]
+  (call-api "/api/contas/{id}/simular-emprestimos-financiamentos" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn simular-emprestimo-financiamento-using-post
+  "Simula valores de prestaÃ§Ãµes de emprÃ©stimos/financiamentos
+  Esta operaÃ§Ã£o pode ser utilizada para simular operaÃ§Ãµes financeiras a partir de informaÃ§Ãµes fornecidas pelo usuÃ¡rio. Os cÃ¡lculos gerados devem ser considerados apenas como referÃªncia para as situaÃ§Ãµes reais e nÃ£o como valores oficiais."
+  [id request ]
+  (:data (simular-emprestimo-financiamento-using-post-with-http-info id request)))
 
 (defn transacoes-using-get-with-http-info
   "Permite listar uma linha do tempo com os eventos da conta
