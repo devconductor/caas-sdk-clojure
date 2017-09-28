@@ -81,7 +81,7 @@
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get11-with-http-info
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -94,13 +94,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "Apresenta dados de uma determinada oportunidade
   Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get22-with-http-info
+(defn consultar-using-get24-with-http-info
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get22
+(defn consultar-using-get24
   "Apresenta dados de um determinado tipo oportunidade
   Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get22-with-http-info id)))
+  (:data (consultar-using-get24-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "Lista as auditorias dos status oportunidades
@@ -203,10 +203,10 @@
   ([id optional-params]
    (:data (listar-status-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get14-with-http-info
+(defn listar-using-get15-with-http-info
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get14-with-http-info nil))
+  ([] (listar-using-get15-with-http-info nil))
   ([{:keys [sort page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
@@ -217,17 +217,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get14
+(defn listar-using-get15
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get14 nil))
+  ([] (listar-using-get15 nil))
   ([optional-params]
-   (:data (listar-using-get14-with-http-info optional-params))))
+   (:data (listar-using-get15-with-http-info optional-params))))
 
-(defn listar-using-get27-with-http-info
+(defn listar-using-get28-with-http-info
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get27-with-http-info nil))
+  ([] (listar-using-get28-with-http-info nil))
   ([{:keys [sort page limit descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades" :get
              {:path-params   {}
@@ -238,12 +238,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get27
+(defn listar-using-get28
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get27 nil))
+  ([] (listar-using-get28 nil))
   ([optional-params]
-   (:data (listar-using-get27-with-http-info optional-params))))
+   (:data (listar-using-get28-with-http-info optional-params))))
 
 (defn salvar-status-using-post-with-http-info
   "Cadastra status para o tipo oportunidade

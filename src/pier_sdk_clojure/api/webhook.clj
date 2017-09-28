@@ -23,7 +23,7 @@
   ([id tipo-evento url optional-params]
    (:data (alterar-using-put11-with-http-info id tipo-evento url optional-params))))
 
-(defn consultar-using-get28-with-http-info
+(defn consultar-using-get30-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -36,16 +36,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get28
+(defn consultar-using-get30
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get28-with-http-info id)))
+  (:data (consultar-using-get30-with-http-info id)))
 
-(defn listar-using-get34-with-http-info
+(defn listar-using-get35-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get34-with-http-info nil))
+  ([] (listar-using-get35-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -56,12 +56,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get34
+(defn listar-using-get35
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get34 nil))
+  ([] (listar-using-get35 nil))
   ([optional-params]
-   (:data (listar-using-get34-with-http-info optional-params))))
+   (:data (listar-using-get35-with-http-info optional-params))))
 
 (defn salvar-using-post20-with-http-info
   "Salvar Webhook
