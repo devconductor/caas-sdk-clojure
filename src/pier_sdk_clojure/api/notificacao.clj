@@ -26,11 +26,11 @@
   "Alterar template de notificaÃ§Ã£o
   Esse recurso permite salvar alteraÃ§Ãµes de templates notificaÃ§Ãµes."
   ([id conteudo ] (alterar-template-notificacao-using-put-with-http-info id conteudo nil))
-  ([id conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto ]}]
+  ([id conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto template-padrao ]}]
    (call-api "/api/templates-notificacoes/{id}" :put
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto }
+              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto "templatePadrao" template-padrao }
               :form-params   {}
               :body-param    conteudo
               :content-types ["text/plain"]
@@ -84,6 +84,44 @@
   [id ]
   (:data (consultar-configuracao-using-get-with-http-info id)))
 
+(defn consultar-por-email-using-get-with-http-info
+  "Consulta cÃ³digo de seguranÃ§a E-mail
+  Esse recurso permite consultar um cÃ³digo de seguranÃ§a E-mail especÃ­fico por id."
+  [id ]
+  (call-api "/api/codigos-seguranca-email/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-por-email-using-get
+  "Consulta cÃ³digo de seguranÃ§a E-mail
+  Esse recurso permite consultar um cÃ³digo de seguranÃ§a E-mail especÃ­fico por id."
+  [id ]
+  (:data (consultar-por-email-using-get-with-http-info id)))
+
+(defn consultar-por-sms-using-get-with-http-info
+  "Consulta cÃ³digo de seguranÃ§a SMS
+  Esse recurso permite consultar um cÃ³digo de seguranÃ§a SMS especÃ­fico por id."
+  [id ]
+  (call-api "/api/codigos-seguranca-sms/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-por-sms-using-get
+  "Consulta cÃ³digo de seguranÃ§a SMS
+  Esse recurso permite consultar um cÃ³digo de seguranÃ§a SMS especÃ­fico por id."
+  [id ]
+  (:data (consultar-por-sms-using-get-with-http-info id)))
+
 (defn consultar-template-notificacao-using-get-with-http-info
   "Consulta template de notificaÃ§Ã£o
   Esse recurso permite consultar uma configuraÃ§Ã£o especÃ­fica por id."
@@ -103,7 +141,27 @@
   [id ]
   (:data (consultar-template-notificacao-using-get-with-http-info id)))
 
-(defn gerar-token-using-post-with-http-info
+(defn gerar-token-email-using-post-with-http-info
+  "Gerar cÃ³digo de seguranÃ§a e enviar por e-mail
+  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por e-mail, para validaÃ§Ã£o de dispositivos."
+  [email ]
+  (call-api "/api/notificacoes-email/gerar-codigo-seguranca" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    email
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn gerar-token-email-using-post
+  "Gerar cÃ³digo de seguranÃ§a e enviar por e-mail
+  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por e-mail, para validaÃ§Ã£o de dispositivos."
+  [email ]
+  (:data (gerar-token-email-using-post-with-http-info email)))
+
+(defn gerar-token-sms-using-post-with-http-info
   "Gerar cÃ³digo de seguranÃ§a e enviar por sms
   Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por sms, para validaÃ§Ã£o de dispositivos."
   [persist ]
@@ -117,11 +175,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn gerar-token-using-post
+(defn gerar-token-sms-using-post
   "Gerar cÃ³digo de seguranÃ§a e enviar por sms
   Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por sms, para validaÃ§Ã£o de dispositivos."
   [persist ]
-  (:data (gerar-token-using-post-with-http-info persist)))
+  (:data (gerar-token-sms-using-post-with-http-info persist)))
 
 (defn listar-configuracao-using-get-with-http-info
   "Lista configuraÃ§Ãµes de E-mails
@@ -143,6 +201,48 @@
   ([] (listar-configuracao-using-get nil))
   ([optional-params]
    (:data (listar-configuracao-using-get-with-http-info optional-params))))
+
+(defn listar-por-email-using-get-with-http-info
+  "Lista os cÃ³digos de seguranÃ§a E-Mail
+  Esse recurso permite listar os codigos de seguranÃ§a por E-Mail."
+  ([] (listar-por-email-using-get-with-http-info nil))
+  ([{:keys [sort page limit ]}]
+   (call-api "/api/codigos-seguranca-email" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-por-email-using-get
+  "Lista os cÃ³digos de seguranÃ§a E-Mail
+  Esse recurso permite listar os codigos de seguranÃ§a por E-Mail."
+  ([] (listar-por-email-using-get nil))
+  ([optional-params]
+   (:data (listar-por-email-using-get-with-http-info optional-params))))
+
+(defn listar-por-sms-using-get-with-http-info
+  "Lista os cÃ³digos de seguranÃ§a SMS
+  Esse recurso permite listar os codigos de seguranÃ§a por SMS."
+  ([] (listar-por-sms-using-get-with-http-info nil))
+  ([{:keys [sort page limit ]}]
+   (call-api "/api/codigos-seguranca-sms" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-por-sms-using-get
+  "Lista os cÃ³digos de seguranÃ§a SMS
+  Esse recurso permite listar os codigos de seguranÃ§a por SMS."
+  ([] (listar-por-sms-using-get nil))
+  ([optional-params]
+   (:data (listar-por-sms-using-get-with-http-info optional-params))))
 
 (defn listar-push-using-get-with-http-info
   "Listar Push
@@ -371,11 +471,11 @@
   "Salva template de notificaÃ§Ã£o
   Esse recurso salvar template notificaÃ§Ãµe."
   ([conteudo ] (salvar-template-notificacao-using-post-with-http-info conteudo nil))
-  ([conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto ]}]
+  ([conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto template-padrao ]}]
    (call-api "/api/templates-notificacoes" :post
              {:path-params   {}
               :header-params {}
-              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto }
+              :query-params  {"idConfiguracaoEmail" id-configuracao-email "tipoLayout" tipo-layout "tipoNotificacao" tipo-notificacao "remetente" remetente "assunto" assunto "templatePadrao" template-padrao }
               :form-params   {}
               :body-param    conteudo
               :content-types ["text/plain"]
@@ -389,7 +489,27 @@
   ([conteudo optional-params]
    (:data (salvar-template-notificacao-using-post-with-http-info conteudo optional-params))))
 
-(defn validar-token-using-post-with-http-info
+(defn validar-token-email-using-post-with-http-info
+  "Validar cÃ³digo de seguranÃ§a enviado por e-mail
+  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por e-mail, para validaÃ§Ã£o de dispositivos."
+  [request ]
+  (call-api "/api/notificacoes-email/validar-codigo-seguranca" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-token-email-using-post
+  "Validar cÃ³digo de seguranÃ§a enviado por e-mail
+  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por e-mail, para validaÃ§Ã£o de dispositivos."
+  [request ]
+  (:data (validar-token-email-using-post-with-http-info request)))
+
+(defn validar-token-sms-using-post-with-http-info
   "Validar cÃ³digo de seguranÃ§a enviado por sms
   Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por sms, para validaÃ§Ã£o de dispositivos."
   [request ]
@@ -403,8 +523,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn validar-token-using-post
+(defn validar-token-sms-using-post
   "Validar cÃ³digo de seguranÃ§a enviado por sms
   Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por sms, para validaÃ§Ã£o de dispositivos."
   [request ]
-  (:data (validar-token-using-post-with-http-info request)))
+  (:data (validar-token-sms-using-post-with-http-info request)))

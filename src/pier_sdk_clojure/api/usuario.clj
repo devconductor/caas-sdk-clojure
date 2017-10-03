@@ -40,7 +40,7 @@
   [id senha-atual senha-nova ]
   (:data (alterar-senha-using-put-with-http-info id senha-atual senha-nova)))
 
-(defn alterar-using-put10-with-http-info
+(defn alterar-using-put11-with-http-info
   "Altera os usuÃ¡rios cadastrados na base.
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
@@ -54,11 +54,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn alterar-using-put10
+(defn alterar-using-put11
   "Altera os usuÃ¡rios cadastrados na base.
   Este mÃ©todo realiza a alteraÃ§Ã£o dos usuÃ¡rios."
   [id update ]
-  (:data (alterar-using-put10-with-http-info id update)))
+  (:data (alterar-using-put11-with-http-info id update)))
 
 (defn ativar-usuario-using-post-with-http-info
   "Ativa os usuÃ¡rios cadastrados na base do PIER ou WS.
@@ -79,7 +79,7 @@
   [id ]
   (:data (ativar-usuario-using-post-with-http-info id)))
 
-(defn consultar-using-get29-with-http-info
+(defn consultar-using-get31-with-http-info
   "Apresenta os dados de um determinado UsuÃ¡rio na base do PIER ou WS.
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -92,11 +92,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get29
+(defn consultar-using-get31
   "Apresenta os dados de um determinado UsuÃ¡rio na base do PIER ou WS.
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado UsuÃ¡rio a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get29-with-http-info id)))
+  (:data (consultar-using-get31-with-http-info id)))
 
 (defn desativar-usuario-using-post-with-http-info
   "Desativa os usuÃ¡rios cadastrados na base do PIER ou WS.
@@ -117,10 +117,10 @@
   [id ]
   (:data (desativar-usuario-using-post-with-http-info id)))
 
-(defn listar-using-get33-with-http-info
+(defn listar-using-get35-with-http-info
   "Lista os UsuÃ¡rios cadastrados na base do PIER ou WS.
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get33-with-http-info nil))
+  ([] (listar-using-get35-with-http-info nil))
   ([{:keys [sort page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -131,12 +131,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get33
+(defn listar-using-get35
   "Lista os UsuÃ¡rios cadastrados na base do PIER ou WS.
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get33 nil))
+  ([] (listar-using-get35 nil))
   ([optional-params]
-   (:data (listar-using-get33-with-http-info optional-params))))
+   (:data (listar-using-get35-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio na base do PIER ou WS.
