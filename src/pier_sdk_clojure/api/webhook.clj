@@ -23,7 +23,7 @@
   ([id tipo-evento url optional-params]
    (:data (alterar-using-put12-with-http-info id tipo-evento url optional-params))))
 
-(defn consultar-using-get32-with-http-info
+(defn consultar-using-get33-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -36,16 +36,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get32
+(defn consultar-using-get33
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get32-with-http-info id)))
+  (:data (consultar-using-get33-with-http-info id)))
 
-(defn listar-using-get37-with-http-info
+(defn listar-using-get38-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get37-with-http-info nil))
+  ([] (listar-using-get38-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -56,14 +56,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get37
+(defn listar-using-get38
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get37 nil))
+  ([] (listar-using-get38 nil))
   ([optional-params]
-   (:data (listar-using-get37-with-http-info optional-params))))
+   (:data (listar-using-get38-with-http-info optional-params))))
 
-(defn salvar-using-post20-with-http-info
+(defn salvar-using-post21-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -76,8 +76,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post20
+(defn salvar-using-post21
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post20-with-http-info tipo-evento url)))
+  (:data (salvar-using-post21-with-http-info tipo-evento url)))

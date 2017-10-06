@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get11-with-http-info
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
@@ -15,13 +15,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get21-with-http-info
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -34,16 +34,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get21
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get21-with-http-info id)))
 
-(defn listar-using-get13-with-http-info
+(defn listar-using-get14-with-http-info
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get13-with-http-info nil))
+  ([] (listar-using-get14-with-http-info nil))
   ([{:keys [sort page limit id numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo ]}]
    (call-api "/api/estabelecimentos" :get
              {:path-params   {}
@@ -54,17 +54,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get13
+(defn listar-using-get14
   "Lista Estabelecimentos
   Lista todas os Estabelecimentos"
-  ([] (listar-using-get13 nil))
+  ([] (listar-using-get14 nil))
   ([optional-params]
-   (:data (listar-using-get13-with-http-info optional-params))))
+   (:data (listar-using-get14-with-http-info optional-params))))
 
-(defn listar-using-get27-with-http-info
+(defn listar-using-get28-with-http-info
   "Lista os Terminais cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get27-with-http-info nil))
+  ([] (listar-using-get28-with-http-info nil))
   ([{:keys [sort page limit id terminal numero-estabelecimento id-estabelecimento ]}]
    (call-api "/api/terminais" :get
              {:path-params   {}
@@ -75,9 +75,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get27
+(defn listar-using-get28
   "Lista os Terminais cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get27 nil))
+  ([] (listar-using-get28 nil))
   ([optional-params]
-   (:data (listar-using-get27-with-http-info optional-params))))
+   (:data (listar-using-get28-with-http-info optional-params))))
