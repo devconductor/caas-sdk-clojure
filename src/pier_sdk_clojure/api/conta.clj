@@ -237,46 +237,6 @@
   ([id optional-params]
    (:data (consultar-divida-atualizada-cliente-using-get-with-http-info id optional-params))))
 
-(defn consultar-fatura-consignada-aberta-using-get-with-http-info
-  "Consultar a fatura consignadas abertas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar a fatura consignada em aberto"
-  ([id ] (consultar-fatura-consignada-aberta-using-get-with-http-info id nil))
-  ([id {:keys [data-vencimento ]}]
-   (call-api "/api/contas/{id}/faturas-consignadas/consultar-aberta" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"dataVencimento" data-vencimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn consultar-fatura-consignada-aberta-using-get
-  "Consultar a fatura consignadas abertas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar a fatura consignada em aberto"
-  ([id ] (consultar-fatura-consignada-aberta-using-get id nil))
-  ([id optional-params]
-   (:data (consultar-fatura-consignada-aberta-using-get-with-http-info id optional-params))))
-
-(defn consultar-fatura-consignada-using-get-with-http-info
-  "Apresenta dados de uma determinada fatura consignada
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar uma fatura, atravÃ©s do id da conta e o id da fatura."
-  [id id-fatura ]
-  (call-api "/api/contas/{id}/faturas-consignadas/{id_fatura}" :get
-            {:path-params   {"id" id "id_fatura" id-fatura }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-fatura-consignada-using-get
-  "Apresenta dados de uma determinada fatura consignada
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar uma fatura, atravÃ©s do id da conta e o id da fatura."
-  [id id-fatura ]
-  (:data (consultar-fatura-consignada-using-get-with-http-info id id-fatura)))
-
 (defn consultar-fatura-using-get-with-http-info
   "Consultar Fatura da Conta
   AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes de uma fatura vinculados a uma determinada conta."
@@ -532,27 +492,6 @@
   Este recurso permite que seja gerado um CartÃ£o virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id). Esta funcionalidade poderÃ¡ ser utilizada para realizar a criaÃ§Ã£o de cartÃµes virtuaes atraves de um app."
   [id data-validade ]
   (:data (gerar-cartao-virtual-using-post-with-http-info id data-validade)))
-
-(defn listar-faturas-consignadas-using-get-with-http-info
-  "Lista as faturas consignadas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
-  ([id ] (listar-faturas-consignadas-using-get-with-http-info id nil))
-  ([id {:keys [sort page limit data-vencimento ]}]
-   (call-api "/api/contas/{id}/faturas-consignadas" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-faturas-consignadas-using-get
-  "Lista as faturas consignadas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
-  ([id ] (listar-faturas-consignadas-using-get id nil))
-  ([id optional-params]
-   (:data (listar-faturas-consignadas-using-get-with-http-info id optional-params))))
 
 (defn listar-faturas-using-get-with-http-info
   "Lista as faturas da conta

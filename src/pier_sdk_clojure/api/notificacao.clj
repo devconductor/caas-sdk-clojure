@@ -346,12 +346,12 @@
   [request ]
   (:data (notificacao-email-using-post-with-http-info request)))
 
-(defn responder-sms-using-post-with-http-info
+(defn responder-sms-get-using-get-with-http-info
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
-  ([] (responder-sms-using-post-with-http-info nil))
+  ([] (responder-sms-get-using-get-with-http-info nil))
   ([{:keys [nsu data resposta ]}]
-   (call-api "/api/notificacoes/sms/responder" :post
+   (call-api "/api/notificacoes/sms/responder" :get
              {:path-params   {}
               :header-params {}
               :query-params  {"nsu" nsu "data" data "resposta" resposta }
@@ -360,12 +360,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn responder-sms-using-post
+(defn responder-sms-get-using-get
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
-  ([] (responder-sms-using-post nil))
+  ([] (responder-sms-get-using-get nil))
   ([optional-params]
-   (:data (responder-sms-using-post-with-http-info optional-params))))
+   (:data (responder-sms-get-using-get-with-http-info optional-params))))
 
 (defn salvar-configuracao-using-post-with-http-info
   "Salva configuraÃ§Ãµes de E-mail

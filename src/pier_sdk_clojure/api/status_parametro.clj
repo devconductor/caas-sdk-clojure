@@ -120,6 +120,25 @@
   ([optional-params]
    (:data (listar-status-cartoes-using-get-with-http-info optional-params))))
 
+(defn listar-tipos-eventos-transacoes-using-get-with-http-info
+  "Lista os tipos de transaÃ§Ãµes
+  Esse recurso permite listar os tipos de transaÃ§Ãµes disponÃ­veis."
+  []
+  (call-api "/api/tipos-eventos-transacoes" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn listar-tipos-eventos-transacoes-using-get
+  "Lista os tipos de transaÃ§Ãµes
+  Esse recurso permite listar os tipos de transaÃ§Ãµes disponÃ­veis."
+  []
+  (:data (listar-tipos-eventos-transacoes-using-get-with-http-info)))
+
 (defn listar-using-get25-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."

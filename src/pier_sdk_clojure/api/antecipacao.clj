@@ -44,21 +44,44 @@
 (defn efetivar-antecipacao-using-post-with-http-info
   "Faz a efetivaÃ§Ã£o da antecipaÃ§Ã£o
   MÃ©todo responsavel pela efetivaÃ§Ã£o da antecipaÃ§Ã£o, cujo desconto Ã© calculado baseado na data da Ãºltima parcela em aberto."
-  [id-conta id quantidade-parcelas ]
-  (call-api "/api/compras-antecipaveis/{id}/efetivar-antecipacao" :post
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {"idConta" id-conta "quantidadeParcelas" quantidade-parcelas }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
+  ([id-conta id quantidade-parcelas ] (efetivar-antecipacao-using-post-with-http-info id-conta id quantidade-parcelas nil))
+  ([id-conta id quantidade-parcelas {:keys [complemento ]}]
+   (call-api "/api/compras-antecipaveis/{id}/efetivar-antecipacao" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"idConta" id-conta "quantidadeParcelas" quantidade-parcelas "complemento" complemento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
 
 (defn efetivar-antecipacao-using-post
   "Faz a efetivaÃ§Ã£o da antecipaÃ§Ã£o
   MÃ©todo responsavel pela efetivaÃ§Ã£o da antecipaÃ§Ã£o, cujo desconto Ã© calculado baseado na data da Ãºltima parcela em aberto."
-  [id-conta id quantidade-parcelas ]
-  (:data (efetivar-antecipacao-using-post-with-http-info id-conta id quantidade-parcelas)))
+  ([id-conta id quantidade-parcelas ] (efetivar-antecipacao-using-post id-conta id quantidade-parcelas nil))
+  ([id-conta id quantidade-parcelas optional-params]
+   (:data (efetivar-antecipacao-using-post-with-http-info id-conta id quantidade-parcelas optional-params))))
+
+(defn efetivar-antecipacoes-using-post-with-http-info
+  "Faz a efetivaÃ§Ã£o da antecipaÃ§Ã£o
+  MÃ©todo responsavel pela efetivaÃ§Ã£o de todas as compras antecipÃ¡veis com todas as parcelas de uma conta."
+  ([id-conta ] (efetivar-antecipacoes-using-post-with-http-info id-conta nil))
+  ([id-conta {:keys [complemento ]}]
+   (call-api "/api/compras-antecipaveis/efetivar-antecipacao" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idConta" id-conta "complemento" complemento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn efetivar-antecipacoes-using-post
+  "Faz a efetivaÃ§Ã£o da antecipaÃ§Ã£o
+  MÃ©todo responsavel pela efetivaÃ§Ã£o de todas as compras antecipÃ¡veis com todas as parcelas de uma conta."
+  ([id-conta ] (efetivar-antecipacoes-using-post id-conta nil))
+  ([id-conta optional-params]
+   (:data (efetivar-antecipacoes-using-post-with-http-info id-conta optional-params))))
 
 (defn listar-using-get8-with-http-info
   "Listar compras com parcelas antecipÃ¡veis
@@ -84,18 +107,41 @@
 (defn simular-antecipacao-using-get-with-http-info
   "Simular antecipaÃ§Ã£o de parcelas
   Simula a antecipaÃ§Ã£o de parcelas de um evento, listando todos os planos de parcelamento disponÃ­veis, cujo desconto Ã© calculado baseado na data da Ãºltima parcela em aberto."
-  [id-conta id ]
-  (call-api "/api/compras-antecipaveis/{id}/simular-antecipacao" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {"idConta" id-conta }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
+  ([id-conta id ] (simular-antecipacao-using-get-with-http-info id-conta id nil))
+  ([id-conta id {:keys [complemento ]}]
+   (call-api "/api/compras-antecipaveis/{id}/simular-antecipacao" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"idConta" id-conta "complemento" complemento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
 
 (defn simular-antecipacao-using-get
   "Simular antecipaÃ§Ã£o de parcelas
   Simula a antecipaÃ§Ã£o de parcelas de um evento, listando todos os planos de parcelamento disponÃ­veis, cujo desconto Ã© calculado baseado na data da Ãºltima parcela em aberto."
-  [id-conta id ]
-  (:data (simular-antecipacao-using-get-with-http-info id-conta id)))
+  ([id-conta id ] (simular-antecipacao-using-get id-conta id nil))
+  ([id-conta id optional-params]
+   (:data (simular-antecipacao-using-get-with-http-info id-conta id optional-params))))
+
+(defn simular-antecipacoes-using-get-with-http-info
+  "Simular antecipaÃ§Ã£o de todas as parcelas antecipÃ¡veis
+  O recurso permite realizar a simulaÃ§Ã£o da antecipaÃ§Ã£o de todas as compras antecipÃ¡veis de todas as parcelas de uma determinada conta."
+  ([id-conta ] (simular-antecipacoes-using-get-with-http-info id-conta nil))
+  ([id-conta {:keys [complemento ]}]
+   (call-api "/api/compras-antecipaveis/simular-antecipacao" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"idConta" id-conta "complemento" complemento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn simular-antecipacoes-using-get
+  "Simular antecipaÃ§Ã£o de todas as parcelas antecipÃ¡veis
+  O recurso permite realizar a simulaÃ§Ã£o da antecipaÃ§Ã£o de todas as compras antecipÃ¡veis de todas as parcelas de uma determinada conta."
+  ([id-conta ] (simular-antecipacoes-using-get id-conta nil))
+  ([id-conta optional-params]
+   (:data (simular-antecipacoes-using-get-with-http-info id-conta optional-params))))

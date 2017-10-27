@@ -116,6 +116,25 @@
   [id id-status observacao ]
   (:data (cancelar-using-post-with-http-info id id-status observacao)))
 
+(defn consultar-cartao-impressao-using-get-with-http-info
+  "Consultar os dados de impressÃ£o de um CartÃ£o
+  Esse recurso permite consultar os dados de impressÃ£o de um cartÃ£o"
+  [id ]
+  (call-api "/api/cartoes/{id}/consultar-dados-impressao" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-cartao-impressao-using-get
+  "Consultar os dados de impressÃ£o de um CartÃ£o
+  Esse recurso permite consultar os dados de impressÃ£o de um cartÃ£o"
+  [id ]
+  (:data (consultar-cartao-impressao-using-get-with-http-info id)))
+
 (defn consultar-dados-reais-cartao-using-get-with-http-info
   "Consultar Detalhes do CartÃ£o
   Este mÃ©todo permite que seja consultado os dados necessarios de um cartÃ£o para executar serviÃ§os de autorizaÃ§Ã£o."

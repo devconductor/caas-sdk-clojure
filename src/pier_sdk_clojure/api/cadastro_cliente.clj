@@ -126,6 +126,28 @@
   [id body ]
   (:data (atribuir-assinatura-cliente-using-post-with-http-info id body)))
 
+(defn atualizar-using-post-with-http-info
+  "Atualiza conta integrada com o emissor
+  Este recurso permite a atualizaÃ§Ã£o de uma conta integrada com o emissor."
+  ([id ] (atualizar-using-post-with-http-info id nil))
+  ([id {:keys [body ]}]
+   (call-api "/api/contas/{id}/atualizar-registro-integracao" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    body
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn atualizar-using-post
+  "Atualiza conta integrada com o emissor
+  Este recurso permite a atualizaÃ§Ã£o de uma conta integrada com o emissor."
+  ([id ] (atualizar-using-post id nil))
+  ([id optional-params]
+   (:data (atualizar-using-post-with-http-info id optional-params))))
+
 (defn cadastrar-using-post-with-http-info
   "Realiza o cadastro de Adicionais para uma Conta
   Este mÃ©todo permite que sejam cadastrados um portador Adicional para uma determinada Conta."

@@ -178,12 +178,12 @@
 (defn listar-using-get6-with-http-info
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([device-id ] (listar-using-get6-with-http-info device-id nil))
-  ([device-id {:keys [sort page limit status ]}]
+  ([] (listar-using-get6-with-http-info nil))
+  ([{:keys [device-id sort page limit status numero-cartao ]}]
    (call-api "/api/cartoes-tokenizados" :get
              {:path-params   {}
               :header-params {"device_id" device-id }
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "status" status }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "status" status "numeroCartao" numero-cartao }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -192,9 +192,9 @@
 (defn listar-using-get6
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([device-id ] (listar-using-get6 device-id nil))
-  ([device-id optional-params]
-   (:data (listar-using-get6-with-http-info device-id optional-params))))
+  ([] (listar-using-get6 nil))
+  ([optional-params]
+   (:data (listar-using-get6-with-http-info optional-params))))
 
 (defn salvar-using-post4-with-http-info
   "CriaÃ§Ã£o de cartÃ£o
