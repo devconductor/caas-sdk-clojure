@@ -23,10 +23,10 @@
   ([pergunta resposta optional-params]
    (:data (adicionar-using-post-with-http-info pergunta resposta optional-params))))
 
-(defn alterar-using-put3-with-http-info
+(defn alterar-using-put6-with-http-info
   "Alterar FAQ
   Alterar FAQ"
-  ([id pergunta resposta ] (alterar-using-put3-with-http-info id pergunta resposta nil))
+  ([id pergunta resposta ] (alterar-using-put6-with-http-info id pergunta resposta nil))
   ([id pergunta resposta {:keys [relevancia plataforma categoria status ]}]
    (call-api "/api/faqs/{id}" :put
              {:path-params   {"id" id }
@@ -37,14 +37,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put3
+(defn alterar-using-put6
   "Alterar FAQ
   Alterar FAQ"
-  ([id pergunta resposta ] (alterar-using-put3 id pergunta resposta nil))
+  ([id pergunta resposta ] (alterar-using-put6 id pergunta resposta nil))
   ([id pergunta resposta optional-params]
-   (:data (alterar-using-put3-with-http-info id pergunta resposta optional-params))))
+   (:data (alterar-using-put6-with-http-info id pergunta resposta optional-params))))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get15-with-http-info
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
@@ -57,16 +57,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get15
   "Consultar FAQ por id
   Consulta os detalhes de uma determinada FAQ"
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
-(defn listar-using-get15-with-http-info
+(defn listar-using-get19-with-http-info
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get15-with-http-info nil))
+  ([] (listar-using-get19-with-http-info nil))
   ([{:keys [sort page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
@@ -77,9 +77,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get15
+(defn listar-using-get19
   "Lista FAQs
   Lista todas as FAQs"
-  ([] (listar-using-get15 nil))
+  ([] (listar-using-get19 nil))
   ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
+   (:data (listar-using-get19-with-http-info optional-params))))

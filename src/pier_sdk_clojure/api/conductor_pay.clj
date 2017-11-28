@@ -196,7 +196,7 @@
   ([optional-params]
    (:data (listar-using-get6-with-http-info optional-params))))
 
-(defn salvar-using-post4-with-http-info
+(defn salvar-using-post5-with-http-info
   "CriaÃ§Ã£o de cartÃ£o
   Este metÃ³do permite a tokenizaÃ§Ã£o de um cartÃ£o a partir dos seus dados impressos."
   [device-id persist ]
@@ -210,8 +210,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post4
+(defn salvar-using-post5
   "CriaÃ§Ã£o de cartÃ£o
   Este metÃ³do permite a tokenizaÃ§Ã£o de um cartÃ£o a partir dos seus dados impressos."
   [device-id persist ]
-  (:data (salvar-using-post4-with-http-info device-id persist)))
+  (:data (salvar-using-post5-with-http-info device-id persist)))

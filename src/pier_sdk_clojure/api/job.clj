@@ -21,7 +21,7 @@
   [id ]
   (:data (ativar-job-using-post-with-http-info id)))
 
-(defn atualizar-using-put2-with-http-info
+(defn atualizar-using-put3-with-http-info
   "Atualizar Job
   Este recurso permite atualizar os dados de um job cadastrado."
   [id descricao cron groovy ]
@@ -35,11 +35,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn atualizar-using-put2
+(defn atualizar-using-put3
   "Atualizar Job
   Este recurso permite atualizar os dados de um job cadastrado."
   [id descricao cron groovy ]
-  (:data (atualizar-using-put2-with-http-info id descricao cron groovy)))
+  (:data (atualizar-using-put3-with-http-info id descricao cron groovy)))
 
 (defn desativar-job-using-post-with-http-info
   "Desativar Job
@@ -60,10 +60,10 @@
   [id ]
   (:data (desativar-job-using-post-with-http-info id)))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get20-with-http-info
   "Listar Jobs
   Este recurso permite que sejam listados os jobs existentes na base do PIER."
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get20-with-http-info nil))
   ([{:keys [groovy descricao cron status page limit ]}]
    (call-api "/api/jobs" :get
              {:path-params   {}
@@ -74,14 +74,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get20
   "Listar Jobs
   Este recurso permite que sejam listados os jobs existentes na base do PIER."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get20 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get20-with-http-info optional-params))))
 
-(defn salvar-using-post11-with-http-info
+(defn salvar-using-post14-with-http-info
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
@@ -95,8 +95,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post11
+(defn salvar-using-post14
   "Cadastrar Job
   Esse recurso permite cadastrar jobs."
   [descricao cron groovy ]
-  (:data (salvar-using-post11-with-http-info descricao cron groovy)))
+  (:data (salvar-using-post14-with-http-info descricao cron groovy)))

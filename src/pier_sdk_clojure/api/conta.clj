@@ -21,27 +21,6 @@
   [id id-tipo-ajuste data-ajuste valor-ajuste ]
   (:data (ajustar-conta-using-post-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste)))
 
-(defn alterar-limite-using-put-with-http-info
-  "Realiza a alteraÃ§Ã£o dos limites da conta
-  Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id ] (alterar-limite-using-put-with-http-info id nil))
-  ([id {:keys [limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]}]
-   (call-api "/api/contas/{id}/alterar-limites" :put
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"limiteGlobal" limite-global "limiteCompra" limite-compra "limiteParcelado" limite-parcelado "limiteParcelas" limite-parcelas "limiteSaqueGlobal" limite-saque-global "limiteSaquePeriodo" limite-saque-periodo "limiteConsignado" limite-consignado "limiteInternacionalCompra" limite-internacional-compra "limiteInternacionalParcelado" limite-internacional-parcelado "limiteInternacionalParcelas" limite-internacional-parcelas "limiteInternacionalSaqueGlobal" limite-internacional-saque-global "limiteInternacionalSaquePeriodo" limite-internacional-saque-periodo "limiteMaximo" limite-maximo }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn alterar-limite-using-put
-  "Realiza a alteraÃ§Ã£o dos limites da conta
-  Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id ] (alterar-limite-using-put id nil))
-  ([id optional-params]
-   (:data (alterar-limite-using-put-with-http-info id optional-params))))
-
 (defn alterar-produto-using-post-with-http-info
   "Altera o produto associado Ã  conta.
   O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
@@ -237,65 +216,6 @@
   ([id optional-params]
    (:data (consultar-divida-atualizada-cliente-using-get-with-http-info id optional-params))))
 
-(defn consultar-fatura-using-get-with-http-info
-  "Consultar Fatura da Conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes de uma fatura vinculados a uma determinada conta."
-  [id data-vencimento ]
-  (call-api "/api/contas/{id}/faturas/consultar-fechada" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {"dataVencimento" data-vencimento }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-fatura-using-get
-  "Consultar Fatura da Conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes de uma fatura vinculados a uma determinada conta."
-  [id data-vencimento ]
-  (:data (consultar-fatura-using-get-with-http-info id data-vencimento)))
-
-(defn consultar-lancamentos-futuros-fatura-using-get-with-http-info
-  "Consultar LanÃ§amentos Futuros da Fatura de uma Conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes dos lanÃ§amentos futuros de uma fatura vinculados a uma determinada conta."
-  ([id ] (consultar-lancamentos-futuros-fatura-using-get-with-http-info id nil))
-  ([id {:keys [data-vencimento ]}]
-   (call-api "/api/contas/{id}/faturas/consultar-aberta" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"dataVencimento" data-vencimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn consultar-lancamentos-futuros-fatura-using-get
-  "Consultar LanÃ§amentos Futuros da Fatura de uma Conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar os detalhes dos lanÃ§amentos futuros de uma fatura vinculados a uma determinada conta."
-  ([id ] (consultar-lancamentos-futuros-fatura-using-get id nil))
-  ([id optional-params]
-   (:data (consultar-lancamentos-futuros-fatura-using-get-with-http-info id optional-params))))
-
-(defn consultar-limite-disponibilidade-using-get1-with-http-info
-  "Apresenta os limites da conta
-  Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
-  [id ]
-  (call-api "/api/contas/{id}/limites-disponibilidades" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-limite-disponibilidade-using-get1
-  "Apresenta os limites da conta
-  Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
-  [id ]
-  (:data (consultar-limite-disponibilidade-using-get1-with-http-info id)))
-
 (defn consultar-taxas-tarifas-using-get-with-http-info
   "Permite consultar a partir do ID da conta as taxas e tarifas
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
@@ -317,47 +237,7 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get30-with-http-info
-  "Consultar uma transferÃªncia bancÃ¡ria para um banco
-  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get30-with-http-info id id-transferencia nil))
-  ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
-   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
-             {:path-params   {"id" id "id_transferencia" id-transferencia }
-              :header-params {}
-              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn consultar-using-get30
-  "Consultar uma transferÃªncia bancÃ¡ria para um banco
-  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
-  ([id id-transferencia ] (consultar-using-get30 id id-transferencia nil))
-  ([id id-transferencia optional-params]
-   (:data (consultar-using-get30-with-http-info id id-transferencia optional-params))))
-
-(defn consultar-using-get31-with-http-info
-  "Consulta os detalhes de uma determinada transferÃªncia
-  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
-  [id id-transferencia ]
-  (call-api "/api/contas/{id}/transferencias-creditos-cartoes/{id_transferencia}" :get
-            {:path-params   {"id" id "id_transferencia" id-transferencia }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-using-get31
-  "Consulta os detalhes de uma determinada transferÃªncia
-  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
-  [id id-transferencia ]
-  (:data (consultar-using-get31-with-http-info id id-transferencia)))
-
-(defn consultar-using-get7-with-http-info
+(defn consultar-using-get10-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -370,11 +250,51 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get7
+(defn consultar-using-get10
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get7-with-http-info id)))
+  (:data (consultar-using-get10-with-http-info id)))
+
+(defn consultar-using-get35-with-http-info
+  "Consultar uma transferÃªncia bancÃ¡ria para um banco
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get35-with-http-info id id-transferencia nil))
+  ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
+             {:path-params   {"id" id "id_transferencia" id-transferencia }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn consultar-using-get35
+  "Consultar uma transferÃªncia bancÃ¡ria para um banco
+  Este recurso permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada para uma conta bancÃ¡ria. De modo geral, esta operaÃ§Ã£o poderÃ¡ ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2Âª via de transferÃªncia entre contas."
+  ([id id-transferencia ] (consultar-using-get35 id id-transferencia nil))
+  ([id id-transferencia optional-params]
+   (:data (consultar-using-get35-with-http-info id id-transferencia optional-params))))
+
+(defn consultar-using-get36-with-http-info
+  "Consulta os detalhes de uma determinada transferÃªncia
+  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
+  [id id-transferencia ]
+  (call-api "/api/contas/{id}/transferencias-creditos-cartoes/{id_transferencia}" :get
+            {:path-params   {"id" id "id_transferencia" id-transferencia }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-using-get36
+  "Consulta os detalhes de uma determinada transferÃªncia
+  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
+  [id id-transferencia ]
+  (:data (consultar-using-get36-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email
@@ -492,27 +412,6 @@
   Este recurso permite que seja gerado um CartÃ£o virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id). Esta funcionalidade poderÃ¡ ser utilizada para realizar a criaÃ§Ã£o de cartÃµes virtuaes atraves de um app."
   [id data-validade ]
   (:data (gerar-cartao-virtual-using-post-with-http-info id data-validade)))
-
-(defn listar-faturas-using-get-with-http-info
-  "Lista as faturas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
-  ([id ] (listar-faturas-using-get-with-http-info id nil))
-  ([id {:keys [sort page limit data-vencimento ]}]
-   (call-api "/api/contas/{id}/faturas" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-faturas-using-get
-  "Lista as faturas da conta
-  AtravÃ©s desta operaÃ§Ã£o os Emissores ou Portadores poderÃ£o consultar todo o HistÃ³rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas."
-  ([id ] (listar-faturas-using-get id nil))
-  ([id optional-params]
-   (:data (listar-faturas-using-get-with-http-info id optional-params))))
 
 (defn listar-historico-alteracoes-limites-using-get-with-http-info
   "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
@@ -640,52 +539,10 @@
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get34-with-http-info
-  "Listar as transferÃªncias bancÃ¡rias realizadas
-  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get34-with-http-info id nil))
-  ([id {:keys [id-conta-bancaria-destino sort page limit ]}]
-   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "sort" (with-collection-format sort :multi) "page" page "limit" limit }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get34
-  "Listar as transferÃªncias bancÃ¡rias realizadas
-  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get34 id nil))
-  ([id optional-params]
-   (:data (listar-using-get34-with-http-info id optional-params))))
-
-(defn listar-using-get35-with-http-info
-  "Lista as transferÃªncias realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get35-with-http-info id nil))
-  ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
-   (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idTransferencia" id-transferencia "idContaOrigem" id-conta-origem "idContaDestino" id-conta-destino "valorTransferencia" valor-transferencia "dataTransferencia" data-transferencia }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get35
-  "Lista as transferÃªncias realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get35 id nil))
-  ([id optional-params]
-   (:data (listar-using-get35-with-http-info id optional-params))))
-
-(defn listar-using-get9-with-http-info
+(defn listar-using-get13-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get9-with-http-info nil))
+  ([] (listar-using-get13-with-http-info nil))
   ([{:keys [sort page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -696,12 +553,54 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get9
+(defn listar-using-get13
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get9 nil))
+  ([] (listar-using-get13 nil))
   ([optional-params]
-   (:data (listar-using-get9-with-http-info optional-params))))
+   (:data (listar-using-get13-with-http-info optional-params))))
+
+(defn listar-using-get40-with-http-info
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get40-with-http-info id nil))
+  ([id {:keys [id-conta-bancaria-destino sort page limit ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"id_conta_bancaria_destino" id-conta-bancaria-destino "sort" (with-collection-format sort :multi) "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get40
+  "Listar as transferÃªncias bancÃ¡rias realizadas
+  Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
+  ([id ] (listar-using-get40 id nil))
+  ([id optional-params]
+   (:data (listar-using-get40-with-http-info id optional-params))))
+
+(defn listar-using-get41-with-http-info
+  "Lista as transferÃªncias realizadas pela conta
+  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
+  ([id ] (listar-using-get41-with-http-info id nil))
+  ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
+   (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idTransferencia" id-transferencia "idContaOrigem" id-conta-origem "idContaDestino" id-conta-destino "valorTransferencia" valor-transferencia "dataTransferencia" data-transferencia }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get41
+  "Lista as transferÃªncias realizadas pela conta
+  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
+  ([id ] (listar-using-get41 id nil))
+  ([id optional-params]
+   (:data (listar-using-get41-with-http-info id optional-params))))
 
 (defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.
