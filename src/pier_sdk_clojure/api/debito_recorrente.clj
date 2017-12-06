@@ -23,10 +23,10 @@
   ([id-conta optional-params]
    (:data (listar-using-get12-with-http-info id-conta optional-params))))
 
-(defn listar-using-get34-with-http-info
+(defn listar-using-get36-with-http-info
   "Listar Tipos Debitos Recorrentes
   Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderÃ£o comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de DÃ©bitos Recorrentes que estÃ£o cadastrados para um determinado Emissor, independente do status dele."
-  ([] (listar-using-get34-with-http-info nil))
+  ([] (listar-using-get36-with-http-info nil))
   ([{:keys [sort page limit id descricao valor flag-ativo ]}]
    (call-api "/api/tipos-debitos-recorrentes" :get
              {:path-params   {}
@@ -37,9 +37,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get34
+(defn listar-using-get36
   "Listar Tipos Debitos Recorrentes
   Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderÃ£o comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de DÃ©bitos Recorrentes que estÃ£o cadastrados para um determinado Emissor, independente do status dele."
-  ([] (listar-using-get34 nil))
+  ([] (listar-using-get36 nil))
   ([optional-params]
-   (:data (listar-using-get34-with-http-info optional-params))))
+   (:data (listar-using-get36-with-http-info optional-params))))

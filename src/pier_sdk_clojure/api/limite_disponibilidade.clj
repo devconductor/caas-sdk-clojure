@@ -2,10 +2,10 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn alterar-using-put7-with-http-info
+(defn alterar-using-put8-with-http-info
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id-conta ] (alterar-using-put7-with-http-info id-conta nil))
+  ([id-conta ] (alterar-using-put8-with-http-info id-conta nil))
   ([id-conta {:keys [limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]}]
    (call-api "/api/limites-disponibilidades" :put
              {:path-params   {}
@@ -16,14 +16,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put7
+(defn alterar-using-put8
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id-conta ] (alterar-using-put7 id-conta nil))
+  ([id-conta ] (alterar-using-put8 id-conta nil))
   ([id-conta optional-params]
-   (:data (alterar-using-put7-with-http-info id-conta optional-params))))
+   (:data (alterar-using-put8-with-http-info id-conta optional-params))))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get17-with-http-info
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
   [id-conta ]
@@ -36,8 +36,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get16
+(defn consultar-using-get17
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
   [id-conta ]
-  (:data (consultar-using-get16-with-http-info id-conta)))
+  (:data (consultar-using-get17-with-http-info id-conta)))

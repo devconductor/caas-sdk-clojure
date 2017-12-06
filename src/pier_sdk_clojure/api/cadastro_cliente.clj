@@ -22,73 +22,10 @@
   [id id-pessoa adicional-update ]
   (:data (alterar-using-put-with-http-info id id-pessoa adicional-update)))
 
-(defn alterar-using-put11-with-http-info
-  "Atualiza os dados de uma determinada Pessoa
-  Este mÃ©todo permite que seja alterado na base do emissor um registro de determinada Pessoa."
-  ([id nome tipo data-nascimento ] (alterar-using-put11-with-http-info id nome tipo data-nascimento nil))
-  ([id nome tipo data-nascimento {:keys [cpf cnpj sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
-   (call-api "/api/pessoas/{id}" :put
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "dataNascimento" data-nascimento "sexo" sexo "numeroIdentidade" numero-identidade "orgaoExpedidorIdentidade" orgao-expedidor-identidade "unidadeFederativaIdentidade" unidade-federativa-identidade "dataEmissaoIdentidade" data-emissao-identidade }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn alterar-using-put11
-  "Atualiza os dados de uma determinada Pessoa
-  Este mÃ©todo permite que seja alterado na base do emissor um registro de determinada Pessoa."
-  ([id nome tipo data-nascimento ] (alterar-using-put11 id nome tipo data-nascimento nil))
-  ([id nome tipo data-nascimento optional-params]
-   (:data (alterar-using-put11-with-http-info id nome tipo data-nascimento optional-params))))
-
-(defn alterar-using-put12-with-http-info
-  "Realiza a alteraÃ§Ã£o de um determinado Telefone
-  Este mÃ©todo permite que seja alterado um determinado Telefone na base de dados do Emissor."
-  ([id ] (alterar-using-put12-with-http-info id nil))
-  ([id {:keys [id-tipo-telefone ddd telefone ramal ]}]
-   (call-api "/api/telefones" :put
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"id" id "idTipoTelefone" id-tipo-telefone "ddd" ddd "telefone" telefone "ramal" ramal }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn alterar-using-put12
-  "Realiza a alteraÃ§Ã£o de um determinado Telefone
-  Este mÃ©todo permite que seja alterado um determinado Telefone na base de dados do Emissor."
-  ([id ] (alterar-using-put12 id nil))
-  ([id optional-params]
-   (:data (alterar-using-put12-with-http-info id optional-params))))
-
-(defn alterar-using-put5-with-http-info
-  "Atualiza os dados de um determinado EndereÃ§o
-  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
-  ([id ] (alterar-using-put5-with-http-info id nil))
-  ([id {:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
-   (call-api "/api/enderecos" :put
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"id" id "idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn alterar-using-put5
-  "Atualiza os dados de um determinado EndereÃ§o
-  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
-  ([id ] (alterar-using-put5 id nil))
-  ([id optional-params]
-   (:data (alterar-using-put5-with-http-info id optional-params))))
-
-(defn alterar-using-put9-with-http-info
+(defn alterar-using-put10-with-http-info
   "Atualiza os detalhes de uma determinada Pessoa
   Este mÃ©todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa."
-  ([id ] (alterar-using-put9-with-http-info id nil))
+  ([id ] (alterar-using-put10-with-http-info id nil))
   ([id {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes/{id}" :put
              {:path-params   {"id" id }
@@ -99,12 +36,75 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put9
+(defn alterar-using-put10
   "Atualiza os detalhes de uma determinada Pessoa
   Este mÃ©todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa."
-  ([id ] (alterar-using-put9 id nil))
+  ([id ] (alterar-using-put10 id nil))
   ([id optional-params]
-   (:data (alterar-using-put9-with-http-info id optional-params))))
+   (:data (alterar-using-put10-with-http-info id optional-params))))
+
+(defn alterar-using-put12-with-http-info
+  "Atualiza os dados de uma determinada Pessoa
+  Este mÃ©todo permite que seja alterado na base do emissor um registro de determinada Pessoa."
+  ([id nome tipo data-nascimento ] (alterar-using-put12-with-http-info id nome tipo data-nascimento nil))
+  ([id nome tipo data-nascimento {:keys [cpf cnpj sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
+   (call-api "/api/pessoas/{id}" :put
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"nome" nome "tipo" tipo "cpf" cpf "cnpj" cnpj "dataNascimento" data-nascimento "sexo" sexo "numeroIdentidade" numero-identidade "orgaoExpedidorIdentidade" orgao-expedidor-identidade "unidadeFederativaIdentidade" unidade-federativa-identidade "dataEmissaoIdentidade" data-emissao-identidade }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn alterar-using-put12
+  "Atualiza os dados de uma determinada Pessoa
+  Este mÃ©todo permite que seja alterado na base do emissor um registro de determinada Pessoa."
+  ([id nome tipo data-nascimento ] (alterar-using-put12 id nome tipo data-nascimento nil))
+  ([id nome tipo data-nascimento optional-params]
+   (:data (alterar-using-put12-with-http-info id nome tipo data-nascimento optional-params))))
+
+(defn alterar-using-put14-with-http-info
+  "Realiza a alteraÃ§Ã£o de um determinado Telefone
+  Este mÃ©todo permite que seja alterado um determinado Telefone na base de dados do Emissor."
+  ([id ] (alterar-using-put14-with-http-info id nil))
+  ([id {:keys [id-tipo-telefone ddd telefone ramal ]}]
+   (call-api "/api/telefones" :put
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"id" id "idTipoTelefone" id-tipo-telefone "ddd" ddd "telefone" telefone "ramal" ramal }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn alterar-using-put14
+  "Realiza a alteraÃ§Ã£o de um determinado Telefone
+  Este mÃ©todo permite que seja alterado um determinado Telefone na base de dados do Emissor."
+  ([id ] (alterar-using-put14 id nil))
+  ([id optional-params]
+   (:data (alterar-using-put14-with-http-info id optional-params))))
+
+(defn alterar-using-put6-with-http-info
+  "Atualiza os dados de um determinado EndereÃ§o
+  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
+  ([id ] (alterar-using-put6-with-http-info id nil))
+  ([id {:keys [id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais ]}]
+   (call-api "/api/enderecos" :put
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"id" id "idPessoa" id-pessoa "idTipoEndereco" id-tipo-endereco "cep" cep "logradouro" logradouro "numero" numero "complemento" complemento "pontoReferencia" ponto-referencia "bairro" bairro "cidade" cidade "uf" uf "pais" pais }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn alterar-using-put6
+  "Atualiza os dados de um determinado EndereÃ§o
+  Este mÃ©todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado EndereÃ§o."
+  ([id ] (alterar-using-put6 id nil))
+  ([id optional-params]
+   (:data (alterar-using-put6-with-http-info id optional-params))))
 
 (defn atribuir-assinatura-cliente-using-post-with-http-info
   "Permite atribuir um documento para uma Conta
@@ -187,7 +187,7 @@
   [id id-pessoa ]
   (:data (consultar-using-get-with-http-info id id-pessoa)))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get14-with-http-info
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -200,13 +200,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get13
+(defn consultar-using-get14
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get13-with-http-info id)))
+  (:data (consultar-using-get14-with-http-info id)))
 
-(defn consultar-using-get18-with-http-info
+(defn consultar-using-get19-with-http-info
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
@@ -219,13 +219,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get18
+(defn consultar-using-get19
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get18-with-http-info id)))
+  (:data (consultar-using-get19-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get21-with-http-info
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
@@ -238,13 +238,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get21
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get21-with-http-info id)))
 
-(defn consultar-using-get25-with-http-info
+(defn consultar-using-get27-with-http-info
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -257,11 +257,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get25
+(defn consultar-using-get27
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get25-with-http-info id)))
+  (:data (consultar-using-get27-with-http-info id)))
 
 (defn inativar-using-post-with-http-info
   "Inativa Adicional de uma Conta
@@ -324,10 +324,10 @@
   ([id optional-params]
    (:data (listar-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get17-with-http-info
+(defn listar-using-get18-with-http-info
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get17-with-http-info nil))
+  ([] (listar-using-get18-with-http-info nil))
   ([{:keys [sort page limit id id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais data-inclusao data-ultima-atualizacao ]}]
    (call-api "/api/enderecos" :get
              {:path-params   {}
@@ -338,17 +338,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get17
+(defn listar-using-get18
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get17 nil))
+  ([] (listar-using-get18 nil))
   ([optional-params]
-   (:data (listar-using-get17-with-http-info optional-params))))
+   (:data (listar-using-get18-with-http-info optional-params))))
 
-(defn listar-using-get22-with-http-info
+(defn listar-using-get23-with-http-info
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get22-with-http-info nil))
+  ([] (listar-using-get23-with-http-info nil))
   ([{:keys [sort page limit id-pessoa nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes" :get
              {:path-params   {}
@@ -359,17 +359,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get22
+(defn listar-using-get23
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get22 nil))
+  ([] (listar-using-get23 nil))
   ([optional-params]
-   (:data (listar-using-get22-with-http-info optional-params))))
+   (:data (listar-using-get23-with-http-info optional-params))))
 
-(defn listar-using-get24-with-http-info
+(defn listar-using-get25-with-http-info
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get24-with-http-info nil))
+  ([] (listar-using-get25-with-http-info nil))
   ([{:keys [sort page limit id nome tipo cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
    (call-api "/api/pessoas" :get
              {:path-params   {}
@@ -380,17 +380,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get24
+(defn listar-using-get25
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get24 nil))
+  ([] (listar-using-get25 nil))
   ([optional-params]
-   (:data (listar-using-get24-with-http-info optional-params))))
+   (:data (listar-using-get25-with-http-info optional-params))))
 
-(defn listar-using-get32-with-http-info
+(defn listar-using-get34-with-http-info
   "Lista os Telefones cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get32-with-http-info nil))
+  ([] (listar-using-get34-with-http-info nil))
   ([{:keys [sort page limit id id-tipo-telefone id-pessoa ddd telefone ramal status ]}]
    (call-api "/api/telefones" :get
              {:path-params   {}
@@ -401,12 +401,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get32
+(defn listar-using-get34
   "Lista os Telefones cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get32 nil))
+  ([] (listar-using-get34 nil))
   ([optional-params]
-   (:data (listar-using-get32-with-http-info optional-params))))
+   (:data (listar-using-get34-with-http-info optional-params))))
 
 (defn salvar-pessoa-fisica-aprovada-using-post-with-http-info
   "Cadastro de Conta e Pessoa Fisica
@@ -533,10 +533,10 @@
   ([nome tipo data-nascimento optional-params]
    (:data (salvar-using-post17-with-http-info nome tipo data-nascimento optional-params))))
 
-(defn salvar-using-post19-with-http-info
+(defn salvar-using-post20-with-http-info
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post19-with-http-info nil))
+  ([] (salvar-using-post20-with-http-info nil))
   ([{:keys [id-tipo-telefone id-pessoa ddd telefone ramal ]}]
    (call-api "/api/telefones" :post
              {:path-params   {}
@@ -547,9 +547,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn salvar-using-post19
+(defn salvar-using-post20
   "Realiza o cadastro de um novo Telefone
   Este mÃ©todo permite que seja cadastrado um novo Telefone na base de dados do Emissor."
-  ([] (salvar-using-post19 nil))
+  ([] (salvar-using-post20 nil))
   ([optional-params]
-   (:data (salvar-using-post19-with-http-info optional-params))))
+   (:data (salvar-using-post20-with-http-info optional-params))))

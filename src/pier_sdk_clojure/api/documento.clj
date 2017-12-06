@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn alterar-using-put15-with-http-info
+(defn alterar-using-put17-with-http-info
   "Altera o tipo de template
   Esse recurso permite alterar os dados do tipo de template."
   [id persist ]
@@ -16,11 +16,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn alterar-using-put15
+(defn alterar-using-put17
   "Altera o tipo de template
   Esse recurso permite alterar os dados do tipo de template."
   [id persist ]
-  (:data (alterar-using-put15-with-http-info id persist)))
+  (:data (alterar-using-put17-with-http-info id persist)))
 
 (defn atualizar-using-put2-with-http-info
   "Atualizar templates dos documentos
@@ -42,7 +42,7 @@
   [id persist ]
   (:data (atualizar-using-put2-with-http-info id persist)))
 
-(defn consultar-using-get11-with-http-info
+(defn consultar-using-get12-with-http-info
   "Consulta documentos
   Esse recurso permite consultar um documento especÃ­fico a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -55,13 +55,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get12
   "Consulta documentos
   Esse recurso permite consultar um documento especÃ­fico a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get13-with-http-info
   "Consultar templates dos documentos
   Esse recurso permite consultar templates dos documentos."
   [id ]
@@ -74,13 +74,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get13
   "Consultar templates dos documentos
   Esse recurso permite consultar templates dos documentos."
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get13-with-http-info id)))
 
-(defn consultar-using-get33-with-http-info
+(defn consultar-using-get35-with-http-info
   "Consultar tipo de template
   Esse recurso permite consultar um determinado tipo de template a partir do id recebido e do id do emissor."
   [id ]
@@ -93,11 +93,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get33
+(defn consultar-using-get35
   "Consultar tipo de template
   Esse recurso permite consultar um determinado tipo de template a partir do id recebido e do id do emissor."
   [id ]
-  (:data (consultar-using-get33-with-http-info id)))
+  (:data (consultar-using-get35-with-http-info id)))
 
 (defn integrar-using-post-with-http-info
   "Integra um arquivo a repositÃ³rios remotos.
@@ -119,10 +119,10 @@
   [integrar-documento-request ]
   (:data (integrar-using-post-with-http-info integrar-documento-request)))
 
-(defn listar-using-get15-with-http-info
+(defn listar-using-get16-with-http-info
   "Lista documentos
   Esse recurso permite listar documentos."
-  ([] (listar-using-get15-with-http-info nil))
+  ([] (listar-using-get16-with-http-info nil))
   ([{:keys [sort page limit id-template-documento nome extensao ]}]
    (call-api "/api/documentos" :get
              {:path-params   {}
@@ -133,17 +133,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get15
+(defn listar-using-get16
   "Lista documentos
   Esse recurso permite listar documentos."
-  ([] (listar-using-get15 nil))
+  ([] (listar-using-get16 nil))
   ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
+   (:data (listar-using-get16-with-http-info optional-params))))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get17-with-http-info
   "Lista os templates dos documentos
   Esse recurso permite listar os templates dos documentos."
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get17-with-http-info nil))
   ([{:keys [sort page limit id-tipo-template ]}]
    (call-api "/api/templates-documentos" :get
              {:path-params   {}
@@ -154,17 +154,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get17
   "Lista os templates dos documentos
   Esse recurso permite listar os templates dos documentos."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get17 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn listar-using-get38-with-http-info
+(defn listar-using-get40-with-http-info
   "Lista os tipos de templates
   Esse recurso permite listar os tipos de templates associados ao emissor."
-  ([] (listar-using-get38-with-http-info nil))
+  ([] (listar-using-get40-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-templates" :get
              {:path-params   {}
@@ -175,12 +175,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get38
+(defn listar-using-get40
   "Lista os tipos de templates
   Esse recurso permite listar os tipos de templates associados ao emissor."
-  ([] (listar-using-get38 nil))
+  ([] (listar-using-get40 nil))
   ([optional-params]
-   (:data (listar-using-get38-with-http-info optional-params))))
+   (:data (listar-using-get40-with-http-info optional-params))))
 
 (defn salvar-using-post10-with-http-info
   "Cadastra os templates dos documentos
@@ -202,7 +202,7 @@
   [persist ]
   (:data (salvar-using-post10-with-http-info persist)))
 
-(defn salvar-using-post22-with-http-info
+(defn salvar-using-post23-with-http-info
   "Cadastra os tipos de templates
   Esse recurso permite cadastrar tipos de templates."
   [persist ]
@@ -216,11 +216,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post22
+(defn salvar-using-post23
   "Cadastra os tipos de templates
   Esse recurso permite cadastrar tipos de templates."
   [persist ]
-  (:data (salvar-using-post22-with-http-info persist)))
+  (:data (salvar-using-post23-with-http-info persist)))
 
 (defn salvar-using-post9-with-http-info
   "Cadastra documentos
