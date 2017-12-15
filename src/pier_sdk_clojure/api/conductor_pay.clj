@@ -61,7 +61,7 @@
   [device-id id update ]
   (:data (confirma-atualizacao-chave-using-post-with-http-info device-id id update)))
 
-(defn consultar-using-get5-with-http-info
+(defn consultar-using-get6-with-http-info
   "Apresenta os dados de um determinado cartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [device-id id ]
@@ -74,11 +74,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get5
+(defn consultar-using-get6
   "Apresenta os dados de um determinado cartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [device-id id ]
-  (:data (consultar-using-get5-with-http-info device-id id)))
+  (:data (consultar-using-get6-with-http-info device-id id)))
 
 (defn listar-codigos-resposta-using-get-with-http-info
   "Lista os cÃ³digos de resposta dos recursos de transaÃ§Ã£o e consulta de conta

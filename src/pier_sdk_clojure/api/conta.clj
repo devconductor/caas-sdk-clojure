@@ -2,24 +2,26 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn ajustar-conta-using-post-with-http-info
+(defn ajustar-conta-using-post1-with-http-info
   "LanÃ§a um ajuste para a conta do id informado
   Este recurso insere um ajuste para a conta do id informado"
-  [id id-tipo-ajuste data-ajuste valor-ajuste ]
-  (call-api "/api/contas/{id}/ajustes-financeiros" :post
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {"idTipoAjuste" id-tipo-ajuste "dataAjuste" data-ajuste "valorAjuste" valor-ajuste }
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
+  ([id id-tipo-ajuste data-ajuste valor-ajuste ] (ajustar-conta-using-post1-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste nil))
+  ([id id-tipo-ajuste data-ajuste valor-ajuste {:keys [identificador-externo ]}]
+   (call-api "/api/contas/{id}/ajustes-financeiros" :post
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"idTipoAjuste" id-tipo-ajuste "dataAjuste" data-ajuste "valorAjuste" valor-ajuste "identificadorExterno" identificador-externo }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
 
-(defn ajustar-conta-using-post
+(defn ajustar-conta-using-post1
   "LanÃ§a um ajuste para a conta do id informado
   Este recurso insere um ajuste para a conta do id informado"
-  [id id-tipo-ajuste data-ajuste valor-ajuste ]
-  (:data (ajustar-conta-using-post-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste)))
+  ([id id-tipo-ajuste data-ajuste valor-ajuste ] (ajustar-conta-using-post1 id id-tipo-ajuste data-ajuste valor-ajuste nil))
+  ([id id-tipo-ajuste data-ajuste valor-ajuste optional-params]
+   (:data (ajustar-conta-using-post1-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste optional-params))))
 
 (defn alterar-produto-using-post-with-http-info
   "Altera o produto associado Ã  conta.
@@ -237,7 +239,7 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get11-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -250,13 +252,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get38-with-http-info
+(defn consultar-using-get39-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -269,11 +271,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get38
+(defn consultar-using-get39
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get38-with-http-info id id-transferencia)))
+  (:data (consultar-using-get39-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email

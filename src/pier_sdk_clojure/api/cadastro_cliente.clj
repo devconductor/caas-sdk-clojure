@@ -187,7 +187,7 @@
   [id id-pessoa ]
   (:data (consultar-using-get-with-http-info id id-pessoa)))
 
-(defn consultar-using-get14-with-http-info
+(defn consultar-using-get15-with-http-info
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -200,13 +200,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get14
+(defn consultar-using-get15
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get14-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
-(defn consultar-using-get19-with-http-info
+(defn consultar-using-get20-with-http-info
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
@@ -219,13 +219,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get19
+(defn consultar-using-get20
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get19-with-http-info id)))
+  (:data (consultar-using-get20-with-http-info id)))
 
-(defn consultar-using-get21-with-http-info
+(defn consultar-using-get22-with-http-info
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
@@ -238,13 +238,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get21
+(defn consultar-using-get22
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get21-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn consultar-using-get27-with-http-info
+(defn consultar-using-get28-with-http-info
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -257,11 +257,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get27
+(defn consultar-using-get28
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get27-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
 (defn inativar-using-post-with-http-info
   "Inativa Adicional de uma Conta
