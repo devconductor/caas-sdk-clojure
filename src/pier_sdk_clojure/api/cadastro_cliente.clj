@@ -26,11 +26,11 @@
   "Atualiza os detalhes de uma determinada Pessoa
   Este mÃ©todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa."
   ([id ] (alterar-using-put10-with-http-info id nil))
-  ([id {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
+  ([id {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-banco numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes/{id}" :put
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
+              :query-params  {"nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroBanco" numero-banco "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -187,7 +187,7 @@
   [id id-pessoa ]
   (:data (consultar-using-get-with-http-info id id-pessoa)))
 
-(defn consultar-using-get14-with-http-info
+(defn consultar-using-get15-with-http-info
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -200,13 +200,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get14
+(defn consultar-using-get15
   "Apresenta os dados de um determinado EndereÃ§o
   Este mÃ©todo permite consultar um determinado EndereÃ§o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get14-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
-(defn consultar-using-get19-with-http-info
+(defn consultar-using-get20-with-http-info
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
@@ -219,13 +219,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get19
+(defn consultar-using-get20
   "Apresenta os detalhes de uma determinada Pessoa
   Este mÃ©todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get19-with-http-info id)))
+  (:data (consultar-using-get20-with-http-info id)))
 
-(defn consultar-using-get21-with-http-info
+(defn consultar-using-get22-with-http-info
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
@@ -238,13 +238,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get21
+(defn consultar-using-get22
   "Apresenta os dados de uma determinada Pessoa
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
   [id ]
-  (:data (consultar-using-get21-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn consultar-using-get27-with-http-info
+(defn consultar-using-get28-with-http-info
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -257,11 +257,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get27
+(defn consultar-using-get28
   "Apresenta os dados de um determinado Telefone
   Este mÃ©todo permite consultar um determinado Telefone a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get27-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
 (defn inativar-using-post-with-http-info
   "Inativa Adicional de uma Conta
@@ -349,11 +349,11 @@
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
   ([] (listar-using-get23-with-http-info nil))
-  ([{:keys [sort page limit id-pessoa nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
+  ([{:keys [sort page limit id-pessoa nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-banco numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroBanco" numero-banco "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -495,11 +495,11 @@
   "Salvar os detalhes de uma determinada Pessoa
   Este mÃ©todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa."
   ([id-pessoa ] (salvar-using-post16-with-http-info id-pessoa nil))
-  ([id-pessoa {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-agencia numero-conta-corrente email nome-empresa ]}]
+  ([id-pessoa {:keys [nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-banco numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes" :post
              {:path-params   {}
               :header-params {}
-              :query-params  {"idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
+              :query-params  {"idPessoa" id-pessoa "nomeMae" nome-mae "idEstadoCivil" id-estado-civil "idProfissao" id-profissao "idNaturezaOcupacao" id-natureza-ocupacao "idNacionalidade" id-nacionalidade "numeroBanco" numero-banco "numeroAgencia" numero-agencia "numeroContaCorrente" numero-conta-corrente "email" email "nomeEmpresa" nome-empresa }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

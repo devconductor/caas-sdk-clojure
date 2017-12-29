@@ -346,6 +346,26 @@
   [request ]
   (:data (notificacao-email-using-post-with-http-info request)))
 
+(defn reenviar-token-sms-using-post-with-http-info
+  "Reenviar cÃ³digo de seguranÃ§a por sms
+  Esse recurso permite que seja reenviado para um determinado nÃºmero de telefone, atravÃ©s de SMS, o cÃ³digo de seguranÃ§a gerado previamente para ele. Caso o cÃ³digo de seguranÃ§a jÃ¡ nÃ£o esteja mais vÃ¡lido, o recurso retornarÃ¡ uma mensagem orientando que seja solicitada uma nova geraÃ§Ã£o para o telefone em questÃ£o."
+  [persist ]
+  (call-api "/api/notificacoes-sms/reenviar-codigo-seguranca" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn reenviar-token-sms-using-post
+  "Reenviar cÃ³digo de seguranÃ§a por sms
+  Esse recurso permite que seja reenviado para um determinado nÃºmero de telefone, atravÃ©s de SMS, o cÃ³digo de seguranÃ§a gerado previamente para ele. Caso o cÃ³digo de seguranÃ§a jÃ¡ nÃ£o esteja mais vÃ¡lido, o recurso retornarÃ¡ uma mensagem orientando que seja solicitada uma nova geraÃ§Ã£o para o telefone em questÃ£o."
+  [persist ]
+  (:data (reenviar-token-sms-using-post-with-http-info persist)))
+
 (defn responder-sms-get-using-get-with-http-info
   "Responder SMS
   Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"

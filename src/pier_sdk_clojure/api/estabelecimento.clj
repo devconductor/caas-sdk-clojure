@@ -125,7 +125,26 @@
   ([razao-social cnpj optional-params]
    (:data (cadastrar-using-post3-with-http-info razao-social cnpj optional-params))))
 
-(defn consultar-using-get11-with-http-info
+(defn consulta-operacao-using-get-with-http-info
+  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
+  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idoperacao"
+  [id ]
+  (call-api "/api/tipos-operacoes-estabelecimentos/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consulta-operacao-using-get
+  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
+  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idoperacao"
+  [id ]
+  (:data (consulta-operacao-using-get-with-http-info id)))
+
+(defn consultar-using-get12-with-http-info
   "Consultar credor
   Consulta um credor atravÃ©s do seu identificador."
   [id ]
@@ -138,13 +157,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get12
   "Consultar credor
   Consulta um credor atravÃ©s do seu identificador."
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
-(defn consultar-using-get15-with-http-info
+(defn consultar-using-get16-with-http-info
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
@@ -157,13 +176,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get15
+(defn consultar-using-get16
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
-  (:data (consultar-using-get15-with-http-info id)))
+  (:data (consultar-using-get16-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get21-with-http-info
   "Consultar pessoa jurÃ­dica
   Consulta uma pessoa jurÃ­dica atravÃ©s do seu identificador."
   [id ]
@@ -176,13 +195,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get21
   "Consultar pessoa jurÃ­dica
   Consulta uma pessoa jurÃ­dica atravÃ©s do seu identificador."
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get21-with-http-info id)))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get27-with-http-info
   "Apresenta os dados de um determinado telefone de um estabelecimento
   Este mÃ©todo permite consultar um determinado telefone de um estabelecimento a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -195,13 +214,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get26
+(defn consultar-using-get27
   "Apresenta os dados de um determinado telefone de um estabelecimento
   Este mÃ©todo permite consultar um determinado telefone de um estabelecimento a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get26-with-http-info id)))
+  (:data (consultar-using-get27-with-http-info id)))
 
-(defn consultar-using-get28-with-http-info
+(defn consultar-using-get29-with-http-info
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -214,11 +233,32 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get28
+(defn consultar-using-get29
   "Apresenta os dados de um determinado Terminal
   Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get28-with-http-info id)))
+  (:data (consultar-using-get29-with-http-info id)))
+
+(defn lista-operacao-using-get-with-http-info
+  "Apresenta dados de operaÃ§Ãµes em uma lista
+  Este recurso permite listar as operaÃ§Ã£o"
+  ([] (lista-operacao-using-get-with-http-info nil))
+  ([{:keys [sort page limit id-operacao codigo-processamento ]}]
+   (call-api "/api/tipos-operacoes-estabelecimentos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idOperacao" id-operacao "codigoProcessamento" codigo-processamento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn lista-operacao-using-get
+  "Apresenta dados de operaÃ§Ãµes em uma lista
+  Este recurso permite listar as operaÃ§Ã£o"
+  ([] (lista-operacao-using-get nil))
+  ([optional-params]
+   (:data (lista-operacao-using-get-with-http-info optional-params))))
 
 (defn listar-using-get14-with-http-info
   "Listar credores

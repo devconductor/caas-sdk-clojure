@@ -42,7 +42,7 @@
   [id persist ]
   (:data (atualizar-using-put2-with-http-info id persist)))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get13-with-http-info
   "Consulta documentos
   Esse recurso permite consultar um documento especÃ­fico a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -55,13 +55,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get13
   "Consulta documentos
   Esse recurso permite consultar um documento especÃ­fico a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get13-with-http-info id)))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get14-with-http-info
   "Consultar templates dos documentos
   Esse recurso permite consultar templates dos documentos."
   [id ]
@@ -74,13 +74,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get13
+(defn consultar-using-get14
   "Consultar templates dos documentos
   Esse recurso permite consultar templates dos documentos."
   [id ]
-  (:data (consultar-using-get13-with-http-info id)))
+  (:data (consultar-using-get14-with-http-info id)))
 
-(defn consultar-using-get35-with-http-info
+(defn consultar-using-get36-with-http-info
   "Consultar tipo de template
   Esse recurso permite consultar um determinado tipo de template a partir do id recebido e do id do emissor."
   [id ]
@@ -93,11 +93,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get35
+(defn consultar-using-get36
   "Consultar tipo de template
   Esse recurso permite consultar um determinado tipo de template a partir do id recebido e do id do emissor."
   [id ]
-  (:data (consultar-using-get35-with-http-info id)))
+  (:data (consultar-using-get36-with-http-info id)))
 
 (defn integrar-using-post-with-http-info
   "Integra um arquivo a repositÃ³rios remotos.

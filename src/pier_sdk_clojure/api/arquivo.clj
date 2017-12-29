@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get1-with-http-info
+(defn consultar-using-get2-with-http-info
   "Consulta de arquivo no PIER Cloud
   Este recurso permite consultar um determinado arquivo armazenado no PIER Cloud."
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get1
+(defn consultar-using-get2
   "Consulta de arquivo no PIER Cloud
   Este recurso permite consultar um determinado arquivo armazenado no PIER Cloud."
   [id ]
-  (:data (consultar-using-get1-with-http-info id)))
+  (:data (consultar-using-get2-with-http-info id)))
 
 (defn salvar-using-post1-with-http-info
   "Permite armazenar arquivos no PIER Cloud
