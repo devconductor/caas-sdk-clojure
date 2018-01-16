@@ -62,25 +62,6 @@
   [id configuracao-rotativo-persist ]
   (:data (alterar-using-put4-with-http-info id configuracao-rotativo-persist)))
 
-(defn ativar-uso-exterior-using-post-with-http-info
-  "Ativa o parÃ¢metro uso exterior para o produto
-  Este mÃ©todo permite ativar o uso no exterior para o produto atravÃ©s do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id ]
-  (call-api "/api/produtos/{id}/ativar-uso-exterior" :post
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn ativar-uso-exterior-using-post
-  "Ativa o parÃ¢metro uso exterior para o produto
-  Este mÃ©todo permite ativar o uso no exterior para o produto atravÃ©s do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id ]
-  (:data (ativar-uso-exterior-using-post-with-http-info id)))
-
 (defn cadastrar-using-post1-with-http-info
   "Inserir configuraÃ§Ã£o para registro de cobranÃ§a
   Este mÃ©todo permite que seja cadastrado uma nova configuraÃ§Ã£o, para registro de cobranÃ§a."
@@ -371,25 +352,6 @@
   Este recurso permite consultar dados de configuraÃ§Ã£o do parcelamento rotativo a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
   (:data (consultar-using-get9-with-http-info id)))
-
-(defn desativar-uso-exterior-using-post-with-http-info
-  "Desativa o parÃ¢metro uso exterior para o produto
-  Este mÃ©todo permite desativar o uso no exterior para o produto atravÃ©s do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id ]
-  (call-api "/api/produtos/{id}/desativar-uso-exterior" :post
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn desativar-uso-exterior-using-post
-  "Desativa o parÃ¢metro uso exterior para o produto
-  Este mÃ©todo permite desativar o uso no exterior para o produto atravÃ©s do seu cÃ³digo de identificaÃ§Ã£o (id)."
-  [id ]
-  (:data (desativar-uso-exterior-using-post-with-http-info id)))
 
 (defn listar-campanhas-using-get-with-http-info
   "Listar Campanhas
