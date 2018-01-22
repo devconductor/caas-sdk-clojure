@@ -2,28 +2,9 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get-with-http-info
-  "Apresenta os dados de um determinado Atendimento
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Atendimento a partir do seu cÃ³digo de identificaÃ§Ã£o (idAtendimento)."
-  [id ]
-  (call-api "/api/atendimento-clientes/{id}" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-using-get
-  "Apresenta os dados de um determinado Atendimento
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Atendimento a partir do seu cÃ³digo de identificaÃ§Ã£o (idAtendimento)."
-  [id ]
-  (:data (consultar-using-get-with-http-info id)))
-
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get24-with-http-info
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
-  Consulta os detalhes de uma transaÃ§Ã£o classificada com risco de fraude."
+  Consulta os detalhes de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
   (call-api "/api/riscos-fraudes/{id}" :get
             {:path-params   {"id" id }
@@ -34,77 +15,36 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get24
   "Consultar uma transaÃ§Ã£o classificada com risco de fraude
-  Consulta os detalhes de uma transaÃ§Ã£o classificada com risco de fraude."
+  Consulta os detalhes de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get24-with-http-info id)))
 
-(defn informar-risco-fraude-using-post-with-http-info
-  "Receber Risco Fraude
-  Receber risco fraude"
-  [detalhado-responses ]
-  (call-api "/api/riscos-fraudes" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :body-param    detalhado-responses
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn informar-risco-fraude-using-post
-  "Receber Risco Fraude
-  Receber risco fraude"
-  [detalhado-responses ]
-  (:data (informar-risco-fraude-using-post-with-http-info detalhado-responses)))
-
-(defn listar-using-get1-with-http-info
-  "Lista todos os atendimentos
-  Este mÃ©todo permite que sejam listados todos os Registro de Atendimento, independente do Tipo."
-  ([] (listar-using-get1-with-http-info nil))
-  ([{:keys [page limit id-tipo-atendimento id-conta nome-atendente data-atendimento ]}]
-   (call-api "/api/atendimento-clientes" :get
+(defn listar-tipos-resolucao-using-get-with-http-info
+  "Listar os tipos de resoluÃ§Ã£o de fraude
+  Este recurso permite que sejam listados os tipos de resoluÃ§Ã£o de fraude, cadastrados para um emissor."
+  ([] (listar-tipos-resolucao-using-get-with-http-info nil))
+  ([{:keys [page limit ]}]
+   (call-api "/api/tipos-resolucao" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"page" page "limit" limit "idTipoAtendimento" id-tipo-atendimento "idConta" id-conta "nomeAtendente" nome-atendente "dataAtendimento" data-atendimento }
+              :query-params  {"page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get1
-  "Lista todos os atendimentos
-  Este mÃ©todo permite que sejam listados todos os Registro de Atendimento, independente do Tipo."
-  ([] (listar-using-get1 nil))
+(defn listar-tipos-resolucao-using-get
+  "Listar os tipos de resoluÃ§Ã£o de fraude
+  Este recurso permite que sejam listados os tipos de resoluÃ§Ã£o de fraude, cadastrados para um emissor."
+  ([] (listar-tipos-resolucao-using-get nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
-
-(defn listar-using-get14-with-http-info
-  "Listar as transaÃ§Ãµes com resoluÃ§Ã£o de risco fraude pendente
-  Este recurso permite que sejam listados os riscos de fraudes existentes"
-  ([id-conta confirmacao-fraude ] (listar-using-get14-with-http-info id-conta confirmacao-fraude nil))
-  ([id-conta confirmacao-fraude {:keys [page limit ]}]
-   (call-api "/api/riscos-fraudes" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"id_conta" id-conta "confirmacao_fraude" confirmacao-fraude "page" page "limit" limit }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get14
-  "Listar as transaÃ§Ãµes com resoluÃ§Ã£o de risco fraude pendente
-  Este recurso permite que sejam listados os riscos de fraudes existentes"
-  ([id-conta confirmacao-fraude ] (listar-using-get14 id-conta confirmacao-fraude nil))
-  ([id-conta confirmacao-fraude optional-params]
-   (:data (listar-using-get14-with-http-info id-conta confirmacao-fraude optional-params))))
+   (:data (listar-tipos-resolucao-using-get-with-http-info optional-params))))
 
 (defn negar-using-post-with-http-info
-  "Negar autenticidade da transaÃ§Ã£o com risco de fraude
-  Nega a realizaÃ§Ã£o da transaÃ§Ã£o classificada com risco de fraude."
+  "Negar autenticidade de uma transaÃ§Ã£o classificada como risco de fraude
+  Nega a realizaÃ§Ã£o de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
   (call-api "/api/riscos-fraudes/{id}/negar" :post
             {:path-params   {"id" id }
@@ -116,14 +56,14 @@
              :auth-names    []}))
 
 (defn negar-using-post
-  "Negar autenticidade da transaÃ§Ã£o com risco de fraude
-  Nega a realizaÃ§Ã£o da transaÃ§Ã£o classificada com risco de fraude."
+  "Negar autenticidade de uma transaÃ§Ã£o classificada como risco de fraude
+  Nega a realizaÃ§Ã£o de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
   (:data (negar-using-post-with-http-info id)))
 
 (defn reconhecer-using-post-with-http-info
-  "Reconhecer a transaÃ§Ã£o com risco de fraude
-  Confirma a autenticidade da transaÃ§Ã£o classificada com risco de fraude."
+  "Reconhecer autenticidade de uma transaÃ§Ã£o classificada como risco de fraude
+  Confirma a autenticidade de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
   (call-api "/api/riscos-fraudes/{id}/reconhecer" :post
             {:path-params   {"id" id }
@@ -135,26 +75,7 @@
              :auth-names    []}))
 
 (defn reconhecer-using-post
-  "Reconhecer a transaÃ§Ã£o com risco de fraude
-  Confirma a autenticidade da transaÃ§Ã£o classificada com risco de fraude."
+  "Reconhecer autenticidade de uma transaÃ§Ã£o classificada como risco de fraude
+  Confirma a autenticidade de uma transaÃ§Ã£o classificada como risco de fraude."
   [id ]
   (:data (reconhecer-using-post-with-http-info id)))
-
-(defn salvar-using-post1-with-http-info
-  "Cadastro um novo Atendimento do tipo GenÃ©rico para uma Conta"
-  ([] (salvar-using-post1-with-http-info nil))
-  ([{:keys [id-conta conteudo-atendimento detalhes-atendimento nome-atendente data-atendimento data-agendamento data-hora-inicio-atendimento data-hora-fim-atendimento flag-fila-fraude ]}]
-   (call-api "/api/atendimento-clientes" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"idConta" id-conta "conteudoAtendimento" conteudo-atendimento "detalhesAtendimento" detalhes-atendimento "nomeAtendente" nome-atendente "dataAtendimento" data-atendimento "dataAgendamento" data-agendamento "dataHoraInicioAtendimento" data-hora-inicio-atendimento "dataHoraFimAtendimento" data-hora-fim-atendimento "flagFilaFraude" flag-fila-fraude }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn salvar-using-post1
-  "Cadastro um novo Atendimento do tipo GenÃ©rico para uma Conta"
-  ([] (salvar-using-post1 nil))
-  ([optional-params]
-   (:data (salvar-using-post1-with-http-info optional-params))))
