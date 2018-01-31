@@ -272,11 +272,11 @@
   "Permite gerar um novo Lote de CartÃµes PrÃ©-Pago
   Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de CartÃµes PrÃ©-Pagos, de forma nÃ£o nominal, os quais poderÃ£o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, alÃ©m de definir quantos cartÃµes deverÃ£o ser gerados, serÃ¡ possÃ­vel definir qual a Origem Comercial, o Produto, o Tipo do CartÃ£o, a Imagem e o EndereÃ§o para entrega dos CartÃµes presentes no lote gerado. Por padrÃ£o, todos os cartÃµes serÃ£o associados a um idPessoa fictÃ­cio e receberÃ¡ um idConta Ãºnico para cada um deles. Feito isso, os CartÃµes gerados por esta operaÃ§Ã£o seguirÃ£o os mesmos processos de impressÃ£o via grÃ¡fica previamente definidos entre o Emissor e a Conductor."
   ([] (gerar-lotes-cartoes-pre-pagos-using-post-with-http-info nil))
-  ([{:keys [id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes ]}]
+  ([{:keys [id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes identificador-externo ]}]
    (call-api "/api/cartoes/lotes-cartoes-pre-pagos" :post
              {:path-params   {}
               :header-params {}
-              :query-params  {"idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes }
+              :query-params  {"idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "identificadorExterno" identificador-externo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -331,11 +331,11 @@
   "Permite listar os Lotes de CartÃµes PrÃ©-Pago
   Este mÃ©todo permite que sejam listados os cartÃµes prÃ©-pagos existentes na base do emissor."
   ([] (listar-lotes-cartoes-pre-pagos-using-get-with-http-info nil))
-  ([{:keys [sort page limit id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento ]}]
+  ([{:keys [sort page limit id-origem-comercial id-produto id-tipo-cartao id-imagem id-endereco quantidade-cartoes data-cadastro usuario-cadastro status-processamento identificador-externo ]}]
    (call-api "/api/cartoes/lotes-cartoes-pre-pagos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idOrigemComercial" id-origem-comercial "idProduto" id-produto "idTipoCartao" id-tipo-cartao "idImagem" id-imagem "idEndereco" id-endereco "quantidadeCartoes" quantidade-cartoes "dataCadastro" data-cadastro "usuarioCadastro" usuario-cadastro "statusProcessamento" status-processamento "identificadorExterno" identificador-externo }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
