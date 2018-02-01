@@ -258,7 +258,7 @@
   [id ]
   (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get39-with-http-info
+(defn consultar-using-get40-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -271,11 +271,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get39
+(defn consultar-using-get40
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get39-with-http-info id id-transferencia)))
+  (:data (consultar-using-get40-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email
@@ -478,27 +478,6 @@
   ([id optional-params]
    (:data (listar-nao-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-pagamentos-using-get-with-http-info
-  "Lista histÃ³rico de pagamentos da conta
-  Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento."
-  ([id ] (listar-pagamentos-using-get-with-http-info id nil))
-  ([id {:keys [sort page limit id-pagamento id-estabelecimento id-banco id-cartao data-hora-pagamento status ]}]
-   (call-api "/api/contas/{id}/pagamentos" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idPagamento" id-pagamento "idEstabelecimento" id-estabelecimento "idBanco" id-banco "idCartao" id-cartao "dataHoraPagamento" data-hora-pagamento "status" status }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-pagamentos-using-get
-  "Lista histÃ³rico de pagamentos da conta
-  Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento."
-  ([id ] (listar-pagamentos-using-get id nil))
-  ([id optional-params]
-   (:data (listar-pagamentos-using-get-with-http-info id optional-params))))
-
 (defn listar-processadas-using-get-with-http-info
   "Lista as transaÃ§Ãµes processadas da conta
   Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes processadas da Conta."
@@ -541,10 +520,10 @@
   ([optional-params]
    (:data (listar-using-get13-with-http-info optional-params))))
 
-(defn listar-using-get43-with-http-info
+(defn listar-using-get45-with-http-info
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get43-with-http-info id nil))
+  ([id ] (listar-using-get45-with-http-info id nil))
   ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
@@ -555,12 +534,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get43
+(defn listar-using-get45
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get43 id nil))
+  ([id ] (listar-using-get45 id nil))
   ([id optional-params]
-   (:data (listar-using-get43-with-http-info id optional-params))))
+   (:data (listar-using-get45-with-http-info id optional-params))))
 
 (defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.

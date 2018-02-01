@@ -2,10 +2,10 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn alterar-using-put8-with-http-info
+(defn alterar-using-put9-with-http-info
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id-conta ] (alterar-using-put8-with-http-info id-conta nil))
+  ([id-conta ] (alterar-using-put9-with-http-info id-conta nil))
   ([id-conta {:keys [limite-global limite-compra limite-parcelado limite-parcelas limite-saque-global limite-saque-periodo limite-consignado limite-internacional-compra limite-internacional-parcelado limite-internacional-parcelas limite-internacional-saque-global limite-internacional-saque-periodo limite-maximo ]}]
    (call-api "/api/limites-disponibilidades" :put
              {:path-params   {}
@@ -16,12 +16,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put8
+(defn alterar-using-put9
   "Realiza a alteraÃ§Ã£o dos limites da conta
   Esse recurso permite realizar a alteraÃ§Ã£o dos Limites de uma determinada Conta."
-  ([id-conta ] (alterar-using-put8 id-conta nil))
+  ([id-conta ] (alterar-using-put9 id-conta nil))
   ([id-conta optional-params]
-   (:data (alterar-using-put8-with-http-info id-conta optional-params))))
+   (:data (alterar-using-put9-with-http-info id-conta optional-params))))
 
 (defn consultar-using-get18-with-http-info
   "Apresenta os limites da conta

@@ -2,6 +2,26 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn autorizar-por-conta-using-post-with-http-info
+  "Autoriza transaÃ§Ã£o financeira por idConta
+  Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira com o idConta."
+  [id transacao-on-us-por-id-cartao-request ]
+  (call-api "/api/contas/{id}/autorizar-transacao" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    transacao-on-us-por-id-cartao-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn autorizar-por-conta-using-post
+  "Autoriza transaÃ§Ã£o financeira por idConta
+  Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira com o idConta."
+  [id transacao-on-us-por-id-cartao-request ]
+  (:data (autorizar-por-conta-using-post-with-http-info id transacao-on-us-por-id-cartao-request)))
+
 (defn autorizar-using-post-with-http-info
   "Autoriza transaÃ§Ã£o financeira
   Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira."
@@ -41,6 +61,26 @@
   Este mÃ©todo faz uma autorizaÃ§Ã£o de transaÃ§Ã£o financeira com o idCartao."
   [id transacao-on-us-por-id-cartao-request ]
   (:data (autorizar-using-post1-with-http-info id transacao-on-us-por-id-cartao-request)))
+
+(defn cancelar-por-id-conta-using-post-with-http-info
+  "Cancela transaÃ§Ã£o financeira por idConta
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o a partir do idConta."
+  [id cancelamento-request ]
+  (call-api "/api/contas/{id}/cancelar-transacao" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    cancelamento-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn cancelar-por-id-conta-using-post
+  "Cancela transaÃ§Ã£o financeira por idConta
+  Este mÃ©todo permite que seja cancelada uma transaÃ§Ã£o a partir do idConta."
+  [id cancelamento-request ]
+  (:data (cancelar-por-id-conta-using-post-with-http-info id cancelamento-request)))
 
 (defn cancelar-using-post2-with-http-info
   "Cancela transaÃ§Ã£o financeira

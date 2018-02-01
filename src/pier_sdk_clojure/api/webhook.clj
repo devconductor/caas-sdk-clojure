@@ -2,10 +2,10 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn alterar-using-put20-with-http-info
+(defn alterar-using-put22-with-http-info
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
-  ([id tipo-evento url ] (alterar-using-put20-with-http-info id tipo-evento url nil))
+  ([id tipo-evento url ] (alterar-using-put22-with-http-info id tipo-evento url nil))
   ([id tipo-evento url {:keys [status ]}]
    (call-api "/api/webhooks/{id}" :put
              {:path-params   {"id" id }
@@ -16,14 +16,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn alterar-using-put20
+(defn alterar-using-put22
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
-  ([id tipo-evento url ] (alterar-using-put20 id tipo-evento url nil))
+  ([id tipo-evento url ] (alterar-using-put22 id tipo-evento url nil))
   ([id tipo-evento url optional-params]
-   (:data (alterar-using-put20-with-http-info id tipo-evento url optional-params))))
+   (:data (alterar-using-put22-with-http-info id tipo-evento url optional-params))))
 
-(defn consultar-using-get41-with-http-info
+(defn consultar-using-get43-with-http-info
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
@@ -36,16 +36,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get41
+(defn consultar-using-get43
   "Consultar Webhook
   Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
   [id ]
-  (:data (consultar-using-get41-with-http-info id)))
+  (:data (consultar-using-get43-with-http-info id)))
 
-(defn listar-using-get46-with-http-info
+(defn listar-using-get50-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get46-with-http-info nil))
+  ([] (listar-using-get50-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -56,14 +56,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get46
+(defn listar-using-get50
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get46 nil))
+  ([] (listar-using-get50 nil))
   ([optional-params]
-   (:data (listar-using-get46-with-http-info optional-params))))
+   (:data (listar-using-get50-with-http-info optional-params))))
 
-(defn salvar-using-post26-with-http-info
+(defn salvar-using-post29-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
@@ -76,8 +76,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post26
+(defn salvar-using-post29
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
   [tipo-evento url ]
-  (:data (salvar-using-post26-with-http-info tipo-evento url)))
+  (:data (salvar-using-post29-with-http-info tipo-evento url)))
