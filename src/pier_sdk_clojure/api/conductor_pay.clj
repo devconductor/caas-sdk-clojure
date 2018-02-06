@@ -175,10 +175,10 @@
   []
   (:data (listar-tipos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get6-with-http-info
+(defn listar-using-get7-with-http-info
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([] (listar-using-get6-with-http-info nil))
+  ([] (listar-using-get7-with-http-info nil))
   ([{:keys [device-id sort page limit status numero-cartao ]}]
    (call-api "/api/cartoes-tokenizados" :get
              {:path-params   {}
@@ -189,12 +189,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get6
+(defn listar-using-get7
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([] (listar-using-get6 nil))
+  ([] (listar-using-get7 nil))
   ([optional-params]
-   (:data (listar-using-get6-with-http-info optional-params))))
+   (:data (listar-using-get7-with-http-info optional-params))))
 
 (defn salvar-using-post5-with-http-info
   "CriaÃ§Ã£o de cartÃ£o

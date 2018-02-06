@@ -42,10 +42,10 @@
   [id ]
   (:data (consultar-using-get43-with-http-info id)))
 
-(defn listar-using-get50-with-http-info
+(defn listar-using-get51-with-http-info
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get50-with-http-info nil))
+  ([] (listar-using-get51-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -56,12 +56,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get50
+(defn listar-using-get51
   "Lista os Webhooks
   Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get50 nil))
+  ([] (listar-using-get51 nil))
   ([optional-params]
-   (:data (listar-using-get50-with-http-info optional-params))))
+   (:data (listar-using-get51-with-http-info optional-params))))
 
 (defn salvar-using-post29-with-http-info
   "Salvar Webhook

@@ -99,7 +99,7 @@
   [id ]
   (:data (consultar-using-get37-with-http-info id)))
 
-(defn integrar-using-post-with-http-info
+(defn integrar-using-post1-with-http-info
   "Integra um arquivo a repositÃ³rios remotos.
   Este recurso permite integrar um documento ao repositÃ³rio pre-configurado."
   [integrar-documento-request ]
@@ -113,16 +113,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn integrar-using-post
+(defn integrar-using-post1
   "Integra um arquivo a repositÃ³rios remotos.
   Este recurso permite integrar um documento ao repositÃ³rio pre-configurado."
   [integrar-documento-request ]
-  (:data (integrar-using-post-with-http-info integrar-documento-request)))
+  (:data (integrar-using-post1-with-http-info integrar-documento-request)))
 
-(defn listar-using-get15-with-http-info
+(defn listar-using-get16-with-http-info
   "Lista documentos
   Esse recurso permite listar documentos."
-  ([] (listar-using-get15-with-http-info nil))
+  ([] (listar-using-get16-with-http-info nil))
   ([{:keys [sort page limit id-template-documento nome extensao ]}]
    (call-api "/api/documentos" :get
              {:path-params   {}
@@ -133,17 +133,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get15
+(defn listar-using-get16
   "Lista documentos
   Esse recurso permite listar documentos."
-  ([] (listar-using-get15 nil))
+  ([] (listar-using-get16 nil))
   ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
+   (:data (listar-using-get16-with-http-info optional-params))))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get17-with-http-info
   "Lista os templates dos documentos
   Esse recurso permite listar os templates dos documentos."
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get17-with-http-info nil))
   ([{:keys [sort page limit id-tipo-template ]}]
    (call-api "/api/templates-documentos" :get
              {:path-params   {}
@@ -154,17 +154,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get17
   "Lista os templates dos documentos
   Esse recurso permite listar os templates dos documentos."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get17 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn listar-using-get42-with-http-info
+(defn listar-using-get43-with-http-info
   "Lista os tipos de templates
   Esse recurso permite listar os tipos de templates associados ao emissor."
-  ([] (listar-using-get42-with-http-info nil))
+  ([] (listar-using-get43-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-templates" :get
              {:path-params   {}
@@ -175,12 +175,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get42
+(defn listar-using-get43
   "Lista os tipos de templates
   Esse recurso permite listar os tipos de templates associados ao emissor."
-  ([] (listar-using-get42 nil))
+  ([] (listar-using-get43 nil))
   ([optional-params]
-   (:data (listar-using-get42-with-http-info optional-params))))
+   (:data (listar-using-get43-with-http-info optional-params))))
 
 (defn salvar-using-post10-with-http-info
   "Cadastra os templates dos documentos

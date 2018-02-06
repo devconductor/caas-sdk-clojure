@@ -139,10 +139,10 @@
   []
   (:data (listar-tipos-eventos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get33-with-http-info
+(defn listar-using-get34-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get33-with-http-info nil))
+  ([] (listar-using-get34-with-http-info nil))
   ([{:keys [sort page limit id nome permite-alterar-vencimento permite-alterar-limite permite-emitir-nova-via-cartao permite-fazer-transferencia permite-receber-transferencia permite-criar-acordo-cobranca permite-atribuir-como-bloqueio permite-desbloquear permite-atribuir-como-cancelamento ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -153,17 +153,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get33
+(defn listar-using-get34
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get33 nil))
+  ([] (listar-using-get34 nil))
   ([optional-params]
-   (:data (listar-using-get33-with-http-info optional-params))))
+   (:data (listar-using-get34-with-http-info optional-params))))
 
-(defn listar-using-get34-with-http-info
+(defn listar-using-get35-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get34-with-http-info nil))
+  ([] (listar-using-get35-with-http-info nil))
   ([{:keys [sort page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -174,9 +174,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get34
+(defn listar-using-get35
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get34 nil))
+  ([] (listar-using-get35 nil))
   ([optional-params]
-   (:data (listar-using-get34-with-http-info optional-params))))
+   (:data (listar-using-get35-with-http-info optional-params))))

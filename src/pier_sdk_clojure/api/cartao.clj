@@ -348,10 +348,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get7-with-http-info
+(defn listar-using-get8-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get7-with-http-info nil))
+  ([] (listar-using-get8-with-http-info nil))
   ([{:keys [sort page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -362,12 +362,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get7
+(defn listar-using-get8
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get7 nil))
+  ([] (listar-using-get8 nil))
   ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
+   (:data (listar-using-get8-with-http-info optional-params))))
 
 (defn reativar-using-post-with-http-info
   "Realiza a reativaÃ§Ã£o de um determinado CartÃ£o

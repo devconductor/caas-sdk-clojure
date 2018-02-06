@@ -499,10 +499,10 @@
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get13-with-http-info
+(defn listar-using-get14-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get13-with-http-info nil))
+  ([] (listar-using-get14-with-http-info nil))
   ([{:keys [sort page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -513,17 +513,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get13
+(defn listar-using-get14
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get13 nil))
+  ([] (listar-using-get14 nil))
   ([optional-params]
-   (:data (listar-using-get13-with-http-info optional-params))))
+   (:data (listar-using-get14-with-http-info optional-params))))
 
-(defn listar-using-get45-with-http-info
+(defn listar-using-get46-with-http-info
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get45-with-http-info id nil))
+  ([id ] (listar-using-get46-with-http-info id nil))
   ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
@@ -534,12 +534,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get45
+(defn listar-using-get46
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get45 id nil))
+  ([id ] (listar-using-get46 id nil))
   ([id optional-params]
-   (:data (listar-using-get45-with-http-info id optional-params))))
+   (:data (listar-using-get46-with-http-info id optional-params))))
 
 (defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.

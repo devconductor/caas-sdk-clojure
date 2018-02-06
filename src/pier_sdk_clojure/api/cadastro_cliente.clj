@@ -324,10 +324,10 @@
   ([id optional-params]
    (:data (listar-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get17-with-http-info
+(defn listar-using-get18-with-http-info
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get17-with-http-info nil))
+  ([] (listar-using-get18-with-http-info nil))
   ([{:keys [sort page limit id id-pessoa id-tipo-endereco cep logradouro numero complemento ponto-referencia bairro cidade uf pais data-inclusao data-ultima-atualizacao ]}]
    (call-api "/api/enderecos" :get
              {:path-params   {}
@@ -338,17 +338,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get17
+(defn listar-using-get18
   "Lista os EndereÃ§os cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os EndereÃ§os existentes na base de dados do Emissor."
-  ([] (listar-using-get17 nil))
+  ([] (listar-using-get18 nil))
   ([optional-params]
-   (:data (listar-using-get17-with-http-info optional-params))))
+   (:data (listar-using-get18-with-http-info optional-params))))
 
-(defn listar-using-get26-with-http-info
+(defn listar-using-get27-with-http-info
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get26-with-http-info nil))
+  ([] (listar-using-get27-with-http-info nil))
   ([{:keys [sort page limit id-pessoa nome-mae id-estado-civil id-profissao id-natureza-ocupacao id-nacionalidade numero-banco numero-agencia numero-conta-corrente email nome-empresa ]}]
    (call-api "/api/pessoas-detalhes" :get
              {:path-params   {}
@@ -359,17 +359,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get26
+(defn listar-using-get27
   "Lista os Detalhes das Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get26 nil))
+  ([] (listar-using-get27 nil))
   ([optional-params]
-   (:data (listar-using-get26-with-http-info optional-params))))
+   (:data (listar-using-get27-with-http-info optional-params))))
 
-(defn listar-using-get27-with-http-info
+(defn listar-using-get28-with-http-info
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get27-with-http-info nil))
+  ([] (listar-using-get28-with-http-info nil))
   ([{:keys [sort page limit id nome tipo cpf cnpj data-nascimento sexo numero-identidade orgao-expedidor-identidade unidade-federativa-identidade data-emissao-identidade ]}]
    (call-api "/api/pessoas" :get
              {:path-params   {}
@@ -380,17 +380,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get27
+(defn listar-using-get28
   "Lista as Pessoas cadastradas no Emissor
   Este mÃ©todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor."
-  ([] (listar-using-get27 nil))
+  ([] (listar-using-get28 nil))
   ([optional-params]
-   (:data (listar-using-get27-with-http-info optional-params))))
+   (:data (listar-using-get28-with-http-info optional-params))))
 
-(defn listar-using-get36-with-http-info
+(defn listar-using-get37-with-http-info
   "Lista os Telefones cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get36-with-http-info nil))
+  ([] (listar-using-get37-with-http-info nil))
   ([{:keys [sort page limit id id-tipo-telefone id-pessoa ddd telefone ramal status ]}]
    (call-api "/api/telefones" :get
              {:path-params   {}
@@ -401,12 +401,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get36
+(defn listar-using-get37
   "Lista os Telefones cadastrados no Emissor
   Este mÃ©todo permite que sejam listados os Telefones existentes na base de dados do Emissor."
-  ([] (listar-using-get36 nil))
+  ([] (listar-using-get37 nil))
   ([optional-params]
-   (:data (listar-using-get36-with-http-info optional-params))))
+   (:data (listar-using-get37-with-http-info optional-params))))
 
 (defn salvar-pessoa-fisica-aprovada-using-post-with-http-info
   "Cadastro de Conta e Pessoa Fisica

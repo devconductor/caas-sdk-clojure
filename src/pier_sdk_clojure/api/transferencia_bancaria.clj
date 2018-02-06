@@ -102,10 +102,10 @@
   ([optional-params]
    (:data (listar-transferencia-bancaria-using-get-with-http-info optional-params))))
 
-(defn listar-using-get11-with-http-info
+(defn listar-using-get12-with-http-info
   "Lista contas bancÃ¡rias portador
   Esse recurso permite listar contas bancÃ¡rias do portador."
-  ([] (listar-using-get11-with-http-info nil))
+  ([] (listar-using-get12-with-http-info nil))
   ([{:keys [id-conta nome-agencia numero-agencia numero-conta flag-conta-origem-doc id-pessoa-fisica favorecido numero-receira-federal sort page limit ]}]
    (call-api "/api/contas-bancarias-portador" :get
              {:path-params   {}
@@ -116,17 +116,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get11
+(defn listar-using-get12
   "Lista contas bancÃ¡rias portador
   Esse recurso permite listar contas bancÃ¡rias do portador."
-  ([] (listar-using-get11 nil))
+  ([] (listar-using-get12 nil))
   ([optional-params]
-   (:data (listar-using-get11-with-http-info optional-params))))
+   (:data (listar-using-get12-with-http-info optional-params))))
 
-(defn listar-using-get44-with-http-info
+(defn listar-using-get45-with-http-info
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get44-with-http-info id nil))
+  ([id ] (listar-using-get45-with-http-info id nil))
   ([id {:keys [id-conta-bancaria-destino sort page limit ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
              {:path-params   {"id" id }
@@ -137,12 +137,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get44
+(defn listar-using-get45
   "Listar as transferÃªncias bancÃ¡rias realizadas
   Este recurso tem como objetivo permitir que o portador de um CartÃ£o possa consultar uma lista das TransferÃªncias BancÃ¡rias para os Favorecidos cadastrados."
-  ([id ] (listar-using-get44 id nil))
+  ([id ] (listar-using-get45 id nil))
   ([id optional-params]
-   (:data (listar-using-get44-with-http-info id optional-params))))
+   (:data (listar-using-get45-with-http-info id optional-params))))
 
 (defn salvar-using-post7-with-http-info
   "Cadastra uma conta bancÃ¡ria do portador

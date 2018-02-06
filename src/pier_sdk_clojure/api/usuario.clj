@@ -117,10 +117,10 @@
   [id ]
   (:data (desativar-usuario-using-post-with-http-info id)))
 
-(defn listar-using-get46-with-http-info
+(defn listar-using-get47-with-http-info
   "Lista os UsuÃ¡rios cadastrados na base do PIER ou WS.
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get46-with-http-info nil))
+  ([] (listar-using-get47-with-http-info nil))
   ([{:keys [sort page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -131,12 +131,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get46
+(defn listar-using-get47
   "Lista os UsuÃ¡rios cadastrados na base do PIER ou WS.
   Este mÃ©todo permite que sejam listados os usuÃ¡rios existentes na base do PIER."
-  ([] (listar-using-get46 nil))
+  ([] (listar-using-get47 nil))
   ([optional-params]
-   (:data (listar-using-get46-with-http-info optional-params))))
+   (:data (listar-using-get47-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "Recuperar senha do usuÃ¡rio na base do PIER ou WS.

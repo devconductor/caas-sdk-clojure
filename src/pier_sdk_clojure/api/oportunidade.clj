@@ -203,10 +203,10 @@
   ([id optional-params]
    (:data (listar-status-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get25-with-http-info
+(defn listar-using-get26-with-http-info
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get25-with-http-info nil))
+  ([] (listar-using-get26-with-http-info nil))
   ([{:keys [sort page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
@@ -217,17 +217,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get25
+(defn listar-using-get26
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get25 nil))
+  ([] (listar-using-get26 nil))
   ([optional-params]
-   (:data (listar-using-get25-with-http-info optional-params))))
+   (:data (listar-using-get26-with-http-info optional-params))))
 
-(defn listar-using-get40-with-http-info
+(defn listar-using-get41-with-http-info
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get40-with-http-info nil))
+  ([] (listar-using-get41-with-http-info nil))
   ([{:keys [sort page limit descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades" :get
              {:path-params   {}
@@ -238,12 +238,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get40
+(defn listar-using-get41
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get40 nil))
+  ([] (listar-using-get41 nil))
   ([optional-params]
-   (:data (listar-using-get40-with-http-info optional-params))))
+   (:data (listar-using-get41-with-http-info optional-params))))
 
 (defn salvar-status-using-post-with-http-info
   "Cadastra status para o tipo oportunidade

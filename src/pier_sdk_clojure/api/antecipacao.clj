@@ -83,10 +83,10 @@
   ([id-conta optional-params]
    (:data (efetivar-antecipacoes-using-post-with-http-info id-conta optional-params))))
 
-(defn listar-using-get8-with-http-info
+(defn listar-using-get9-with-http-info
   "Listar compras com parcelas antecipÃ¡veis
   Lista as compras antecipÃ¡veis de uma conta."
-  ([id-conta ] (listar-using-get8-with-http-info id-conta nil))
+  ([id-conta ] (listar-using-get9-with-http-info id-conta nil))
   ([id-conta {:keys [sort page limit id-compra parcelada juros tipo-origem-transacao ]}]
    (call-api "/api/compras-antecipaveis" :get
              {:path-params   {}
@@ -97,12 +97,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get8
+(defn listar-using-get9
   "Listar compras com parcelas antecipÃ¡veis
   Lista as compras antecipÃ¡veis de uma conta."
-  ([id-conta ] (listar-using-get8 id-conta nil))
+  ([id-conta ] (listar-using-get9 id-conta nil))
   ([id-conta optional-params]
-   (:data (listar-using-get8-with-http-info id-conta optional-params))))
+   (:data (listar-using-get9-with-http-info id-conta optional-params))))
 
 (defn simular-antecipacao-using-get-with-http-info
   "Simular antecipaÃ§Ã£o de parcelas
