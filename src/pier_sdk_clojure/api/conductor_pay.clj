@@ -61,7 +61,7 @@
   [device-id id update ]
   (:data (confirma-atualizacao-chave-using-post-with-http-info device-id id update)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "Apresenta os dados de um determinado cartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [device-id id ]
@@ -74,11 +74,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "Apresenta os dados de um determinado cartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [device-id id ]
-  (:data (consultar-using-get6-with-http-info device-id id)))
+  (:data (consultar-using-get7-with-http-info device-id id)))
 
 (defn listar-codigos-resposta-using-get-with-http-info
   "Lista os cÃ³digos de resposta dos recursos de transaÃ§Ã£o e consulta de conta
@@ -175,10 +175,10 @@
   []
   (:data (listar-tipos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get7-with-http-info
+(defn listar-using-get9-with-http-info
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([] (listar-using-get7-with-http-info nil))
+  ([] (listar-using-get9-with-http-info nil))
   ([{:keys [device-id sort page limit status numero-cartao ]}]
    (call-api "/api/cartoes-tokenizados" :get
              {:path-params   {}
@@ -189,14 +189,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get7
+(defn listar-using-get9
   "Lista os cartÃµes cadastrados
   Este mÃ©todo permite listar os cartÃµes cadastrado em um dispositivo."
-  ([] (listar-using-get7 nil))
+  ([] (listar-using-get9 nil))
   ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
+   (:data (listar-using-get9-with-http-info optional-params))))
 
-(defn salvar-using-post5-with-http-info
+(defn salvar-using-post6-with-http-info
   "CriaÃ§Ã£o de cartÃ£o
   Este metÃ³do permite a tokenizaÃ§Ã£o de um cartÃ£o a partir dos seus dados impressos."
   [device-id persist ]
@@ -210,8 +210,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post5
+(defn salvar-using-post6
   "CriaÃ§Ã£o de cartÃ£o
   Este metÃ³do permite a tokenizaÃ§Ã£o de um cartÃ£o a partir dos seus dados impressos."
   [device-id persist ]
-  (:data (salvar-using-post5-with-http-info device-id persist)))
+  (:data (salvar-using-post6-with-http-info device-id persist)))

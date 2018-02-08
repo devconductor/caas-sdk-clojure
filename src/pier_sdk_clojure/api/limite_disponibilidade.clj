@@ -23,7 +23,7 @@
   ([id-conta optional-params]
    (:data (alterar-using-put9-with-http-info id-conta optional-params))))
 
-(defn consultar-using-get18-with-http-info
+(defn consultar-using-get19-with-http-info
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
   [id-conta ]
@@ -36,8 +36,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get18
+(defn consultar-using-get19
   "Apresenta os limites da conta
   Este mÃ©todo permite consultar os Limites configurados para uma determinada Conta, a partir do cÃ³digo de identificaÃ§Ã£o da conta (id)."
   [id-conta ]
-  (:data (consultar-using-get18-with-http-info id-conta)))
+  (:data (consultar-using-get19-with-http-info id-conta)))

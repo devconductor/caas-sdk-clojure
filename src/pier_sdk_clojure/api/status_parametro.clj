@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get27-with-http-info
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get26
+(defn consultar-using-get27
   "Apresenta os dados de um determinado Status Conta
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get26-with-http-info id)))
+  (:data (consultar-using-get27-with-http-info id)))
 
-(defn consultar-using-get27-with-http-info
+(defn consultar-using-get28-with-http-info
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get27
+(defn consultar-using-get28
   "Apresenta os dados de um determinado Status ImpressÃ£o
   Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get27-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
@@ -139,10 +139,10 @@
   []
   (:data (listar-tipos-eventos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get34-with-http-info
+(defn listar-using-get36-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get34-with-http-info nil))
+  ([] (listar-using-get36-with-http-info nil))
   ([{:keys [sort page limit id nome permite-alterar-vencimento permite-alterar-limite permite-emitir-nova-via-cartao permite-fazer-transferencia permite-receber-transferencia permite-criar-acordo-cobranca permite-atribuir-como-bloqueio permite-desbloquear permite-atribuir-como-cancelamento ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -153,17 +153,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get34
+(defn listar-using-get36
   "Lista os Status Contas cadastrados para o Emissor
   Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get34 nil))
+  ([] (listar-using-get36 nil))
   ([optional-params]
-   (:data (listar-using-get34-with-http-info optional-params))))
+   (:data (listar-using-get36-with-http-info optional-params))))
 
-(defn listar-using-get35-with-http-info
+(defn listar-using-get37-with-http-info
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get35-with-http-info nil))
+  ([] (listar-using-get37-with-http-info nil))
   ([{:keys [sort page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -174,9 +174,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get35
+(defn listar-using-get37
   "Lista as opÃ§Ãµes de Status ImpressÃ£o
   Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get35 nil))
+  ([] (listar-using-get37 nil))
   ([optional-params]
-   (:data (listar-using-get35-with-http-info optional-params))))
+   (:data (listar-using-get37-with-http-info optional-params))))

@@ -42,9 +42,30 @@
   (:data (integrar-using-post-with-http-info integrar-arquivo-request)))
 
 (defn listar-using-get3-with-http-info
+  "Lista as auditorias do arquivo
+  Este recurso permite listar as auditorias de um determinado arquivo a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  ([id ] (listar-using-get3-with-http-info id nil))
+  ([id {:keys [page limit ]}]
+   (call-api "/api/arquivos/{id}/auditorias" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get3
+  "Lista as auditorias do arquivo
+  Este recurso permite listar as auditorias de um determinado arquivo a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  ([id ] (listar-using-get3 id nil))
+  ([id optional-params]
+   (:data (listar-using-get3-with-http-info id optional-params))))
+
+(defn listar-using-get4-with-http-info
   "Listar arquivos do Pier Cloud
   Este recurso permite a listagem de todos os arquivos disponÃ­veis no Pier Cloud."
-  ([] (listar-using-get3-with-http-info nil))
+  ([] (listar-using-get4-with-http-info nil))
   ([{:keys [sort page limit nome id-tipo-arquivo id-status-arquivo extensao ]}]
    (call-api "/api/arquivos" :get
              {:path-params   {}
@@ -55,12 +76,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get3
+(defn listar-using-get4
   "Listar arquivos do Pier Cloud
   Este recurso permite a listagem de todos os arquivos disponÃ­veis no Pier Cloud."
-  ([] (listar-using-get3 nil))
+  ([] (listar-using-get4 nil))
   ([optional-params]
-   (:data (listar-using-get3-with-http-info optional-params))))
+   (:data (listar-using-get4-with-http-info optional-params))))
 
 (defn salvar-using-post1-with-http-info
   "Permite armazenar arquivos no PIER Cloud

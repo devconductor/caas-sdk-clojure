@@ -64,7 +64,7 @@
 
 (defn alterar-vencimento-using-put-with-http-info
   "Realiza a alteraÃ§Ã£o do dia de vencimento das faturas da conta
-  Esse recurso permite alterar o vencimento de uma conta especifica."
+  Esse recurso permite alterar o vencimento para no mÃ¡ximo atÃ© 30 dias apÃ³s data atual de uma conta especifica no PIER, respeitando o parÃ¢metro de intervalor entre as modificaÃ§Ãµes do vencimento informado pelo emissor."
   [id novo-dia-vencimento ]
   (call-api "/api/contas/{id}/alterar-vencimento" :put
             {:path-params   {"id" id }
@@ -77,7 +77,7 @@
 
 (defn alterar-vencimento-using-put
   "Realiza a alteraÃ§Ã£o do dia de vencimento das faturas da conta
-  Esse recurso permite alterar o vencimento de uma conta especifica."
+  Esse recurso permite alterar o vencimento para no mÃ¡ximo atÃ© 30 dias apÃ³s data atual de uma conta especifica no PIER, respeitando o parÃ¢metro de intervalor entre as modificaÃ§Ãµes do vencimento informado pelo emissor."
   [id novo-dia-vencimento ]
   (:data (alterar-vencimento-using-put-with-http-info id novo-dia-vencimento)))
 
@@ -239,7 +239,7 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get11-with-http-info
+(defn consultar-using-get12-with-http-info
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
@@ -252,13 +252,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get12
   "Apresenta dados de uma determinada conta
   Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
-(defn consultar-using-get40-with-http-info
+(defn consultar-using-get41-with-http-info
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
@@ -271,11 +271,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get40
+(defn consultar-using-get41
   "Consulta os detalhes de uma determinada transferÃªncia
   Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get40-with-http-info id id-transferencia)))
+  (:data (consultar-using-get41-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "Desativa o serviÃ§o de envio de fatura por email
@@ -499,10 +499,10 @@
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get14-with-http-info
+(defn listar-using-get16-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get14-with-http-info nil))
+  ([] (listar-using-get16-with-http-info nil))
   ([{:keys [sort page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -513,17 +513,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get14
+(defn listar-using-get16
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get14 nil))
+  ([] (listar-using-get16 nil))
   ([optional-params]
-   (:data (listar-using-get14-with-http-info optional-params))))
+   (:data (listar-using-get16-with-http-info optional-params))))
 
-(defn listar-using-get46-with-http-info
+(defn listar-using-get48-with-http-info
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get46-with-http-info id nil))
+  ([id ] (listar-using-get48-with-http-info id nil))
   ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
@@ -534,12 +534,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get46
+(defn listar-using-get48
   "Lista as transferÃªncias realizadas pela conta
   Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get46 id nil))
+  ([id ] (listar-using-get48 id nil))
   ([id optional-params]
-   (:data (listar-using-get46-with-http-info id optional-params))))
+   (:data (listar-using-get48-with-http-info id optional-params))))
 
 (defn reativar-using-post1-with-http-info
   "Realiza a reativaÃ§Ã£o de contas.

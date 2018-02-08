@@ -211,7 +211,7 @@
   [id ]
   (:data (consultar-portador-using-get-with-http-info id)))
 
-(defn consultar-using-get7-with-http-info
+(defn consultar-using-get8-with-http-info
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
@@ -224,11 +224,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get7
+(defn consultar-using-get8
   "Apresenta os dados de um determinado CartÃ£o
   Este mÃ©todo permite consultar as informaÃ§Ãµes bÃ¡sicas de um determinado CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
-  (:data (consultar-using-get7-with-http-info id)))
+  (:data (consultar-using-get8-with-http-info id)))
 
 (defn desbloquear-senha-incorreta-using-post-with-http-info
   "Realiza o desbloqueio de um cartÃ£o bloqueado por tentativas de senha incorretas
@@ -348,10 +348,10 @@
   ([optional-params]
    (:data (listar-lotes-cartoes-pre-pagos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get8-with-http-info
+(defn listar-using-get10-with-http-info
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get8-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [sort page limit id-status-cartao id-estagio-cartao id-conta id-pessoa id-produto tipo-portador numero-cartao nome-impresso data-geracao data-status-cartao data-estagio-cartao data-validade data-impressao arquivo-impressao flag-impressao-origem-comercial flag-provisorio codigo-desbloqueio sequencial-cartao ]}]
    (call-api "/api/cartoes" :get
              {:path-params   {}
@@ -362,12 +362,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get8
+(defn listar-using-get10
   "Lista os CartÃµes gerados pelo Emissor
   Este mÃ©todo permite que sejam listados os cartÃµes existentes na base do emissor."
-  ([] (listar-using-get8 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get8-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))
 
 (defn reativar-using-post-with-http-info
   "Realiza a reativaÃ§Ã£o de um determinado CartÃ£o
@@ -387,6 +387,26 @@
   Este mÃ©todo permite a realizaÃ§Ã£o da reativaÃ§Ã£o de um determinado cartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
   [id ]
   (:data (reativar-using-post-with-http-info id)))
+
+(defn validar-cvv-using-post-with-http-info
+  "Validar CVV do cartÃ£o
+  Esse recurso permite a validaÃ§Ã£o do cvv de um cartÃ£o"
+  [id valida-cvv ]
+  (call-api "/api/cartoes/{id}/validar-cvv" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    valida-cvv
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn validar-cvv-using-post
+  "Validar CVV do cartÃ£o
+  Esse recurso permite a validaÃ§Ã£o do cvv de um cartÃ£o"
+  [id valida-cvv ]
+  (:data (validar-cvv-using-post-with-http-info id valida-cvv)))
 
 (defn validar-dados-impressos-bandeirado-using-get-with-http-info
   "Permite validar os dados impressos em um cartÃ£o bandeirado
