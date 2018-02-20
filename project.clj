@@ -1,4 +1,4 @@
-(defproject pier-sdk-clojure "2.54.2"
+(defproject pier-sdk-clojure "2.54.4"
   :description "GestÃ£o de pagamento eletrÃ´nicos como serviÃ§o"
   :url "http://pierlabs.io"
   :license {:name "Apache 2.0"
