@@ -5,13 +5,14 @@
 (defn alterar-using-put22-with-http-info
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
-  ([id tipo-evento url ] (alterar-using-put22-with-http-info id tipo-evento url nil))
-  ([id tipo-evento url {:keys [status ]}]
+  ([id webhook ] (alterar-using-put22-with-http-info id webhook nil))
+  ([id webhook {:keys [status ]}]
    (call-api "/api/webhooks/{id}" :put
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"status" status "tipoEvento" tipo-evento "url" url }
+              :query-params  {"status" status }
               :form-params   {}
+              :body-param    webhook
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
@@ -19,9 +20,9 @@
 (defn alterar-using-put22
   "Alterar Webhook
   Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
-  ([id tipo-evento url ] (alterar-using-put22 id tipo-evento url nil))
-  ([id tipo-evento url optional-params]
-   (:data (alterar-using-put22-with-http-info id tipo-evento url optional-params))))
+  ([id webhook ] (alterar-using-put22 id webhook nil))
+  ([id webhook optional-params]
+   (:data (alterar-using-put22-with-http-info id webhook optional-params))))
 
 (defn consultar-using-get44-with-http-info
   "Consultar Webhook
@@ -66,12 +67,13 @@
 (defn salvar-using-post30-with-http-info
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
-  [tipo-evento url ]
+  [webhook ]
   (call-api "/api/webhooks" :post
             {:path-params   {}
              :header-params {}
-             :query-params  {"tipoEvento" tipo-evento "url" url }
+             :query-params  {}
              :form-params   {}
+             :body-param    webhook
              :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -79,5 +81,5 @@
 (defn salvar-using-post30
   "Salvar Webhook
   Este mÃ©todo permite que seja adicionado um novo webhook"
-  [tipo-evento url ]
-  (:data (salvar-using-post30-with-http-info tipo-evento url)))
+  [webhook ]
+  (:data (salvar-using-post30-with-http-info webhook)))
