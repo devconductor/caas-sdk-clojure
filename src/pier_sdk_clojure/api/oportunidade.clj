@@ -4,7 +4,7 @@
 
 (defn alterar-status-using-put-with-http-info
   "Altera o status do tipo oportunidade
-  Este mÃ©todo realiza a alteraÃ§Ã£o do status do tipo oportunidade."
+  Este método realiza a alteração do status do tipo oportunidade."
   [id id-status persist ]
   (call-api "/api/tipos-oportunidades/{id}/status/{idStatus}" :put
             {:path-params   {"id" id "idStatus" id-status }
@@ -18,13 +18,13 @@
 
 (defn alterar-status-using-put
   "Altera o status do tipo oportunidade
-  Este mÃ©todo realiza a alteraÃ§Ã£o do status do tipo oportunidade."
+  Este método realiza a alteração do status do tipo oportunidade."
   [id id-status persist ]
   (:data (alterar-status-using-put-with-http-info id id-status persist)))
 
 (defn alterar-using-put12-with-http-info
   "Altera as oportunidades
-  Este mÃ©todo realiza a alteraÃ§Ã£o das oportunidades."
+  Este método realiza a alteração das oportunidades."
   [id update ]
   (call-api "/api/oportunidades/{id}" :put
             {:path-params   {"id" id }
@@ -38,13 +38,13 @@
 
 (defn alterar-using-put12
   "Altera as oportunidades
-  Este mÃ©todo realiza a alteraÃ§Ã£o das oportunidades."
+  Este método realiza a alteração das oportunidades."
   [id update ]
   (:data (alterar-using-put12-with-http-info id update)))
 
 (defn alterar-using-put18-with-http-info
   "Altera os tipos oportunidades
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos tipos oportunidades."
+  Este método realiza a alteração dos tipos oportunidades."
   [id persist ]
   (call-api "/api/tipos-oportunidades/{id}" :put
             {:path-params   {"id" id }
@@ -58,13 +58,13 @@
 
 (defn alterar-using-put18
   "Altera os tipos oportunidades
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos tipos oportunidades."
+  Este método realiza a alteração dos tipos oportunidades."
   [id persist ]
   (:data (alterar-using-put18-with-http-info id persist)))
 
 (defn consultar-status-using-get-with-http-info
   "Apresenta dados de um determinado status do tipo oportunidade
-  Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (idStatus)."
+  Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identificação (idStatus)."
   [id id-status ]
   (call-api "/api/tipos-oportunidades/{id}/status/{idStatus}" :get
             {:path-params   {"id" id "idStatus" id-status }
@@ -77,13 +77,13 @@
 
 (defn consultar-status-using-get
   "Apresenta dados de um determinado status do tipo oportunidade
-  Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (idStatus)."
+  Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identificação (idStatus)."
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get22-with-http-info
+(defn consultar-using-get23-with-http-info
   "Apresenta dados de uma determinada oportunidade
-  Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificação (id)."
   [id ]
   (call-api "/api/oportunidades/{id}" :get
             {:path-params   {"id" id }
@@ -94,15 +94,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get22
+(defn consultar-using-get23
   "Apresenta dados de uma determinada oportunidade
-  Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identificação (id)."
   [id ]
-  (:data (consultar-using-get22-with-http-info id)))
+  (:data (consultar-using-get23-with-http-info id)))
 
-(defn consultar-using-get36-with-http-info
+(defn consultar-using-get37-with-http-info
   "Apresenta dados de um determinado tipo oportunidade
-  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificação (id)."
   [id ]
   (call-api "/api/tipos-oportunidades/{id}" :get
             {:path-params   {"id" id }
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get36
+(defn consultar-using-get37
   "Apresenta dados de um determinado tipo oportunidade
-  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identificação (id)."
   [id ]
-  (:data (consultar-using-get36-with-http-info id)))
+  (:data (consultar-using-get37-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "Lista as auditorias dos status oportunidades
@@ -203,10 +203,10 @@
   ([id optional-params]
    (:data (listar-status-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get28-with-http-info
+(defn listar-using-get30-with-http-info
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get28-with-http-info nil))
+  ([] (listar-using-get30-with-http-info nil))
   ([{:keys [sort page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
@@ -217,17 +217,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get28
+(defn listar-using-get30
   "Lista as oportunidades
   Este recurso permite listar as oportunidades."
-  ([] (listar-using-get28 nil))
+  ([] (listar-using-get30 nil))
   ([optional-params]
-   (:data (listar-using-get28-with-http-info optional-params))))
+   (:data (listar-using-get30-with-http-info optional-params))))
 
-(defn listar-using-get43-with-http-info
+(defn listar-using-get45-with-http-info
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get43-with-http-info nil))
+  ([] (listar-using-get45-with-http-info nil))
   ([{:keys [sort page limit descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades" :get
              {:path-params   {}
@@ -238,12 +238,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get43
+(defn listar-using-get45
   "Lista os tipos oportunidades
   Este recurso permite listar os tipos oportunidades."
-  ([] (listar-using-get43 nil))
+  ([] (listar-using-get45 nil))
   ([optional-params]
-   (:data (listar-using-get43-with-http-info optional-params))))
+   (:data (listar-using-get45-with-http-info optional-params))))
 
 (defn salvar-status-using-post-with-http-info
   "Cadastra status para o tipo oportunidade

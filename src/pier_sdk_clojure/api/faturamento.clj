@@ -4,7 +4,7 @@
 
 (defn alterar-tipo-faturamento-using-put-with-http-info
   "Alterar Faturamento
-  Alterar as configuraÃ§Ãµes de um determinado tipo de faturamento"
+  Alterar as configurações de um determinado tipo de faturamento"
   [id tipo-faturamento-persist ]
   (call-api "/api/tipos-faturamento/{id}" :put
             {:path-params   {"id" id }
@@ -18,13 +18,13 @@
 
 (defn alterar-tipo-faturamento-using-put
   "Alterar Faturamento
-  Alterar as configuraÃ§Ãµes de um determinado tipo de faturamento"
+  Alterar as configurações de um determinado tipo de faturamento"
   [id tipo-faturamento-persist ]
   (:data (alterar-tipo-faturamento-using-put-with-http-info id tipo-faturamento-persist)))
 
 (defn cadastrar-faturamento-por-conta-using-post-with-http-info
-  "Adiciona uma nova configuraÃ§Ã£o de faturamento para uma conta
-  Este mÃ©todo permite adicionar uma nova configuraÃ§Ã£o de tipo de faturamento para um conta especÃ­fica."
+  "Adiciona uma nova configuração de faturamento para uma conta
+  Este método permite adicionar uma nova configuração de tipo de faturamento para um conta específica."
   [tipo-faturamento-por-conta-persist ]
   (call-api "/api/tipos-faturamento-conta" :post
             {:path-params   {}
@@ -37,14 +37,14 @@
              :auth-names    []}))
 
 (defn cadastrar-faturamento-por-conta-using-post
-  "Adiciona uma nova configuraÃ§Ã£o de faturamento para uma conta
-  Este mÃ©todo permite adicionar uma nova configuraÃ§Ã£o de tipo de faturamento para um conta especÃ­fica."
+  "Adiciona uma nova configuração de faturamento para uma conta
+  Este método permite adicionar uma nova configuração de tipo de faturamento para um conta específica."
   [tipo-faturamento-por-conta-persist ]
   (:data (cadastrar-faturamento-por-conta-using-post-with-http-info tipo-faturamento-por-conta-persist)))
 
 (defn cadastrar-tipo-faturamento-using-post-with-http-info
   "Adiciona um novo faturamento
-  Adiciona uma nova configuraÃ§Ã£o de tipo de faturamento"
+  Adiciona uma nova configuração de tipo de faturamento"
   [tipo-faturamento-persist ]
   (call-api "/api/tipos-faturamento" :post
             {:path-params   {}
@@ -58,7 +58,7 @@
 
 (defn cadastrar-tipo-faturamento-using-post
   "Adiciona um novo faturamento
-  Adiciona uma nova configuraÃ§Ã£o de tipo de faturamento"
+  Adiciona uma nova configuração de tipo de faturamento"
   [tipo-faturamento-persist ]
   (:data (cadastrar-tipo-faturamento-using-post-with-http-info tipo-faturamento-persist)))
 
@@ -82,8 +82,8 @@
   (:data (consultar-tipo-faturamento-using-get-with-http-info id)))
 
 (defn desativar-faturamento-por-conta-using-post-with-http-info
-  "Desativar uma configuraÃ§Ã£o de tipo de faturamento por conta atravÃ©s do id
-  Desativa uma configuraÃ§Ã£o de tipo de faturamento de uma determinada conta."
+  "Desativar uma configuração de tipo de faturamento por conta através do id
+  Desativa uma configuração de tipo de faturamento de uma determinada conta."
   [id modificado-por ]
   (call-api "/api/tipos-faturamento-conta/{id}/desativar" :post
             {:path-params   {"id" id }
@@ -96,14 +96,14 @@
              :auth-names    []}))
 
 (defn desativar-faturamento-por-conta-using-post
-  "Desativar uma configuraÃ§Ã£o de tipo de faturamento por conta atravÃ©s do id
-  Desativa uma configuraÃ§Ã£o de tipo de faturamento de uma determinada conta."
+  "Desativar uma configuração de tipo de faturamento por conta através do id
+  Desativa uma configuração de tipo de faturamento de uma determinada conta."
   [id modificado-por ]
   (:data (desativar-faturamento-por-conta-using-post-with-http-info id modificado-por)))
 
 (defn desativar-tipo-faturamento-using-post-with-http-info
-  "Desativar uma configuraÃ§Ã£o de tipo de faturamento atravÃ©s do id
-  Desativa uma configuraÃ§Ã£o de tipo de faturamento."
+  "Desativar uma configuração de tipo de faturamento através do id
+  Desativa uma configuração de tipo de faturamento."
   [id ]
   (call-api "/api/tipos-faturamento/{id}/desativar" :post
             {:path-params   {"id" id }
@@ -115,14 +115,14 @@
              :auth-names    []}))
 
 (defn desativar-tipo-faturamento-using-post
-  "Desativar uma configuraÃ§Ã£o de tipo de faturamento atravÃ©s do id
-  Desativa uma configuraÃ§Ã£o de tipo de faturamento."
+  "Desativar uma configuração de tipo de faturamento através do id
+  Desativa uma configuração de tipo de faturamento."
   [id ]
   (:data (desativar-tipo-faturamento-using-post-with-http-info id)))
 
 (defn listar-faturamento-por-conta-using-get-with-http-info
-  "Lista as configuraÃ§Ãµes de tipos de faturamento por conta
-  Este mÃ©todo permite listar as configuraÃ§Ãµes de tipos de faturamento registrados a uma conta."
+  "Lista as configurações de tipos de faturamento por conta
+  Este método permite listar as configurações de tipos de faturamento registrados a uma conta."
   ([] (listar-faturamento-por-conta-using-get-with-http-info nil))
   ([{:keys [sort page limit id-tipo-faturamento-por-conta status id-conta id-tipo-faturamento data-hora-inclusao data-hora-cancelamento modificado-por ]}]
    (call-api "/api/tipos-faturamento-conta" :get
@@ -135,15 +135,15 @@
               :auth-names    []})))
 
 (defn listar-faturamento-por-conta-using-get
-  "Lista as configuraÃ§Ãµes de tipos de faturamento por conta
-  Este mÃ©todo permite listar as configuraÃ§Ãµes de tipos de faturamento registrados a uma conta."
+  "Lista as configurações de tipos de faturamento por conta
+  Este método permite listar as configurações de tipos de faturamento registrados a uma conta."
   ([] (listar-faturamento-por-conta-using-get nil))
   ([optional-params]
    (:data (listar-faturamento-por-conta-using-get-with-http-info optional-params))))
 
 (defn listar-tipo-faturamento-using-get-with-http-info
   "Lista Tipos de Faturamento
-  Lista todas as configuraÃ§Ãµes dos tipos de faturamento"
+  Lista todas as configurações dos tipos de faturamento"
   ([] (listar-tipo-faturamento-using-get-with-http-info nil))
   ([{:keys [sort page limit id-tipo-faturamento descricao flag-apenas-demonstrativo id-convenio ]}]
    (call-api "/api/tipos-faturamento" :get
@@ -157,7 +157,7 @@
 
 (defn listar-tipo-faturamento-using-get
   "Lista Tipos de Faturamento
-  Lista todas as configuraÃ§Ãµes dos tipos de faturamento"
+  Lista todas as configurações dos tipos de faturamento"
   ([] (listar-tipo-faturamento-using-get nil))
   ([optional-params]
    (:data (listar-tipo-faturamento-using-get-with-http-info optional-params))))

@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn ajustar-conta-using-post-with-http-info
-  "LanÃ§a um ajuste para a conta informada
+  "Lança um ajuste para a conta informada
   Este recurso insere um ajuste para a conta do id informado"
   ([id-tipo-ajuste data-ajuste valor-ajuste id-conta ] (ajustar-conta-using-post-with-http-info id-tipo-ajuste data-ajuste valor-ajuste id-conta nil))
   ([id-tipo-ajuste data-ajuste valor-ajuste id-conta {:keys [identificador-externo ]}]
@@ -17,15 +17,15 @@
               :auth-names    []})))
 
 (defn ajustar-conta-using-post
-  "LanÃ§a um ajuste para a conta informada
+  "Lança um ajuste para a conta informada
   Este recurso insere um ajuste para a conta do id informado"
   ([id-tipo-ajuste data-ajuste valor-ajuste id-conta ] (ajustar-conta-using-post id-tipo-ajuste data-ajuste valor-ajuste id-conta nil))
   ([id-tipo-ajuste data-ajuste valor-ajuste id-conta optional-params]
    (:data (ajustar-conta-using-post-with-http-info id-tipo-ajuste data-ajuste valor-ajuste id-conta optional-params))))
 
-(defn consultar-using-get1-with-http-info
+(defn consultar-using-get2-with-http-info
   "Apresenta dados de um determinado ajuste financeiro
-  Este mÃ©todo permite consultar dados de um determinado ajuste a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este método permite consultar dados de um determinado ajuste a partir de seu codigo de identificação (id)."
   [id ]
   (call-api "/api/ajustes-financeiros/{id}" :get
             {:path-params   {"id" id }
@@ -36,16 +36,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get1
+(defn consultar-using-get2
   "Apresenta dados de um determinado ajuste financeiro
-  Este mÃ©todo permite consultar dados de um determinado ajuste a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este método permite consultar dados de um determinado ajuste a partir de seu codigo de identificação (id)."
   [id ]
-  (:data (consultar-using-get1-with-http-info id)))
+  (:data (consultar-using-get2-with-http-info id)))
 
-(defn listar-using-get1-with-http-info
+(defn listar-using-get2-with-http-info
   "Lista ajustes existentes na base de dados do Emissor
   Este recurso permite listar ajustes existentes na base de dados do Emissor."
-  ([] (listar-using-get1-with-http-info nil))
+  ([] (listar-using-get2-with-http-info nil))
   ([{:keys [sort page limit id-tipo-ajuste data-ajuste valor-ajuste identificador-externo id-conta ]}]
    (call-api "/api/ajustes-financeiros" :get
              {:path-params   {}
@@ -56,9 +56,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get1
+(defn listar-using-get2
   "Lista ajustes existentes na base de dados do Emissor
   Este recurso permite listar ajustes existentes na base de dados do Emissor."
-  ([] (listar-using-get1 nil))
+  ([] (listar-using-get2 nil))
   ([optional-params]
-   (:data (listar-using-get1-with-http-info optional-params))))
+   (:data (listar-using-get2-with-http-info optional-params))))

@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn listar-historico-alteracoes-limites-using-get-with-http-info
-  "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
-  Este recurso consulta o histÃ³rico com as alteraÃ§Ãµes de limites da conta informada"
+  "Lista o histórico de alterações de limites da conta
+  Este recurso consulta o histórico com as alterações de limites da conta informada"
   ([id ] (listar-historico-alteracoes-limites-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-alteracoes-limites" :get
@@ -17,8 +17,8 @@
               :auth-names    []})))
 
 (defn listar-historico-alteracoes-limites-using-get
-  "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
-  Este recurso consulta o histÃ³rico com as alteraÃ§Ãµes de limites da conta informada"
+  "Lista o histórico de alterações de limites da conta
+  Este recurso consulta o histórico com as alterações de limites da conta informada"
   ([id ] (listar-historico-alteracoes-limites-using-get id nil))
   ([id optional-params]
    (:data (listar-historico-alteracoes-limites-using-get-with-http-info id optional-params))))

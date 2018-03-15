@@ -40,10 +40,10 @@
   [id ]
   (:data (desativar-using-post-with-http-info id)))
 
-(defn listar-using-get17-with-http-info
+(defn listar-using-get18-with-http-info
   "Lista os dispositivos cadastrados
-  Este mÃ©todo permite que sejam listados os dispositivos existentes na base do PIER."
-  ([] (listar-using-get17-with-http-info nil))
+  Este método permite que sejam listados os dispositivos existentes na base do PIER."
+  ([] (listar-using-get18-with-http-info nil))
   ([{:keys [sort page limit token id-usuario id-aplicacao-mobile data-criacao data-desativacao ]}]
    (call-api "/api/dispositivos" :get
              {:path-params   {}
@@ -54,12 +54,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get17
+(defn listar-using-get18
   "Lista os dispositivos cadastrados
-  Este mÃ©todo permite que sejam listados os dispositivos existentes na base do PIER."
-  ([] (listar-using-get17 nil))
+  Este método permite que sejam listados os dispositivos existentes na base do PIER."
+  ([] (listar-using-get18 nil))
   ([optional-params]
-   (:data (listar-using-get17-with-http-info optional-params))))
+   (:data (listar-using-get18-with-http-info optional-params))))
 
 (defn salvar-using-post9-with-http-info
   "Cadastra Dispositivo

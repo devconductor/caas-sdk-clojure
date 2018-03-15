@@ -3,7 +3,7 @@
   (:import (java.io File)))
 
 (defn ajustar-conta-using-post1-with-http-info
-  "LanÃ§a um ajuste para a conta do id informado
+  "Lança um ajuste para a conta do id informado
   Este recurso insere um ajuste para a conta do id informado"
   ([id id-tipo-ajuste data-ajuste valor-ajuste ] (ajustar-conta-using-post1-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste nil))
   ([id id-tipo-ajuste data-ajuste valor-ajuste {:keys [identificador-externo ]}]
@@ -17,15 +17,15 @@
               :auth-names    []})))
 
 (defn ajustar-conta-using-post1
-  "LanÃ§a um ajuste para a conta do id informado
+  "Lança um ajuste para a conta do id informado
   Este recurso insere um ajuste para a conta do id informado"
   ([id id-tipo-ajuste data-ajuste valor-ajuste ] (ajustar-conta-using-post1 id id-tipo-ajuste data-ajuste valor-ajuste nil))
   ([id id-tipo-ajuste data-ajuste valor-ajuste optional-params]
    (:data (ajustar-conta-using-post1-with-http-info id id-tipo-ajuste data-ajuste valor-ajuste optional-params))))
 
 (defn alterar-produto-using-post-with-http-info
-  "Altera o produto associado Ã  conta.
-  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
+  "Altera o produto associado à conta.
+  O recurso permite fazer modificação do produto associado à conta."
   [id request ]
   (call-api "/api/contas/{id}/alterar-produto" :post
             {:path-params   {"id" id }
@@ -38,14 +38,14 @@
              :auth-names    []}))
 
 (defn alterar-produto-using-post
-  "Altera o produto associado Ã  conta.
-  O recurso permite fazer modificaÃ§Ã£o do produto associado Ã  conta."
+  "Altera o produto associado à conta.
+  O recurso permite fazer modificação do produto associado à conta."
   [id request ]
   (:data (alterar-produto-using-post-with-http-info id request)))
 
 (defn alterar-titular-using-post-with-http-info
-  "Realiza a alteraÃ§Ã£o de uma Pessoa tilular da conta
-  Esta mÃ©todo permite altera a pessoa de uma conta."
+  "Realiza a alteração de uma Pessoa tilular da conta
+  Esta método permite altera a pessoa de uma conta."
   [id id-pessoa ]
   (call-api "/api/contas/{id}/alterar-titular" :post
             {:path-params   {"id" id }
@@ -57,14 +57,14 @@
              :auth-names    []}))
 
 (defn alterar-titular-using-post
-  "Realiza a alteraÃ§Ã£o de uma Pessoa tilular da conta
-  Esta mÃ©todo permite altera a pessoa de uma conta."
+  "Realiza a alteração de uma Pessoa tilular da conta
+  Esta método permite altera a pessoa de uma conta."
   [id id-pessoa ]
   (:data (alterar-titular-using-post-with-http-info id id-pessoa)))
 
 (defn alterar-vencimento-using-put-with-http-info
-  "Realiza a alteraÃ§Ã£o do dia de vencimento das faturas da conta
-  Esse recurso permite alterar o vencimento para no mÃ¡ximo atÃ© 30 dias apÃ³s data atual de uma conta especifica no PIER, respeitando o parÃ¢metro de intervalor entre as modificaÃ§Ãµes do vencimento informado pelo emissor."
+  "Realiza a alteração do dia de vencimento das faturas da conta
+  Esse recurso permite alterar o vencimento para no máximo até 30 dias após data atual de uma conta especifica no PIER, respeitando o parâmetro de intervalor entre as modificações do vencimento informado pelo emissor."
   [id novo-dia-vencimento ]
   (call-api "/api/contas/{id}/alterar-vencimento" :put
             {:path-params   {"id" id }
@@ -76,14 +76,14 @@
              :auth-names    []}))
 
 (defn alterar-vencimento-using-put
-  "Realiza a alteraÃ§Ã£o do dia de vencimento das faturas da conta
-  Esse recurso permite alterar o vencimento para no mÃ¡ximo atÃ© 30 dias apÃ³s data atual de uma conta especifica no PIER, respeitando o parÃ¢metro de intervalor entre as modificaÃ§Ãµes do vencimento informado pelo emissor."
+  "Realiza a alteração do dia de vencimento das faturas da conta
+  Esse recurso permite alterar o vencimento para no máximo até 30 dias após data atual de uma conta especifica no PIER, respeitando o parâmetro de intervalor entre as modificações do vencimento informado pelo emissor."
   [id novo-dia-vencimento ]
   (:data (alterar-vencimento-using-put-with-http-info id novo-dia-vencimento)))
 
 (defn ativar-anuidade-using-post-with-http-info
   "Atribuir Anuidade
-  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  Esse recurso permite configurar qual a regra de Anuidade que será atribuída a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
   ([id id-anuidade {:keys [sort page limit ddd celular id-operadora id-origem-comercial ]}]
    (call-api "/api/contas/{id}/atribuir-anuidade" :post
@@ -97,14 +97,14 @@
 
 (defn ativar-anuidade-using-post
   "Atribuir Anuidade
-  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  Esse recurso permite configurar qual a regra de Anuidade que será atribuída a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post id id-anuidade nil))
   ([id id-anuidade optional-params]
    (:data (ativar-anuidade-using-post-with-http-info id id-anuidade optional-params))))
 
 (defn ativar-envio-fatura-email-using-post-with-http-info
-  "Ativa o serviÃ§o de envio de fatura por email
-  Este recurso ativa o serviÃ§o de envio de fatura por email"
+  "Ativa o serviço de envio de fatura por email
+  Este recurso ativa o serviço de envio de fatura por email"
   [id ]
   (call-api "/api/contas/{id}/ativar-fatura-email" :post
             {:path-params   {"id" id }
@@ -116,14 +116,14 @@
              :auth-names    []}))
 
 (defn ativar-envio-fatura-email-using-post
-  "Ativa o serviÃ§o de envio de fatura por email
-  Este recurso ativa o serviÃ§o de envio de fatura por email"
+  "Ativa o serviço de envio de fatura por email
+  Este recurso ativa o serviço de envio de fatura por email"
   [id ]
   (:data (ativar-envio-fatura-email-using-post-with-http-info id)))
 
 (defn bloquear-using-post1-with-http-info
   "Realiza o bloqueio de uma determinada Conta
-  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite a realização do bloqueio de uma determinada conta a partir do seu código de identificação (id)."
   [id id-status ]
   (call-api "/api/contas/{id}/bloquear" :post
             {:path-params   {"id" id }
@@ -136,13 +136,13 @@
 
 (defn bloquear-using-post1
   "Realiza o bloqueio de uma determinada Conta
-  Este mÃ©todo permite a realizaÃ§Ã£o do bloqueio de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite a realização do bloqueio de uma determinada conta a partir do seu código de identificação (id)."
   [id id-status ]
   (:data (bloquear-using-post1-with-http-info id id-status)))
 
 (defn cancelar-using-post1-with-http-info
   "Realiza o cancelamento de uma determinada Conta
-  Este mÃ©todo permite a realizaÃ§Ã£o do cancelamento de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite a realização do cancelamento de uma determinada conta a partir do seu código de identificação (id)."
   [id id-status ]
   (call-api "/api/contas/{id}/cancelar" :post
             {:path-params   {"id" id }
@@ -155,13 +155,13 @@
 
 (defn cancelar-using-post1
   "Realiza o cancelamento de uma determinada Conta
-  Este mÃ©todo permite a realizaÃ§Ã£o do cancelamento de uma determinada conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite a realização do cancelamento de uma determinada conta a partir do seu código de identificação (id)."
   [id id-status ]
   (:data (cancelar-using-post1-with-http-info id id-status)))
 
 (defn consultar-beneficio-pagamento-atraso-using-get-with-http-info
-  "Apresenta a data mÃ¡xima para pagamento da fatura em atraso para receber o benefÃ­cio.
-  Este mÃ©todo permite consultar se o cliente tem direito ao benefÃ­cio de pagamento em atraso, em loja, atÃ© o sÃ¡bado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
+  "Apresenta a data máxima para pagamento da fatura em atraso para receber o benefício.
+  Este método permite consultar se o cliente tem direito ao benefício de pagamento em atraso, em loja, até o sábado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
   [id ]
   (call-api "/api/contas/{id}/consultar-beneficio-pagamento-atraso" :get
             {:path-params   {"id" id }
@@ -173,8 +173,8 @@
              :auth-names    []}))
 
 (defn consultar-beneficio-pagamento-atraso-using-get
-  "Apresenta a data mÃ¡xima para pagamento da fatura em atraso para receber o benefÃ­cio.
-  Este mÃ©todo permite consultar se o cliente tem direito ao benefÃ­cio de pagamento em atraso, em loja, atÃ© o sÃ¡bado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
+  "Apresenta a data máxima para pagamento da fatura em atraso para receber o benefício.
+  Este método permite consultar se o cliente tem direito ao benefício de pagamento em atraso, em loja, até o sábado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF."
   [id ]
   (:data (consultar-beneficio-pagamento-atraso-using-get-with-http-info id)))
 
@@ -198,8 +198,8 @@
   (:data (consultar-boleto-emitido-using-get-with-http-info id)))
 
 (defn consultar-divida-atualizada-cliente-using-get-with-http-info
-  "Consulta a dÃ­vida atualizada do cliente
-  Este recurso consulta a dÃ­vida atualizada do cliente"
+  "Consulta a dívida atualizada do cliente
+  Este recurso consulta a dívida atualizada do cliente"
   ([id ] (consultar-divida-atualizada-cliente-using-get-with-http-info id nil))
   ([id {:keys [sort page limit data-vencimento id-escritorio-cobranca ]}]
    (call-api "/api/contas/{id}/recuperar-divida-atualizada" :get
@@ -212,15 +212,15 @@
               :auth-names    []})))
 
 (defn consultar-divida-atualizada-cliente-using-get
-  "Consulta a dÃ­vida atualizada do cliente
-  Este recurso consulta a dÃ­vida atualizada do cliente"
+  "Consulta a dívida atualizada do cliente
+  Este recurso consulta a dívida atualizada do cliente"
   ([id ] (consultar-divida-atualizada-cliente-using-get id nil))
   ([id optional-params]
    (:data (consultar-divida-atualizada-cliente-using-get-with-http-info id optional-params))))
 
 (defn consultar-taxas-tarifas-using-get-with-http-info
   "Permite consultar a partir do ID da conta as taxas e tarifas
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
+  Esta operação tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
   ([id ] (consultar-taxas-tarifas-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/consultar-taxas-tarifas" :get
@@ -234,14 +234,14 @@
 
 (defn consultar-taxas-tarifas-using-get
   "Permite consultar a partir do ID da conta as taxas e tarifas
-  Esta operaÃ§Ã£o tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
+  Esta operação tem como objetivo permitir que os Emissores consultem as taxas e tarifas da conta"
   ([id ] (consultar-taxas-tarifas-using-get id nil))
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get13-with-http-info
   "Apresenta dados de uma determinada conta
-  Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este método permite consultar dados de uma determinada conta a partir de seu codigo de identificação (id)."
   [id ]
   (call-api "/api/contas/{id}" :get
             {:path-params   {"id" id }
@@ -252,15 +252,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get13
   "Apresenta dados de uma determinada conta
-  Este mÃ©todo permite consultar dados de uma determinada conta a partir de seu codigo de identificaÃ§Ã£o (id)."
+  Este método permite consultar dados de uma determinada conta a partir de seu codigo de identificação (id)."
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get13-with-http-info id)))
 
-(defn consultar-using-get41-with-http-info
-  "Consulta os detalhes de uma determinada transferÃªncia
-  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
+(defn consultar-using-get42-with-http-info
+  "Consulta os detalhes de uma determinada transferência
+  Este método permite consultar os detalhes de uma determinada transferência de crédito realizada entre contas."
   [id id-transferencia ]
   (call-api "/api/contas/{id}/transferencias-creditos-cartoes/{id_transferencia}" :get
             {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -271,15 +271,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get41
-  "Consulta os detalhes de uma determinada transferÃªncia
-  Este mÃ©todo permite consultar os detalhes de uma determinada transferÃªncia de crÃ©dito realizada entre contas."
+(defn consultar-using-get42
+  "Consulta os detalhes de uma determinada transferência
+  Este método permite consultar os detalhes de uma determinada transferência de crédito realizada entre contas."
   [id id-transferencia ]
-  (:data (consultar-using-get41-with-http-info id id-transferencia)))
+  (:data (consultar-using-get42-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
-  "Desativa o serviÃ§o de envio de fatura por email
-  Este recurso desativa o serviÃ§o de envio de fatura por email"
+  "Desativa o serviço de envio de fatura por email
+  Este recurso desativa o serviço de envio de fatura por email"
   [id ]
   (call-api "/api/contas/{id}/desativar-fatura-email" :post
             {:path-params   {"id" id }
@@ -291,8 +291,8 @@
              :auth-names    []}))
 
 (defn desativar-envio-fatura-email-using-post
-  "Desativa o serviÃ§o de envio de fatura por email
-  Este recurso desativa o serviÃ§o de envio de fatura por email"
+  "Desativa o serviço de envio de fatura por email
+  Este recurso desativa o serviço de envio de fatura por email"
   [id ]
   (:data (desativar-envio-fatura-email-using-post-with-http-info id)))
 
@@ -316,8 +316,8 @@
   (:data (gerar-boleto-recarga-using-post-with-http-info id valor data-vencimento)))
 
 (defn gerar-cartao-embossing-using-post-with-http-info
-  "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
-  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
+  "Realiza o envio para geração de um novo cartão na gráfica
+  Este recurso permite que seja gerado um novo Cartão para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cartão que deverá ser gerado para impressão. Esta funcionalidade poderá ser utilizada para impressão de cartões em gráfica."
   [id cartao-embossing-request ]
   (call-api "/api/contas/{id}/gerar-cartao-grafica" :post
             {:path-params   {"id" id }
@@ -330,14 +330,14 @@
              :auth-names    []}))
 
 (defn gerar-cartao-embossing-using-post
-  "Realiza o envio para geraÃ§Ã£o de um novo cartÃ£o na grÃ¡fica
-  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para impressÃ£o de cartÃµes em grÃ¡fica."
+  "Realiza o envio para geração de um novo cartão na gráfica
+  Este recurso permite que seja gerado um novo Cartão para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cartão que deverá ser gerado para impressão. Esta funcionalidade poderá ser utilizada para impressão de cartões em gráfica."
   [id cartao-embossing-request ]
   (:data (gerar-cartao-embossing-using-post-with-http-info id cartao-embossing-request)))
 
 (defn gerar-cartao-provisorio-using-post-with-http-info
-  "Realiza a geraÃ§Ã£o de um cartÃ£o provisorio
-  Este recurso permite que seja gerado um cartÃ£o provisÃ³rio para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a geração de um cartão provisorio
+  Este recurso permite que seja gerado um cartão provisório para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id)."
   [id ]
   (call-api "/api/contas/{id}/gerar-cartao-provisorio" :post
             {:path-params   {"id" id }
@@ -349,14 +349,14 @@
              :auth-names    []}))
 
 (defn gerar-cartao-provisorio-using-post
-  "Realiza a geraÃ§Ã£o de um cartÃ£o provisorio
-  Este recurso permite que seja gerado um cartÃ£o provisÃ³rio para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a geração de um cartão provisorio
+  Este recurso permite que seja gerado um cartão provisório para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id)."
   [id ]
   (:data (gerar-cartao-provisorio-using-post-with-http-info id)))
 
 (defn gerar-cartao-using-post-with-http-info
-  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa
-  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para realizar a impressÃ£o de cartÃµes em Lojas, Quiosques, EscritÃ³rios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de CartÃµes habilidade para o fazer, no local."
+  "Realiza a geração de um novo cartão para impressão avulsa
+  Este recurso permite que seja gerado um novo Cartão para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cartão que deverá ser gerado para impressão. Esta funcionalidade poderá ser utilizada para realizar a impressão de cartões em Lojas, Quiosques, Escritórios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de Cartões habilidade para o fazer, no local."
   ([id id-pessoa ] (gerar-cartao-using-post-with-http-info id id-pessoa nil))
   ([id id-pessoa {:keys [id-tipo-plastico ]}]
    (call-api "/api/contas/{id}/pessoas/{id_pessoa}/gerar-cartao" :post
@@ -369,15 +369,15 @@
               :auth-names    []})))
 
 (defn gerar-cartao-using-post
-  "Realiza a geraÃ§Ã£o de um novo cartÃ£o para impressÃ£o avulsa
-  Este recurso permite que seja gerado um novo CartÃ£o para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id), o idPessoa do Portador e o idTipoPlastico do CartÃ£o que deverÃ¡ ser gerado para impressÃ£o. Esta funcionalidade poderÃ¡ ser utilizada para realizar a impressÃ£o de cartÃµes em Lojas, Quiosques, EscritÃ³rios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de CartÃµes habilidade para o fazer, no local."
+  "Realiza a geração de um novo cartão para impressão avulsa
+  Este recurso permite que seja gerado um novo Cartão para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cartão que deverá ser gerado para impressão. Esta funcionalidade poderá ser utilizada para realizar a impressão de cartões em Lojas, Quiosques, Escritórios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de Cartões habilidade para o fazer, no local."
   ([id id-pessoa ] (gerar-cartao-using-post id id-pessoa nil))
   ([id id-pessoa optional-params]
    (:data (gerar-cartao-using-post-with-http-info id id-pessoa optional-params))))
 
 (defn gerar-cartao-virtual-using-post-with-http-info
-  "Realiza a geraÃ§Ã£o de um cartÃ£o virtual
-  Este recurso permite que seja gerado um CartÃ£o virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id). Esta funcionalidade poderÃ¡ ser utilizada para realizar a criaÃ§Ã£o de cartÃµes virtuaes atraves de um app."
+  "Realiza a geração de um cartão virtual
+  Este recurso permite que seja gerado um Cartão virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id). Esta funcionalidade poderá ser utilizada para realizar a criação de cartões virtuaes atraves de um app."
   [id data-validade ]
   (call-api "/api/contas/{id}/gerar-cartao-virtual" :post
             {:path-params   {"id" id }
@@ -389,14 +389,14 @@
              :auth-names    []}))
 
 (defn gerar-cartao-virtual-using-post
-  "Realiza a geraÃ§Ã£o de um cartÃ£o virtual
-  Este recurso permite que seja gerado um CartÃ£o virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id). Esta funcionalidade poderÃ¡ ser utilizada para realizar a criaÃ§Ã£o de cartÃµes virtuaes atraves de um app."
+  "Realiza a geração de um cartão virtual
+  Este recurso permite que seja gerado um Cartão virtual para um determinado Portador que esteja vinculado a uma Conta. Para isso, será preciso informar o código de identificação da Conta (id). Esta funcionalidade poderá ser utilizada para realizar a criação de cartões virtuaes atraves de um app."
   [id data-validade ]
   (:data (gerar-cartao-virtual-using-post-with-http-info id data-validade)))
 
 (defn listar-historico-alteracoes-limites-using-get-with-http-info
-  "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
-  Este recurso consulta o histÃ³rico com as alteraÃ§Ãµes de limites da conta informada"
+  "Lista o histórico de alterações de limites da conta
+  Este recurso consulta o histórico com as alterações de limites da conta informada"
   ([id ] (listar-historico-alteracoes-limites-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-alteracoes-limites" :get
@@ -409,15 +409,15 @@
               :auth-names    []})))
 
 (defn listar-historico-alteracoes-limites-using-get
-  "Lista o histÃ³rico de alteraÃ§Ãµes de limites da conta
-  Este recurso consulta o histÃ³rico com as alteraÃ§Ãµes de limites da conta informada"
+  "Lista o histórico de alterações de limites da conta
+  Este recurso consulta o histórico com as alterações de limites da conta informada"
   ([id ] (listar-historico-alteracoes-limites-using-get id nil))
   ([id optional-params]
    (:data (listar-historico-alteracoes-limites-using-get-with-http-info id optional-params))))
 
 (defn listar-historico-assessoria-using-get-with-http-info
-  "Lista o histÃ³rico de entradas/saÃ­das de assessorias de cobranÃ§a
-  Permite listar todos os registros de entrada e saÃ­da da Conta em arquivos de integraÃ§Ã£o com empresas de assessorias de cobranÃ§a a partir do cÃ³digo de identificaÃ§Ã£o da conta (idConta)."
+  "Lista o histórico de entradas/saídas de assessorias de cobrança
+  Permite listar todos os registros de entrada e saída da Conta em arquivos de integração com empresas de assessorias de cobrança a partir do código de identificação da conta (idConta)."
   ([id ] (listar-historico-assessoria-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-assessorias-cobranca" :get
@@ -430,15 +430,15 @@
               :auth-names    []})))
 
 (defn listar-historico-assessoria-using-get
-  "Lista o histÃ³rico de entradas/saÃ­das de assessorias de cobranÃ§a
-  Permite listar todos os registros de entrada e saÃ­da da Conta em arquivos de integraÃ§Ã£o com empresas de assessorias de cobranÃ§a a partir do cÃ³digo de identificaÃ§Ã£o da conta (idConta)."
+  "Lista o histórico de entradas/saídas de assessorias de cobrança
+  Permite listar todos os registros de entrada e saída da Conta em arquivos de integração com empresas de assessorias de cobrança a partir do código de identificação da conta (idConta)."
   ([id ] (listar-historico-assessoria-using-get id nil))
   ([id optional-params]
    (:data (listar-historico-assessoria-using-get-with-http-info id optional-params))))
 
 (defn listar-historico-atrasos-faturas-using-get-with-http-info
   "Lista o historico de atrasos das faturas
-  Este recurso lista o histÃ³rico do pagamento de faturas em atraso"
+  Este recurso lista o histórico do pagamento de faturas em atraso"
   ([id ] (listar-historico-atrasos-faturas-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-faturas-atrasos" :get
@@ -452,14 +452,14 @@
 
 (defn listar-historico-atrasos-faturas-using-get
   "Lista o historico de atrasos das faturas
-  Este recurso lista o histÃ³rico do pagamento de faturas em atraso"
+  Este recurso lista o histórico do pagamento de faturas em atraso"
   ([id ] (listar-historico-atrasos-faturas-using-get id nil))
   ([id optional-params]
    (:data (listar-historico-atrasos-faturas-using-get-with-http-info id optional-params))))
 
 (defn listar-nao-processadas-using-get-with-http-info
-  "Lista as transaÃ§Ãµes nÃ£o processadas da conta
-  Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes nÃ£o processadas da Conta."
+  "Lista as transações não processadas da conta
+  Este método permite que sejam listadas todas as transações não processadas da Conta."
   ([id ] (listar-nao-processadas-using-get-with-http-info id nil))
   ([id {:keys [sort page limit data-inicio data-fim ]}]
    (call-api "/api/contas/{id}/transacoes/listar-nao-processadas" :get
@@ -472,15 +472,15 @@
               :auth-names    []})))
 
 (defn listar-nao-processadas-using-get
-  "Lista as transaÃ§Ãµes nÃ£o processadas da conta
-  Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes nÃ£o processadas da Conta."
+  "Lista as transações não processadas da conta
+  Este método permite que sejam listadas todas as transações não processadas da Conta."
   ([id ] (listar-nao-processadas-using-get id nil))
   ([id optional-params]
    (:data (listar-nao-processadas-using-get-with-http-info id optional-params))))
 
 (defn listar-processadas-using-get-with-http-info
-  "Lista as transaÃ§Ãµes processadas da conta
-  Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes processadas da Conta."
+  "Lista as transações processadas da conta
+  Este método permite que sejam listadas todas as transações processadas da Conta."
   ([id ] (listar-processadas-using-get-with-http-info id nil))
   ([id {:keys [sort page limit data-vencimento data-inicio data-fim ]}]
    (call-api "/api/contas/{id}/transacoes/listar-processadas" :get
@@ -493,16 +493,16 @@
               :auth-names    []})))
 
 (defn listar-processadas-using-get
-  "Lista as transaÃ§Ãµes processadas da conta
-  Este mÃ©todo permite que sejam listadas todas as transaÃ§Ãµes processadas da Conta."
+  "Lista as transações processadas da conta
+  Este método permite que sejam listadas todas as transações processadas da Conta."
   ([id ] (listar-processadas-using-get id nil))
   ([id optional-params]
    (:data (listar-processadas-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get17-with-http-info
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get17-with-http-info nil))
   ([{:keys [sort page limit id-produto id-origem-comercial id-pessoa id-status-conta dia-vencimento melhor-dia-compra data-status-conta data-cadastro data-ultima-alteracao-vencimento ]}]
    (call-api "/api/contas" :get
              {:path-params   {}
@@ -513,17 +513,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get17
   "Lista contas existentes na base de dados do Emissor
   Este recurso permite listar contas existentes na base de dados do Emissor."
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get17 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn listar-using-get48-with-http-info
-  "Lista as transferÃªncias realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get48-with-http-info id nil))
+(defn listar-using-get50-with-http-info
+  "Lista as transferências realizadas pela conta
+  Este método permite que sejam listadas as transferências realizadas pela conta existentes na base do emissor."
+  ([id ] (listar-using-get50-with-http-info id nil))
   ([id {:keys [sort page limit id-transferencia id-conta-origem id-conta-destino valor-transferencia data-transferencia ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :get
              {:path-params   {"id" id }
@@ -534,16 +534,16 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get48
-  "Lista as transferÃªncias realizadas pela conta
-  Este mÃ©todo permite que sejam listadas as transferÃªncias realizadas pela conta existentes na base do emissor."
-  ([id ] (listar-using-get48 id nil))
+(defn listar-using-get50
+  "Lista as transferências realizadas pela conta
+  Este método permite que sejam listadas as transferências realizadas pela conta existentes na base do emissor."
+  ([id ] (listar-using-get50 id nil))
   ([id optional-params]
-   (:data (listar-using-get48-with-http-info id optional-params))))
+   (:data (listar-using-get50-with-http-info id optional-params))))
 
 (defn reativar-using-post1-with-http-info
-  "Realiza a reativaÃ§Ã£o de contas.
-  Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a reativação de contas.
+  Este recurso permite reativar contas. Para isso, será preciso informar o código de identificação da Conta (id)."
   [id ]
   (call-api "/api/contas/{id}/reativar" :post
             {:path-params   {"id" id }
@@ -555,14 +555,14 @@
              :auth-names    []}))
 
 (defn reativar-using-post1
-  "Realiza a reativaÃ§Ã£o de contas.
-  Este recurso permite reativar contas. Para isso, serÃ¡ preciso informar o cÃ³digo de identificaÃ§Ã£o da Conta (id)."
+  "Realiza a reativação de contas.
+  Este recurso permite reativar contas. Para isso, será preciso informar o código de identificação da Conta (id)."
   [id ]
   (:data (reativar-using-post1-with-http-info id)))
 
 (defn simular-emprestimo-financiamento-using-post-with-http-info
-  "Simula valores de prestaÃ§Ãµes de emprÃ©stimos/financiamentos
-  Esta operaÃ§Ã£o pode ser utilizada para simular operaÃ§Ãµes financeiras a partir de informaÃ§Ãµes fornecidas pelo usuÃ¡rio. Os cÃ¡lculos gerados devem ser considerados apenas como referÃªncia para as situaÃ§Ãµes reais e nÃ£o como valores oficiais."
+  "Simula valores de prestações de empréstimos/financiamentos
+  Esta operação pode ser utilizada para simular operações financeiras a partir de informações fornecidas pelo usuário. Os cálculos gerados devem ser considerados apenas como referência para as situações reais e não como valores oficiais."
   [id request ]
   (call-api "/api/contas/{id}/simular-emprestimos-financiamentos" :post
             {:path-params   {"id" id }
@@ -575,14 +575,14 @@
              :auth-names    []}))
 
 (defn simular-emprestimo-financiamento-using-post
-  "Simula valores de prestaÃ§Ãµes de emprÃ©stimos/financiamentos
-  Esta operaÃ§Ã£o pode ser utilizada para simular operaÃ§Ãµes financeiras a partir de informaÃ§Ãµes fornecidas pelo usuÃ¡rio. Os cÃ¡lculos gerados devem ser considerados apenas como referÃªncia para as situaÃ§Ãµes reais e nÃ£o como valores oficiais."
+  "Simula valores de prestações de empréstimos/financiamentos
+  Esta operação pode ser utilizada para simular operações financeiras a partir de informações fornecidas pelo usuário. Os cálculos gerados devem ser considerados apenas como referência para as situações reais e não como valores oficiais."
   [id request ]
   (:data (simular-emprestimo-financiamento-using-post-with-http-info id request)))
 
 (defn transacoes-using-get-with-http-info
   "Permite listar uma linha do tempo com os eventos da conta
-  Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
+  Esta operação tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. Transações, fechamento da fatura, pagamentos, geração de cartões e alteração de limite são exemplos de eventos contemplados por esta funcionalidade. Neste método, as operações são ordenadas de forma decrescente."
   ([id ] (transacoes-using-get-with-http-info id nil))
   ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/timeline" :get
@@ -596,14 +596,14 @@
 
 (defn transacoes-using-get
   "Permite listar uma linha do tempo com os eventos da conta
-  Esta operaÃ§Ã£o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. TransaÃ§Ãµes, fechamento da fatura, pagamentos, geraÃ§Ã£o de cartÃµes e alteraÃ§Ã£o de limite sÃ£o exemplos de eventos contemplados por esta funcionalidade. Neste mÃ©todo, as operaÃ§Ãµes sÃ£o ordenadas de forma decrescente."
+  Esta operação tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. Transações, fechamento da fatura, pagamentos, geração de cartões e alteração de limite são exemplos de eventos contemplados por esta funcionalidade. Neste método, as operações são ordenadas de forma decrescente."
   ([id ] (transacoes-using-get id nil))
   ([id optional-params]
    (:data (transacoes-using-get-with-http-info id optional-params))))
 
 (defn transferir-using-post1-with-http-info
-  "Realiza uma transferÃªncia de CrÃ©dito para outro cliente do mesmo Emissor
-  Este mÃ©todo permite que um portador de um cartÃ£o possa realizar auma transferÃªncia de crÃ©dito para outro cliente do mesmo emissor."
+  "Realiza uma transferência de Crédito para outro cliente do mesmo Emissor
+  Este método permite que um portador de um cartão possa realizar auma transferência de crédito para outro cliente do mesmo emissor."
   [id id-conta-destino valor-transferencia ]
   (call-api "/api/contas/{id}/transferencias-creditos-cartoes" :post
             {:path-params   {"id" id }
@@ -615,7 +615,7 @@
              :auth-names    []}))
 
 (defn transferir-using-post1
-  "Realiza uma transferÃªncia de CrÃ©dito para outro cliente do mesmo Emissor
-  Este mÃ©todo permite que um portador de um cartÃ£o possa realizar auma transferÃªncia de crÃ©dito para outro cliente do mesmo emissor."
+  "Realiza uma transferência de Crédito para outro cliente do mesmo Emissor
+  Este método permite que um portador de um cartão possa realizar auma transferência de crédito para outro cliente do mesmo emissor."
   [id id-conta-destino valor-transferencia ]
   (:data (transferir-using-post1-with-http-info id id-conta-destino valor-transferencia)))

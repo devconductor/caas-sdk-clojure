@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn consultar-estagio-cartao-using-get-with-http-info
-  "Apresenta os dados de um determinado Estagio CartÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado EstÃ¡gio de Entrega do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  "Apresenta os dados de um determinado Estagio Cartão
+  Este método permite consultar os parâmetros de um determinado Estágio de Entrega do Cartão a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/estagios-cartoes/{id}" :get
             {:path-params   {"id" id }
@@ -16,14 +16,14 @@
              :auth-names    []}))
 
 (defn consultar-estagio-cartao-using-get
-  "Apresenta os dados de um determinado Estagio CartÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado EstÃ¡gio de Entrega do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  "Apresenta os dados de um determinado Estagio Cartão
+  Este método permite consultar os parâmetros de um determinado Estágio de Entrega do Cartão a partir do seu código de identificação (id)."
   [id ]
   (:data (consultar-estagio-cartao-using-get-with-http-info id)))
 
 (defn consultar-status-cartao-using-get-with-http-info
-  "Apresenta os dados de um determinado Status CartÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  "Apresenta os dados de um determinado Status Cartão
+  Este método permite consultar os parâmetros de um determinado Status de Cartão a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/status-cartoes/{id}" :get
             {:path-params   {"id" id }
@@ -35,14 +35,14 @@
              :auth-names    []}))
 
 (defn consultar-status-cartao-using-get
-  "Apresenta os dados de um determinado Status CartÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  "Apresenta os dados de um determinado Status Cartão
+  Este método permite consultar os parâmetros de um determinado Status de Cartão a partir do seu código de identificação (id)."
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get27-with-http-info
+(defn consultar-using-get28-with-http-info
   "Apresenta os dados de um determinado Status Conta
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar os parâmetros de um determinado Status Conta a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/status-contas/{id}" :get
             {:path-params   {"id" id }
@@ -53,15 +53,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get27
+(defn consultar-using-get28
   "Apresenta os dados de um determinado Status Conta
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status Conta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar os parâmetros de um determinado Status Conta a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get27-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
-(defn consultar-using-get28-with-http-info
-  "Apresenta os dados de um determinado Status ImpressÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get29-with-http-info
+  "Apresenta os dados de um determinado Status Impressão
+  Este método permite consultar os parâmetros de um determinado Status de Impressão do Cartão a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/status-impressoes/{id}" :get
             {:path-params   {"id" id }
@@ -72,15 +72,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get28
-  "Apresenta os dados de um determinado Status ImpressÃ£o
-  Este mÃ©todo permite consultar os parÃ¢metros de um determinado Status de ImpressÃ£o do CartÃ£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get29
+  "Apresenta os dados de um determinado Status Impressão
+  Este método permite consultar os parâmetros de um determinado Status de Impressão do Cartão a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get28-with-http-info id)))
+  (:data (consultar-using-get29-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
-  "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
-  Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
+  "Lista as opções de Estágios do Cartão
+  Este método permite que sejam listadas as opções de Estágio de Entrega que podem ser atribuídas aos Cartões."
   ([] (listar-estagios-cartoes-using-get-with-http-info nil))
   ([{:keys [sort page limit id nome ]}]
    (call-api "/api/estagios-cartoes" :get
@@ -93,15 +93,15 @@
               :auth-names    []})))
 
 (defn listar-estagios-cartoes-using-get
-  "Lista as opÃ§Ãµes de EstÃ¡gios do CartÃ£o
-  Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de EstÃ¡gio de Entrega que podem ser atribuÃ­das aos CartÃµes."
+  "Lista as opções de Estágios do Cartão
+  Este método permite que sejam listadas as opções de Estágio de Entrega que podem ser atribuídas aos Cartões."
   ([] (listar-estagios-cartoes-using-get nil))
   ([optional-params]
    (:data (listar-estagios-cartoes-using-get-with-http-info optional-params))))
 
 (defn listar-status-cartoes-using-get-with-http-info
-  "Lista as opÃ§Ãµes de Status do CartÃ£o
-  Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
+  "Lista as opções de Status do Cartão
+  Este método permite que sejam listadas as possibilidades de Status que podem ser atribuídas aos Cartões."
   ([] (listar-status-cartoes-using-get-with-http-info nil))
   ([{:keys [sort page limit id nome permite-desbloquear permite-atribuir-como-bloqueio permite-atribuir-como-cancelamento cobrar-tarifa-ao-emitir-nova-via ]}]
    (call-api "/api/status-cartoes" :get
@@ -114,15 +114,15 @@
               :auth-names    []})))
 
 (defn listar-status-cartoes-using-get
-  "Lista as opÃ§Ãµes de Status do CartÃ£o
-  Este mÃ©todo permite que sejam listadas as possibilidades de Status que podem ser atribuÃ­das aos CartÃµes."
+  "Lista as opções de Status do Cartão
+  Este método permite que sejam listadas as possibilidades de Status que podem ser atribuídas aos Cartões."
   ([] (listar-status-cartoes-using-get nil))
   ([optional-params]
    (:data (listar-status-cartoes-using-get-with-http-info optional-params))))
 
 (defn listar-tipos-eventos-transacoes-using-get-with-http-info
-  "Lista os tipos de transaÃ§Ãµes
-  Esse recurso permite listar os tipos de transaÃ§Ãµes disponÃ­veis."
+  "Lista os tipos de transações
+  Esse recurso permite listar os tipos de transações disponíveis."
   []
   (call-api "/api/tipos-eventos-transacoes" :get
             {:path-params   {}
@@ -134,15 +134,15 @@
              :auth-names    []}))
 
 (defn listar-tipos-eventos-transacoes-using-get
-  "Lista os tipos de transaÃ§Ãµes
-  Esse recurso permite listar os tipos de transaÃ§Ãµes disponÃ­veis."
+  "Lista os tipos de transações
+  Esse recurso permite listar os tipos de transações disponíveis."
   []
   (:data (listar-tipos-eventos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get36-with-http-info
+(defn listar-using-get38-with-http-info
   "Lista os Status Contas cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get36-with-http-info nil))
+  Este método permite que sejam listados os Status Contas existentes na base de dados do Emissor."
+  ([] (listar-using-get38-with-http-info nil))
   ([{:keys [sort page limit id nome permite-alterar-vencimento permite-alterar-limite permite-emitir-nova-via-cartao permite-fazer-transferencia permite-receber-transferencia permite-criar-acordo-cobranca permite-atribuir-como-bloqueio permite-desbloquear permite-atribuir-como-cancelamento ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -153,17 +153,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get36
+(defn listar-using-get38
   "Lista os Status Contas cadastrados para o Emissor
-  Este mÃ©todo permite que sejam listados os Status Contas existentes na base de dados do Emissor."
-  ([] (listar-using-get36 nil))
+  Este método permite que sejam listados os Status Contas existentes na base de dados do Emissor."
+  ([] (listar-using-get38 nil))
   ([optional-params]
-   (:data (listar-using-get36-with-http-info optional-params))))
+   (:data (listar-using-get38-with-http-info optional-params))))
 
-(defn listar-using-get37-with-http-info
-  "Lista as opÃ§Ãµes de Status ImpressÃ£o
-  Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get37-with-http-info nil))
+(defn listar-using-get39-with-http-info
+  "Lista as opções de Status Impressão
+  Este método permite que sejam listadas as opções de Status Impressão que podem ser atribuídas aos Cartões."
+  ([] (listar-using-get39-with-http-info nil))
   ([{:keys [sort page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -174,9 +174,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get37
-  "Lista as opÃ§Ãµes de Status ImpressÃ£o
-  Este mÃ©todo permite que sejam listadas as opÃ§Ãµes de Status ImpressÃ£o que podem ser atribuÃ­das aos CartÃµes."
-  ([] (listar-using-get37 nil))
+(defn listar-using-get39
+  "Lista as opções de Status Impressão
+  Este método permite que sejam listadas as opções de Status Impressão que podem ser atribuídas aos Cartões."
+  ([] (listar-using-get39 nil))
   ([optional-params]
-   (:data (listar-using-get37-with-http-info optional-params))))
+   (:data (listar-using-get39-with-http-info optional-params))))

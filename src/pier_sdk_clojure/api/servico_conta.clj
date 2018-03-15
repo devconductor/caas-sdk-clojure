@@ -4,7 +4,7 @@
 
 (defn ativar-anuidade-using-post-with-http-info
   "Atribuir Anuidade
-  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  Esse recurso permite configurar qual a regra de Anuidade que será atribuída a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
   ([id id-anuidade {:keys [sort page limit ddd celular id-operadora id-origem-comercial ]}]
    (call-api "/api/contas/{id}/atribuir-anuidade" :post
@@ -18,14 +18,14 @@
 
 (defn ativar-anuidade-using-post
   "Atribuir Anuidade
-  Esse recurso permite configurar qual a regra de Anuidade que serÃ¡ atribuÃ­da a uma determinada Conta."
+  Esse recurso permite configurar qual a regra de Anuidade que será atribuída a uma determinada Conta."
   ([id id-anuidade ] (ativar-anuidade-using-post id id-anuidade nil))
   ([id id-anuidade optional-params]
    (:data (ativar-anuidade-using-post-with-http-info id id-anuidade optional-params))))
 
 (defn ativar-envio-fatura-email-using-post-with-http-info
-  "Ativa o serviÃ§o de envio de fatura por email
-  Este recurso ativa o serviÃ§o de envio de fatura por email"
+  "Ativa o serviço de envio de fatura por email
+  Este recurso ativa o serviço de envio de fatura por email"
   [id ]
   (call-api "/api/contas/{id}/ativar-fatura-email" :post
             {:path-params   {"id" id }
@@ -37,14 +37,14 @@
              :auth-names    []}))
 
 (defn ativar-envio-fatura-email-using-post
-  "Ativa o serviÃ§o de envio de fatura por email
-  Este recurso ativa o serviÃ§o de envio de fatura por email"
+  "Ativa o serviço de envio de fatura por email
+  Este recurso ativa o serviço de envio de fatura por email"
   [id ]
   (:data (ativar-envio-fatura-email-using-post-with-http-info id)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
-  "Desativa o serviÃ§o de envio de fatura por email
-  Este recurso desativa o serviÃ§o de envio de fatura por email"
+  "Desativa o serviço de envio de fatura por email
+  Este recurso desativa o serviço de envio de fatura por email"
   [id ]
   (call-api "/api/contas/{id}/desativar-fatura-email" :post
             {:path-params   {"id" id }
@@ -56,8 +56,8 @@
              :auth-names    []}))
 
 (defn desativar-envio-fatura-email-using-post
-  "Desativa o serviÃ§o de envio de fatura por email
-  Este recurso desativa o serviÃ§o de envio de fatura por email"
+  "Desativa o serviço de envio de fatura por email
+  Este recurso desativa o serviço de envio de fatura por email"
   [id ]
   (:data (desativar-envio-fatura-email-using-post-with-http-info id)))
 

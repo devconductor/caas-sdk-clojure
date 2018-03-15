@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn alterar-configuracao-using-put-with-http-info
-  "Altera configuraÃ§Ãµes de E-mail
-  Esse recurso permite salvar alteraÃ§Ãµes de configuraÃ§Ãµes de E-mail."
+  "Altera configurações de E-mail
+  Esse recurso permite salvar alterações de configurações de E-mail."
   [id persist ]
   (call-api "/api/configuracoes-email/{id}" :put
             {:path-params   {"id" id }
@@ -17,14 +17,14 @@
              :auth-names    []}))
 
 (defn alterar-configuracao-using-put
-  "Altera configuraÃ§Ãµes de E-mail
-  Esse recurso permite salvar alteraÃ§Ãµes de configuraÃ§Ãµes de E-mail."
+  "Altera configurações de E-mail
+  Esse recurso permite salvar alterações de configurações de E-mail."
   [id persist ]
   (:data (alterar-configuracao-using-put-with-http-info id persist)))
 
 (defn alterar-template-notificacao-using-put-with-http-info
-  "Alterar template de notificaÃ§Ã£o
-  Esse recurso permite salvar alteraÃ§Ãµes de templates notificaÃ§Ãµes."
+  "Alterar template de notificação
+  Esse recurso permite salvar alterações de templates notificações."
   ([id conteudo ] (alterar-template-notificacao-using-put-with-http-info id conteudo nil))
   ([id conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto template-padrao ]}]
    (call-api "/api/templates-notificacoes/{id}" :put
@@ -38,8 +38,8 @@
               :auth-names    []})))
 
 (defn alterar-template-notificacao-using-put
-  "Alterar template de notificaÃ§Ã£o
-  Esse recurso permite salvar alteraÃ§Ãµes de templates notificaÃ§Ãµes."
+  "Alterar template de notificação
+  Esse recurso permite salvar alterações de templates notificações."
   ([id conteudo ] (alterar-template-notificacao-using-put id conteudo nil))
   ([id conteudo optional-params]
    (:data (alterar-template-notificacao-using-put-with-http-info id conteudo optional-params))))
@@ -66,8 +66,8 @@
    (:data (atualizar-sms-using-post-with-http-info optional-params))))
 
 (defn consultar-configuracao-using-get-with-http-info
-  "Consulta configuraÃ§Ã£o de E-mail
-  Esse recurso permite consultar uma configuraÃ§Ã£o especÃ­fica por id."
+  "Consulta configuração de E-mail
+  Esse recurso permite consultar uma configuração específica por id."
   [id ]
   (call-api "/api/configuracoes-email/{id}" :get
             {:path-params   {"id" id }
@@ -79,14 +79,14 @@
              :auth-names    []}))
 
 (defn consultar-configuracao-using-get
-  "Consulta configuraÃ§Ã£o de E-mail
-  Esse recurso permite consultar uma configuraÃ§Ã£o especÃ­fica por id."
+  "Consulta configuração de E-mail
+  Esse recurso permite consultar uma configuração específica por id."
   [id ]
   (:data (consultar-configuracao-using-get-with-http-info id)))
 
 (defn consultar-por-email-using-get-with-http-info
-  "Consulta cÃ³digo de seguranÃ§a E-mail
-  Esse recurso permite consultar um cÃ³digo de seguranÃ§a E-mail especÃ­fico por id."
+  "Consulta código de segurança E-mail
+  Esse recurso permite consultar um código de segurança E-mail específico por id."
   [id ]
   (call-api "/api/codigos-seguranca-email/{id}" :get
             {:path-params   {"id" id }
@@ -98,14 +98,14 @@
              :auth-names    []}))
 
 (defn consultar-por-email-using-get
-  "Consulta cÃ³digo de seguranÃ§a E-mail
-  Esse recurso permite consultar um cÃ³digo de seguranÃ§a E-mail especÃ­fico por id."
+  "Consulta código de segurança E-mail
+  Esse recurso permite consultar um código de segurança E-mail específico por id."
   [id ]
   (:data (consultar-por-email-using-get-with-http-info id)))
 
 (defn consultar-por-sms-using-get-with-http-info
-  "Consulta cÃ³digo de seguranÃ§a SMS
-  Esse recurso permite consultar um cÃ³digo de seguranÃ§a SMS especÃ­fico por id."
+  "Consulta código de segurança SMS
+  Esse recurso permite consultar um código de segurança SMS específico por id."
   [id ]
   (call-api "/api/codigos-seguranca-sms/{id}" :get
             {:path-params   {"id" id }
@@ -117,14 +117,14 @@
              :auth-names    []}))
 
 (defn consultar-por-sms-using-get
-  "Consulta cÃ³digo de seguranÃ§a SMS
-  Esse recurso permite consultar um cÃ³digo de seguranÃ§a SMS especÃ­fico por id."
+  "Consulta código de segurança SMS
+  Esse recurso permite consultar um código de segurança SMS específico por id."
   [id ]
   (:data (consultar-por-sms-using-get-with-http-info id)))
 
 (defn consultar-template-notificacao-using-get-with-http-info
-  "Consulta template de notificaÃ§Ã£o
-  Esse recurso permite consultar uma configuraÃ§Ã£o especÃ­fica por id."
+  "Consulta template de notificação
+  Esse recurso permite consultar uma configuração específica por id."
   [id ]
   (call-api "/api/templates-notificacoes/{id}" :get
             {:path-params   {"id" id }
@@ -136,14 +136,14 @@
              :auth-names    []}))
 
 (defn consultar-template-notificacao-using-get
-  "Consulta template de notificaÃ§Ã£o
-  Esse recurso permite consultar uma configuraÃ§Ã£o especÃ­fica por id."
+  "Consulta template de notificação
+  Esse recurso permite consultar uma configuração específica por id."
   [id ]
   (:data (consultar-template-notificacao-using-get-with-http-info id)))
 
 (defn gerar-token-email-using-post-with-http-info
-  "Gerar cÃ³digo de seguranÃ§a e enviar por e-mail
-  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por e-mail, para validaÃ§Ã£o de dispositivos."
+  "Gerar código de segurança e enviar por e-mail
+  Esse recurso permite gerar e enviar códigos de segurança por e-mail, para validação de dispositivos."
   [email ]
   (call-api "/api/notificacoes-email/gerar-codigo-seguranca" :post
             {:path-params   {}
@@ -156,14 +156,14 @@
              :auth-names    []}))
 
 (defn gerar-token-email-using-post
-  "Gerar cÃ³digo de seguranÃ§a e enviar por e-mail
-  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por e-mail, para validaÃ§Ã£o de dispositivos."
+  "Gerar código de segurança e enviar por e-mail
+  Esse recurso permite gerar e enviar códigos de segurança por e-mail, para validação de dispositivos."
   [email ]
   (:data (gerar-token-email-using-post-with-http-info email)))
 
 (defn gerar-token-sms-using-post-with-http-info
-  "Gerar cÃ³digo de seguranÃ§a e enviar por sms
-  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por sms, para validaÃ§Ã£o de dispositivos."
+  "Gerar código de segurança e enviar por sms
+  Esse recurso permite gerar e enviar códigos de segurança por sms, para validação de dispositivos."
   [persist ]
   (call-api "/api/notificacoes-sms/gerar-codigo-seguranca" :post
             {:path-params   {}
@@ -176,14 +176,14 @@
              :auth-names    []}))
 
 (defn gerar-token-sms-using-post
-  "Gerar cÃ³digo de seguranÃ§a e enviar por sms
-  Esse recurso permite gerar e enviar cÃ³digos de seguranÃ§a por sms, para validaÃ§Ã£o de dispositivos."
+  "Gerar código de segurança e enviar por sms
+  Esse recurso permite gerar e enviar códigos de segurança por sms, para validação de dispositivos."
   [persist ]
   (:data (gerar-token-sms-using-post-with-http-info persist)))
 
 (defn listar-configuracao-using-get-with-http-info
-  "Lista configuraÃ§Ãµes de E-mails
-  Esse recurso permite listar as configuraÃ§Ãµes de E-mails."
+  "Lista configurações de E-mails
+  Esse recurso permite listar as configurações de E-mails."
   ([] (listar-configuracao-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/configuracoes-email" :get
@@ -196,15 +196,15 @@
               :auth-names    []})))
 
 (defn listar-configuracao-using-get
-  "Lista configuraÃ§Ãµes de E-mails
-  Esse recurso permite listar as configuraÃ§Ãµes de E-mails."
+  "Lista configurações de E-mails
+  Esse recurso permite listar as configurações de E-mails."
   ([] (listar-configuracao-using-get nil))
   ([optional-params]
    (:data (listar-configuracao-using-get-with-http-info optional-params))))
 
 (defn listar-por-email-using-get-with-http-info
-  "Lista os cÃ³digos de seguranÃ§a E-Mail
-  Esse recurso permite listar os codigos de seguranÃ§a por E-Mail."
+  "Lista os códigos de segurança E-Mail
+  Esse recurso permite listar os codigos de segurança por E-Mail."
   ([] (listar-por-email-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/codigos-seguranca-email" :get
@@ -217,15 +217,15 @@
               :auth-names    []})))
 
 (defn listar-por-email-using-get
-  "Lista os cÃ³digos de seguranÃ§a E-Mail
-  Esse recurso permite listar os codigos de seguranÃ§a por E-Mail."
+  "Lista os códigos de segurança E-Mail
+  Esse recurso permite listar os codigos de segurança por E-Mail."
   ([] (listar-por-email-using-get nil))
   ([optional-params]
    (:data (listar-por-email-using-get-with-http-info optional-params))))
 
 (defn listar-por-sms-using-get-with-http-info
-  "Lista os cÃ³digos de seguranÃ§a SMS
-  Esse recurso permite listar os codigos de seguranÃ§a por SMS."
+  "Lista os códigos de segurança SMS
+  Esse recurso permite listar os codigos de segurança por SMS."
   ([] (listar-por-sms-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/codigos-seguranca-sms" :get
@@ -238,8 +238,8 @@
               :auth-names    []})))
 
 (defn listar-por-sms-using-get
-  "Lista os cÃ³digos de seguranÃ§a SMS
-  Esse recurso permite listar os codigos de seguranÃ§a por SMS."
+  "Lista os códigos de segurança SMS
+  Esse recurso permite listar os codigos de segurança por SMS."
   ([] (listar-por-sms-using-get nil))
   ([optional-params]
    (:data (listar-por-sms-using-get-with-http-info optional-params))))
@@ -287,8 +287,8 @@
    (:data (listar-sms-using-get-with-http-info optional-params))))
 
 (defn listar-template-notificacao-using-get-with-http-info
-  "Lista templates de notificaÃ§Ãµes
-  Esse recurso permite listar templates notificaÃ§Ãµes."
+  "Lista templates de notificações
+  Esse recurso permite listar templates notificações."
   ([] (listar-template-notificacao-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/templates-notificacoes" :get
@@ -301,15 +301,15 @@
               :auth-names    []})))
 
 (defn listar-template-notificacao-using-get
-  "Lista templates de notificaÃ§Ãµes
-  Esse recurso permite listar templates notificaÃ§Ãµes."
+  "Lista templates de notificações
+  Esse recurso permite listar templates notificações."
   ([] (listar-template-notificacao-using-get nil))
   ([optional-params]
    (:data (listar-template-notificacao-using-get-with-http-info optional-params))))
 
 (defn listar-tipos-layouts-using-get-with-http-info
-  "Lista os tipos templates de notificaÃ§Ã£o
-  Esse recurso permite listar os tipos de templates disponÃ­veis os parÃ¢metros devem ser usados entre chaves. Ex: {{nomeParametro}} ."
+  "Lista os tipos templates de notificação
+  Esse recurso permite listar os tipos de templates disponíveis os parâmetros devem ser usados entre chaves. Ex: {{nomeParametro}} ."
   []
   (call-api "/api/tipos-layouts" :get
             {:path-params   {}
@@ -321,14 +321,14 @@
              :auth-names    []}))
 
 (defn listar-tipos-layouts-using-get
-  "Lista os tipos templates de notificaÃ§Ã£o
-  Esse recurso permite listar os tipos de templates disponÃ­veis os parÃ¢metros devem ser usados entre chaves. Ex: {{nomeParametro}} ."
+  "Lista os tipos templates de notificação
+  Esse recurso permite listar os tipos de templates disponíveis os parâmetros devem ser usados entre chaves. Ex: {{nomeParametro}} ."
   []
   (:data (listar-tipos-layouts-using-get-with-http-info)))
 
 (defn notificacao-email-using-post-with-http-info
-  "Enviar notificaÃ§Ã£o por email
-  Esse recurso permite enviar uma mensagem de notificaÃ§Ã£o por email"
+  "Enviar notificação por email
+  Esse recurso permite enviar uma mensagem de notificação por email"
   [request ]
   (call-api "/api/notificacoes-email" :post
             {:path-params   {}
@@ -341,14 +341,14 @@
              :auth-names    []}))
 
 (defn notificacao-email-using-post
-  "Enviar notificaÃ§Ã£o por email
-  Esse recurso permite enviar uma mensagem de notificaÃ§Ã£o por email"
+  "Enviar notificação por email
+  Esse recurso permite enviar uma mensagem de notificação por email"
   [request ]
   (:data (notificacao-email-using-post-with-http-info request)))
 
 (defn reenviar-token-sms-using-post-with-http-info
-  "Reenviar cÃ³digo de seguranÃ§a por sms
-  Esse recurso permite que seja reenviado para um determinado nÃºmero de telefone, atravÃ©s de SMS, o cÃ³digo de seguranÃ§a gerado previamente para ele. Caso o cÃ³digo de seguranÃ§a jÃ¡ nÃ£o esteja mais vÃ¡lido, o recurso retornarÃ¡ uma mensagem orientando que seja solicitada uma nova geraÃ§Ã£o para o telefone em questÃ£o."
+  "Reenviar código de segurança por sms
+  Esse recurso permite que seja reenviado para um determinado número de telefone, através de SMS, o código de segurança gerado previamente para ele. Caso o código de segurança já não esteja mais válido, o recurso retornará uma mensagem orientando que seja solicitada uma nova geração para o telefone em questão."
   [persist ]
   (call-api "/api/notificacoes-sms/reenviar-codigo-seguranca" :post
             {:path-params   {}
@@ -361,14 +361,14 @@
              :auth-names    []}))
 
 (defn reenviar-token-sms-using-post
-  "Reenviar cÃ³digo de seguranÃ§a por sms
-  Esse recurso permite que seja reenviado para um determinado nÃºmero de telefone, atravÃ©s de SMS, o cÃ³digo de seguranÃ§a gerado previamente para ele. Caso o cÃ³digo de seguranÃ§a jÃ¡ nÃ£o esteja mais vÃ¡lido, o recurso retornarÃ¡ uma mensagem orientando que seja solicitada uma nova geraÃ§Ã£o para o telefone em questÃ£o."
+  "Reenviar código de segurança por sms
+  Esse recurso permite que seja reenviado para um determinado número de telefone, através de SMS, o código de segurança gerado previamente para ele. Caso o código de segurança já não esteja mais válido, o recurso retornará uma mensagem orientando que seja solicitada uma nova geração para o telefone em questão."
   [persist ]
   (:data (reenviar-token-sms-using-post-with-http-info persist)))
 
 (defn responder-sms-get-using-get-with-http-info
   "Responder SMS
-  Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
+  Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuário"
   ([] (responder-sms-get-using-get-with-http-info nil))
   ([{:keys [nsu data resposta ]}]
    (call-api "/api/notificacoes/sms/responder" :get
@@ -382,14 +382,14 @@
 
 (defn responder-sms-get-using-get
   "Responder SMS
-  Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuÃ¡rio"
+  Esse recurso permite atualizar a resposta do SMS, fornecida pedo usuário"
   ([] (responder-sms-get-using-get nil))
   ([optional-params]
    (:data (responder-sms-get-using-get-with-http-info optional-params))))
 
 (defn salvar-configuracao-using-post-with-http-info
-  "Salva configuraÃ§Ãµes de E-mail
-  Esse recurso salvar configuraÃ§Ãµes de E-mail."
+  "Salva configurações de E-mail
+  Esse recurso salvar configurações de E-mail."
   [persist ]
   (call-api "/api/configuracoes-email" :post
             {:path-params   {}
@@ -402,14 +402,14 @@
              :auth-names    []}))
 
 (defn salvar-configuracao-using-post
-  "Salva configuraÃ§Ãµes de E-mail
-  Esse recurso salvar configuraÃ§Ãµes de E-mail."
+  "Salva configurações de E-mail
+  Esse recurso salvar configurações de E-mail."
   [persist ]
   (:data (salvar-configuracao-using-post-with-http-info persist)))
 
 (defn salvar-push-fcm-using-post-with-http-info
   "Enviar Push FCM
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma FCM (Firebase Cloud Messaging)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma FCM (Firebase Cloud Messaging)."
   [push-persists ]
   (call-api "/api/notificacoes/push/fcm" :post
             {:path-params   {}
@@ -423,13 +423,13 @@
 
 (defn salvar-push-fcm-using-post
   "Enviar Push FCM
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma FCM (Firebase Cloud Messaging)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma FCM (Firebase Cloud Messaging)."
   [push-persists ]
   (:data (salvar-push-fcm-using-post-with-http-info push-persists)))
 
 (defn salvar-push-gcm-using-post-with-http-info
   "Enviar Push GCM
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma GCM (Google Cloud Messaging)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma GCM (Google Cloud Messaging)."
   [push-persists ]
   (call-api "/api/notificacoes/push/gcm" :post
             {:path-params   {}
@@ -443,13 +443,13 @@
 
 (defn salvar-push-gcm-using-post
   "Enviar Push GCM
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma GCM (Google Cloud Messaging)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma GCM (Google Cloud Messaging)."
   [push-persists ]
   (:data (salvar-push-gcm-using-post-with-http-info push-persists)))
 
 (defn salvar-push-using-post-with-http-info
   "Enviar Push APNS
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma APNS (Apple Push Notification Service)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma APNS (Apple Push Notification Service)."
   [push-persists ]
   (call-api "/api/notificacoes/push/apns" :post
             {:path-params   {}
@@ -463,7 +463,7 @@
 
 (defn salvar-push-using-post
   "Enviar Push APNS
-  Esse recurso permite enviar Push para um determinado dipositivo movel atravÃ©s da plataforma APNS (Apple Push Notification Service)."
+  Esse recurso permite enviar Push para um determinado dipositivo movel através da plataforma APNS (Apple Push Notification Service)."
   [push-persists ]
   (:data (salvar-push-using-post-with-http-info push-persists)))
 
@@ -488,8 +488,8 @@
   (:data (salvar-sms-using-post-with-http-info lista-sms)))
 
 (defn salvar-template-notificacao-using-post-with-http-info
-  "Salva template de notificaÃ§Ã£o
-  Esse recurso salvar template notificaÃ§Ãµe."
+  "Salva template de notificação
+  Esse recurso salvar template notificaçõe."
   ([conteudo ] (salvar-template-notificacao-using-post-with-http-info conteudo nil))
   ([conteudo {:keys [id-configuracao-email tipo-layout tipo-notificacao remetente assunto template-padrao ]}]
    (call-api "/api/templates-notificacoes" :post
@@ -503,15 +503,15 @@
               :auth-names    []})))
 
 (defn salvar-template-notificacao-using-post
-  "Salva template de notificaÃ§Ã£o
-  Esse recurso salvar template notificaÃ§Ãµe."
+  "Salva template de notificação
+  Esse recurso salvar template notificaçõe."
   ([conteudo ] (salvar-template-notificacao-using-post conteudo nil))
   ([conteudo optional-params]
    (:data (salvar-template-notificacao-using-post-with-http-info conteudo optional-params))))
 
 (defn validar-token-email-using-post-with-http-info
-  "Validar cÃ³digo de seguranÃ§a enviado por e-mail
-  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por e-mail, para validaÃ§Ã£o de dispositivos."
+  "Validar código de segurança enviado por e-mail
+  Esse recurso permite validar os códigos de segurança enviador por e-mail, para validação de dispositivos."
   [request ]
   (call-api "/api/notificacoes-email/validar-codigo-seguranca" :post
             {:path-params   {}
@@ -524,14 +524,14 @@
              :auth-names    []}))
 
 (defn validar-token-email-using-post
-  "Validar cÃ³digo de seguranÃ§a enviado por e-mail
-  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por e-mail, para validaÃ§Ã£o de dispositivos."
+  "Validar código de segurança enviado por e-mail
+  Esse recurso permite validar os códigos de segurança enviador por e-mail, para validação de dispositivos."
   [request ]
   (:data (validar-token-email-using-post-with-http-info request)))
 
 (defn validar-token-sms-using-post-with-http-info
-  "Validar cÃ³digo de seguranÃ§a enviado por sms
-  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por sms, para validaÃ§Ã£o de dispositivos."
+  "Validar código de segurança enviado por sms
+  Esse recurso permite validar os códigos de segurança enviador por sms, para validação de dispositivos."
   [request ]
   (call-api "/api/notificacoes-sms/validar-codigo-seguranca" :post
             {:path-params   {}
@@ -544,7 +544,7 @@
              :auth-names    []}))
 
 (defn validar-token-sms-using-post
-  "Validar cÃ³digo de seguranÃ§a enviado por sms
-  Esse recurso permite validar os cÃ³digos de seguranÃ§a enviador por sms, para validaÃ§Ã£o de dispositivos."
+  "Validar código de segurança enviado por sms
+  Esse recurso permite validar os códigos de segurança enviador por sms, para validação de dispositivos."
   [request ]
   (:data (validar-token-sms-using-post-with-http-info request)))

@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn consultar-pais-using-get-with-http-info
-  "Apresenta dados de um determinado paÃ­s
-  Este mÃ©todo permite consultar dados de um determinado paÃ­s a partir de seu codigo de identificaÃ§Ã£o (id)."
+  "Apresenta dados de um determinado país
+  Este método permite consultar dados de um determinado país a partir de seu codigo de identificação (id)."
   [id ]
   (call-api "/api/paises/{id}" :get
             {:path-params   {"id" id }
@@ -16,14 +16,14 @@
              :auth-names    []}))
 
 (defn consultar-pais-using-get
-  "Apresenta dados de um determinado paÃ­s
-  Este mÃ©todo permite consultar dados de um determinado paÃ­s a partir de seu codigo de identificaÃ§Ã£o (id)."
+  "Apresenta dados de um determinado país
+  Este método permite consultar dados de um determinado país a partir de seu codigo de identificação (id)."
   [id ]
   (:data (consultar-pais-using-get-with-http-info id)))
 
 (defn listar-continentes-using-get-with-http-info
   "Lista os continentes
-  Este recurso permite listar os continentes utilizados no recurso de permissÃ£o de uso do cartÃ£o no exterior"
+  Este recurso permite listar os continentes utilizados no recurso de permissão de uso do cartão no exterior"
   []
   (call-api "/api/continentes" :get
             {:path-params   {}
@@ -36,13 +36,13 @@
 
 (defn listar-continentes-using-get
   "Lista os continentes
-  Este recurso permite listar os continentes utilizados no recurso de permissÃ£o de uso do cartÃ£o no exterior"
+  Este recurso permite listar os continentes utilizados no recurso de permissão de uso do cartão no exterior"
   []
   (:data (listar-continentes-using-get-with-http-info)))
 
 (defn listar-paises-using-get-with-http-info
-  "Lista os paÃ­ses
-  Este recurso permite listar os paÃ­ses."
+  "Lista os países
+  Este recurso permite listar os países."
   ([] (listar-paises-using-get-with-http-info nil))
   ([{:keys [sort page limit codigo sigla descricao continente flag-ativo ]}]
    (call-api "/api/paises" :get
@@ -55,8 +55,8 @@
               :auth-names    []})))
 
 (defn listar-paises-using-get
-  "Lista os paÃ­ses
-  Este recurso permite listar os paÃ­ses."
+  "Lista os países
+  Este recurso permite listar os países."
   ([] (listar-paises-using-get nil))
   ([optional-params]
    (:data (listar-paises-using-get-with-http-info optional-params))))

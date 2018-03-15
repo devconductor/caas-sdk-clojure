@@ -24,7 +24,7 @@
 
 (defn alterar-using-put10-with-http-info
   "Altera uma Maquineta
-  Este mÃ©todo realiza a alteraÃ§Ã£o das maquinetas dos estabelecimentos."
+  Este método realiza a alteração das maquinetas dos estabelecimentos."
   [id maquineta-update ]
   (call-api "/api/maquinetas/{id}" :put
             {:path-params   {"id" id }
@@ -38,13 +38,13 @@
 
 (defn alterar-using-put10
   "Altera uma Maquineta
-  Este mÃ©todo realiza a alteraÃ§Ã£o das maquinetas dos estabelecimentos."
+  Este método realiza a alteração das maquinetas dos estabelecimentos."
   [id maquineta-update ]
   (:data (alterar-using-put10-with-http-info id maquineta-update)))
 
 (defn alterar-using-put11-with-http-info
-  "Altera uma Regra OperaÃ§Ã£o
-  Este mÃ©todo realiza a alteraÃ§Ã£o de uma regra operaÃ§Ã£o."
+  "Altera uma Regra Operação
+  Este método realiza a alteração de uma regra operação."
   [id operacao-credor-update ]
   (call-api "/api/regras-operacoes-estabelecimentos/{id}" :put
             {:path-params   {"id" id }
@@ -57,35 +57,34 @@
              :auth-names    []}))
 
 (defn alterar-using-put11
-  "Altera uma Regra OperaÃ§Ã£o
-  Este mÃ©todo realiza a alteraÃ§Ã£o de uma regra operaÃ§Ã£o."
+  "Altera uma Regra Operação
+  Este método realiza a alteração de uma regra operação."
   [id operacao-credor-update ]
   (:data (alterar-using-put11-with-http-info id operacao-credor-update)))
 
 (defn alterar-using-put15-with-http-info
   "Altera um Telefone do estabelecimento
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos telefones dos estabelecimentos."
-  ([id ddd telefone ] (alterar-using-put15-with-http-info id ddd telefone nil))
-  ([id ddd telefone {:keys [ramal ]}]
-   (call-api "/api/telefones-estabelecimentos/{id}" :put
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"ddd" ddd "telefone" telefone "ramal" ramal }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
+  Este método realiza a alteração dos telefones dos estabelecimentos."
+  [id telefone-estabelecimento-update ]
+  (call-api "/api/telefones-estabelecimentos/{id}" :put
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    telefone-estabelecimento-update
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
 
 (defn alterar-using-put15
   "Altera um Telefone do estabelecimento
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos telefones dos estabelecimentos."
-  ([id ddd telefone ] (alterar-using-put15 id ddd telefone nil))
-  ([id ddd telefone optional-params]
-   (:data (alterar-using-put15-with-http-info id ddd telefone optional-params))))
+  Este método realiza a alteração dos telefones dos estabelecimentos."
+  [id telefone-estabelecimento-update ]
+  (:data (alterar-using-put15-with-http-info id telefone-estabelecimento-update)))
 
 (defn alterar-using-put17-with-http-info
   "Altera um Terminal
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos Terminais."
+  Este método realiza a alteração dos Terminais."
   [id terminal-update ]
   (call-api "/api/terminais/{id}" :put
             {:path-params   {"id" id }
@@ -99,7 +98,7 @@
 
 (defn alterar-using-put17
   "Altera um Terminal
-  Este mÃ©todo realiza a alteraÃ§Ã£o dos Terminais."
+  Este método realiza a alteração dos Terminais."
   [id terminal-update ]
   (:data (alterar-using-put17-with-http-info id terminal-update)))
 
@@ -124,8 +123,8 @@
   (:data (alterar-using-put6-with-http-info id update)))
 
 (defn alterar-using-put8-with-http-info
-  "Alterar Grupo EconÃ´mico
-  Altera um grupo econÃ´mico."
+  "Alterar Grupo Econômico
+  Altera um grupo econômico."
   [id grupo-economico-dto ]
   (call-api "/api/grupos-economicos/{id}" :put
             {:path-params   {"id" id }
@@ -138,8 +137,8 @@
              :auth-names    []}))
 
 (defn alterar-using-put8
-  "Alterar Grupo EconÃ´mico
-  Altera um grupo econÃ´mico."
+  "Alterar Grupo Econômico
+  Altera um grupo econômico."
   [id grupo-economico-dto ]
   (:data (alterar-using-put8-with-http-info id grupo-economico-dto)))
 
@@ -184,8 +183,8 @@
   (:data (cadastrar-using-post2-with-http-info persist)))
 
 (defn cadastrar-using-post3-with-http-info
-  "Cadastrar Grupo EconÃ´mico
-  Cadastra um grupo econÃ´mico."
+  "Cadastrar Grupo Econômico
+  Cadastra um grupo econômico."
   [grupo-economico-dto ]
   (call-api "/api/grupos-economicos" :post
             {:path-params   {}
@@ -198,14 +197,14 @@
              :auth-names    []}))
 
 (defn cadastrar-using-post3
-  "Cadastrar Grupo EconÃ´mico
-  Cadastra um grupo econÃ´mico."
+  "Cadastrar Grupo Econômico
+  Cadastra um grupo econômico."
   [grupo-economico-dto ]
   (:data (cadastrar-using-post3-with-http-info grupo-economico-dto)))
 
 (defn consulta-operacao-using-get-with-http-info
-  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
-  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idoperacao"
+  "Apresenta dados de um determinado tipo de operação
+  Este recurso permite consultar dados de um determinado tipo operação a partir do idoperacao"
   [id ]
   (call-api "/api/tipos-operacoes-estabelecimentos/{id}" :get
             {:path-params   {"id" id }
@@ -217,14 +216,14 @@
              :auth-names    []}))
 
 (defn consulta-operacao-using-get
-  "Apresenta dados de um determinado tipo de operaÃ§Ã£o
-  Este recurso permite consultar dados de um determinado tipo operaÃ§Ã£o a partir do idoperacao"
+  "Apresenta dados de um determinado tipo de operação
+  Este recurso permite consultar dados de um determinado tipo operação a partir do idoperacao"
   [id ]
   (:data (consulta-operacao-using-get-with-http-info id)))
 
 (defn consultar-origem-comercial-using-get-with-http-info
   "Consultar Origem Comercial
-  Consulta uma origem comercial atravÃ©s do seu identificador."
+  Consulta uma origem comercial através do seu identificador."
   [id ]
   (call-api "/api/origens-comerciais/{id}" :get
             {:path-params   {"id" id }
@@ -237,11 +236,11 @@
 
 (defn consultar-origem-comercial-using-get
   "Consultar Origem Comercial
-  Consulta uma origem comercial atravÃ©s do seu identificador."
+  Consulta uma origem comercial através do seu identificador."
   [id ]
   (:data (consultar-origem-comercial-using-get-with-http-info id)))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get17-with-http-info
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
@@ -254,15 +253,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get16
+(defn consultar-using-get17
   "Consultar estabelecimento por id
   Consulta os detalhes de um determinado estabelecimento"
   [id ]
-  (:data (consultar-using-get16-with-http-info id)))
+  (:data (consultar-using-get17-with-http-info id)))
 
-(defn consultar-using-get18-with-http-info
-  "Consultar grupo econÃ´mico
-  Consulta um grupo econÃ´mico atravÃ©s do seu identificador."
+(defn consultar-using-get19-with-http-info
+  "Consultar grupo econômico
+  Consulta um grupo econômico através do seu identificador."
   [id ]
   (call-api "/api/grupos-economicos/{id}" :get
             {:path-params   {"id" id }
@@ -273,15 +272,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get18
-  "Consultar grupo econÃ´mico
-  Consulta um grupo econÃ´mico atravÃ©s do seu identificador."
+(defn consultar-using-get19
+  "Consultar grupo econômico
+  Consulta um grupo econômico através do seu identificador."
   [id ]
-  (:data (consultar-using-get18-with-http-info id)))
+  (:data (consultar-using-get19-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get21-with-http-info
   "Apresenta os dados de uma determinada maquineta
-  Este mÃ©todo permite consultar uma determinada maquineta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar uma determinada maquineta a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/maquinetas/{id}" :get
             {:path-params   {"id" id }
@@ -292,15 +291,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get21
   "Apresenta os dados de uma determinada maquineta
-  Este mÃ©todo permite consultar uma determinada maquineta a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar uma determinada maquineta a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get21-with-http-info id)))
 
-(defn consultar-using-get21-with-http-info
-  "Apresenta os dados de uma determinada Regra OperaÃ§Ã£o
-  Este mÃ©todo permite consultar uma determinada regra operaÃ§Ã£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get22-with-http-info
+  "Apresenta os dados de uma determinada Regra Operação
+  Este método permite consultar uma determinada regra operação a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/regras-operacoes-estabelecimentos/{id}" :get
             {:path-params   {"id" id }
@@ -311,15 +310,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get21
-  "Apresenta os dados de uma determinada Regra OperaÃ§Ã£o
-  Este mÃ©todo permite consultar uma determinada regra operaÃ§Ã£o a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get22
+  "Apresenta os dados de uma determinada Regra Operação
+  Este método permite consultar uma determinada regra operação a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get21-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn consultar-using-get29-with-http-info
+(defn consultar-using-get30-with-http-info
   "Apresenta os dados de um determinado telefone de um estabelecimento
-  Este mÃ©todo permite consultar um determinado telefone de um estabelecimento a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar um determinado telefone de um estabelecimento a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/telefones-estabelecimentos/{id}" :get
             {:path-params   {"id" id }
@@ -330,15 +329,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get29
+(defn consultar-using-get30
   "Apresenta os dados de um determinado telefone de um estabelecimento
-  Este mÃ©todo permite consultar um determinado telefone de um estabelecimento a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar um determinado telefone de um estabelecimento a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get29-with-http-info id)))
+  (:data (consultar-using-get30-with-http-info id)))
 
-(defn consultar-using-get31-with-http-info
+(defn consultar-using-get32-with-http-info
   "Apresenta os dados de um determinado Terminal
-  Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar um determinado Terminal a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/terminais/{id}" :get
             {:path-params   {"id" id }
@@ -349,15 +348,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get31
+(defn consultar-using-get32
   "Apresenta os dados de um determinado Terminal
-  Este mÃ©todo permite consultar um determinado Terminal a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+  Este método permite consultar um determinado Terminal a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get31-with-http-info id)))
+  (:data (consultar-using-get32-with-http-info id)))
 
-(defn consultar-using-get43-with-http-info
-  "Apresenta os dados de um determinado VÃ­nculo
-  Este mÃ©todo permite consultar um determinado VÃ­nculo a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get44-with-http-info
+  "Apresenta os dados de um determinado Vínculo
+  Este método permite consultar um determinado Vínculo a partir do seu código de identificação (id)."
   [id ]
   (call-api "/api/adquirentes-estabelecimento/{id}" :get
             {:path-params   {"id" id }
@@ -368,15 +367,15 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get43
-  "Apresenta os dados de um determinado VÃ­nculo
-  Este mÃ©todo permite consultar um determinado VÃ­nculo a partir do seu cÃ³digo de identificaÃ§Ã£o (id)."
+(defn consultar-using-get44
+  "Apresenta os dados de um determinado Vínculo
+  Este método permite consultar um determinado Vínculo a partir do seu código de identificação (id)."
   [id ]
-  (:data (consultar-using-get43-with-http-info id)))
+  (:data (consultar-using-get44-with-http-info id)))
 
 (defn desabilitar-vinculo-using-post-with-http-info
-  "Desabilitar um VÃ­nculo
-  Este mÃ©todo realiza a desativaÃ§Ã£o de um vÃ­nculo."
+  "Desabilitar um Vínculo
+  Este método realiza a desativação de um vínculo."
   [id ]
   (call-api "/api/adquirentes-estabelecimento/{id}/desabilitar" :post
             {:path-params   {"id" id }
@@ -388,14 +387,14 @@
              :auth-names    []}))
 
 (defn desabilitar-vinculo-using-post
-  "Desabilitar um VÃ­nculo
-  Este mÃ©todo realiza a desativaÃ§Ã£o de um vÃ­nculo."
+  "Desabilitar um Vínculo
+  Este método realiza a desativação de um vínculo."
   [id ]
   (:data (desabilitar-vinculo-using-post-with-http-info id)))
 
 (defn desabilitar-vinculo-using-post1-with-http-info
-  "Desabilitar um vÃ­nculo operaÃ§Ã£o
-  Este mÃ©todo permite desabilitar um vÃ­nculo."
+  "Desabilitar um vínculo operação
+  Este método permite desabilitar um vínculo."
   [id vinculo-operacao-persist ]
   (call-api "/api/estabelecimentos/{id}/desabilitar-operacao" :post
             {:path-params   {"id" id }
@@ -408,14 +407,14 @@
              :auth-names    []}))
 
 (defn desabilitar-vinculo-using-post1
-  "Desabilitar um vÃ­nculo operaÃ§Ã£o
-  Este mÃ©todo permite desabilitar um vÃ­nculo."
+  "Desabilitar um vínculo operação
+  Este método permite desabilitar um vínculo."
   [id vinculo-operacao-persist ]
   (:data (desabilitar-vinculo-using-post1-with-http-info id vinculo-operacao-persist)))
 
 (defn habilitar-vinculo-using-post-with-http-info
-  "Habilitar um VÃ­nculo
-  Este mÃ©todo realiza a ativaÃ§Ã£o de um vÃ­nculo."
+  "Habilitar um Vínculo
+  Este método realiza a ativação de um vínculo."
   [id ]
   (call-api "/api/adquirentes-estabelecimento/{id}/habilitar" :post
             {:path-params   {"id" id }
@@ -427,14 +426,14 @@
              :auth-names    []}))
 
 (defn habilitar-vinculo-using-post
-  "Habilitar um VÃ­nculo
-  Este mÃ©todo realiza a ativaÃ§Ã£o de um vÃ­nculo."
+  "Habilitar um Vínculo
+  Este método realiza a ativação de um vínculo."
   [id ]
   (:data (habilitar-vinculo-using-post-with-http-info id)))
 
 (defn habilitar-vinculo-using-post1-with-http-info
-  "Habilitar um vÃ­nculo operaÃ§Ã£o
-  Este mÃ©todo permite habilitar um vÃ­nculo."
+  "Habilitar um vínculo operação
+  Este método permite habilitar um vínculo."
   [id vinculo-operacao-persist ]
   (call-api "/api/estabelecimentos/{id}/habilitar-operacao" :post
             {:path-params   {"id" id }
@@ -447,14 +446,14 @@
              :auth-names    []}))
 
 (defn habilitar-vinculo-using-post1
-  "Habilitar um vÃ­nculo operaÃ§Ã£o
-  Este mÃ©todo permite habilitar um vÃ­nculo."
+  "Habilitar um vínculo operação
+  Este método permite habilitar um vínculo."
   [id vinculo-operacao-persist ]
   (:data (habilitar-vinculo-using-post1-with-http-info id vinculo-operacao-persist)))
 
 (defn lista-operacao-using-get-with-http-info
-  "Apresenta dados de operaÃ§Ãµes em uma lista
-  Este recurso permite listar as operaÃ§Ã£o"
+  "Apresenta dados de operações em uma lista
+  Este recurso permite listar as operação"
   ([] (lista-operacao-using-get-with-http-info nil))
   ([{:keys [sort page limit id-operacao codigo-processamento ]}]
    (call-api "/api/tipos-operacoes-estabelecimentos" :get
@@ -467,15 +466,15 @@
               :auth-names    []})))
 
 (defn lista-operacao-using-get
-  "Apresenta dados de operaÃ§Ãµes em uma lista
-  Este recurso permite listar as operaÃ§Ã£o"
+  "Apresenta dados de operações em uma lista
+  Este recurso permite listar as operação"
   ([] (lista-operacao-using-get nil))
   ([optional-params]
    (:data (lista-operacao-using-get-with-http-info optional-params))))
 
 (defn listar-mcc-using-get-with-http-info
   "Lista os MCCs
-  Este mÃ©todo permite que sejam listados os MCCs existentes na base de dados do Emissor."
+  Este método permite que sejam listados os MCCs existentes na base de dados do Emissor."
   ([] (listar-mcc-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/mcc-estabelecimentos" :get
@@ -489,7 +488,7 @@
 
 (defn listar-mcc-using-get
   "Lista os MCCs
-  Este mÃ©todo permite que sejam listados os MCCs existentes na base de dados do Emissor."
+  Este método permite que sejam listados os MCCs existentes na base de dados do Emissor."
   ([] (listar-mcc-using-get nil))
   ([optional-params]
    (:data (listar-mcc-using-get-with-http-info optional-params))))
@@ -517,7 +516,7 @@
 
 (defn listar-tipos-adquirentes-using-get-with-http-info
   "Lista os Tipos de adquirentes
-  Este mÃ©todo permite que sejam listados os tipos de adquirentes."
+  Este método permite que sejam listados os tipos de adquirentes."
   ([] (listar-tipos-adquirentes-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-adquirentes" :get
@@ -531,14 +530,35 @@
 
 (defn listar-tipos-adquirentes-using-get
   "Lista os Tipos de adquirentes
-  Este mÃ©todo permite que sejam listados os tipos de adquirentes."
+  Este método permite que sejam listados os tipos de adquirentes."
   ([] (listar-tipos-adquirentes-using-get nil))
   ([optional-params]
    (:data (listar-tipos-adquirentes-using-get-with-http-info optional-params))))
 
+(defn listar-tipos-estabelecimentos-using-get-with-http-info
+  "Lista os tipos de estabelecimentos
+  Lista os tipos de estabelecimentos"
+  ([] (listar-tipos-estabelecimentos-using-get-with-http-info nil))
+  ([{:keys [sort page limit descricao ]}]
+   (call-api "/api/tipos-estabelecimentos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "descricao" descricao }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-tipos-estabelecimentos-using-get
+  "Lista os tipos de estabelecimentos
+  Lista os tipos de estabelecimentos"
+  ([] (listar-tipos-estabelecimentos-using-get nil))
+  ([optional-params]
+   (:data (listar-tipos-estabelecimentos-using-get-with-http-info optional-params))))
+
 (defn listar-tipos-maquinetas-using-get-with-http-info
   "Lista os Tipos de  Maquinetas
-  Este mÃ©todo permite que sejam listadas os Tipos de maquinetas existentes na base de dados do Emissor."
+  Este método permite que sejam listadas os Tipos de maquinetas existentes na base de dados do Emissor."
   ([] (listar-tipos-maquinetas-using-get-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-maquinetas" :get
@@ -552,14 +572,35 @@
 
 (defn listar-tipos-maquinetas-using-get
   "Lista os Tipos de  Maquinetas
-  Este mÃ©todo permite que sejam listadas os Tipos de maquinetas existentes na base de dados do Emissor."
+  Este método permite que sejam listadas os Tipos de maquinetas existentes na base de dados do Emissor."
   ([] (listar-tipos-maquinetas-using-get nil))
   ([optional-params]
    (:data (listar-tipos-maquinetas-using-get-with-http-info optional-params))))
 
+(defn listar-tipos-origens-comerciais-using-get-with-http-info
+  "Listar tipos de origens comerciais
+  Lista os tipos de origens comerciais"
+  ([] (listar-tipos-origens-comerciais-using-get-with-http-info nil))
+  ([{:keys [sort page limit nome ]}]
+   (call-api "/api/tipos-origens-comerciais" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-tipos-origens-comerciais-using-get
+  "Listar tipos de origens comerciais
+  Lista os tipos de origens comerciais"
+  ([] (listar-tipos-origens-comerciais-using-get nil))
+  ([optional-params]
+   (:data (listar-tipos-origens-comerciais-using-get-with-http-info optional-params))))
+
 (defn listar-tipos-terminais-using-get1-with-http-info
   "Lista os Tipos Terminais
-  Este mÃ©todo permite que sejam listados os tipos de terminais existentes na base de dados do Emissor."
+  Este método permite que sejam listados os tipos de terminais existentes na base de dados do Emissor."
   ([] (listar-tipos-terminais-using-get1-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-terminais-estabelecimento" :get
@@ -573,36 +614,36 @@
 
 (defn listar-tipos-terminais-using-get1
   "Lista os Tipos Terminais
-  Este mÃ©todo permite que sejam listados os tipos de terminais existentes na base de dados do Emissor."
+  Este método permite que sejam listados os tipos de terminais existentes na base de dados do Emissor."
   ([] (listar-tipos-terminais-using-get1 nil))
   ([optional-params]
    (:data (listar-tipos-terminais-using-get1-with-http-info optional-params))))
 
-(defn listar-using-get21-with-http-info
+(defn listar-using-get22-with-http-info
   "Lista Estabelecimentos
-  Lista todas os Estabelecimentos"
-  ([] (listar-using-get21-with-http-info nil))
-  ([{:keys [sort page limit id id-credor numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo id-pais mcc id-tipo-estabelecimento correspondencia id-moeda tipo-pagamento numero-estabelecimento cep2 nome-logradouro2 numero-endereco2 complemento2 bairro2 cidade2 uf2 flag-matriz ]}]
+  Lista todos os Estabelecimentos"
+  ([] (listar-using-get22-with-http-info nil))
+  ([{:keys [sort page limit id id-grupo-economico numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo id-pais mcc id-tipo-estabelecimento correspondencia id-moeda tipo-pagamento numero-estabelecimento cep2 nome-logradouro2 numero-endereco2 complemento2 bairro2 cidade2 uf2 flag-matriz ]}]
    (call-api "/api/estabelecimentos" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "idCredor" id-credor "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo "idPais" id-pais "mcc" mcc "idTipoEstabelecimento" id-tipo-estabelecimento "correspondencia" correspondencia "idMoeda" id-moeda "tipoPagamento" tipo-pagamento "numeroEstabelecimento" numero-estabelecimento "cep2" cep2 "nomeLogradouro2" nome-logradouro2 "numeroEndereco2" numero-endereco2 "complemento2" complemento2 "bairro2" bairro2 "cidade2" cidade2 "uf2" uf2 "flagMatriz" flag-matriz }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "idGrupoEconomico" id-grupo-economico "numeroReceitaFederal" numero-receita-federal "nome" nome "descricao" descricao "nomeFantasia" nome-fantasia "cep" cep "nomeLogradouro" nome-logradouro "numeroEndereco" numero-endereco "complemento" complemento "bairro" bairro "cidade" cidade "uf" uf "pais" pais "dataCadastramento" data-cadastramento "contato" contato "email" email "flagArquivoSecrFazenda" flag-arquivo-secr-fazenda "flagCartaoDigitado" flag-cartao-digitado "inativo" inativo "idPais" id-pais "mcc" mcc "idTipoEstabelecimento" id-tipo-estabelecimento "correspondencia" correspondencia "idMoeda" id-moeda "tipoPagamento" tipo-pagamento "numeroEstabelecimento" numero-estabelecimento "cep2" cep2 "nomeLogradouro2" nome-logradouro2 "numeroEndereco2" numero-endereco2 "complemento2" complemento2 "bairro2" bairro2 "cidade2" cidade2 "uf2" uf2 "flagMatriz" flag-matriz }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get21
+(defn listar-using-get22
   "Lista Estabelecimentos
-  Lista todas os Estabelecimentos"
-  ([] (listar-using-get21 nil))
+  Lista todos os Estabelecimentos"
+  ([] (listar-using-get22 nil))
   ([optional-params]
-   (:data (listar-using-get21-with-http-info optional-params))))
+   (:data (listar-using-get22-with-http-info optional-params))))
 
-(defn listar-using-get23-with-http-info
-  "Listar grupos econÃ´micos
-  Lista grupos econÃ´micos cadastrados."
-  ([] (listar-using-get23-with-http-info nil))
+(defn listar-using-get24-with-http-info
+  "Listar grupos econômicos
+  Lista grupos econômicos cadastrados."
+  ([] (listar-using-get24-with-http-info nil))
   ([{:keys [sort page limit razao-social nome-credor numero-receita-federal inscricao-estadual contato banco agencia digito-agencia conta-corrente digito-conta-corrente periodicidade pagamento-semanal pagamento-mensal pagamento-decendial-primeiro pagamento-decendial-segundo pagamento-decendial-terceiro pagamento-quinzenal-primeiro pagamento-quinzenal-segundo percentual-rav recebe-rav percentual-multiplica taxa-adm taxa-banco limite-rav id-credor-rav ]}]
    (call-api "/api/grupos-economicos" :get
              {:path-params   {}
@@ -613,17 +654,38 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get23
-  "Listar grupos econÃ´micos
-  Lista grupos econÃ´micos cadastrados."
-  ([] (listar-using-get23 nil))
+(defn listar-using-get24
+  "Listar grupos econômicos
+  Lista grupos econômicos cadastrados."
+  ([] (listar-using-get24 nil))
   ([optional-params]
-   (:data (listar-using-get23-with-http-info optional-params))))
+   (:data (listar-using-get24-with-http-info optional-params))))
 
 (defn listar-using-get25-with-http-info
-  "Lista as Maquinetas
-  Este mÃ©todo permite que sejam listadas as maquinetas existentes na base de dados do Emissor."
+  "Listar grupos de origens comerciais
+  Lista os grupos de origens comerciais"
   ([] (listar-using-get25-with-http-info nil))
+  ([{:keys [sort page limit nome ]}]
+   (call-api "/api/grupos-origens-comerciais" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get25
+  "Listar grupos de origens comerciais
+  Lista os grupos de origens comerciais"
+  ([] (listar-using-get25 nil))
+  ([optional-params]
+   (:data (listar-using-get25-with-http-info optional-params))))
+
+(defn listar-using-get27-with-http-info
+  "Lista as Maquinetas
+  Este método permite que sejam listadas as maquinetas existentes na base de dados do Emissor."
+  ([] (listar-using-get27-with-http-info nil))
   ([{:keys [sort page limit id-estabelecimento ]}]
    (call-api "/api/maquinetas" :get
              {:path-params   {}
@@ -634,17 +696,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get25
+(defn listar-using-get27
   "Lista as Maquinetas
-  Este mÃ©todo permite que sejam listadas as maquinetas existentes na base de dados do Emissor."
-  ([] (listar-using-get25 nil))
+  Este método permite que sejam listadas as maquinetas existentes na base de dados do Emissor."
+  ([] (listar-using-get27 nil))
   ([optional-params]
-   (:data (listar-using-get25-with-http-info optional-params))))
+   (:data (listar-using-get27-with-http-info optional-params))))
 
-(defn listar-using-get26-with-http-info
+(defn listar-using-get28-with-http-info
   "Lista os tipos de moedas do emissor
   Este recurso permite que sejam listados os tipos de moedas existentes na base de dados do emissor."
-  ([] (listar-using-get26-with-http-info nil))
+  ([] (listar-using-get28-with-http-info nil))
   ([{:keys [sort page limit codigo-moeda simbolo descricao ]}]
    (call-api "/api/tipos-moedas" :get
              {:path-params   {}
@@ -655,17 +717,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get26
+(defn listar-using-get28
   "Lista os tipos de moedas do emissor
   Este recurso permite que sejam listados os tipos de moedas existentes na base de dados do emissor."
-  ([] (listar-using-get26 nil))
+  ([] (listar-using-get28 nil))
   ([optional-params]
-   (:data (listar-using-get26-with-http-info optional-params))))
+   (:data (listar-using-get28-with-http-info optional-params))))
 
-(defn listar-using-get27-with-http-info
-  "Lista as Regras OperaÃ§Ãµes
-  Este mÃ©todo permite que sejam listados as Regras operaÃ§Ãµes existentes na base de dados do Emissor."
-  ([] (listar-using-get27-with-http-info nil))
+(defn listar-using-get29-with-http-info
+  "Lista as Regras Operações
+  Este método permite que sejam listados as Regras operações existentes na base de dados do Emissor."
+  ([] (listar-using-get29-with-http-info nil))
   ([{:keys [sort page limit id-operacao id-credor id-produto ]}]
    (call-api "/api/regras-operacoes-estabelecimentos" :get
              {:path-params   {}
@@ -676,17 +738,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get27
-  "Lista as Regras OperaÃ§Ãµes
-  Este mÃ©todo permite que sejam listados as Regras operaÃ§Ãµes existentes na base de dados do Emissor."
-  ([] (listar-using-get27 nil))
+(defn listar-using-get29
+  "Lista as Regras Operações
+  Este método permite que sejam listados as Regras operações existentes na base de dados do Emissor."
+  ([] (listar-using-get29 nil))
   ([optional-params]
-   (:data (listar-using-get27-with-http-info optional-params))))
+   (:data (listar-using-get29-with-http-info optional-params))))
 
-(defn listar-using-get38-with-http-info
+(defn listar-using-get40-with-http-info
   "Lista os Telefones Estabelecimentos
-  Este mÃ©todo permite que sejam listados os telefones dos estabelecimentos existentes na base de dados do Emissor."
-  ([] (listar-using-get38-with-http-info nil))
+  Este método permite que sejam listados os telefones dos estabelecimentos existentes na base de dados do Emissor."
+  ([] (listar-using-get40-with-http-info nil))
   ([{:keys [sort page limit id-estabelecimento ]}]
    (call-api "/api/telefones-estabelecimentos" :get
              {:path-params   {}
@@ -697,17 +759,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get38
+(defn listar-using-get40
   "Lista os Telefones Estabelecimentos
-  Este mÃ©todo permite que sejam listados os telefones dos estabelecimentos existentes na base de dados do Emissor."
-  ([] (listar-using-get38 nil))
+  Este método permite que sejam listados os telefones dos estabelecimentos existentes na base de dados do Emissor."
+  ([] (listar-using-get40 nil))
   ([optional-params]
-   (:data (listar-using-get38-with-http-info optional-params))))
+   (:data (listar-using-get40-with-http-info optional-params))))
 
-(defn listar-using-get40-with-http-info
+(defn listar-using-get42-with-http-info
   "Lista os Terminais cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get40-with-http-info nil))
+  Este método permite que sejam listados os terminais existentes na base de dados do Emissor."
+  ([] (listar-using-get42-with-http-info nil))
   ([{:keys [sort page limit id terminal numero-estabelecimento id-estabelecimento ]}]
    (call-api "/api/terminais" :get
              {:path-params   {}
@@ -718,17 +780,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get40
+(defn listar-using-get42
   "Lista os Terminais cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os terminais existentes na base de dados do Emissor."
-  ([] (listar-using-get40 nil))
+  Este método permite que sejam listados os terminais existentes na base de dados do Emissor."
+  ([] (listar-using-get42 nil))
   ([optional-params]
-   (:data (listar-using-get40-with-http-info optional-params))))
+   (:data (listar-using-get42-with-http-info optional-params))))
 
-(defn listar-using-get51-with-http-info
-  "Lista os VÃ­nculos dos estabelecimento com os adquirentes
-  Este mÃ©todo permite que sejam listados os VÃ­nculos dos estabelecimento com os adquirentes."
-  ([] (listar-using-get51-with-http-info nil))
+(defn listar-using-get53-with-http-info
+  "Lista os Vínculos dos estabelecimento com os adquirentes
+  Este método permite que sejam listados os Vínculos dos estabelecimento com os adquirentes."
+  ([] (listar-using-get53-with-http-info nil))
   ([{:keys [sort page limit id-adquirente id-estabelecimento codigo-estabelecimento-adquirente ]}]
    (call-api "/api/adquirentes-estabelecimento" :get
              {:path-params   {}
@@ -739,17 +801,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get51
-  "Lista os VÃ­nculos dos estabelecimento com os adquirentes
-  Este mÃ©todo permite que sejam listados os VÃ­nculos dos estabelecimento com os adquirentes."
-  ([] (listar-using-get51 nil))
+(defn listar-using-get53
+  "Lista os Vínculos dos estabelecimento com os adquirentes
+  Este método permite que sejam listados os Vínculos dos estabelecimento com os adquirentes."
+  ([] (listar-using-get53 nil))
   ([optional-params]
-   (:data (listar-using-get51-with-http-info optional-params))))
+   (:data (listar-using-get53-with-http-info optional-params))))
 
-(defn listar-using-get52-with-http-info
-  "Lista os vÃ­nculos cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os vÃ­nculos operaÃ§Ãµes existentes na base de dados do Emissor."
-  ([id ] (listar-using-get52-with-http-info id nil))
+(defn listar-using-get54-with-http-info
+  "Listar vínculos de operações do estabelecimento
+  Lista os vínculos de operações do estabelecimento."
+  ([id ] (listar-using-get54-with-http-info id nil))
   ([id {:keys [sort page limit id-produto id-operacao codigo-mcc ]}]
    (call-api "/api/estabelecimentos/{id}/operacoes" :get
              {:path-params   {"id" id }
@@ -760,16 +822,16 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get52
-  "Lista os vÃ­nculos cadastrados no Emissor
-  Este mÃ©todo permite que sejam listados os vÃ­nculos operaÃ§Ãµes existentes na base de dados do Emissor."
-  ([id ] (listar-using-get52 id nil))
+(defn listar-using-get54
+  "Listar vínculos de operações do estabelecimento
+  Lista os vínculos de operações do estabelecimento."
+  ([id ] (listar-using-get54 id nil))
   ([id optional-params]
-   (:data (listar-using-get52-with-http-info id optional-params))))
+   (:data (listar-using-get54-with-http-info id optional-params))))
 
 (defn salvar-using-post16-with-http-info
   "Realiza o cadastro de uma nova maquineta para um estabelecimento
-  Este mÃ©todo permite que seja cadastrada uma nova maquineta para um estabelecimento."
+  Este método permite que seja cadastrada uma nova maquineta para um estabelecimento."
   [maquineta-persist ]
   (call-api "/api/maquinetas" :post
             {:path-params   {}
@@ -783,13 +845,13 @@
 
 (defn salvar-using-post16
   "Realiza o cadastro de uma nova maquineta para um estabelecimento
-  Este mÃ©todo permite que seja cadastrada uma nova maquineta para um estabelecimento."
+  Este método permite que seja cadastrada uma nova maquineta para um estabelecimento."
   [maquineta-persist ]
   (:data (salvar-using-post16-with-http-info maquineta-persist)))
 
 (defn salvar-using-post17-with-http-info
-  "Realiza o cadastro de uma nova Regra OperaÃ§Ã£o
-  Este mÃ©todo permite que seja cadastrada uma nova Regra OperaÃ§Ã£o."
+  "Realiza o cadastro de uma nova Regra Operação
+  Este método permite que seja cadastrada uma nova Regra Operação."
   [oprecao-credor-persist ]
   (call-api "/api/regras-operacoes-estabelecimentos" :post
             {:path-params   {}
@@ -802,35 +864,34 @@
              :auth-names    []}))
 
 (defn salvar-using-post17
-  "Realiza o cadastro de uma nova Regra OperaÃ§Ã£o
-  Este mÃ©todo permite que seja cadastrada uma nova Regra OperaÃ§Ã£o."
+  "Realiza o cadastro de uma nova Regra Operação
+  Este método permite que seja cadastrada uma nova Regra Operação."
   [oprecao-credor-persist ]
   (:data (salvar-using-post17-with-http-info oprecao-credor-persist)))
 
 (defn salvar-using-post22-with-http-info
   "Realiza o cadastro de um novo telefone para um estabelecimento
-  Este mÃ©todo permite que seja cadastrado um novo telefone para um estabelecimento."
-  ([id-estabelecimento ddd telefone ] (salvar-using-post22-with-http-info id-estabelecimento ddd telefone nil))
-  ([id-estabelecimento ddd telefone {:keys [ramal ]}]
-   (call-api "/api/telefones-estabelecimentos" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"idEstabelecimento" id-estabelecimento "ddd" ddd "telefone" telefone "ramal" ramal }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
+  Este método permite que seja cadastrado um novo telefone para um estabelecimento."
+  [telefone-estabelecimento-persist ]
+  (call-api "/api/telefones-estabelecimentos" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    telefone-estabelecimento-persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
 
 (defn salvar-using-post22
   "Realiza o cadastro de um novo telefone para um estabelecimento
-  Este mÃ©todo permite que seja cadastrado um novo telefone para um estabelecimento."
-  ([id-estabelecimento ddd telefone ] (salvar-using-post22 id-estabelecimento ddd telefone nil))
-  ([id-estabelecimento ddd telefone optional-params]
-   (:data (salvar-using-post22-with-http-info id-estabelecimento ddd telefone optional-params))))
+  Este método permite que seja cadastrado um novo telefone para um estabelecimento."
+  [telefone-estabelecimento-persist ]
+  (:data (salvar-using-post22-with-http-info telefone-estabelecimento-persist)))
 
 (defn salvar-using-post24-with-http-info
   "Realiza o cadastro de um novo Terminal
-  Este mÃ©todo permite que seja cadastrado um novo Terminal."
+  Este método permite que seja cadastrado um novo Terminal."
   [terminal-persist ]
   (call-api "/api/terminais" :post
             {:path-params   {}
@@ -844,13 +905,13 @@
 
 (defn salvar-using-post24
   "Realiza o cadastro de um novo Terminal
-  Este mÃ©todo permite que seja cadastrado um novo Terminal."
+  Este método permite que seja cadastrado um novo Terminal."
   [terminal-persist ]
   (:data (salvar-using-post24-with-http-info terminal-persist)))
 
 (defn salvar-using-post29-with-http-info
   "Realiza o cadastro de um novo VinculoEstabelecimentoAdquirente
-  Este mÃ©todo permite que seja cadastrado um novo VinculoEstabelecimentoAdquirente."
+  Este método permite que seja cadastrado um novo VinculoEstabelecimentoAdquirente."
   [vinculo-estabelecimento-adquirente-persist ]
   (call-api "/api/adquirentes-estabelecimento" :post
             {:path-params   {}
@@ -864,6 +925,6 @@
 
 (defn salvar-using-post29
   "Realiza o cadastro de um novo VinculoEstabelecimentoAdquirente
-  Este mÃ©todo permite que seja cadastrado um novo VinculoEstabelecimentoAdquirente."
+  Este método permite que seja cadastrado um novo VinculoEstabelecimentoAdquirente."
   [vinculo-estabelecimento-adquirente-persist ]
   (:data (salvar-using-post29-with-http-info vinculo-estabelecimento-adquirente-persist)))

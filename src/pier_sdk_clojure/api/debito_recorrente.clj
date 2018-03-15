@@ -2,10 +2,10 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn listar-using-get15-with-http-info
-  "Lista os dÃ©bitos recorrentes de uma Conta
-  A entidade DÃ©bito Recorrente trata dos registros contratados por um determinado cliente (idConta) onde a cobranÃ§a dele se dÃ¡ de forma contÃ­nua, consistindo em uma âassinaturaâ ou pagamento de mensalidades. Isso significa que, enquanto o serviÃ§o continuar a ser prestado, o cliente deverÃ¡ continuar realizando os pagamentos. A determinaÃ§Ã£o de quanto tempo essa relaÃ§Ã£o irÃ¡ durar Ã© feita em contrato. Na maioria das vezes, existe um perÃ­odo mÃ­nimo e, caso o serviÃ§o seja cancelado ou o pagamento nÃ£o seja realizado, o status do DÃ©bito Recorrente terÃ¡ a FlagAtivo com valor false. Assim, este mÃ©todo lista todas as operaÃ§Ãµes de DÃ©bitos Recorrentes que um determinado idConta jÃ¡ contratou, esteja ele ativo ou nÃ£o."
-  ([id-conta ] (listar-using-get15-with-http-info id-conta nil))
+(defn listar-using-get16-with-http-info
+  "Lista os débitos recorrentes de uma Conta
+  A entidade Débito Recorrente trata dos registros contratados por um determinado cliente (idConta) onde a cobrança dele se dá de forma contínua, consistindo em uma “assinatura” ou pagamento de mensalidades. Isso significa que, enquanto o serviço continuar a ser prestado, o cliente deverá continuar realizando os pagamentos. A determinação de quanto tempo essa relação irá durar é feita em contrato. Na maioria das vezes, existe um período mínimo e, caso o serviço seja cancelado ou o pagamento não seja realizado, o status do Débito Recorrente terá a FlagAtivo com valor false. Assim, este método lista todas as operações de Débitos Recorrentes que um determinado idConta já contratou, esteja ele ativo ou não."
+  ([id-conta ] (listar-using-get16-with-http-info id-conta nil))
   ([id-conta {:keys [id-tipo-debito-recorrente sort page limit data-hora-inicio data-hora-fim ativo data-hora-ultimo-pagamento ]}]
    (call-api "/api/debitos-recorrentes" :get
              {:path-params   {}
@@ -16,17 +16,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get15
-  "Lista os dÃ©bitos recorrentes de uma Conta
-  A entidade DÃ©bito Recorrente trata dos registros contratados por um determinado cliente (idConta) onde a cobranÃ§a dele se dÃ¡ de forma contÃ­nua, consistindo em uma âassinaturaâ ou pagamento de mensalidades. Isso significa que, enquanto o serviÃ§o continuar a ser prestado, o cliente deverÃ¡ continuar realizando os pagamentos. A determinaÃ§Ã£o de quanto tempo essa relaÃ§Ã£o irÃ¡ durar Ã© feita em contrato. Na maioria das vezes, existe um perÃ­odo mÃ­nimo e, caso o serviÃ§o seja cancelado ou o pagamento nÃ£o seja realizado, o status do DÃ©bito Recorrente terÃ¡ a FlagAtivo com valor false. Assim, este mÃ©todo lista todas as operaÃ§Ãµes de DÃ©bitos Recorrentes que um determinado idConta jÃ¡ contratou, esteja ele ativo ou nÃ£o."
-  ([id-conta ] (listar-using-get15 id-conta nil))
+(defn listar-using-get16
+  "Lista os débitos recorrentes de uma Conta
+  A entidade Débito Recorrente trata dos registros contratados por um determinado cliente (idConta) onde a cobrança dele se dá de forma contínua, consistindo em uma “assinatura” ou pagamento de mensalidades. Isso significa que, enquanto o serviço continuar a ser prestado, o cliente deverá continuar realizando os pagamentos. A determinação de quanto tempo essa relação irá durar é feita em contrato. Na maioria das vezes, existe um período mínimo e, caso o serviço seja cancelado ou o pagamento não seja realizado, o status do Débito Recorrente terá a FlagAtivo com valor false. Assim, este método lista todas as operações de Débitos Recorrentes que um determinado idConta já contratou, esteja ele ativo ou não."
+  ([id-conta ] (listar-using-get16 id-conta nil))
   ([id-conta optional-params]
-   (:data (listar-using-get15-with-http-info id-conta optional-params))))
+   (:data (listar-using-get16-with-http-info id-conta optional-params))))
 
-(defn listar-using-get41-with-http-info
+(defn listar-using-get43-with-http-info
   "Listar Tipos Debitos Recorrentes
-  Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderÃ£o comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de DÃ©bitos Recorrentes que estÃ£o cadastrados para um determinado Emissor, independente do status dele."
-  ([] (listar-using-get41-with-http-info nil))
+  Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderão comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de Débitos Recorrentes que estão cadastrados para um determinado Emissor, independente do status dele."
+  ([] (listar-using-get43-with-http-info nil))
   ([{:keys [sort page limit id descricao valor flag-ativo ]}]
    (call-api "/api/tipos-debitos-recorrentes" :get
              {:path-params   {}
@@ -37,9 +37,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get41
+(defn listar-using-get43
   "Listar Tipos Debitos Recorrentes
-  Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderÃ£o comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de DÃ©bitos Recorrentes que estÃ£o cadastrados para um determinado Emissor, independente do status dele."
-  ([] (listar-using-get41 nil))
+  Para os emissores que utilizam a entidade Debitos Recorrentes precisam previamente solicitar a Conductor o cadastro de quais Tipos eles poderão comercializar. Por isso, este recurso tem como objetivo apresentar todos os Tipos de Débitos Recorrentes que estão cadastrados para um determinado Emissor, independente do status dele."
+  ([] (listar-using-get43 nil))
   ([optional-params]
-   (:data (listar-using-get41-with-http-info optional-params))))
+   (:data (listar-using-get43-with-http-info optional-params))))

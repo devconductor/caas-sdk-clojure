@@ -4,7 +4,7 @@
 
 (defn alterar-using-put22-with-http-info
   "Alterar Webhook
-  Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
+  Este método permite que seja modificado um webhooks já cadastrado"
   ([id webhook ] (alterar-using-put22-with-http-info id webhook nil))
   ([id webhook {:keys [status ]}]
    (call-api "/api/webhooks/{id}" :put
@@ -19,14 +19,14 @@
 
 (defn alterar-using-put22
   "Alterar Webhook
-  Este mÃ©todo permite que seja modificado um webhooks jÃ¡ cadastrado"
+  Este método permite que seja modificado um webhooks já cadastrado"
   ([id webhook ] (alterar-using-put22 id webhook nil))
   ([id webhook optional-params]
    (:data (alterar-using-put22-with-http-info id webhook optional-params))))
 
-(defn consultar-using-get44-with-http-info
+(defn consultar-using-get45-with-http-info
   "Consultar Webhook
-  Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
+  Este método permite que sejam consultado um webhook do emissor através de um id especifico"
   [id ]
   (call-api "/api/webhooks/{id}" :get
             {:path-params   {"id" id }
@@ -37,16 +37,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get44
+(defn consultar-using-get45
   "Consultar Webhook
-  Este mÃ©todo permite que sejam consultado um webhook do emissor atravÃ©s de um id especifico"
+  Este método permite que sejam consultado um webhook do emissor através de um id especifico"
   [id ]
-  (:data (consultar-using-get44-with-http-info id)))
+  (:data (consultar-using-get45-with-http-info id)))
 
-(defn listar-using-get53-with-http-info
+(defn listar-using-get55-with-http-info
   "Lista os Webhooks
-  Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get53-with-http-info nil))
+  Este método permite que sejam listados os webhooks existentes"
+  ([] (listar-using-get55-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -57,16 +57,16 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get53
+(defn listar-using-get55
   "Lista os Webhooks
-  Este mÃ©todo permite que sejam listados os webhooks existentes"
-  ([] (listar-using-get53 nil))
+  Este método permite que sejam listados os webhooks existentes"
+  ([] (listar-using-get55 nil))
   ([optional-params]
-   (:data (listar-using-get53-with-http-info optional-params))))
+   (:data (listar-using-get55-with-http-info optional-params))))
 
 (defn salvar-using-post30-with-http-info
   "Salvar Webhook
-  Este mÃ©todo permite que seja adicionado um novo webhook"
+  Este método permite que seja adicionado um novo webhook"
   [webhook ]
   (call-api "/api/webhooks" :post
             {:path-params   {}
@@ -80,6 +80,6 @@
 
 (defn salvar-using-post30
   "Salvar Webhook
-  Este mÃ©todo permite que seja adicionado um novo webhook"
+  Este método permite que seja adicionado um novo webhook"
   [webhook ]
   (:data (salvar-using-post30-with-http-info webhook)))

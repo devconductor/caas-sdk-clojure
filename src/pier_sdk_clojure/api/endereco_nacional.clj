@@ -3,8 +3,8 @@
   (:import (java.io File)))
 
 (defn consultar-endereco-using-get-with-http-info
-  "Consultar EndereÃ§o
-  Este recurso permite consultar endereÃ§os atravÃ©s do CEP."
+  "Consultar Endereço
+  Este recurso permite consultar endereços através do CEP."
   [cep ]
   (call-api "/api/ceps" :get
             {:path-params   {}
@@ -16,7 +16,7 @@
              :auth-names    []}))
 
 (defn consultar-endereco-using-get
-  "Consultar EndereÃ§o
-  Este recurso permite consultar endereÃ§os atravÃ©s do CEP."
+  "Consultar Endereço
+  Este recurso permite consultar endereços através do CEP."
   [cep ]
   (:data (consultar-endereco-using-get-with-http-info cep)))
