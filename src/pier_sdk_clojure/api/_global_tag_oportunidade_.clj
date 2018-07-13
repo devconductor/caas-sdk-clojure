@@ -81,7 +81,7 @@
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get25-with-http-info
+(defn consultar-using-get26-with-http-info
   "{{{oportunidade_resource_consultar}}}
   {{{oportunidade_resource_consultar_notes}}}"
   [id ]
@@ -94,13 +94,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get25
+(defn consultar-using-get26
   "{{{oportunidade_resource_consultar}}}
   {{{oportunidade_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get25-with-http-info id)))
+  (:data (consultar-using-get26-with-http-info id)))
 
-(defn consultar-using-get44-with-http-info
+(defn consultar-using-get45-with-http-info
   "{{{tipo_oportunidade_resource_consultar}}}
   {{{tipo_oportunidade_resource_consultar_notes}}}"
   [id ]
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get44
+(defn consultar-using-get45
   "{{{tipo_oportunidade_resource_consultar}}}
   {{{tipo_oportunidade_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get44-with-http-info id)))
+  (:data (consultar-using-get45-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "{{{tipo_oportunidade_resource_listar_auditorias_status}}}

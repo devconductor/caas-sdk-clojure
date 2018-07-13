@@ -42,7 +42,7 @@
   [id persist ]
   (:data (atualizar-using-put3-with-http-info id persist)))
 
-(defn consultar-using-get16-with-http-info
+(defn consultar-using-get17-with-http-info
   "{{{documento_resource_consultar}}}
   {{{documento_resource_consultar_notes}}}"
   [id ]
@@ -55,13 +55,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get16
+(defn consultar-using-get17
   "{{{documento_resource_consultar}}}
   {{{documento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get16-with-http-info id)))
+  (:data (consultar-using-get17-with-http-info id)))
 
-(defn consultar-using-get17-with-http-info
+(defn consultar-using-get18-with-http-info
   "{{{documento_template_resource_consultar}}}
   {{{documento_template_resource_consultar_notes}}}"
   [id ]
@@ -74,13 +74,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get17
+(defn consultar-using-get18
   "{{{documento_template_resource_consultar}}}
   {{{documento_template_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get17-with-http-info id)))
+  (:data (consultar-using-get18-with-http-info id)))
 
-(defn consultar-using-get46-with-http-info
+(defn consultar-using-get47-with-http-info
   "{{{tipo_template_resource_consultar}}}
   {{{tipo_template_resource_consultar_notes}}}"
   [id ]
@@ -93,11 +93,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get46
+(defn consultar-using-get47
   "{{{tipo_template_resource_consultar}}}
   {{{tipo_template_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get46-with-http-info id)))
+  (:data (consultar-using-get47-with-http-info id)))
 
 (defn integrar-using-post1-with-http-info
   "{{{documento_resource_integrar}}}

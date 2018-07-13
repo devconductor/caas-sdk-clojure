@@ -162,7 +162,7 @@
   [origem-comercial-persist ]
   (:data (cadastrar-origem-comercial-using-post-with-http-info origem-comercial-persist)))
 
-(defn cadastrar-using-post2-with-http-info
+(defn cadastrar-using-post3-with-http-info
   "{{{estabelecimento_resource_cadastrar}}}
   {{{estabelecimento_resource_cadastrar_notes}}}"
   [persist ]
@@ -176,13 +176,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn cadastrar-using-post2
+(defn cadastrar-using-post3
   "{{{estabelecimento_resource_cadastrar}}}
   {{{estabelecimento_resource_cadastrar_notes}}}"
   [persist ]
-  (:data (cadastrar-using-post2-with-http-info persist)))
+  (:data (cadastrar-using-post3-with-http-info persist)))
 
-(defn cadastrar-using-post3-with-http-info
+(defn cadastrar-using-post4-with-http-info
   "{{{grupo_economico_resource_cadastrar}}}
   {{{grupo_economico_resource_cadastrar_notes}}}"
   [grupo-economico-dto ]
@@ -196,11 +196,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn cadastrar-using-post3
+(defn cadastrar-using-post4
   "{{{grupo_economico_resource_cadastrar}}}
   {{{grupo_economico_resource_cadastrar_notes}}}"
   [grupo-economico-dto ]
-  (:data (cadastrar-using-post3-with-http-info grupo-economico-dto)))
+  (:data (cadastrar-using-post4-with-http-info grupo-economico-dto)))
 
 (defn consulta-operacao-using-get-with-http-info
   "{{{operacao_resource_consulta_operacao}}}
@@ -240,7 +240,7 @@
   [id ]
   (:data (consultar-origem-comercial-using-get-with-http-info id)))
 
-(defn consultar-using-get19-with-http-info
+(defn consultar-using-get20-with-http-info
   "{{{estabelecimento_resource_consultar}}}
   {{{estabelecimento_resource_consultar_notes}}}"
   [id ]
@@ -253,13 +253,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get19
+(defn consultar-using-get20
   "{{{estabelecimento_resource_consultar}}}
   {{{estabelecimento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get19-with-http-info id)))
+  (:data (consultar-using-get20-with-http-info id)))
 
-(defn consultar-using-get21-with-http-info
+(defn consultar-using-get22-with-http-info
   "{{{grupo_economico_resource_consultar}}}
   {{{grupo_economico_resource_consultar_notes}}}"
   [id ]
@@ -272,13 +272,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get21
+(defn consultar-using-get22
   "{{{grupo_economico_resource_consultar}}}
   {{{grupo_economico_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get21-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn consultar-using-get23-with-http-info
+(defn consultar-using-get24-with-http-info
   "{{{maquineta_resource_consultar}}}
   {{{maquineta_resource_consultar_notes}}}"
   [id ]
@@ -291,13 +291,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get23
+(defn consultar-using-get24
   "{{{maquineta_resource_consultar}}}
   {{{maquineta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get23-with-http-info id)))
+  (:data (consultar-using-get24-with-http-info id)))
 
-(defn consultar-using-get24-with-http-info
+(defn consultar-using-get25-with-http-info
   "{{{operacao_credor_resource_consultar}}}
   {{{operacao_credor_resource_consultar_notes}}}"
   [id ]
@@ -310,13 +310,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get24
+(defn consultar-using-get25
   "{{{operacao_credor_resource_consultar}}}
   {{{operacao_credor_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get24-with-http-info id)))
+  (:data (consultar-using-get25-with-http-info id)))
 
-(defn consultar-using-get37-with-http-info
+(defn consultar-using-get38-with-http-info
   "{{{telefone_estabelecimento_resource_consultar}}}
   {{{telefone_estabelecimento_resource_consultar_notes}}}"
   [id ]
@@ -329,13 +329,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get37
+(defn consultar-using-get38
   "{{{telefone_estabelecimento_resource_consultar}}}
   {{{telefone_estabelecimento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get37-with-http-info id)))
+  (:data (consultar-using-get38-with-http-info id)))
 
-(defn consultar-using-get39-with-http-info
+(defn consultar-using-get40-with-http-info
   "{{{terminal_resource_consultar}}}
   {{{terminal_resource_consultar_notes}}}"
   [id ]
@@ -348,13 +348,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get39
+(defn consultar-using-get40
   "{{{terminal_resource_consultar}}}
   {{{terminal_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get39-with-http-info id)))
+  (:data (consultar-using-get40-with-http-info id)))
 
-(defn consultar-using-get51-with-http-info
+(defn consultar-using-get52-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_consultar}}}
   {{{vinculo_estabelecimento_adquirente_resource_consultar_notes}}}"
   [id ]
@@ -367,11 +367,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get51
+(defn consultar-using-get52
   "{{{vinculo_estabelecimento_adquirente_resource_consultar}}}
   {{{vinculo_estabelecimento_adquirente_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get51-with-http-info id)))
+  (:data (consultar-using-get52-with-http-info id)))
 
 (defn desabilitar-vinculo-using-post-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_desabilitar_vinculo}}}

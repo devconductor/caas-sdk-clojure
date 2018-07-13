@@ -102,7 +102,7 @@
   [convenio-persist ]
   (:data (cadastrar-convenio-using-post-with-http-info convenio-persist)))
 
-(defn cadastrar-using-post1-with-http-info
+(defn cadastrar-using-post2-with-http-info
   "{{{configuracao_registro_cobranca_resource_cadastrar}}}
   {{{configuracao_registro_cobranca_resource_cadastrar_notes}}}"
   [configuracao-persist ]
@@ -116,11 +116,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn cadastrar-using-post1
+(defn cadastrar-using-post2
   "{{{configuracao_registro_cobranca_resource_cadastrar}}}
   {{{configuracao_registro_cobranca_resource_cadastrar_notes}}}"
   [configuracao-persist ]
-  (:data (cadastrar-using-post1-with-http-info configuracao-persist)))
+  (:data (cadastrar-using-post2-with-http-info configuracao-persist)))
 
 (defn configurar-taxa-antecipacao-using-post-with-http-info
   "{{{produto_resource_configurar_taxa_antecipacao}}}
@@ -199,7 +199,7 @@
   [id tipo-transacao ]
   (:data (consultar-taxa-antecipacao-using-get-with-http-info id tipo-transacao)))
 
-(defn consultar-using-get10-with-http-info
+(defn consultar-using-get11-with-http-info
   "{{{configuracao_registro_cobranca_resource_consultar}}}
   {{{configuracao_registro_cobranca_resource_consultar_notes}}}"
   [id ]
@@ -212,13 +212,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get10
+(defn consultar-using-get11
   "{{{configuracao_registro_cobranca_resource_consultar}}}
   {{{configuracao_registro_cobranca_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get10-with-http-info id)))
+  (:data (consultar-using-get11-with-http-info id)))
 
-(defn consultar-using-get11-with-http-info
+(defn consultar-using-get12-with-http-info
   "{{{configuracao_rotativo_resource_consultar}}}
   {{{configuracao_rotativo_resource_consultar_notes}}}"
   [id ]
@@ -231,13 +231,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get12
   "{{{configuracao_rotativo_resource_consultar}}}
   {{{configuracao_rotativo_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get12-with-http-info id)))
 
-(defn consultar-using-get31-with-http-info
+(defn consultar-using-get32-with-http-info
   "{{{produto_resource_consultar}}}
   {{{produto_resource_consultar_notes}}}"
   [id ]
@@ -250,13 +250,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get31
+(defn consultar-using-get32
   "{{{produto_resource_consultar}}}
   {{{produto_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get31-with-http-info id)))
+  (:data (consultar-using-get32-with-http-info id)))
 
-(defn consultar-using-get40-with-http-info
+(defn consultar-using-get41-with-http-info
   "{{{tipo_transacoes_ajuste_resource_consultar}}}
   {{{tipo_transacoes_ajuste_resource_consultar_notes}}}"
   [id ]
@@ -269,16 +269,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get40
+(defn consultar-using-get41
   "{{{tipo_transacoes_ajuste_resource_consultar}}}
   {{{tipo_transacoes_ajuste_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get40-with-http-info id)))
+  (:data (consultar-using-get41-with-http-info id)))
 
-(defn consultar-using-get41-with-http-info
+(defn consultar-using-get42-with-http-info
   "{{{tipo_boleto_resource_consultar}}}
   {{{tipo_boleto_resource_consultar_notes}}}"
-  ([] (consultar-using-get41-with-http-info nil))
+  ([] (consultar-using-get42-with-http-info nil))
   ([{:keys [sort page limit id descricao banco ]}]
    (call-api "/api/tipos-boletos" :get
              {:path-params   {}
@@ -289,14 +289,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get41
+(defn consultar-using-get42
   "{{{tipo_boleto_resource_consultar}}}
   {{{tipo_boleto_resource_consultar_notes}}}"
-  ([] (consultar-using-get41 nil))
+  ([] (consultar-using-get42 nil))
   ([optional-params]
-   (:data (consultar-using-get41-with-http-info optional-params))))
+   (:data (consultar-using-get42-with-http-info optional-params))))
 
-(defn consultar-using-get42-with-http-info
+(defn consultar-using-get43-with-http-info
   "{{{tipo_endereco_resource_consultar}}}
   {{{tipo_endereco_resource_consultar_notes}}}"
   [id ]
@@ -309,13 +309,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get42
+(defn consultar-using-get43
   "{{{tipo_endereco_resource_consultar}}}
   {{{tipo_endereco_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get42-with-http-info id)))
+  (:data (consultar-using-get43-with-http-info id)))
 
-(defn consultar-using-get43-with-http-info
+(defn consultar-using-get44-with-http-info
   "{{{tipo_operacao_resource_consultar}}}
   {{{tipo_operacao_resource_consultar_notes}}}"
   [id-cartao id-estabelecimento codigo-processamento ]
@@ -328,13 +328,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get43
+(defn consultar-using-get44
   "{{{tipo_operacao_resource_consultar}}}
   {{{tipo_operacao_resource_consultar_notes}}}"
   [id-cartao id-estabelecimento codigo-processamento ]
-  (:data (consultar-using-get43-with-http-info id-cartao id-estabelecimento codigo-processamento)))
+  (:data (consultar-using-get44-with-http-info id-cartao id-estabelecimento codigo-processamento)))
 
-(defn consultar-using-get45-with-http-info
+(defn consultar-using-get46-with-http-info
   "{{{tipo_telefone_resource_consultar}}}
   {{{tipo_telefone_resource_consultar_notes}}}"
   [id ]
@@ -347,13 +347,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get45
+(defn consultar-using-get46
   "{{{tipo_telefone_resource_consultar}}}
   {{{tipo_telefone_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get45-with-http-info id)))
+  (:data (consultar-using-get46-with-http-info id)))
 
-(defn consultar-using-get5-with-http-info
+(defn consultar-using-get6-with-http-info
   "{{{atendimento_cliente_resource_consultar}}}
   {{{atendimento_cliente_resource_consultar_notes}}}"
   [id ]
@@ -366,13 +366,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get5
+(defn consultar-using-get6
   "{{{atendimento_cliente_resource_consultar}}}
   {{{atendimento_cliente_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get5-with-http-info id)))
+  (:data (consultar-using-get6-with-http-info id)))
 
-(defn consultar-using-get7-with-http-info
+(defn consultar-using-get8-with-http-info
   "{{{banco_resource_consultar}}}
   {{{banco_resource_consultar_notes}}}"
   [id ]
@@ -385,11 +385,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get7
+(defn consultar-using-get8
   "{{{banco_resource_consultar}}}
   {{{banco_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get7-with-http-info id)))
+  (:data (consultar-using-get8-with-http-info id)))
 
 (defn listar-campanhas-using-get-with-http-info
   "{{{campanha_resource_listar_campanhas}}}

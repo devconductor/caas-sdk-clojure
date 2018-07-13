@@ -24,7 +24,7 @@
   ([id webhook optional-params]
    (:data (alterar-using-put24-with-http-info id webhook optional-params))))
 
-(defn consultar-using-get52-with-http-info
+(defn consultar-using-get53-with-http-info
   "{{{web_hook_resource_consultar}}}
   {{{web_hook_resource_consultar_notes}}}"
   [id ]
@@ -37,11 +37,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get52
+(defn consultar-using-get53
   "{{{web_hook_resource_consultar}}}
   {{{web_hook_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get52-with-http-info id)))
+  (:data (consultar-using-get53-with-http-info id)))
 
 (defn listar-using-get66-with-http-info
   "{{{web_hook_resource_listar}}}

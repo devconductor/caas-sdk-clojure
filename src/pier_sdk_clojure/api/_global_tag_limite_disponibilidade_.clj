@@ -23,7 +23,7 @@
   ([id-conta optional-params]
    (:data (alterar-using-put9-with-http-info id-conta optional-params))))
 
-(defn consultar-using-get22-with-http-info
+(defn consultar-using-get23-with-http-info
   "{{{limite_disponibilidade_resource_consultar}}}
   {{{limite_disponibilidade_resource_consultar_notes}}}"
   [id-conta ]
@@ -36,8 +36,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get22
+(defn consultar-using-get23
   "{{{limite_disponibilidade_resource_consultar}}}
   {{{limite_disponibilidade_resource_consultar_notes}}}"
   [id-conta ]
-  (:data (consultar-using-get22-with-http-info id-conta)))
+  (:data (consultar-using-get23-with-http-info id-conta)))

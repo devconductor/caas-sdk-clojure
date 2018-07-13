@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get33-with-http-info
+(defn consultar-using-get34-with-http-info
   "{{{boleto_resource_consultar}}}
   {{{boleto_resource_consultar_notes}}}"
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get33
+(defn consultar-using-get34
   "{{{boleto_resource_consultar}}}
   {{{boleto_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get33-with-http-info id)))
+  (:data (consultar-using-get34-with-http-info id)))
 
 (defn enviar-boleto-email-using-post-with-http-info
   "{{{boleto_resource_enviar_boleto_email}}}

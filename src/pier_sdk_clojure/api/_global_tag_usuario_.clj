@@ -120,10 +120,10 @@
   ([id optional-params]
    (:data (consultar-contas-vinculadas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get14-with-http-info
+(defn consultar-using-get15-with-http-info
   "{{{controle_seguranca_dispositivo_consultar}}}
   {{{controle_seguranca_dispositivo_consultar_notas}}}"
-  ([id-usuario ] (consultar-using-get14-with-http-info id-usuario nil))
+  ([id-usuario ] (consultar-using-get15-with-http-info id-usuario nil))
   ([id-usuario {:keys [sort page limit ]}]
    (call-api "/api/controles-seguranca-dispositivos" :get
              {:path-params   {}
@@ -134,14 +134,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get14
+(defn consultar-using-get15
   "{{{controle_seguranca_dispositivo_consultar}}}
   {{{controle_seguranca_dispositivo_consultar_notas}}}"
-  ([id-usuario ] (consultar-using-get14 id-usuario nil))
+  ([id-usuario ] (consultar-using-get15 id-usuario nil))
   ([id-usuario optional-params]
-   (:data (consultar-using-get14-with-http-info id-usuario optional-params))))
+   (:data (consultar-using-get15-with-http-info id-usuario optional-params))))
 
-(defn consultar-using-get50-with-http-info
+(defn consultar-using-get51-with-http-info
   "{{{usuario_resource_consultar}}}
   {{{usuario_resource_consultar_notes}}}"
   [id ]
@@ -154,11 +154,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get50
+(defn consultar-using-get51
   "{{{usuario_resource_consultar}}}
   {{{usuario_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get50-with-http-info id)))
+  (:data (consultar-using-get51-with-http-info id)))
 
 (defn desativar-usuario-using-post1-with-http-info
   "{{{usuario_resource_desativar_usuario}}}

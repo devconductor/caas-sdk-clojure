@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "{{{aviso_viagem_resource_consultar}}}
   {{{aviso_viagem_resource_consultar_notes}}}"
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "{{{aviso_viagem_resource_consultar}}}
   {{{aviso_viagem_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get7-with-http-info id)))
 
 (defn desabilitar-using-post-with-http-info
   "{{{aviso_viagem_resource_desabilitar}}}

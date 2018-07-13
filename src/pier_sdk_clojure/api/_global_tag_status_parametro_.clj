@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get35-with-http-info
+(defn consultar-using-get36-with-http-info
   "{{{status_conta_resource_consultar}}}
   {{{status_conta_resource_consultar_notes}}}"
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get35
+(defn consultar-using-get36
   "{{{status_conta_resource_consultar}}}
   {{{status_conta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get35-with-http-info id)))
+  (:data (consultar-using-get36-with-http-info id)))
 
-(defn consultar-using-get36-with-http-info
+(defn consultar-using-get37-with-http-info
   "{{{status_impressao_resource_consultar}}}
   {{{status_impressao_resource_consultar_notes}}}"
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get36
+(defn consultar-using-get37
   "{{{status_impressao_resource_consultar}}}
   {{{status_impressao_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get36-with-http-info id)))
+  (:data (consultar-using-get37-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "{{{estagio_cartao_resource_listar_estagios_cartoes}}}

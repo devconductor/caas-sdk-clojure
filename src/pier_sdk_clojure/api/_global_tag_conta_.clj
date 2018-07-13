@@ -150,6 +150,25 @@
   ([id id-status optional-params]
    (:data (bloquear-using-post1-with-http-info id id-status optional-params))))
 
+(defn cadastrar-using-post-with-http-info
+  "{{{aderir_pagamento_sabado_recurso_cadastrar}}}
+  {{{aderir_pagamento_sabado_recurso_cadastrar_notas}}}"
+  [id ]
+  (call-api "/api/adesoes-pagamentos-sabados" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"id" id }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn cadastrar-using-post
+  "{{{aderir_pagamento_sabado_recurso_cadastrar}}}
+  {{{aderir_pagamento_sabado_recurso_cadastrar_notas}}}"
+  [id ]
+  (:data (cadastrar-using-post-with-http-info id)))
+
 (defn cancelar-using-post1-with-http-info
   "{{{conta_resource_cancelar}}}
   {{{conta_resource_cancelar_notes}}}"
@@ -255,10 +274,29 @@
   ([id optional-params]
    (:data (consultar-taxas-tarifas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get1-with-http-info
+  "{{{aderir_pagamento_sabado_recurso_consultar}}}
+  {{{aderir_pagamento_sabado_recurso_consultar_notas}}}"
+  [id data-vencimento ]
+  (call-api "/api/adesoes-pagamentos-sabados" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {"id" id "dataVencimento" data-vencimento }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-using-get1
+  "{{{aderir_pagamento_sabado_recurso_consultar}}}
+  {{{aderir_pagamento_sabado_recurso_consultar_notas}}}"
+  [id data-vencimento ]
+  (:data (consultar-using-get1-with-http-info id data-vencimento)))
+
+(defn consultar-using-get14-with-http-info
   "{{{conta_resource_consultar}}}
   {{{conta_resource_consultar_notes}}}"
-  ([id ] (consultar-using-get13-with-http-info id nil))
+  ([id ] (consultar-using-get14-with-http-info id nil))
   ([id {:keys [authorization ]}]
    (call-api "/api/contas/{id}" :get
              {:path-params   {"id" id }
@@ -269,14 +307,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get13
+(defn consultar-using-get14
   "{{{conta_resource_consultar}}}
   {{{conta_resource_consultar_notes}}}"
-  ([id ] (consultar-using-get13 id nil))
+  ([id ] (consultar-using-get14 id nil))
   ([id optional-params]
-   (:data (consultar-using-get13-with-http-info id optional-params))))
+   (:data (consultar-using-get14-with-http-info id optional-params))))
 
-(defn consultar-using-get48-with-http-info
+(defn consultar-using-get49-with-http-info
   "{{{transferencia_resource_consultar}}}
   {{{transferencia_resource_consultar_notes}}}"
   [id id-transferencia ]
@@ -289,11 +327,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get48
+(defn consultar-using-get49
   "{{{transferencia_resource_consultar}}}
   {{{transferencia_resource_consultar_notes}}}"
   [id id-transferencia ]
-  (:data (consultar-using-get48-with-http-info id id-transferencia)))
+  (:data (consultar-using-get49-with-http-info id id-transferencia)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "{{{conta_resource_desativar_envio_fatura_email}}}
@@ -510,11 +548,11 @@
   "{{{transacoes_correntes_resource_listar_processadas}}}
   {{{transacoes_correntes_resource_listar_processadas_notes}}}"
   ([id ] (listar-processadas-using-get-with-http-info id nil))
-  ([id {:keys [sort page limit data-vencimento data-inicio data-fim id-tipo-transacao ]}]
+  ([id {:keys [sort page limit data-vencimento data-inicio data-fim id-tipo-transacao recupera-encargos ]}]
    (call-api "/api/contas/{id}/transacoes/listar-processadas" :get
              {:path-params   {"id" id }
               :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento "dataInicio" data-inicio "dataFim" data-fim "idTipoTransacao" id-tipo-transacao }
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento "dataInicio" data-inicio "dataFim" data-fim "idTipoTransacao" id-tipo-transacao "recuperaEncargos" recupera-encargos }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

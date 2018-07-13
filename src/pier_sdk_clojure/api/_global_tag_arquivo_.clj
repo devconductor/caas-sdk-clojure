@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get4-with-http-info
+(defn consultar-using-get5-with-http-info
   "{{{arquivo_resource_consultar}}}
   {{{arquivo_resource_consultar_notes}}}"
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get4
+(defn consultar-using-get5
   "{{{arquivo_resource_consultar}}}
   {{{arquivo_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get4-with-http-info id)))
+  (:data (consultar-using-get5-with-http-info id)))
 
 (defn integrar-using-post-with-http-info
   "{{{arquivo_resource_integrar}}}

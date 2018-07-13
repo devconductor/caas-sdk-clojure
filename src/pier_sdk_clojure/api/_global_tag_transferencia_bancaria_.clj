@@ -2,6 +2,26 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
+(defn atualizar-taxas-juros-contas-using-put-with-http-info
+  "{{{transferencia_bancaria_resource_atualizar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_atualizar_taxas_juros_contas_notes}}}"
+  [id update ]
+  (call-api "/api/contas/{id}/taxas-transferencias" :put
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    update
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn atualizar-taxas-juros-contas-using-put
+  "{{{transferencia_bancaria_resource_atualizar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_atualizar_taxas_juros_contas_notes}}}"
+  [id update ]
+  (:data (atualizar-taxas-juros-contas-using-put-with-http-info id update)))
+
 (defn atualizar-using-put1-with-http-info
   "{{{conta_bancaria_resource_atualizar}}}
   {{{conta_bancaria_resource_atualizar_notes}}}"
@@ -60,6 +80,25 @@
   [id-transferencia ]
   (:data (confirmar-transferencia-credito-conta-bancaria-using-post-with-http-info id-transferencia)))
 
+(defn consultar-taxas-juros-contas-using-get-with-http-info
+  "{{{transferencia_bancaria_resource_consultar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_consultar_taxas_juros_contas_notes}}}"
+  [id numero-meses-carencia ]
+  (call-api "/api/contas/{id}/taxas-transferencias" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {"numeroMesesCarencia" numero-meses-carencia }
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-taxas-juros-contas-using-get
+  "{{{transferencia_bancaria_resource_consultar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_consultar_taxas_juros_contas_notes}}}"
+  [id numero-meses-carencia ]
+  (:data (consultar-taxas-juros-contas-using-get-with-http-info id numero-meses-carencia)))
+
 (defn consultar-transferencia-bancaria-using-get-with-http-info
   "{{{transferencia_bancaria_resource_consultar_transferencia_bancaria}}}
   {{{transferencia_bancaria_resource_consultar_transferencia_bancaria_notes}}}"
@@ -79,7 +118,7 @@
   [id-transferencia ]
   (:data (consultar-transferencia-bancaria-using-get-with-http-info id-transferencia)))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get13-with-http-info
   "{{{conta_bancaria_resource_consultar}}}
   {{{conta_bancaria_resource_consultar_notes}}}"
   [id ]
@@ -92,16 +131,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get13
   "{{{conta_bancaria_resource_consultar}}}
   {{{conta_bancaria_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get13-with-http-info id)))
 
-(defn consultar-using-get47-with-http-info
+(defn consultar-using-get48-with-http-info
   "{{{transferencia_bancaria_resource_consultar}}}
   {{{transferencia_bancaria_resource_consultar_notes}}}"
-  ([id id-transferencia ] (consultar-using-get47-with-http-info id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get48-with-http-info id id-transferencia nil))
   ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
              {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -112,12 +151,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get47
+(defn consultar-using-get48
   "{{{transferencia_bancaria_resource_consultar}}}
   {{{transferencia_bancaria_resource_consultar_notes}}}"
-  ([id id-transferencia ] (consultar-using-get47 id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get48 id id-transferencia nil))
   ([id id-transferencia optional-params]
-   (:data (consultar-using-get47-with-http-info id id-transferencia optional-params))))
+   (:data (consultar-using-get48-with-http-info id id-transferencia optional-params))))
 
 (defn listar-transferencia-bancaria-using-get-with-http-info
   "{{{transferencia_bancaria_resource_listar_transferencia_bancaria}}}
@@ -181,6 +220,26 @@
   ([id ] (listar-using-get59 id nil))
   ([id optional-params]
    (:data (listar-using-get59-with-http-info id optional-params))))
+
+(defn salvar-taxas-juros-contas-using-post-with-http-info
+  "{{{transferencia_bancaria_resource_salvar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_notes}}}"
+  [id persist ]
+  (call-api "/api/contas/{id}/taxas-transferencias" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn salvar-taxas-juros-contas-using-post
+  "{{{transferencia_bancaria_resource_salvar_taxas_juros_contas}}}
+  {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_notes}}}"
+  [id persist ]
+  (:data (salvar-taxas-juros-contas-using-post-with-http-info id persist)))
 
 (defn salvar-using-post7-with-http-info
   "{{{conta_bancaria_resource_salvar}}}

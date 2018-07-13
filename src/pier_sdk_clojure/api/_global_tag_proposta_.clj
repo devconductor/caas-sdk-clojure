@@ -22,7 +22,7 @@
   [id update ]
   (:data (alterar-using-post-with-http-info id update)))
 
-(defn consultar-using-get32-with-http-info
+(defn consultar-using-get33-with-http-info
   "{{{proposta_resource_consultar}}}
   {{{proposta_resource_consultar_notes}}}"
   [id ]
@@ -35,11 +35,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get32
+(defn consultar-using-get33
   "{{{proposta_resource_consultar}}}
   {{{proposta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get32-with-http-info id)))
+  (:data (consultar-using-get33-with-http-info id)))
 
 (defn listar-status-proposta-using-get-with-http-info
   "{{{proposta_resource_listar_status}}}

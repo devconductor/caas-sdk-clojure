@@ -23,7 +23,7 @@
   ([id-tipo-ajuste data-ajuste valor-ajuste id-conta optional-params]
    (:data (ajustar-conta-using-post-with-http-info id-tipo-ajuste data-ajuste valor-ajuste id-conta optional-params))))
 
-(defn consultar-using-get2-with-http-info
+(defn consultar-using-get3-with-http-info
   "{{{ajuste_financeiro_resource_consultar}}}
   {{{ajuste_financeiro_resource_consultar_notes}}}"
   [id ]
@@ -36,11 +36,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get2
+(defn consultar-using-get3
   "{{{ajuste_financeiro_resource_consultar}}}
   {{{ajuste_financeiro_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get2-with-http-info id)))
+  (:data (consultar-using-get3-with-http-info id)))
 
 (defn listar-using-get2-with-http-info
   "{{{ajuste_financeiro_resource_listar}}}

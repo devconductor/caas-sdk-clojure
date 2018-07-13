@@ -61,7 +61,7 @@
   [device-id id update ]
   (:data (confirma-atualizacao-chave-using-post-with-http-info device-id id update)))
 
-(defn consultar-using-get8-with-http-info
+(defn consultar-using-get9-with-http-info
   "{{{cartao_pay_resource_consultar}}}
   {{{cartao_pay_resource_consultar_notes}}}"
   [device-id id ]
@@ -74,11 +74,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get8
+(defn consultar-using-get9
   "{{{cartao_pay_resource_consultar}}}
   {{{cartao_pay_resource_consultar_notes}}}"
   [device-id id ]
-  (:data (consultar-using-get8-with-http-info device-id id)))
+  (:data (consultar-using-get9-with-http-info device-id id)))
 
 (defn listar-codigos-resposta-using-get-with-http-info
   "{{{enum_pay_resource_listar_codigos_resposta}}}

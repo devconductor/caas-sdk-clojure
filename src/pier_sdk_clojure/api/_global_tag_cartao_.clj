@@ -255,10 +255,10 @@
   ([id optional-params]
    (:data (consultar-portador-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get9-with-http-info
+(defn consultar-using-get10-with-http-info
   "{{{cartao_resource_consultar}}}
   {{{cartao_resource_consultar_notes}}}"
-  ([id ] (consultar-using-get9-with-http-info id nil))
+  ([id ] (consultar-using-get10-with-http-info id nil))
   ([id {:keys [authorization ]}]
    (call-api "/api/cartoes/{id}" :get
              {:path-params   {"id" id }
@@ -269,12 +269,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get9
+(defn consultar-using-get10
   "{{{cartao_resource_consultar}}}
   {{{cartao_resource_consultar_notes}}}"
-  ([id ] (consultar-using-get9 id nil))
+  ([id ] (consultar-using-get10 id nil))
   ([id optional-params]
-   (:data (consultar-using-get9-with-http-info id optional-params))))
+   (:data (consultar-using-get10-with-http-info id optional-params))))
 
 (defn desbloquear-senha-incorreta-using-post-with-http-info
   "{{{cartao_resource_desbloquear_senha_incorreta}}}

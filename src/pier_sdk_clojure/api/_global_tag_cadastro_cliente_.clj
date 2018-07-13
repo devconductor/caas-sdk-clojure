@@ -167,7 +167,7 @@
   ([id optional-params]
    (:data (atualizar-using-post-with-http-info id optional-params))))
 
-(defn cadastrar-using-post-with-http-info
+(defn cadastrar-using-post1-with-http-info
   "{{{adicional_resource_cadastrar}}}
   {{{adicional_resource_cadastrar_notes}}}"
   [id persist ]
@@ -181,32 +181,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn cadastrar-using-post
+(defn cadastrar-using-post1
   "{{{adicional_resource_cadastrar}}}
   {{{adicional_resource_cadastrar_notes}}}"
   [id persist ]
-  (:data (cadastrar-using-post-with-http-info id persist)))
+  (:data (cadastrar-using-post1-with-http-info id persist)))
 
-(defn consultar-using-get1-with-http-info
-  "{{{adicional_resource_consultar}}}
-  {{{adicional_resource_consultar_notes}}}"
-  [id id-pessoa ]
-  (call-api "/api/contas/{id}/adicionais/{idPessoa}" :get
-            {:path-params   {"id" id "idPessoa" id-pessoa }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn consultar-using-get1
-  "{{{adicional_resource_consultar}}}
-  {{{adicional_resource_consultar_notes}}}"
-  [id id-pessoa ]
-  (:data (consultar-using-get1-with-http-info id id-pessoa)))
-
-(defn consultar-using-get18-with-http-info
+(defn consultar-using-get19-with-http-info
   "{{{endereco_resource_consultar}}}
   {{{endereco_resource_consultar_notes}}}"
   [id ]
@@ -219,13 +200,32 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get18
+(defn consultar-using-get19
   "{{{endereco_resource_consultar}}}
   {{{endereco_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get18-with-http-info id)))
+  (:data (consultar-using-get19-with-http-info id)))
 
-(defn consultar-using-get29-with-http-info
+(defn consultar-using-get2-with-http-info
+  "{{{adicional_resource_consultar}}}
+  {{{adicional_resource_consultar_notes}}}"
+  [id id-pessoa ]
+  (call-api "/api/contas/{id}/adicionais/{idPessoa}" :get
+            {:path-params   {"id" id "idPessoa" id-pessoa }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn consultar-using-get2
+  "{{{adicional_resource_consultar}}}
+  {{{adicional_resource_consultar_notes}}}"
+  [id id-pessoa ]
+  (:data (consultar-using-get2-with-http-info id id-pessoa)))
+
+(defn consultar-using-get30-with-http-info
   "{{{pessoa_detalhe_resource_consultar}}}
   {{{pessoa_detalhe_resource_consultar_notes}}}"
   [id ]
@@ -238,13 +238,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get29
+(defn consultar-using-get30
   "{{{pessoa_detalhe_resource_consultar}}}
   {{{pessoa_detalhe_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get29-with-http-info id)))
+  (:data (consultar-using-get30-with-http-info id)))
 
-(defn consultar-using-get30-with-http-info
+(defn consultar-using-get31-with-http-info
   "{{{pessoa_resource_consultar}}}
   {{{pessoa_resource_consultar_notes}}}"
   [id ]
@@ -257,13 +257,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get30
+(defn consultar-using-get31
   "{{{pessoa_resource_consultar}}}
   {{{pessoa_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get30-with-http-info id)))
+  (:data (consultar-using-get31-with-http-info id)))
 
-(defn consultar-using-get38-with-http-info
+(defn consultar-using-get39-with-http-info
   "{{{telefone_resource_consultar}}}
   {{{telefone_resource_consultar_notes}}}"
   [id ]
@@ -276,11 +276,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get38
+(defn consultar-using-get39
   "{{{telefone_resource_consultar}}}
   {{{telefone_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get38-with-http-info id)))
+  (:data (consultar-using-get39-with-http-info id)))
 
 (defn inativar-using-post-with-http-info
   "{{{adicional_resource_inativar}}}
