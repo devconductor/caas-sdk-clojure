@@ -40,10 +40,10 @@
   [id ]
   (:data (desativar-using-post-with-http-info id)))
 
-(defn listar-using-get20-with-http-info
+(defn listar-using-get21-with-http-info
   "{{{dispositivo_resource_listar}}}
   {{{dispositivo_resource_listar_notes}}}"
-  ([] (listar-using-get20-with-http-info nil))
+  ([] (listar-using-get21-with-http-info nil))
   ([{:keys [sort page limit token id-usuario id-aplicacao-mobile data-criacao data-desativacao ]}]
    (call-api "/api/dispositivos" :get
              {:path-params   {}
@@ -54,14 +54,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get20
+(defn listar-using-get21
   "{{{dispositivo_resource_listar}}}
   {{{dispositivo_resource_listar_notes}}}"
-  ([] (listar-using-get20 nil))
+  ([] (listar-using-get21 nil))
   ([optional-params]
-   (:data (listar-using-get20-with-http-info optional-params))))
+   (:data (listar-using-get21-with-http-info optional-params))))
 
-(defn salvar-using-post10-with-http-info
+(defn salvar-using-post11-with-http-info
   "{{{dispositivo_resource_salvar}}}
   {{{dispositivo_resource_salvar_notes}}}"
   [persist ]
@@ -75,8 +75,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post10
+(defn salvar-using-post11
   "{{{dispositivo_resource_salvar}}}
   {{{dispositivo_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post10-with-http-info persist)))
+  (:data (salvar-using-post11-with-http-info persist)))

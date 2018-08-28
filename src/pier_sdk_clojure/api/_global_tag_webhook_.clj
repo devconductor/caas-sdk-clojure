@@ -24,7 +24,7 @@
   ([id webhook optional-params]
    (:data (alterar-using-put24-with-http-info id webhook optional-params))))
 
-(defn consultar-using-get53-with-http-info
+(defn consultar-using-get55-with-http-info
   "{{{web_hook_resource_consultar}}}
   {{{web_hook_resource_consultar_notes}}}"
   [id ]
@@ -37,16 +37,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get53
+(defn consultar-using-get55
   "{{{web_hook_resource_consultar}}}
   {{{web_hook_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get53-with-http-info id)))
+  (:data (consultar-using-get55-with-http-info id)))
 
-(defn listar-using-get66-with-http-info
+(defn listar-using-get69-with-http-info
   "{{{web_hook_resource_listar}}}
   {{{web_hook_resource_listar_notes}}}"
-  ([] (listar-using-get66-with-http-info nil))
+  ([] (listar-using-get69-with-http-info nil))
   ([{:keys [sort page limit id tipo-evento metodo url ]}]
    (call-api "/api/webhooks" :get
              {:path-params   {}
@@ -57,14 +57,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get66
+(defn listar-using-get69
   "{{{web_hook_resource_listar}}}
   {{{web_hook_resource_listar_notes}}}"
-  ([] (listar-using-get66 nil))
+  ([] (listar-using-get69 nil))
   ([optional-params]
-   (:data (listar-using-get66-with-http-info optional-params))))
+   (:data (listar-using-get69-with-http-info optional-params))))
 
-(defn salvar-using-post35-with-http-info
+(defn salvar-using-post36-with-http-info
   "{{{web_hook_resource_salvar}}}
   {{{web_hook_resource_salvar_notes}}}"
   [webhook ]
@@ -78,8 +78,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post35
+(defn salvar-using-post36
   "{{{web_hook_resource_salvar}}}
   {{{web_hook_resource_salvar_notes}}}"
   [webhook ]
-  (:data (salvar-using-post35-with-http-info webhook)))
+  (:data (salvar-using-post36-with-http-info webhook)))

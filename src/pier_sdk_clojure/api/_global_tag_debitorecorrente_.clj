@@ -42,10 +42,10 @@
   [id conta-debito-recorrente-persist ]
   (:data (cancelar-debito-recorrente-using-post-with-http-info id conta-debito-recorrente-persist)))
 
-(defn listar-using-get17-with-http-info
+(defn listar-using-get18-with-http-info
   "{{{conta_debito_recorrente_resource_listar}}}
   {{{conta_debito_recorrente_resource_listar_notes}}}"
-  ([id-conta ] (listar-using-get17-with-http-info id-conta nil))
+  ([id-conta ] (listar-using-get18-with-http-info id-conta nil))
   ([id-conta {:keys [id-tipo-debito-recorrente sort page limit data-hora-inicio data-hora-fim ativo data-hora-ultimo-pagamento ]}]
    (call-api "/api/debitos-recorrentes" :get
              {:path-params   {}
@@ -56,17 +56,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get17
+(defn listar-using-get18
   "{{{conta_debito_recorrente_resource_listar}}}
   {{{conta_debito_recorrente_resource_listar_notes}}}"
-  ([id-conta ] (listar-using-get17 id-conta nil))
+  ([id-conta ] (listar-using-get18 id-conta nil))
   ([id-conta optional-params]
-   (:data (listar-using-get17-with-http-info id-conta optional-params))))
+   (:data (listar-using-get18-with-http-info id-conta optional-params))))
 
-(defn listar-using-get53-with-http-info
+(defn listar-using-get56-with-http-info
   "{{{tipo_debito_recorrente_resource_listar}}}
   {{{tipo_debito_recorrente_resource_listar_notes}}}"
-  ([] (listar-using-get53-with-http-info nil))
+  ([] (listar-using-get56-with-http-info nil))
   ([{:keys [sort page limit id descricao valor flag-ativo ]}]
    (call-api "/api/tipos-debitos-recorrentes" :get
              {:path-params   {}
@@ -77,9 +77,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get53
+(defn listar-using-get56
   "{{{tipo_debito_recorrente_resource_listar}}}
   {{{tipo_debito_recorrente_resource_listar_notes}}}"
-  ([] (listar-using-get53 nil))
+  ([] (listar-using-get56 nil))
   ([optional-params]
-   (:data (listar-using-get53-with-http-info optional-params))))
+   (:data (listar-using-get56-with-http-info optional-params))))

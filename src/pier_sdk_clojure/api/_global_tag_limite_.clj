@@ -6,10 +6,10 @@
   "{{{conta_resource_listar_historico_alteracoes_limites}}}
   {{{conta_resource_listar_historico_alteracoes_limites_notes}}}"
   ([id ] (listar-historico-alteracoes-limites-using-get-with-http-info id nil))
-  ([id {:keys [authorization sort page limit ]}]
+  ([id {:keys [sort page limit ]}]
    (call-api "/api/contas/{id}/historicos-alteracoes-limites" :get
              {:path-params   {"id" id }
-              :header-params {"Authorization" authorization }
+              :header-params {}
               :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
               :form-params   {}
               :content-types ["application/json"]

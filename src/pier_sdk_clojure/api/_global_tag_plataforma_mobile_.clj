@@ -22,10 +22,10 @@
   [id update ]
   (:data (atualizar-using-put1-with-http-info id update)))
 
-(defn listar-using-get40-with-http-info
+(defn listar-using-get42-with-http-info
   "{{{plataforma_mobile_resource_listar}}}
   {{{plataforma_mobile_resource_listar_notes}}}"
-  ([] (listar-using-get40-with-http-info nil))
+  ([] (listar-using-get42-with-http-info nil))
   ([{:keys [sort page limit nome ]}]
    (call-api "/api/plataformas-mobile" :get
              {:path-params   {}
@@ -36,14 +36,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get40
+(defn listar-using-get42
   "{{{plataforma_mobile_resource_listar}}}
   {{{plataforma_mobile_resource_listar_notes}}}"
-  ([] (listar-using-get40 nil))
+  ([] (listar-using-get42 nil))
   ([optional-params]
-   (:data (listar-using-get40-with-http-info optional-params))))
+   (:data (listar-using-get42-with-http-info optional-params))))
 
-(defn salvar-using-post26-with-http-info
+(defn salvar-using-post27-with-http-info
   "{{{plataforma_mobile_resource_salvar}}}
   {{{plataforma_mobile_resource_salvar_notes}}}"
   [persist ]
@@ -57,8 +57,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post26
+(defn salvar-using-post27
   "{{{plataforma_mobile_resource_salvar}}}
   {{{plataforma_mobile_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post26-with-http-info persist)))
+  (:data (salvar-using-post27-with-http-info persist)))

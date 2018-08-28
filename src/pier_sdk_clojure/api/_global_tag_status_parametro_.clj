@@ -40,7 +40,7 @@
   [id ]
   (:data (consultar-status-cartao-using-get-with-http-info id)))
 
-(defn consultar-using-get36-with-http-info
+(defn consultar-using-get38-with-http-info
   "{{{status_conta_resource_consultar}}}
   {{{status_conta_resource_consultar_notes}}}"
   [id ]
@@ -53,13 +53,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get36
+(defn consultar-using-get38
   "{{{status_conta_resource_consultar}}}
   {{{status_conta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get36-with-http-info id)))
+  (:data (consultar-using-get38-with-http-info id)))
 
-(defn consultar-using-get37-with-http-info
+(defn consultar-using-get39-with-http-info
   "{{{status_impressao_resource_consultar}}}
   {{{status_impressao_resource_consultar_notes}}}"
   [id ]
@@ -72,11 +72,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get37
+(defn consultar-using-get39
   "{{{status_impressao_resource_consultar}}}
   {{{status_impressao_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get37-with-http-info id)))
+  (:data (consultar-using-get39-with-http-info id)))
 
 (defn listar-estagios-cartoes-using-get-with-http-info
   "{{{estagio_cartao_resource_listar_estagios_cartoes}}}
@@ -139,10 +139,10 @@
   []
   (:data (listar-tipos-eventos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get47-with-http-info
+(defn listar-using-get49-with-http-info
   "{{{status_conta_resource_listar}}}
   {{{status_conta_resource_listar_notes}}}"
-  ([] (listar-using-get47-with-http-info nil))
+  ([] (listar-using-get49-with-http-info nil))
   ([{:keys [sort page limit id nome permite-alterar-vencimento permite-alterar-limite permite-emitir-nova-via-cartao permite-fazer-transferencia permite-receber-transferencia permite-criar-acordo-cobranca permite-atribuir-como-bloqueio permite-desbloquear permite-atribuir-como-cancelamento ]}]
    (call-api "/api/status-contas" :get
              {:path-params   {}
@@ -153,17 +153,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get47
+(defn listar-using-get49
   "{{{status_conta_resource_listar}}}
   {{{status_conta_resource_listar_notes}}}"
-  ([] (listar-using-get47 nil))
+  ([] (listar-using-get49 nil))
   ([optional-params]
-   (:data (listar-using-get47-with-http-info optional-params))))
+   (:data (listar-using-get49-with-http-info optional-params))))
 
-(defn listar-using-get48-with-http-info
+(defn listar-using-get50-with-http-info
   "{{{status_impressao_resource_listar}}}
   {{{status_impressao_resource_listar_notes}}}"
-  ([] (listar-using-get48-with-http-info nil))
+  ([] (listar-using-get50-with-http-info nil))
   ([{:keys [sort page limit id nome ]}]
    (call-api "/api/status-impressoes" :get
              {:path-params   {}
@@ -174,9 +174,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get48
+(defn listar-using-get50
   "{{{status_impressao_resource_listar}}}
   {{{status_impressao_resource_listar_notes}}}"
-  ([] (listar-using-get48 nil))
+  ([] (listar-using-get50 nil))
   ([optional-params]
-   (:data (listar-using-get48-with-http-info optional-params))))
+   (:data (listar-using-get50-with-http-info optional-params))))

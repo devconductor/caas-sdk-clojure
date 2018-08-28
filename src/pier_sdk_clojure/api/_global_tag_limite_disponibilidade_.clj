@@ -23,7 +23,7 @@
   ([id-conta optional-params]
    (:data (alterar-using-put9-with-http-info id-conta optional-params))))
 
-(defn consultar-using-get23-with-http-info
+(defn consultar-using-get25-with-http-info
   "{{{limite_disponibilidade_resource_consultar}}}
   {{{limite_disponibilidade_resource_consultar_notes}}}"
   [id-conta ]
@@ -36,8 +36,28 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get23
+(defn consultar-using-get25
   "{{{limite_disponibilidade_resource_consultar}}}
   {{{limite_disponibilidade_resource_consultar_notes}}}"
   [id-conta ]
-  (:data (consultar-using-get23-with-http-info id-conta)))
+  (:data (consultar-using-get25-with-http-info id-conta)))
+
+(defn sensibilizar-saldo-disponivel-global-using-post-with-http-info
+  "{{{limite_disponibilidade_resource_sensibilizar_credito_disponivel}}}
+  {{{limite_disponibilidade_resource_sensibilizar_credito_disponivel_notes}}}"
+  [id sensibilizar-saldo-global ]
+  (call-api "/api/contas/{id}/limites-disponibilidades/sensibilizar-saldo-disponivel-global" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    sensibilizar-saldo-global
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn sensibilizar-saldo-disponivel-global-using-post
+  "{{{limite_disponibilidade_resource_sensibilizar_credito_disponivel}}}
+  {{{limite_disponibilidade_resource_sensibilizar_credito_disponivel_notes}}}"
+  [id sensibilizar-saldo-global ]
+  (:data (sensibilizar-saldo-disponivel-global-using-post-with-http-info id sensibilizar-saldo-global)))

@@ -6,10 +6,10 @@
   "{{{conta_resource_ativar_anuidade}}}
   {{{conta_resource_ativar_anuidade_notes}}}"
   ([id id-anuidade ] (ativar-anuidade-using-post-with-http-info id id-anuidade nil))
-  ([id id-anuidade {:keys [authorization sort page limit ddd celular id-operadora id-origem-comercial ]}]
+  ([id id-anuidade {:keys [sort page limit ddd celular id-operadora id-origem-comercial ]}]
    (call-api "/api/contas/{id}/atribuir-anuidade" :post
              {:path-params   {"id" id }
-              :header-params {"Authorization" authorization }
+              :header-params {}
               :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idAnuidade" id-anuidade "DDD" ddd "celular" celular "idOperadora" id-operadora "idOrigemComercial" id-origem-comercial }
               :form-params   {}
               :content-types ["application/json"]
@@ -26,44 +26,40 @@
 (defn ativar-envio-fatura-email-using-post-with-http-info
   "{{{conta_resource_ativar_envio_fatura_email}}}
   {{{conta_resource_ativar_envio_fatura_email_notes}}}"
-  ([id ] (ativar-envio-fatura-email-using-post-with-http-info id nil))
-  ([id {:keys [authorization ]}]
-   (call-api "/api/contas/{id}/ativar-fatura-email" :post
-             {:path-params   {"id" id }
-              :header-params {"Authorization" authorization }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
+  [id ]
+  (call-api "/api/contas/{id}/ativar-fatura-email" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
 
 (defn ativar-envio-fatura-email-using-post
   "{{{conta_resource_ativar_envio_fatura_email}}}
   {{{conta_resource_ativar_envio_fatura_email_notes}}}"
-  ([id ] (ativar-envio-fatura-email-using-post id nil))
-  ([id optional-params]
-   (:data (ativar-envio-fatura-email-using-post-with-http-info id optional-params))))
+  [id ]
+  (:data (ativar-envio-fatura-email-using-post-with-http-info id)))
 
 (defn desativar-envio-fatura-email-using-post-with-http-info
   "{{{conta_resource_desativar_envio_fatura_email}}}
   {{{conta_resource_desativar_envio_fatura_email_notes}}}"
-  ([id ] (desativar-envio-fatura-email-using-post-with-http-info id nil))
-  ([id {:keys [authorization ]}]
-   (call-api "/api/contas/{id}/desativar-fatura-email" :post
-             {:path-params   {"id" id }
-              :header-params {"Authorization" authorization }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
+  [id ]
+  (call-api "/api/contas/{id}/desativar-fatura-email" :post
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
 
 (defn desativar-envio-fatura-email-using-post
   "{{{conta_resource_desativar_envio_fatura_email}}}
   {{{conta_resource_desativar_envio_fatura_email_notes}}}"
-  ([id ] (desativar-envio-fatura-email-using-post id nil))
-  ([id optional-params]
-   (:data (desativar-envio-fatura-email-using-post-with-http-info id optional-params))))
+  [id ]
+  (:data (desativar-envio-fatura-email-using-post-with-http-info id)))
 
 (defn listar-anuidades-using-get-with-http-info
   "{{{anuidade_resource_listar_anuidades}}}

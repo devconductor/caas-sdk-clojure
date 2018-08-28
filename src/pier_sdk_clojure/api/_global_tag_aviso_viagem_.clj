@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get7-with-http-info
+(defn consultar-using-get8-with-http-info
   "{{{aviso_viagem_resource_consultar}}}
   {{{aviso_viagem_resource_consultar_notes}}}"
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get7
+(defn consultar-using-get8
   "{{{aviso_viagem_resource_consultar}}}
   {{{aviso_viagem_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get7-with-http-info id)))
+  (:data (consultar-using-get8-with-http-info id)))
 
 (defn desabilitar-using-post-with-http-info
   "{{{aviso_viagem_resource_desabilitar}}}
@@ -59,10 +59,10 @@
   [id ]
   (:data (habilitar-using-post-with-http-info id)))
 
-(defn listar-using-get8-with-http-info
+(defn listar-using-get9-with-http-info
   "{{{aviso_viagem_resource_listar}}}
   {{{aviso_viagem_resource_listar_notes}}}"
-  ([] (listar-using-get8-with-http-info nil))
+  ([] (listar-using-get9-with-http-info nil))
   ([{:keys [sort page limit id-cartao codigo-pais data-inicio data-fim flag-ativo ]}]
    (call-api "/api/avisos-viagens" :get
              {:path-params   {}
@@ -73,12 +73,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get8
+(defn listar-using-get9
   "{{{aviso_viagem_resource_listar}}}
   {{{aviso_viagem_resource_listar_notes}}}"
-  ([] (listar-using-get8 nil))
+  ([] (listar-using-get9 nil))
   ([optional-params]
-   (:data (listar-using-get8-with-http-info optional-params))))
+   (:data (listar-using-get9-with-http-info optional-params))))
 
 (defn salvar-using-post3-with-http-info
   "{{{aviso_viagem_resource_salvar}}}

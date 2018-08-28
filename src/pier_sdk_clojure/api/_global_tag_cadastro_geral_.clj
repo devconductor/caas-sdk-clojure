@@ -22,6 +22,26 @@
   [id convenio-persist ]
   (:data (alterar-convenio-using-put-with-http-info id convenio-persist)))
 
+(defn alterar-corte-using-put-with-http-info
+  "{{{vencimento_resource_alterar}}}
+  {{{vencimento_resource_alterar_notes}}}"
+  [data-vencimento update ]
+  (call-api "/api/vencimentos/{dataVencimento}" :put
+            {:path-params   {"dataVencimento" data-vencimento }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    update
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn alterar-corte-using-put
+  "{{{vencimento_resource_alterar}}}
+  {{{vencimento_resource_alterar_notes}}}"
+  [data-vencimento update ]
+  (:data (alterar-corte-using-put-with-http-info data-vencimento update)))
+
 (defn alterar-using-put1-with-http-info
   "{{{campanha_resource_alterar}}}
   {{{campanha_resource_alterar_notes}}}"
@@ -199,7 +219,7 @@
   [id tipo-transacao ]
   (:data (consultar-taxa-antecipacao-using-get-with-http-info id tipo-transacao)))
 
-(defn consultar-using-get11-with-http-info
+(defn consultar-using-get13-with-http-info
   "{{{configuracao_registro_cobranca_resource_consultar}}}
   {{{configuracao_registro_cobranca_resource_consultar_notes}}}"
   [id ]
@@ -212,13 +232,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get11
+(defn consultar-using-get13
   "{{{configuracao_registro_cobranca_resource_consultar}}}
   {{{configuracao_registro_cobranca_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get11-with-http-info id)))
+  (:data (consultar-using-get13-with-http-info id)))
 
-(defn consultar-using-get12-with-http-info
+(defn consultar-using-get14-with-http-info
   "{{{configuracao_rotativo_resource_consultar}}}
   {{{configuracao_rotativo_resource_consultar_notes}}}"
   [id ]
@@ -231,13 +251,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get12
+(defn consultar-using-get14
   "{{{configuracao_rotativo_resource_consultar}}}
   {{{configuracao_rotativo_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get12-with-http-info id)))
+  (:data (consultar-using-get14-with-http-info id)))
 
-(defn consultar-using-get32-with-http-info
+(defn consultar-using-get34-with-http-info
   "{{{produto_resource_consultar}}}
   {{{produto_resource_consultar_notes}}}"
   [id ]
@@ -250,13 +270,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get32
+(defn consultar-using-get34
   "{{{produto_resource_consultar}}}
   {{{produto_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get32-with-http-info id)))
+  (:data (consultar-using-get34-with-http-info id)))
 
-(defn consultar-using-get41-with-http-info
+(defn consultar-using-get43-with-http-info
   "{{{tipo_transacoes_ajuste_resource_consultar}}}
   {{{tipo_transacoes_ajuste_resource_consultar_notes}}}"
   [id ]
@@ -269,16 +289,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get41
+(defn consultar-using-get43
   "{{{tipo_transacoes_ajuste_resource_consultar}}}
   {{{tipo_transacoes_ajuste_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get41-with-http-info id)))
+  (:data (consultar-using-get43-with-http-info id)))
 
-(defn consultar-using-get42-with-http-info
+(defn consultar-using-get44-with-http-info
   "{{{tipo_boleto_resource_consultar}}}
   {{{tipo_boleto_resource_consultar_notes}}}"
-  ([] (consultar-using-get42-with-http-info nil))
+  ([] (consultar-using-get44-with-http-info nil))
   ([{:keys [sort page limit id descricao banco ]}]
    (call-api "/api/tipos-boletos" :get
              {:path-params   {}
@@ -289,14 +309,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get42
+(defn consultar-using-get44
   "{{{tipo_boleto_resource_consultar}}}
   {{{tipo_boleto_resource_consultar_notes}}}"
-  ([] (consultar-using-get42 nil))
+  ([] (consultar-using-get44 nil))
   ([optional-params]
-   (:data (consultar-using-get42-with-http-info optional-params))))
+   (:data (consultar-using-get44-with-http-info optional-params))))
 
-(defn consultar-using-get43-with-http-info
+(defn consultar-using-get45-with-http-info
   "{{{tipo_endereco_resource_consultar}}}
   {{{tipo_endereco_resource_consultar_notes}}}"
   [id ]
@@ -309,13 +329,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get43
+(defn consultar-using-get45
   "{{{tipo_endereco_resource_consultar}}}
   {{{tipo_endereco_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get43-with-http-info id)))
+  (:data (consultar-using-get45-with-http-info id)))
 
-(defn consultar-using-get44-with-http-info
+(defn consultar-using-get46-with-http-info
   "{{{tipo_operacao_resource_consultar}}}
   {{{tipo_operacao_resource_consultar_notes}}}"
   [id-cartao id-estabelecimento codigo-processamento ]
@@ -328,13 +348,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get44
+(defn consultar-using-get46
   "{{{tipo_operacao_resource_consultar}}}
   {{{tipo_operacao_resource_consultar_notes}}}"
   [id-cartao id-estabelecimento codigo-processamento ]
-  (:data (consultar-using-get44-with-http-info id-cartao id-estabelecimento codigo-processamento)))
+  (:data (consultar-using-get46-with-http-info id-cartao id-estabelecimento codigo-processamento)))
 
-(defn consultar-using-get46-with-http-info
+(defn consultar-using-get48-with-http-info
   "{{{tipo_telefone_resource_consultar}}}
   {{{tipo_telefone_resource_consultar_notes}}}"
   [id ]
@@ -347,13 +367,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get46
+(defn consultar-using-get48
   "{{{tipo_telefone_resource_consultar}}}
   {{{tipo_telefone_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get46-with-http-info id)))
+  (:data (consultar-using-get48-with-http-info id)))
 
-(defn consultar-using-get6-with-http-info
+(defn consultar-using-get7-with-http-info
   "{{{atendimento_cliente_resource_consultar}}}
   {{{atendimento_cliente_resource_consultar_notes}}}"
   [id ]
@@ -366,13 +386,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get6
+(defn consultar-using-get7
   "{{{atendimento_cliente_resource_consultar}}}
   {{{atendimento_cliente_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get6-with-http-info id)))
+  (:data (consultar-using-get7-with-http-info id)))
 
-(defn consultar-using-get8-with-http-info
+(defn consultar-using-get9-with-http-info
   "{{{banco_resource_consultar}}}
   {{{banco_resource_consultar_notes}}}"
   [id ]
@@ -385,11 +405,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get8
+(defn consultar-using-get9
   "{{{banco_resource_consultar}}}
   {{{banco_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get8-with-http-info id)))
+  (:data (consultar-using-get9-with-http-info id)))
 
 (defn listar-campanhas-using-get-with-http-info
   "{{{campanha_resource_listar_campanhas}}}
@@ -620,220 +640,10 @@
   ([optional-params]
    (:data (listar-tipos-campanhas-using-get-with-http-info optional-params))))
 
-(defn listar-using-get14-with-http-info
-  "{{{configuracao_registro_cobranca_resource_listar}}}
-  {{{configuracao_registro_cobranca_resource_listar_notes}}}"
-  ([] (listar-using-get14-with-http-info nil))
-  ([{:keys [sort page limit ]}]
-   (call-api "/api/configuracoes-registro-cobranca" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get14
-  "{{{configuracao_registro_cobranca_resource_listar}}}
-  {{{configuracao_registro_cobranca_resource_listar_notes}}}"
-  ([] (listar-using-get14 nil))
-  ([optional-params]
-   (:data (listar-using-get14-with-http-info optional-params))))
-
-(defn listar-using-get15-with-http-info
-  "{{{configuracao_rotativo_resource_listar}}}
-  {{{configuracao_rotativo_resource_listar_notes}}}"
-  ([] (listar-using-get15-with-http-info nil))
-  ([{:keys [sort page limit id-produto ]}]
-   (call-api "/api/configuracoes-rotativos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idProduto" id-produto }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get15
-  "{{{configuracao_rotativo_resource_listar}}}
-  {{{configuracao_rotativo_resource_listar_notes}}}"
-  ([] (listar-using-get15 nil))
-  ([optional-params]
-   (:data (listar-using-get15-with-http-info optional-params))))
-
-(defn listar-using-get41-with-http-info
-  "{{{portador_resource_listar}}}
-  {{{portador_resource_listar_notes}}}"
-  ([] (listar-using-get41-with-http-info nil))
-  ([{:keys [sort page limit id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador ]}]
-   (call-api "/api/portadores" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get41
-  "{{{portador_resource_listar}}}
-  {{{portador_resource_listar_notes}}}"
-  ([] (listar-using-get41 nil))
-  ([optional-params]
-   (:data (listar-using-get41-with-http-info optional-params))))
-
-(defn listar-using-get42-with-http-info
-  "{{{produto_resource_listar}}}
-  {{{produto_resource_listar_notes}}}"
-  ([] (listar-using-get42-with-http-info nil))
-  ([{:keys [sort page limit nome status id-fantasia-basica ]}]
-   (call-api "/api/produtos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "nome" nome "status" status "idFantasiaBasica" id-fantasia-basica }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get42
-  "{{{produto_resource_listar}}}
-  {{{produto_resource_listar_notes}}}"
-  ([] (listar-using-get42 nil))
-  ([optional-params]
-   (:data (listar-using-get42-with-http-info optional-params))))
-
-(defn listar-using-get43-with-http-info
-  "{{{promotor_resource_listar}}}
-  {{{promotor_resource_listar_notes}}}"
-  ([] (listar-using-get43-with-http-info nil))
-  ([{:keys [sort page limit id nome data-cadastro id-estabelecimento id-usuario ]}]
-   (call-api "/api/promotores" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome "dataCadastro" data-cadastro "idEstabelecimento" id-estabelecimento "idUsuario" id-usuario }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get43
-  "{{{promotor_resource_listar}}}
-  {{{promotor_resource_listar_notes}}}"
-  ([] (listar-using-get43 nil))
-  ([optional-params]
-   (:data (listar-using-get43-with-http-info optional-params))))
-
-(defn listar-using-get52-with-http-info
-  "{{{tipo_ajuste_resource_consultar}}}
-  {{{tipo_ajuste_resource_consultar_notes}}}"
-  ([] (listar-using-get52-with-http-info nil))
-  ([{:keys [sort page limit id descricao ]}]
-   (call-api "/api/tipos-ajustes" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "descricao" descricao }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get52
-  "{{{tipo_ajuste_resource_consultar}}}
-  {{{tipo_ajuste_resource_consultar_notes}}}"
-  ([] (listar-using-get52 nil))
-  ([optional-params]
-   (:data (listar-using-get52-with-http-info optional-params))))
-
-(defn listar-using-get54-with-http-info
-  "{{{tipo_endereco_resource_listar}}}
-  {{{tipo_endereco_resource_listar_notes}}}"
-  ([] (listar-using-get54-with-http-info nil))
-  ([{:keys [sort page limit id nome ]}]
-   (call-api "/api/tipos-enderecos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get54
-  "{{{tipo_endereco_resource_listar}}}
-  {{{tipo_endereco_resource_listar_notes}}}"
-  ([] (listar-using-get54 nil))
-  ([optional-params]
-   (:data (listar-using-get54-with-http-info optional-params))))
-
-(defn listar-using-get56-with-http-info
-  "{{{tipo_telefone_resource_listar}}}
-  {{{tipo_telefone_resource_listar_notes}}}"
-  ([] (listar-using-get56-with-http-info nil))
-  ([{:keys [sort page limit id nome ]}]
-   (call-api "/api/tipos-telefones" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get56
-  "{{{tipo_telefone_resource_listar}}}
-  {{{tipo_telefone_resource_listar_notes}}}"
-  ([] (listar-using-get56 nil))
-  ([optional-params]
-   (:data (listar-using-get56-with-http-info optional-params))))
-
-(defn listar-using-get63-with-http-info
-  "{{{vencimento_resource_listar}}}
-  {{{vencimento_resource_listar_notes}}}"
-  ([] (listar-using-get63-with-http-info nil))
-  ([{:keys [sort page limit data-vencimento ]}]
-   (call-api "/api/vencimentos" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get63
-  "{{{vencimento_resource_listar}}}
-  {{{vencimento_resource_listar_notes}}}"
-  ([] (listar-using-get63 nil))
-  ([optional-params]
-   (:data (listar-using-get63-with-http-info optional-params))))
-
-(defn listar-using-get7-with-http-info
-  "{{{atendimento_cliente_resource_listar}}}
-  {{{atendimento_cliente_resource_listar_notes}}}"
-  ([] (listar-using-get7-with-http-info nil))
-  ([{:keys [sort page limit id-tipo-atendimento id-conta nome-atendente data-atendimento ]}]
-   (call-api "/api/atendimento-clientes" :get
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idTipoAtendimento" id-tipo-atendimento "idConta" id-conta "nomeAtendente" nome-atendente "dataAtendimento" data-atendimento }
-              :form-params   {}
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn listar-using-get7
-  "{{{atendimento_cliente_resource_listar}}}
-  {{{atendimento_cliente_resource_listar_notes}}}"
-  ([] (listar-using-get7 nil))
-  ([optional-params]
-   (:data (listar-using-get7-with-http-info optional-params))))
-
-(defn listar-using-get9-with-http-info
+(defn listar-using-get10-with-http-info
   "{{{banco_resource_listar}}}
   {{{banco_resource_listar_notes}}}"
-  ([] (listar-using-get9-with-http-info nil))
+  ([] (listar-using-get10-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/bancos" :get
              {:path-params   {}
@@ -844,12 +654,222 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get9
+(defn listar-using-get10
   "{{{banco_resource_listar}}}
   {{{banco_resource_listar_notes}}}"
-  ([] (listar-using-get9 nil))
+  ([] (listar-using-get10 nil))
   ([optional-params]
-   (:data (listar-using-get9-with-http-info optional-params))))
+   (:data (listar-using-get10-with-http-info optional-params))))
+
+(defn listar-using-get15-with-http-info
+  "{{{configuracao_registro_cobranca_resource_listar}}}
+  {{{configuracao_registro_cobranca_resource_listar_notes}}}"
+  ([] (listar-using-get15-with-http-info nil))
+  ([{:keys [sort page limit ]}]
+   (call-api "/api/configuracoes-registro-cobranca" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get15
+  "{{{configuracao_registro_cobranca_resource_listar}}}
+  {{{configuracao_registro_cobranca_resource_listar_notes}}}"
+  ([] (listar-using-get15 nil))
+  ([optional-params]
+   (:data (listar-using-get15-with-http-info optional-params))))
+
+(defn listar-using-get16-with-http-info
+  "{{{configuracao_rotativo_resource_listar}}}
+  {{{configuracao_rotativo_resource_listar_notes}}}"
+  ([] (listar-using-get16-with-http-info nil))
+  ([{:keys [sort page limit id-produto ]}]
+   (call-api "/api/configuracoes-rotativos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idProduto" id-produto }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get16
+  "{{{configuracao_rotativo_resource_listar}}}
+  {{{configuracao_rotativo_resource_listar_notes}}}"
+  ([] (listar-using-get16 nil))
+  ([optional-params]
+   (:data (listar-using-get16-with-http-info optional-params))))
+
+(defn listar-using-get43-with-http-info
+  "{{{portador_resource_listar}}}
+  {{{portador_resource_listar_notes}}}"
+  ([] (listar-using-get43-with-http-info nil))
+  ([{:keys [sort page limit id-conta id-produto id-pessoa id-parentesco tipo-portador nome-impresso id-tipo-cartao flag-ativo data-cadastro-portador data-cancelamento-portador ]}]
+   (call-api "/api/portadores" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idConta" id-conta "idProduto" id-produto "idPessoa" id-pessoa "idParentesco" id-parentesco "tipoPortador" tipo-portador "nomeImpresso" nome-impresso "idTipoCartao" id-tipo-cartao "flagAtivo" flag-ativo "dataCadastroPortador" data-cadastro-portador "dataCancelamentoPortador" data-cancelamento-portador }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get43
+  "{{{portador_resource_listar}}}
+  {{{portador_resource_listar_notes}}}"
+  ([] (listar-using-get43 nil))
+  ([optional-params]
+   (:data (listar-using-get43-with-http-info optional-params))))
+
+(defn listar-using-get44-with-http-info
+  "{{{produto_resource_listar}}}
+  {{{produto_resource_listar_notes}}}"
+  ([] (listar-using-get44-with-http-info nil))
+  ([{:keys [sort page limit nome status id-fantasia-basica ]}]
+   (call-api "/api/produtos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "nome" nome "status" status "idFantasiaBasica" id-fantasia-basica }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get44
+  "{{{produto_resource_listar}}}
+  {{{produto_resource_listar_notes}}}"
+  ([] (listar-using-get44 nil))
+  ([optional-params]
+   (:data (listar-using-get44-with-http-info optional-params))))
+
+(defn listar-using-get45-with-http-info
+  "{{{promotor_resource_listar}}}
+  {{{promotor_resource_listar_notes}}}"
+  ([] (listar-using-get45-with-http-info nil))
+  ([{:keys [sort page limit id nome data-cadastro id-estabelecimento id-usuario ]}]
+   (call-api "/api/promotores" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome "dataCadastro" data-cadastro "idEstabelecimento" id-estabelecimento "idUsuario" id-usuario }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get45
+  "{{{promotor_resource_listar}}}
+  {{{promotor_resource_listar_notes}}}"
+  ([] (listar-using-get45 nil))
+  ([optional-params]
+   (:data (listar-using-get45-with-http-info optional-params))))
+
+(defn listar-using-get55-with-http-info
+  "{{{tipo_ajuste_resource_consultar}}}
+  {{{tipo_ajuste_resource_consultar_notes}}}"
+  ([] (listar-using-get55-with-http-info nil))
+  ([{:keys [sort page limit id descricao ]}]
+   (call-api "/api/tipos-ajustes" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "descricao" descricao }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get55
+  "{{{tipo_ajuste_resource_consultar}}}
+  {{{tipo_ajuste_resource_consultar_notes}}}"
+  ([] (listar-using-get55 nil))
+  ([optional-params]
+   (:data (listar-using-get55-with-http-info optional-params))))
+
+(defn listar-using-get57-with-http-info
+  "{{{tipo_endereco_resource_listar}}}
+  {{{tipo_endereco_resource_listar_notes}}}"
+  ([] (listar-using-get57-with-http-info nil))
+  ([{:keys [sort page limit id nome ]}]
+   (call-api "/api/tipos-enderecos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get57
+  "{{{tipo_endereco_resource_listar}}}
+  {{{tipo_endereco_resource_listar_notes}}}"
+  ([] (listar-using-get57 nil))
+  ([optional-params]
+   (:data (listar-using-get57-with-http-info optional-params))))
+
+(defn listar-using-get59-with-http-info
+  "{{{tipo_telefone_resource_listar}}}
+  {{{tipo_telefone_resource_listar_notes}}}"
+  ([] (listar-using-get59-with-http-info nil))
+  ([{:keys [sort page limit id nome ]}]
+   (call-api "/api/tipos-telefones" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "id" id "nome" nome }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get59
+  "{{{tipo_telefone_resource_listar}}}
+  {{{tipo_telefone_resource_listar_notes}}}"
+  ([] (listar-using-get59 nil))
+  ([optional-params]
+   (:data (listar-using-get59-with-http-info optional-params))))
+
+(defn listar-using-get66-with-http-info
+  "{{{vencimento_resource_listar}}}
+  {{{vencimento_resource_listar_notes}}}"
+  ([] (listar-using-get66-with-http-info nil))
+  ([{:keys [sort page limit data-vencimento data-vencimento-fim ]}]
+   (call-api "/api/vencimentos" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "dataVencimento" data-vencimento "dataVencimentoFim" data-vencimento-fim }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get66
+  "{{{vencimento_resource_listar}}}
+  {{{vencimento_resource_listar_notes}}}"
+  ([] (listar-using-get66 nil))
+  ([optional-params]
+   (:data (listar-using-get66-with-http-info optional-params))))
+
+(defn listar-using-get8-with-http-info
+  "{{{atendimento_cliente_resource_listar}}}
+  {{{atendimento_cliente_resource_listar_notes}}}"
+  ([] (listar-using-get8-with-http-info nil))
+  ([{:keys [sort page limit id-tipo-atendimento id-conta nome-atendente data-atendimento ]}]
+   (call-api "/api/atendimento-clientes" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"sort" (with-collection-format sort :multi) "page" page "limit" limit "idTipoAtendimento" id-tipo-atendimento "idConta" id-conta "nomeAtendente" nome-atendente "dataAtendimento" data-atendimento }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn listar-using-get8
+  "{{{atendimento_cliente_resource_listar}}}
+  {{{atendimento_cliente_resource_listar_notes}}}"
+  ([] (listar-using-get8 nil))
+  ([optional-params]
+   (:data (listar-using-get8-with-http-info optional-params))))
 
 (defn salvar-using-post2-with-http-info
   "{{{atendimento_cliente_resource_salvar}}}
@@ -872,7 +892,7 @@
   ([optional-params]
    (:data (salvar-using-post2-with-http-info optional-params))))
 
-(defn salvar-using-post4-with-http-info
+(defn salvar-using-post5-with-http-info
   "{{{campanha_resource_salvar}}}
   {{{campanha_resource_salvar_notes}}}"
   [campanha-persist ]
@@ -886,13 +906,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post4
+(defn salvar-using-post5
   "{{{campanha_resource_salvar}}}
   {{{campanha_resource_salvar_notes}}}"
   [campanha-persist ]
-  (:data (salvar-using-post4-with-http-info campanha-persist)))
+  (:data (salvar-using-post5-with-http-info campanha-persist)))
 
-(defn salvar-using-post6-with-http-info
+(defn salvar-using-post7-with-http-info
   "{{{configuracao_rotativo_resource_salvar}}}
   {{{configuracao_rotativo_resource_salvar_notes}}}"
   [configuracao-rotativo-persist ]
@@ -906,8 +926,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post6
+(defn salvar-using-post7
   "{{{configuracao_rotativo_resource_salvar}}}
   {{{configuracao_rotativo_resource_salvar_notes}}}"
   [configuracao-rotativo-persist ]
-  (:data (salvar-using-post6-with-http-info configuracao-rotativo-persist)))
+  (:data (salvar-using-post7-with-http-info configuracao-rotativo-persist)))

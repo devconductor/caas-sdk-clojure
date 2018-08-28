@@ -2,24 +2,26 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get34-with-http-info
+(defn consultar-using-get36-with-http-info
   "{{{boleto_resource_consultar}}}
   {{{boleto_resource_consultar_notes}}}"
-  [id ]
-  (call-api "/api/boletos/{id}" :get
-            {:path-params   {"id" id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
+  ([id ] (consultar-using-get36-with-http-info id nil))
+  ([id {:keys [zera-valor-codigo-barras ]}]
+   (call-api "/api/boletos/{id}" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"zeraValorCodigoBarras" zera-valor-codigo-barras }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
 
-(defn consultar-using-get34
+(defn consultar-using-get36
   "{{{boleto_resource_consultar}}}
   {{{boleto_resource_consultar_notes}}}"
-  [id ]
-  (:data (consultar-using-get34-with-http-info id)))
+  ([id ] (consultar-using-get36 id nil))
+  ([id optional-params]
+   (:data (consultar-using-get36-with-http-info id optional-params))))
 
 (defn enviar-boleto-email-using-post-with-http-info
   "{{{boleto_resource_enviar_boleto_email}}}
@@ -61,10 +63,10 @@
   [boleto-request ]
   (:data (gerar-boleto-using-post-with-http-info boleto-request)))
 
-(defn listar-using-get45-with-http-info
+(defn listar-using-get47-with-http-info
   "{{{boleto_resource_listar}}}
   {{{boleto_resource_listar_notes}}}"
-  ([] (listar-using-get45-with-http-info nil))
+  ([] (listar-using-get47-with-http-info nil))
   ([{:keys [sort page limit id-conta data-vencimento valor-boleto id-tipo-boleto ]}]
    (call-api "/api/boletos" :get
              {:path-params   {}
@@ -75,12 +77,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get45
+(defn listar-using-get47
   "{{{boleto_resource_listar}}}
   {{{boleto_resource_listar_notes}}}"
-  ([] (listar-using-get45 nil))
+  ([] (listar-using-get47 nil))
   ([optional-params]
-   (:data (listar-using-get45-with-http-info optional-params))))
+   (:data (listar-using-get47-with-http-info optional-params))))
 
 (defn registrar-boleto-using-post-with-http-info
   "{{{registro_cobranca_resource_registrar_boleto}}}

@@ -141,6 +141,26 @@
   [id ]
   (:data (consultar-template-notificacao-using-get-with-http-info id)))
 
+(defn enviar-otp-using-post-with-http-info
+  "{{{notificacao_resource_3d_secure}}}
+  {{{notificacao_resource_3d_secure_notes}}}"
+  [secure3d-request ]
+  (call-api "/api/notificacoes/3d-secure" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    secure3d-request
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn enviar-otp-using-post
+  "{{{notificacao_resource_3d_secure}}}
+  {{{notificacao_resource_3d_secure_notes}}}"
+  [secure3d-request ]
+  (:data (enviar-otp-using-post-with-http-info secure3d-request)))
+
 (defn gerar-token-email-using-post-with-http-info
   "{{{codigo_seguranca_resource_gerar_token_e_m_a_i_l}}}
   {{{codigo_seguranca_resource_gerar_token_e_m_a_i_l_notes}}}"

@@ -83,10 +83,10 @@
   ([id-conta optional-params]
    (:data (efetivar-antecipacoes-using-post-with-http-info id-conta optional-params))))
 
-(defn listar-using-get13-with-http-info
+(defn listar-using-get14-with-http-info
   "{{{compra_antecipavel_resource_listar}}}
   {{{compra_antecipavel_resource_listar_notes}}}"
-  ([id-conta ] (listar-using-get13-with-http-info id-conta nil))
+  ([id-conta ] (listar-using-get14-with-http-info id-conta nil))
   ([id-conta {:keys [sort page limit id-compra parcelada juros tipo-origem-transacao ]}]
    (call-api "/api/compras-antecipaveis" :get
              {:path-params   {}
@@ -97,12 +97,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get13
+(defn listar-using-get14
   "{{{compra_antecipavel_resource_listar}}}
   {{{compra_antecipavel_resource_listar_notes}}}"
-  ([id-conta ] (listar-using-get13 id-conta nil))
+  ([id-conta ] (listar-using-get14 id-conta nil))
   ([id-conta optional-params]
-   (:data (listar-using-get13-with-http-info id-conta optional-params))))
+   (:data (listar-using-get14-with-http-info id-conta optional-params))))
 
 (defn simular-antecipacao-using-get-with-http-info
   "{{{compra_antecipavel_resource_simular_antecipacao}}}

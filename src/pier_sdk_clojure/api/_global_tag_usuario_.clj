@@ -79,7 +79,7 @@
   [id ]
   (:data (ativar-usuario-using-post1-with-http-info id)))
 
-(defn atualizar-using-put2-with-http-info
+(defn atualizar-using-put3-with-http-info
   "{{{controle_seguranca_dispositivo_atualizar}}}
   {{{controle_seguranca_dispositivo_atualizar_notas}}}"
   [update ]
@@ -93,11 +93,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn atualizar-using-put2
+(defn atualizar-using-put3
   "{{{controle_seguranca_dispositivo_atualizar}}}
   {{{controle_seguranca_dispositivo_atualizar_notas}}}"
   [update ]
-  (:data (atualizar-using-put2-with-http-info update)))
+  (:data (atualizar-using-put3-with-http-info update)))
 
 (defn consultar-contas-vinculadas-using-get-with-http-info
   "{{{usuario_recurso_listar_por_id_usuario}}}
@@ -120,10 +120,10 @@
   ([id optional-params]
    (:data (consultar-contas-vinculadas-using-get-with-http-info id optional-params))))
 
-(defn consultar-using-get15-with-http-info
+(defn consultar-using-get17-with-http-info
   "{{{controle_seguranca_dispositivo_consultar}}}
   {{{controle_seguranca_dispositivo_consultar_notas}}}"
-  ([id-usuario ] (consultar-using-get15-with-http-info id-usuario nil))
+  ([id-usuario ] (consultar-using-get17-with-http-info id-usuario nil))
   ([id-usuario {:keys [sort page limit ]}]
    (call-api "/api/controles-seguranca-dispositivos" :get
              {:path-params   {}
@@ -134,14 +134,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get15
+(defn consultar-using-get17
   "{{{controle_seguranca_dispositivo_consultar}}}
   {{{controle_seguranca_dispositivo_consultar_notas}}}"
-  ([id-usuario ] (consultar-using-get15 id-usuario nil))
+  ([id-usuario ] (consultar-using-get17 id-usuario nil))
   ([id-usuario optional-params]
-   (:data (consultar-using-get15-with-http-info id-usuario optional-params))))
+   (:data (consultar-using-get17-with-http-info id-usuario optional-params))))
 
-(defn consultar-using-get51-with-http-info
+(defn consultar-using-get53-with-http-info
   "{{{usuario_resource_consultar}}}
   {{{usuario_resource_consultar_notes}}}"
   [id ]
@@ -154,11 +154,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get51
+(defn consultar-using-get53
   "{{{usuario_resource_consultar}}}
   {{{usuario_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get51-with-http-info id)))
+  (:data (consultar-using-get53-with-http-info id)))
 
 (defn desativar-usuario-using-post1-with-http-info
   "{{{usuario_resource_desativar_usuario}}}
@@ -179,10 +179,10 @@
   [id ]
   (:data (desativar-usuario-using-post1-with-http-info id)))
 
-(defn listar-using-get62-with-http-info
+(defn listar-using-get65-with-http-info
   "{{{usuario_resource_listar}}}
   {{{usuario_resource_listar_notes}}}"
-  ([] (listar-using-get62-with-http-info nil))
+  ([] (listar-using-get65-with-http-info nil))
   ([{:keys [sort page limit nome cpf email status ]}]
    (call-api "/api/usuarios" :get
              {:path-params   {}
@@ -193,12 +193,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get62
+(defn listar-using-get65
   "{{{usuario_resource_listar}}}
   {{{usuario_resource_listar_notes}}}"
-  ([] (listar-using-get62 nil))
+  ([] (listar-using-get65 nil))
   ([optional-params]
-   (:data (listar-using-get62-with-http-info optional-params))))
+   (:data (listar-using-get65-with-http-info optional-params))))
 
 (defn recuperar-senha-using-post-with-http-info
   "{{{usuario_resource_recuperar_senha}}}
@@ -219,27 +219,7 @@
   [id ]
   (:data (recuperar-senha-using-post-with-http-info id)))
 
-(defn salvar-using-post33-with-http-info
-  "{{{usuario_resource_salvar}}}
-  {{{usuario_resource_salvar_notes}}}"
-  [persist ]
-  (call-api "/api/usuarios" :post
-            {:path-params   {}
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :body-param    persist
-             :content-types ["application/json"]
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn salvar-using-post33
-  "{{{usuario_resource_salvar}}}
-  {{{usuario_resource_salvar_notes}}}"
-  [persist ]
-  (:data (salvar-using-post33-with-http-info persist)))
-
-(defn salvar-using-post9-with-http-info
+(defn salvar-using-post10-with-http-info
   "{{{controle_seguranca_dispositivo_salvar}}}
   {{{controle_seguranca_dispositivo_salvar_notas}}}"
   [persist ]
@@ -253,11 +233,31 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post9
+(defn salvar-using-post10
   "{{{controle_seguranca_dispositivo_salvar}}}
   {{{controle_seguranca_dispositivo_salvar_notas}}}"
   [persist ]
-  (:data (salvar-using-post9-with-http-info persist)))
+  (:data (salvar-using-post10-with-http-info persist)))
+
+(defn salvar-using-post34-with-http-info
+  "{{{usuario_resource_salvar}}}
+  {{{usuario_resource_salvar_notes}}}"
+  [persist ]
+  (call-api "/api/usuarios" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    persist
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn salvar-using-post34
+  "{{{usuario_resource_salvar}}}
+  {{{usuario_resource_salvar_notes}}}"
+  [persist ]
+  (:data (salvar-using-post34-with-http-info persist)))
 
 (defn validar-senha-forte-using-post-with-http-info
   "{{{usuario_resource_validar_senha_forte}}}

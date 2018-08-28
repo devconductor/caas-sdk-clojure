@@ -240,7 +240,7 @@
   [id ]
   (:data (consultar-origem-comercial-using-get-with-http-info id)))
 
-(defn consultar-using-get20-with-http-info
+(defn consultar-using-get22-with-http-info
   "{{{estabelecimento_resource_consultar}}}
   {{{estabelecimento_resource_consultar_notes}}}"
   [id ]
@@ -253,13 +253,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get20
+(defn consultar-using-get22
   "{{{estabelecimento_resource_consultar}}}
   {{{estabelecimento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get20-with-http-info id)))
+  (:data (consultar-using-get22-with-http-info id)))
 
-(defn consultar-using-get22-with-http-info
+(defn consultar-using-get24-with-http-info
   "{{{grupo_economico_resource_consultar}}}
   {{{grupo_economico_resource_consultar_notes}}}"
   [id ]
@@ -272,13 +272,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get22
+(defn consultar-using-get24
   "{{{grupo_economico_resource_consultar}}}
   {{{grupo_economico_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get22-with-http-info id)))
+  (:data (consultar-using-get24-with-http-info id)))
 
-(defn consultar-using-get24-with-http-info
+(defn consultar-using-get26-with-http-info
   "{{{maquineta_resource_consultar}}}
   {{{maquineta_resource_consultar_notes}}}"
   [id ]
@@ -291,13 +291,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get24
+(defn consultar-using-get26
   "{{{maquineta_resource_consultar}}}
   {{{maquineta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get24-with-http-info id)))
+  (:data (consultar-using-get26-with-http-info id)))
 
-(defn consultar-using-get25-with-http-info
+(defn consultar-using-get27-with-http-info
   "{{{operacao_credor_resource_consultar}}}
   {{{operacao_credor_resource_consultar_notes}}}"
   [id ]
@@ -310,13 +310,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get25
+(defn consultar-using-get27
   "{{{operacao_credor_resource_consultar}}}
   {{{operacao_credor_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get25-with-http-info id)))
+  (:data (consultar-using-get27-with-http-info id)))
 
-(defn consultar-using-get38-with-http-info
+(defn consultar-using-get40-with-http-info
   "{{{telefone_estabelecimento_resource_consultar}}}
   {{{telefone_estabelecimento_resource_consultar_notes}}}"
   [id ]
@@ -329,13 +329,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get38
+(defn consultar-using-get40
   "{{{telefone_estabelecimento_resource_consultar}}}
   {{{telefone_estabelecimento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get38-with-http-info id)))
+  (:data (consultar-using-get40-with-http-info id)))
 
-(defn consultar-using-get40-with-http-info
+(defn consultar-using-get42-with-http-info
   "{{{terminal_resource_consultar}}}
   {{{terminal_resource_consultar_notes}}}"
   [id ]
@@ -348,13 +348,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get40
+(defn consultar-using-get42
   "{{{terminal_resource_consultar}}}
   {{{terminal_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get40-with-http-info id)))
+  (:data (consultar-using-get42-with-http-info id)))
 
-(defn consultar-using-get52-with-http-info
+(defn consultar-using-get54-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_consultar}}}
   {{{vinculo_estabelecimento_adquirente_resource_consultar_notes}}}"
   [id ]
@@ -367,11 +367,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get52
+(defn consultar-using-get54
   "{{{vinculo_estabelecimento_adquirente_resource_consultar}}}
   {{{vinculo_estabelecimento_adquirente_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get52-with-http-info id)))
+  (:data (consultar-using-get54-with-http-info id)))
 
 (defn desabilitar-vinculo-using-post-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_desabilitar_vinculo}}}
@@ -619,10 +619,10 @@
   ([optional-params]
    (:data (listar-tipos-terminais-using-get1-with-http-info optional-params))))
 
-(defn listar-using-get25-with-http-info
+(defn listar-using-get26-with-http-info
   "{{{estabelecimento_resource_listar}}}
   {{{estabelecimento_resource_listar_notes}}}"
-  ([] (listar-using-get25-with-http-info nil))
+  ([] (listar-using-get26-with-http-info nil))
   ([{:keys [sort page limit id id-grupo-economico numero-receita-federal nome descricao nome-fantasia cep nome-logradouro numero-endereco complemento bairro cidade uf pais data-cadastramento contato email flag-arquivo-secr-fazenda flag-cartao-digitado inativo id-pais mcc id-tipo-estabelecimento correspondencia id-moeda tipo-pagamento numero-estabelecimento cep2 nome-logradouro2 numero-endereco2 complemento2 bairro2 cidade2 uf2 flag-matriz ]}]
    (call-api "/api/estabelecimentos" :get
              {:path-params   {}
@@ -633,17 +633,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get25
+(defn listar-using-get26
   "{{{estabelecimento_resource_listar}}}
   {{{estabelecimento_resource_listar_notes}}}"
-  ([] (listar-using-get25 nil))
+  ([] (listar-using-get26 nil))
   ([optional-params]
-   (:data (listar-using-get25-with-http-info optional-params))))
+   (:data (listar-using-get26-with-http-info optional-params))))
 
-(defn listar-using-get28-with-http-info
+(defn listar-using-get29-with-http-info
   "{{{grupo_economico_resource_listar}}}
   {{{grupo_economico_resource_listar_notes}}}"
-  ([] (listar-using-get28-with-http-info nil))
+  ([] (listar-using-get29-with-http-info nil))
   ([{:keys [sort page limit razao-social nome-credor numero-receita-federal inscricao-estadual contato banco agencia digito-agencia conta-corrente digito-conta-corrente periodicidade pagamento-semanal pagamento-mensal pagamento-decendial-primeiro pagamento-decendial-segundo pagamento-decendial-terceiro pagamento-quinzenal-primeiro pagamento-quinzenal-segundo percentual-rav recebe-rav percentual-multiplica taxa-adm taxa-banco limite-rav id-credor-rav ]}]
    (call-api "/api/grupos-economicos" :get
              {:path-params   {}
@@ -654,17 +654,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get28
+(defn listar-using-get29
   "{{{grupo_economico_resource_listar}}}
   {{{grupo_economico_resource_listar_notes}}}"
-  ([] (listar-using-get28 nil))
+  ([] (listar-using-get29 nil))
   ([optional-params]
-   (:data (listar-using-get28-with-http-info optional-params))))
+   (:data (listar-using-get29-with-http-info optional-params))))
 
-(defn listar-using-get29-with-http-info
+(defn listar-using-get30-with-http-info
   "{{{grupo_origem_comercial_resource_listar}}}
   {{{grupo_origem_comercial_resource_listar_notes}}}"
-  ([] (listar-using-get29-with-http-info nil))
+  ([] (listar-using-get30-with-http-info nil))
   ([{:keys [sort page limit nome ]}]
    (call-api "/api/grupos-origens-comerciais" :get
              {:path-params   {}
@@ -675,17 +675,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get29
+(defn listar-using-get30
   "{{{grupo_origem_comercial_resource_listar}}}
   {{{grupo_origem_comercial_resource_listar_notes}}}"
-  ([] (listar-using-get29 nil))
+  ([] (listar-using-get30 nil))
   ([optional-params]
-   (:data (listar-using-get29-with-http-info optional-params))))
+   (:data (listar-using-get30-with-http-info optional-params))))
 
-(defn listar-using-get32-with-http-info
+(defn listar-using-get33-with-http-info
   "{{{maquineta_resource_listar}}}
   {{{maquineta_resource_listar_notes}}}"
-  ([] (listar-using-get32-with-http-info nil))
+  ([] (listar-using-get33-with-http-info nil))
   ([{:keys [sort page limit id-estabelecimento ]}]
    (call-api "/api/maquinetas" :get
              {:path-params   {}
@@ -696,17 +696,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get32
+(defn listar-using-get33
   "{{{maquineta_resource_listar}}}
   {{{maquineta_resource_listar_notes}}}"
-  ([] (listar-using-get32 nil))
+  ([] (listar-using-get33 nil))
   ([optional-params]
-   (:data (listar-using-get32-with-http-info optional-params))))
+   (:data (listar-using-get33-with-http-info optional-params))))
 
-(defn listar-using-get33-with-http-info
+(defn listar-using-get34-with-http-info
   "{{{moeda_resource_listar}}}
   {{{moeda_resource_listar_notes}}}"
-  ([] (listar-using-get33-with-http-info nil))
+  ([] (listar-using-get34-with-http-info nil))
   ([{:keys [sort page limit codigo-moeda simbolo descricao ]}]
    (call-api "/api/tipos-moedas" :get
              {:path-params   {}
@@ -717,17 +717,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get33
+(defn listar-using-get34
   "{{{moeda_resource_listar}}}
   {{{moeda_resource_listar_notes}}}"
-  ([] (listar-using-get33 nil))
+  ([] (listar-using-get34 nil))
   ([optional-params]
-   (:data (listar-using-get33-with-http-info optional-params))))
+   (:data (listar-using-get34-with-http-info optional-params))))
 
-(defn listar-using-get34-with-http-info
+(defn listar-using-get35-with-http-info
   "{{{operacao_credor_resource_listar}}}
   {{{operacao_credor_resource_listar_notes}}}"
-  ([] (listar-using-get34-with-http-info nil))
+  ([] (listar-using-get35-with-http-info nil))
   ([{:keys [sort page limit id-operacao id-credor id-produto ]}]
    (call-api "/api/regras-operacoes-estabelecimentos" :get
              {:path-params   {}
@@ -738,17 +738,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get34
+(defn listar-using-get35
   "{{{operacao_credor_resource_listar}}}
   {{{operacao_credor_resource_listar_notes}}}"
-  ([] (listar-using-get34 nil))
+  ([] (listar-using-get35 nil))
   ([optional-params]
-   (:data (listar-using-get34-with-http-info optional-params))))
+   (:data (listar-using-get35-with-http-info optional-params))))
 
-(defn listar-using-get49-with-http-info
+(defn listar-using-get52-with-http-info
   "{{{telefone_estabelecimento_resource_listar}}}
   {{{telefone_estabelecimento_resource_listar_notes}}}"
-  ([] (listar-using-get49-with-http-info nil))
+  ([] (listar-using-get52-with-http-info nil))
   ([{:keys [sort page limit id-estabelecimento ]}]
    (call-api "/api/telefones-estabelecimentos" :get
              {:path-params   {}
@@ -759,17 +759,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get49
+(defn listar-using-get52
   "{{{telefone_estabelecimento_resource_listar}}}
   {{{telefone_estabelecimento_resource_listar_notes}}}"
-  ([] (listar-using-get49 nil))
+  ([] (listar-using-get52 nil))
   ([optional-params]
-   (:data (listar-using-get49-with-http-info optional-params))))
+   (:data (listar-using-get52-with-http-info optional-params))))
 
-(defn listar-using-get51-with-http-info
+(defn listar-using-get54-with-http-info
   "{{{terminal_resource_listar}}}
   {{{terminal_resource_listar_notes}}}"
-  ([] (listar-using-get51-with-http-info nil))
+  ([] (listar-using-get54-with-http-info nil))
   ([{:keys [sort page limit id terminal numero-estabelecimento id-estabelecimento ]}]
    (call-api "/api/terminais" :get
              {:path-params   {}
@@ -780,17 +780,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get51
+(defn listar-using-get54
   "{{{terminal_resource_listar}}}
   {{{terminal_resource_listar_notes}}}"
-  ([] (listar-using-get51 nil))
+  ([] (listar-using-get54 nil))
   ([optional-params]
-   (:data (listar-using-get51-with-http-info optional-params))))
+   (:data (listar-using-get54-with-http-info optional-params))))
 
-(defn listar-using-get64-with-http-info
+(defn listar-using-get67-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_listar}}}
   {{{vinculo_estabelecimento_adquirente_resource_listar_notes}}}"
-  ([] (listar-using-get64-with-http-info nil))
+  ([] (listar-using-get67-with-http-info nil))
   ([{:keys [sort page limit id-adquirente id-estabelecimento codigo-estabelecimento-adquirente ]}]
    (call-api "/api/adquirentes-estabelecimento" :get
              {:path-params   {}
@@ -801,17 +801,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get64
+(defn listar-using-get67
   "{{{vinculo_estabelecimento_adquirente_resource_listar}}}
   {{{vinculo_estabelecimento_adquirente_resource_listar_notes}}}"
-  ([] (listar-using-get64 nil))
+  ([] (listar-using-get67 nil))
   ([optional-params]
-   (:data (listar-using-get64-with-http-info optional-params))))
+   (:data (listar-using-get67-with-http-info optional-params))))
 
-(defn listar-using-get65-with-http-info
+(defn listar-using-get68-with-http-info
   "{{{vinculo_operacao_resource_listar}}}
   {{{vinculo_operacao_resource_listar_notes}}}"
-  ([id ] (listar-using-get65-with-http-info id nil))
+  ([id ] (listar-using-get68-with-http-info id nil))
   ([id {:keys [sort page limit id-produto id-operacao codigo-mcc ]}]
    (call-api "/api/estabelecimentos/{id}/operacoes" :get
              {:path-params   {"id" id }
@@ -822,14 +822,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get65
+(defn listar-using-get68
   "{{{vinculo_operacao_resource_listar}}}
   {{{vinculo_operacao_resource_listar_notes}}}"
-  ([id ] (listar-using-get65 id nil))
+  ([id ] (listar-using-get68 id nil))
   ([id optional-params]
-   (:data (listar-using-get65-with-http-info id optional-params))))
+   (:data (listar-using-get68-with-http-info id optional-params))))
 
-(defn salvar-using-post19-with-http-info
+(defn salvar-using-post20-with-http-info
   "{{{maquineta_resource_salvar}}}
   {{{maquineta_resource_salvar_notes}}}"
   [maquineta-persist ]
@@ -843,13 +843,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post19
+(defn salvar-using-post20
   "{{{maquineta_resource_salvar}}}
   {{{maquineta_resource_salvar_notes}}}"
   [maquineta-persist ]
-  (:data (salvar-using-post19-with-http-info maquineta-persist)))
+  (:data (salvar-using-post20-with-http-info maquineta-persist)))
 
-(defn salvar-using-post20-with-http-info
+(defn salvar-using-post21-with-http-info
   "{{{operacao_credor_resource_salvar}}}
   {{{operacao_credor_resource_salvar_notes}}}"
   [operacao-credor-persist ]
@@ -863,13 +863,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post20
+(defn salvar-using-post21
   "{{{operacao_credor_resource_salvar}}}
   {{{operacao_credor_resource_salvar_notes}}}"
   [operacao-credor-persist ]
-  (:data (salvar-using-post20-with-http-info operacao-credor-persist)))
+  (:data (salvar-using-post21-with-http-info operacao-credor-persist)))
 
-(defn salvar-using-post27-with-http-info
+(defn salvar-using-post28-with-http-info
   "{{{telefone_estabelecimento_resource_salvar}}}
   {{{telefone_estabelecimento_resource_salvar_notes}}}"
   [telefone-estabelecimento-persist ]
@@ -883,13 +883,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post27
+(defn salvar-using-post28
   "{{{telefone_estabelecimento_resource_salvar}}}
   {{{telefone_estabelecimento_resource_salvar_notes}}}"
   [telefone-estabelecimento-persist ]
-  (:data (salvar-using-post27-with-http-info telefone-estabelecimento-persist)))
+  (:data (salvar-using-post28-with-http-info telefone-estabelecimento-persist)))
 
-(defn salvar-using-post29-with-http-info
+(defn salvar-using-post30-with-http-info
   "{{{terminal_resource_salvar}}}
   {{{terminal_resource_salvar_notes}}}"
   [terminal-persist ]
@@ -903,13 +903,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post29
+(defn salvar-using-post30
   "{{{terminal_resource_salvar}}}
   {{{terminal_resource_salvar_notes}}}"
   [terminal-persist ]
-  (:data (salvar-using-post29-with-http-info terminal-persist)))
+  (:data (salvar-using-post30-with-http-info terminal-persist)))
 
-(defn salvar-using-post34-with-http-info
+(defn salvar-using-post35-with-http-info
   "{{{vinculo_estabelecimento_adquirente_resource_salvar}}}
   {{{vinculo_estabelecimento_adquirente_resource_salvar_notes}}}"
   [vinculo-estabelecimento-adquirente-persist ]
@@ -923,8 +923,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post34
+(defn salvar-using-post35
   "{{{vinculo_estabelecimento_adquirente_resource_salvar}}}
   {{{vinculo_estabelecimento_adquirente_resource_salvar_notes}}}"
   [vinculo-estabelecimento-adquirente-persist ]
-  (:data (salvar-using-post34-with-http-info vinculo-estabelecimento-adquirente-persist)))
+  (:data (salvar-using-post35-with-http-info vinculo-estabelecimento-adquirente-persist)))

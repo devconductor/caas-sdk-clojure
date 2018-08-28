@@ -21,7 +21,7 @@
   [device-id id ]
   (:data (atualizar-chave-using-post-with-http-info device-id id)))
 
-(defn atualizar-using-put-with-http-info
+(defn atualizar-using-put1-with-http-info
   "{{{cartao_pay_resource_atualizar}}}
   {{{cartao_pay_resource_atualizar_notes}}}"
   [device-id id update ]
@@ -35,11 +35,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn atualizar-using-put
+(defn atualizar-using-put1
   "{{{cartao_pay_resource_atualizar}}}
   {{{cartao_pay_resource_atualizar_notes}}}"
   [device-id id update ]
-  (:data (atualizar-using-put-with-http-info device-id id update)))
+  (:data (atualizar-using-put1-with-http-info device-id id update)))
 
 (defn confirma-atualizacao-chave-using-post-with-http-info
   "{{{cartao_pay_resource_confirma_atualizacao_chave}}}
@@ -61,7 +61,7 @@
   [device-id id update ]
   (:data (confirma-atualizacao-chave-using-post-with-http-info device-id id update)))
 
-(defn consultar-using-get9-with-http-info
+(defn consultar-using-get11-with-http-info
   "{{{cartao_pay_resource_consultar}}}
   {{{cartao_pay_resource_consultar_notes}}}"
   [device-id id ]
@@ -74,11 +74,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get9
+(defn consultar-using-get11
   "{{{cartao_pay_resource_consultar}}}
   {{{cartao_pay_resource_consultar_notes}}}"
   [device-id id ]
-  (:data (consultar-using-get9-with-http-info device-id id)))
+  (:data (consultar-using-get11-with-http-info device-id id)))
 
 (defn listar-codigos-resposta-using-get-with-http-info
   "{{{enum_pay_resource_listar_codigos_resposta}}}
@@ -175,10 +175,10 @@
   []
   (:data (listar-tipos-transacoes-using-get-with-http-info)))
 
-(defn listar-using-get10-with-http-info
+(defn listar-using-get11-with-http-info
   "{{{cartao_pay_resource_listar}}}
   {{{cartao_pay_resource_listar_notes}}}"
-  ([] (listar-using-get10-with-http-info nil))
+  ([] (listar-using-get11-with-http-info nil))
   ([{:keys [device-id sort page limit status numero-cartao ]}]
    (call-api "/api/cartoes-tokenizados" :get
              {:path-params   {}
@@ -189,14 +189,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get10
+(defn listar-using-get11
   "{{{cartao_pay_resource_listar}}}
   {{{cartao_pay_resource_listar_notes}}}"
-  ([] (listar-using-get10 nil))
+  ([] (listar-using-get11 nil))
   ([optional-params]
-   (:data (listar-using-get10-with-http-info optional-params))))
+   (:data (listar-using-get11-with-http-info optional-params))))
 
-(defn salvar-using-post5-with-http-info
+(defn salvar-using-post6-with-http-info
   "{{{cartao_pay_resource_salvar}}}
   {{{cartao_pay_resource_salvar_notes}}}"
   [device-id persist ]
@@ -210,8 +210,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post5
+(defn salvar-using-post6
   "{{{cartao_pay_resource_salvar}}}
   {{{cartao_pay_resource_salvar_notes}}}"
   [device-id persist ]
-  (:data (salvar-using-post5-with-http-info device-id persist)))
+  (:data (salvar-using-post6-with-http-info device-id persist)))

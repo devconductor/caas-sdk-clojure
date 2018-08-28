@@ -22,7 +22,7 @@
   [id persist ]
   (:data (alterar-using-put21-with-http-info id persist)))
 
-(defn atualizar-using-put3-with-http-info
+(defn atualizar-using-put4-with-http-info
   "{{{documento_template_resource_atualizar}}}
   {{{documento_template_resource_atualizar_notes}}}"
   [id persist ]
@@ -36,13 +36,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn atualizar-using-put3
+(defn atualizar-using-put4
   "{{{documento_template_resource_atualizar}}}
   {{{documento_template_resource_atualizar_notes}}}"
   [id persist ]
-  (:data (atualizar-using-put3-with-http-info id persist)))
+  (:data (atualizar-using-put4-with-http-info id persist)))
 
-(defn consultar-using-get17-with-http-info
+(defn consultar-using-get19-with-http-info
   "{{{documento_resource_consultar}}}
   {{{documento_resource_consultar_notes}}}"
   [id ]
@@ -55,13 +55,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get17
+(defn consultar-using-get19
   "{{{documento_resource_consultar}}}
   {{{documento_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get17-with-http-info id)))
+  (:data (consultar-using-get19-with-http-info id)))
 
-(defn consultar-using-get18-with-http-info
+(defn consultar-using-get20-with-http-info
   "{{{documento_template_resource_consultar}}}
   {{{documento_template_resource_consultar_notes}}}"
   [id ]
@@ -74,13 +74,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get18
+(defn consultar-using-get20
   "{{{documento_template_resource_consultar}}}
   {{{documento_template_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get18-with-http-info id)))
+  (:data (consultar-using-get20-with-http-info id)))
 
-(defn consultar-using-get47-with-http-info
+(defn consultar-using-get49-with-http-info
   "{{{tipo_template_resource_consultar}}}
   {{{tipo_template_resource_consultar_notes}}}"
   [id ]
@@ -93,11 +93,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get47
+(defn consultar-using-get49
   "{{{tipo_template_resource_consultar}}}
   {{{tipo_template_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get47-with-http-info id)))
+  (:data (consultar-using-get49-with-http-info id)))
 
 (defn integrar-using-post1-with-http-info
   "{{{documento_resource_integrar}}}
@@ -119,10 +119,10 @@
   [integrar-documento-request ]
   (:data (integrar-using-post1-with-http-info integrar-documento-request)))
 
-(defn listar-using-get21-with-http-info
+(defn listar-using-get22-with-http-info
   "{{{documento_resource_listar}}}
   {{{documento_resource_listar_notes}}}"
-  ([] (listar-using-get21-with-http-info nil))
+  ([] (listar-using-get22-with-http-info nil))
   ([{:keys [sort page limit id-template-documento nome extensao ]}]
    (call-api "/api/documentos" :get
              {:path-params   {}
@@ -133,17 +133,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get21
+(defn listar-using-get22
   "{{{documento_resource_listar}}}
   {{{documento_resource_listar_notes}}}"
-  ([] (listar-using-get21 nil))
+  ([] (listar-using-get22 nil))
   ([optional-params]
-   (:data (listar-using-get21-with-http-info optional-params))))
+   (:data (listar-using-get22-with-http-info optional-params))))
 
-(defn listar-using-get22-with-http-info
+(defn listar-using-get23-with-http-info
   "{{{documento_template_resource_listar}}}
   {{{documento_template_resource_listar_notes}}}"
-  ([] (listar-using-get22-with-http-info nil))
+  ([] (listar-using-get23-with-http-info nil))
   ([{:keys [sort page limit id-tipo-template ]}]
    (call-api "/api/templates-documentos" :get
              {:path-params   {}
@@ -154,17 +154,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get22
+(defn listar-using-get23
   "{{{documento_template_resource_listar}}}
   {{{documento_template_resource_listar_notes}}}"
-  ([] (listar-using-get22 nil))
+  ([] (listar-using-get23 nil))
   ([optional-params]
-   (:data (listar-using-get22-with-http-info optional-params))))
+   (:data (listar-using-get23-with-http-info optional-params))))
 
-(defn listar-using-get57-with-http-info
+(defn listar-using-get60-with-http-info
   "{{{tipo_template_resource_listar}}}
   {{{tipo_template_resource_listar_notes}}}"
-  ([] (listar-using-get57-with-http-info nil))
+  ([] (listar-using-get60-with-http-info nil))
   ([{:keys [sort page limit ]}]
    (call-api "/api/tipos-templates" :get
              {:path-params   {}
@@ -175,14 +175,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get57
+(defn listar-using-get60
   "{{{tipo_template_resource_listar}}}
   {{{tipo_template_resource_listar_notes}}}"
-  ([] (listar-using-get57 nil))
+  ([] (listar-using-get60 nil))
   ([optional-params]
-   (:data (listar-using-get57-with-http-info optional-params))))
+   (:data (listar-using-get60-with-http-info optional-params))))
 
-(defn salvar-using-post11-with-http-info
+(defn salvar-using-post12-with-http-info
   "{{{documento_resource_salvar}}}
   {{{documento_resource_salvar_notes}}}"
   [persist ]
@@ -196,13 +196,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post11
+(defn salvar-using-post12
   "{{{documento_resource_salvar}}}
   {{{documento_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post11-with-http-info persist)))
+  (:data (salvar-using-post12-with-http-info persist)))
 
-(defn salvar-using-post12-with-http-info
+(defn salvar-using-post13-with-http-info
   "{{{documento_template_resource_salvar}}}
   {{{documento_template_resource_salvar_notes}}}"
   [persist ]
@@ -216,13 +216,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post12
+(defn salvar-using-post13
   "{{{documento_template_resource_salvar}}}
   {{{documento_template_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post12-with-http-info persist)))
+  (:data (salvar-using-post13-with-http-info persist)))
 
-(defn salvar-using-post31-with-http-info
+(defn salvar-using-post32-with-http-info
   "{{{tipo_template_resource_salvar}}}
   {{{tipo_template_resource_salvar_notes}}}"
   [persist ]
@@ -236,8 +236,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post31
+(defn salvar-using-post32
   "{{{tipo_template_resource_salvar}}}
   {{{tipo_template_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post31-with-http-info persist)))
+  (:data (salvar-using-post32-with-http-info persist)))

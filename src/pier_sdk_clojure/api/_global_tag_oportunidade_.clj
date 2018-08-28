@@ -81,7 +81,7 @@
   [id id-status ]
   (:data (consultar-status-using-get-with-http-info id id-status)))
 
-(defn consultar-using-get26-with-http-info
+(defn consultar-using-get28-with-http-info
   "{{{oportunidade_resource_consultar}}}
   {{{oportunidade_resource_consultar_notes}}}"
   [id ]
@@ -94,13 +94,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get26
+(defn consultar-using-get28
   "{{{oportunidade_resource_consultar}}}
   {{{oportunidade_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get26-with-http-info id)))
+  (:data (consultar-using-get28-with-http-info id)))
 
-(defn consultar-using-get45-with-http-info
+(defn consultar-using-get47-with-http-info
   "{{{tipo_oportunidade_resource_consultar}}}
   {{{tipo_oportunidade_resource_consultar_notes}}}"
   [id ]
@@ -113,11 +113,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get45
+(defn consultar-using-get47
   "{{{tipo_oportunidade_resource_consultar}}}
   {{{tipo_oportunidade_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get45-with-http-info id)))
+  (:data (consultar-using-get47-with-http-info id)))
 
 (defn listar-auditorias-status-using-get-with-http-info
   "{{{tipo_oportunidade_resource_listar_auditorias_status}}}
@@ -203,10 +203,10 @@
   ([id optional-params]
    (:data (listar-status-using-get-with-http-info id optional-params))))
 
-(defn listar-using-get35-with-http-info
+(defn listar-using-get36-with-http-info
   "{{{oportunidade_resource_listar}}}
   {{{oportunidade_resource_listar_notes}}}"
-  ([] (listar-using-get35-with-http-info nil))
+  ([] (listar-using-get36-with-http-info nil))
   ([{:keys [sort page limit id-status-oportunidade data-cadastro data-atualizacao numero-receita-federal data-inicio-vigencia data-fim-vigencia flag-ativo ]}]
    (call-api "/api/oportunidades" :get
              {:path-params   {}
@@ -217,17 +217,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get35
+(defn listar-using-get36
   "{{{oportunidade_resource_listar}}}
   {{{oportunidade_resource_listar_notes}}}"
-  ([] (listar-using-get35 nil))
+  ([] (listar-using-get36 nil))
   ([optional-params]
-   (:data (listar-using-get35-with-http-info optional-params))))
+   (:data (listar-using-get36-with-http-info optional-params))))
 
-(defn listar-using-get55-with-http-info
+(defn listar-using-get58-with-http-info
   "{{{tipo_oportunidade_resource_listar}}}
   {{{tipo_oportunidade_resource_listar_notes}}}"
-  ([] (listar-using-get55-with-http-info nil))
+  ([] (listar-using-get58-with-http-info nil))
   ([{:keys [sort page limit descricao flag-ativo ]}]
    (call-api "/api/tipos-oportunidades" :get
              {:path-params   {}
@@ -238,12 +238,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get55
+(defn listar-using-get58
   "{{{tipo_oportunidade_resource_listar}}}
   {{{tipo_oportunidade_resource_listar_notes}}}"
-  ([] (listar-using-get55 nil))
+  ([] (listar-using-get58 nil))
   ([optional-params]
-   (:data (listar-using-get55-with-http-info optional-params))))
+   (:data (listar-using-get58-with-http-info optional-params))))
 
 (defn salvar-status-using-post-with-http-info
   "{{{tipo_oportunidade_resource_salvar_status}}}
@@ -265,7 +265,7 @@
   [id persist ]
   (:data (salvar-status-using-post-with-http-info id persist)))
 
-(defn salvar-using-post21-with-http-info
+(defn salvar-using-post22-with-http-info
   "{{{oportunidade_resource_salvar}}}
   {{{oportunidade_resource_salvar_notes}}}"
   [persist ]
@@ -279,13 +279,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post21
+(defn salvar-using-post22
   "{{{oportunidade_resource_salvar}}}
   {{{oportunidade_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post21-with-http-info persist)))
+  (:data (salvar-using-post22-with-http-info persist)))
 
-(defn salvar-using-post30-with-http-info
+(defn salvar-using-post31-with-http-info
   "{{{tipo_oportunidade_resource_salvar}}}
   {{{tipo_oportunidade_resource_salvar_notes}}}"
   [persist ]
@@ -299,8 +299,8 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post30
+(defn salvar-using-post31
   "{{{tipo_oportunidade_resource_salvar}}}
   {{{tipo_oportunidade_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post30-with-http-info persist)))
+  (:data (salvar-using-post31-with-http-info persist)))

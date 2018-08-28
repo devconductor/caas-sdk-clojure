@@ -22,7 +22,7 @@
   [id update ]
   (:data (alterar-using-post-with-http-info id update)))
 
-(defn consultar-using-get33-with-http-info
+(defn consultar-using-get35-with-http-info
   "{{{proposta_resource_consultar}}}
   {{{proposta_resource_consultar_notes}}}"
   [id ]
@@ -35,11 +35,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get33
+(defn consultar-using-get35
   "{{{proposta_resource_consultar}}}
   {{{proposta_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get33-with-http-info id)))
+  (:data (consultar-using-get35-with-http-info id)))
 
 (defn listar-status-proposta-using-get-with-http-info
   "{{{proposta_resource_listar_status}}}
@@ -62,10 +62,10 @@
   ([optional-params]
    (:data (listar-status-proposta-using-get-with-http-info optional-params))))
 
-(defn listar-using-get44-with-http-info
+(defn listar-using-get46-with-http-info
   "{{{proposta_resource_listar}}}
   {{{proposta_resource_listar_notes}}}"
-  ([] (listar-using-get44-with-http-info nil))
+  ([] (listar-using-get46-with-http-info nil))
   ([{:keys [sort page limit status ]}]
    (call-api "/api/propostas" :get
              {:path-params   {}
@@ -76,9 +76,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get44
+(defn listar-using-get46
   "{{{proposta_resource_listar}}}
   {{{proposta_resource_listar_notes}}}"
-  ([] (listar-using-get44 nil))
+  ([] (listar-using-get46 nil))
   ([optional-params]
-   (:data (listar-using-get44-with-http-info optional-params))))
+   (:data (listar-using-get46-with-http-info optional-params))))

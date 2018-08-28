@@ -22,7 +22,7 @@
   [id update ]
   (:data (atualizar-taxas-juros-contas-using-put-with-http-info id update)))
 
-(defn atualizar-using-put1-with-http-info
+(defn atualizar-using-put2-with-http-info
   "{{{conta_bancaria_resource_atualizar}}}
   {{{conta_bancaria_resource_atualizar_notes}}}"
   [id update ]
@@ -36,11 +36,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn atualizar-using-put1
+(defn atualizar-using-put2
   "{{{conta_bancaria_resource_atualizar}}}
   {{{conta_bancaria_resource_atualizar_notes}}}"
   [id update ]
-  (:data (atualizar-using-put1-with-http-info id update)))
+  (:data (atualizar-using-put2-with-http-info id update)))
 
 (defn cancelar-transferencia-credito-conta-bancaria-using-post-with-http-info
   "{{{transferencia_bancaria_resource_cancelar_transferencia_credito_conta_bancaria}}}
@@ -118,7 +118,7 @@
   [id-transferencia ]
   (:data (consultar-transferencia-bancaria-using-get-with-http-info id-transferencia)))
 
-(defn consultar-using-get13-with-http-info
+(defn consultar-using-get15-with-http-info
   "{{{conta_bancaria_resource_consultar}}}
   {{{conta_bancaria_resource_consultar_notes}}}"
   [id ]
@@ -131,16 +131,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get13
+(defn consultar-using-get15
   "{{{conta_bancaria_resource_consultar}}}
   {{{conta_bancaria_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get13-with-http-info id)))
+  (:data (consultar-using-get15-with-http-info id)))
 
-(defn consultar-using-get48-with-http-info
+(defn consultar-using-get50-with-http-info
   "{{{transferencia_bancaria_resource_consultar}}}
   {{{transferencia_bancaria_resource_consultar_notes}}}"
-  ([id id-transferencia ] (consultar-using-get48-with-http-info id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get50-with-http-info id id-transferencia nil))
   ([id id-transferencia {:keys [id-conta-bancaria-destino ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias/{id_transferencia}" :get
              {:path-params   {"id" id "id_transferencia" id-transferencia }
@@ -151,12 +151,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn consultar-using-get48
+(defn consultar-using-get50
   "{{{transferencia_bancaria_resource_consultar}}}
   {{{transferencia_bancaria_resource_consultar_notes}}}"
-  ([id id-transferencia ] (consultar-using-get48 id id-transferencia nil))
+  ([id id-transferencia ] (consultar-using-get50 id id-transferencia nil))
   ([id id-transferencia optional-params]
-   (:data (consultar-using-get48-with-http-info id id-transferencia optional-params))))
+   (:data (consultar-using-get50-with-http-info id id-transferencia optional-params))))
 
 (defn listar-transferencia-bancaria-using-get-with-http-info
   "{{{transferencia_bancaria_resource_listar_transferencia_bancaria}}}
@@ -179,10 +179,10 @@
   ([optional-params]
    (:data (listar-transferencia-bancaria-using-get-with-http-info optional-params))))
 
-(defn listar-using-get16-with-http-info
+(defn listar-using-get17-with-http-info
   "{{{conta_bancaria_resource_listar}}}
   {{{conta_bancaria_resource_listar_notes}}}"
-  ([] (listar-using-get16-with-http-info nil))
+  ([] (listar-using-get17-with-http-info nil))
   ([{:keys [id-conta nome-agencia banco numero-agencia numero-conta flag-ativo flag-conta-origem-doc id-pessoa-fisica favorecido numero-receira-federal sort page limit ]}]
    (call-api "/api/contas-bancarias-portador" :get
              {:path-params   {}
@@ -193,17 +193,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get16
+(defn listar-using-get17
   "{{{conta_bancaria_resource_listar}}}
   {{{conta_bancaria_resource_listar_notes}}}"
-  ([] (listar-using-get16 nil))
+  ([] (listar-using-get17 nil))
   ([optional-params]
-   (:data (listar-using-get16-with-http-info optional-params))))
+   (:data (listar-using-get17-with-http-info optional-params))))
 
-(defn listar-using-get59-with-http-info
+(defn listar-using-get62-with-http-info
   "{{{transferencia_bancaria_resource_listar}}}
   {{{transferencia_bancaria_resource_listar_notes}}}"
-  ([id ] (listar-using-get59-with-http-info id nil))
+  ([id ] (listar-using-get62-with-http-info id nil))
   ([id {:keys [id-conta-bancaria-destino sort page limit ]}]
    (call-api "/api/contas/{id}/transferencias-creditos-contas-bancarias" :get
              {:path-params   {"id" id }
@@ -214,12 +214,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get59
+(defn listar-using-get62
   "{{{transferencia_bancaria_resource_listar}}}
   {{{transferencia_bancaria_resource_listar_notes}}}"
-  ([id ] (listar-using-get59 id nil))
+  ([id ] (listar-using-get62 id nil))
   ([id optional-params]
-   (:data (listar-using-get59-with-http-info id optional-params))))
+   (:data (listar-using-get62-with-http-info id optional-params))))
 
 (defn salvar-taxas-juros-contas-using-post-with-http-info
   "{{{transferencia_bancaria_resource_salvar_taxas_juros_contas}}}
@@ -241,7 +241,7 @@
   [id persist ]
   (:data (salvar-taxas-juros-contas-using-post-with-http-info id persist)))
 
-(defn salvar-using-post7-with-http-info
+(defn salvar-using-post8-with-http-info
   "{{{conta_bancaria_resource_salvar}}}
   {{{conta_bancaria_resource_salvar_notes}}}"
   [persist ]
@@ -255,11 +255,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn salvar-using-post7
+(defn salvar-using-post8
   "{{{conta_bancaria_resource_salvar}}}
   {{{conta_bancaria_resource_salvar_notes}}}"
   [persist ]
-  (:data (salvar-using-post7-with-http-info persist)))
+  (:data (salvar-using-post8-with-http-info persist)))
 
 (defn simular-transferencia-bancaria-using-post-with-http-info
   "{{{transferencia_bancaria_resource_simular_transferencia_bancaria}}}

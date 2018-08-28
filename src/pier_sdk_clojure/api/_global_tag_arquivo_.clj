@@ -2,7 +2,7 @@
   (:require [pier-sdk-clojure.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn consultar-using-get5-with-http-info
+(defn consultar-using-get6-with-http-info
   "{{{arquivo_resource_consultar}}}
   {{{arquivo_resource_consultar_notes}}}"
   [id ]
@@ -15,11 +15,11 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get5
+(defn consultar-using-get6
   "{{{arquivo_resource_consultar}}}
   {{{arquivo_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get5-with-http-info id)))
+  (:data (consultar-using-get6-with-http-info id)))
 
 (defn integrar-using-post-with-http-info
   "{{{arquivo_resource_integrar}}}
@@ -104,10 +104,10 @@
   ([optional-params]
    (:data (listar-tipos-arquivos-using-get-with-http-info optional-params))))
 
-(defn listar-using-get5-with-http-info
+(defn listar-using-get6-with-http-info
   "{{{arquivo_a_u_d_resource_listar}}}
   {{{arquivo_a_u_d_resource_listar_notes}}}"
-  ([id ] (listar-using-get5-with-http-info id nil))
+  ([id ] (listar-using-get6-with-http-info id nil))
   ([id {:keys [page limit ]}]
    (call-api "/api/arquivos/{id}/auditorias" :get
              {:path-params   {"id" id }
@@ -118,17 +118,17 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get5
+(defn listar-using-get6
   "{{{arquivo_a_u_d_resource_listar}}}
   {{{arquivo_a_u_d_resource_listar_notes}}}"
-  ([id ] (listar-using-get5 id nil))
+  ([id ] (listar-using-get6 id nil))
   ([id optional-params]
-   (:data (listar-using-get5-with-http-info id optional-params))))
+   (:data (listar-using-get6-with-http-info id optional-params))))
 
-(defn listar-using-get6-with-http-info
+(defn listar-using-get7-with-http-info
   "{{{arquivo_resource_listar}}}
   {{{arquivo_resource_listar_notes}}}"
-  ([] (listar-using-get6-with-http-info nil))
+  ([] (listar-using-get7-with-http-info nil))
   ([{:keys [sort page limit nome id-tipo-arquivo id-status-arquivo extensao ]}]
    (call-api "/api/arquivos" :get
              {:path-params   {}
@@ -139,12 +139,12 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get6
+(defn listar-using-get7
   "{{{arquivo_resource_listar}}}
   {{{arquivo_resource_listar_notes}}}"
-  ([] (listar-using-get6 nil))
+  ([] (listar-using-get7 nil))
   ([optional-params]
-   (:data (listar-using-get6-with-http-info optional-params))))
+   (:data (listar-using-get7-with-http-info optional-params))))
 
 (defn salvar-using-post1-with-http-info
   "{{{arquivo_resource_salvar}}}

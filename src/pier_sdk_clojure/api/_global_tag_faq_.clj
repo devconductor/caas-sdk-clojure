@@ -44,7 +44,7 @@
   ([id pergunta resposta optional-params]
    (:data (alterar-using-put7-with-http-info id pergunta resposta optional-params))))
 
-(defn consultar-using-get21-with-http-info
+(defn consultar-using-get23-with-http-info
   "{{{faq_resource_consultar}}}
   {{{faq_resource_consultar_notes}}}"
   [id ]
@@ -57,16 +57,16 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn consultar-using-get21
+(defn consultar-using-get23
   "{{{faq_resource_consultar}}}
   {{{faq_resource_consultar_notes}}}"
   [id ]
-  (:data (consultar-using-get21-with-http-info id)))
+  (:data (consultar-using-get23-with-http-info id)))
 
-(defn listar-using-get26-with-http-info
+(defn listar-using-get27-with-http-info
   "{{{faq_resource_listar}}}
   {{{faq_resource_listar_notes}}}"
-  ([] (listar-using-get26-with-http-info nil))
+  ([] (listar-using-get27-with-http-info nil))
   ([{:keys [sort page limit id-faq pergunta resposta relevancia plataforma categoria status ]}]
    (call-api "/api/faqs" :get
              {:path-params   {}
@@ -77,9 +77,9 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn listar-using-get26
+(defn listar-using-get27
   "{{{faq_resource_listar}}}
   {{{faq_resource_listar_notes}}}"
-  ([] (listar-using-get26 nil))
+  ([] (listar-using-get27 nil))
   ([optional-params]
-   (:data (listar-using-get26-with-http-info optional-params))))
+   (:data (listar-using-get27-with-http-info optional-params))))
